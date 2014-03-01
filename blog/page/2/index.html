@@ -9,7 +9,7 @@
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="Сегодня я хочу рассказать, как можно сделать инициализацию логгера в классе с использованием аннотаций и BeanPostProcessor Очень часто мы &hellip;">
+  <meta name="description" content="Рассмотрим подробнее одну из наиболее полезных вещей в Spring Data JPA &ndash; генерация JPQL-запросов на основе имени метода. Spring Data JPA умеет &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,6 +71,7 @@
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About me</a></li>
 </ul>
 
 </nav>
@@ -78,6 +79,168 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/04/24/spring-data-jpa/">Ищем с помощью Spring Data JPA</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-24T03:04:00-04:00" pubdate data-updated="true">Apr 24<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Рассмотрим подробнее одну из наиболее полезных вещей в Spring Data JPA &ndash; генерация JPQL-запросов на основе имени метода.</p>
+
+<p>Spring Data JPA умеет автоматически генерировать запросы используя для подсказки название метода.</p>
+
+<p>Например, метод User.findByLoginAndPassword сгенерирует примерно следующий код:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">FROM</span> <span class="k">User</span> <span class="n">u</span> <span class="k">where</span> <span class="n">u</span><span class="p">.</span><span class="n">login</span> <span class="o">=</span> <span class="p">:</span><span class="n">login</span> <span class="k">and</span> <span class="n">password</span> <span class="o">=</span> <span class="p">:</span><span class="n">password</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Вообще Spring Data JPA пытается быть умным, поэтому реализация <tt>findBy{&hellip;}</tt> методов ищется следующим образом:</p>
+
+<ol>
+<li>Сначала смотрится аннотация <a href="http://static.springsource.org/spring-data/data-jpa/docs/current/api/org/springframework/data/jpa/repository/Query.html">@Query</a> на объявлении метода, если она есть, то используется.</li>
+<li>Затем смотрится аннотация <a href="http://docs.oracle.com/javaee/5/api/javax/persistence/NamedQuery.html">@NamedQuery</a> с именем вида <tt>Entity.findMethodName</tt>, для вышеприведённого случая это будет <tt>User.findByLoginAndPassword</tt>. </li>
+<li>Если ничего не нашли. то по сигнатуре метода <a href="https://github.com/SpringSource/spring-data-jpa/blob/master/src/main/java/org/springframework/data/jpa/repository/query/JpaQueryCreator.java">генерируется запрос</a>.</li>
+</ol>
+
+
+<p>У <tt>@Query</tt> следующие плюсы:</p>
+
+<ol>
+<li>Позволяет не засорять объявление доменной сущности.</li>
+<li>Сильно помогает, если у нас в запросе есть неявные джойны, потому что для таких запросов Spring Data JPA <a href="https://jira.springsource.org/browse/DATAJPA-35">не умеет корректно генерировать</a> запрос <tt>SELECT COUNT(*)</tt>, который нужен в тех случаях, когда метод должен вернуть <a href="http://static.springsource.org/spring-data/data-commons/docs/current/api/org/springframework/data/domain/Page.html">Page</a>. </li>
+</ol>
+
+
+<p>Очевидно, что при использовании запросов нам необходимо каким-то образом указывать параметры для запросов. Для этого есть аннотация <a href="http://static.springsource.org/spring-data/data-commons/docs/current/api/org/springframework/data/repository/query/Param.html">@Param</a>:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Query</span><span class="o">(</span><span class="s">&quot;select u from User u where u.login = :login and u.password = :password&quot;</span><span class="o">)</span>
+</span><span class='line'><span class="n">Page</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">findByLoginAndPassword</span><span class="o">(</span><span class="nd">@Param</span><span class="o">(</span><span class="s">&quot;login&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">login</span><span class="o">,</span> <span class="nd">@Param</span><span class="o">(</span><span class="s">&quot;password&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">password</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Кроме того, Spring Data JPA поддерживает отличную <a href="http://www.martinfowler.com/apsupp/spec.pdf">концепцию спецификаций</a>.</p>
+
+<p>Спецификации позволяют делать составлять сложные запросы из набора простых.</p>
+
+<p>Для поддержки спецификаций необходимо объявить метод в репозитории:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">Page</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">findAll</span><span class="o">(</span><span class="n">Specification</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">spec</span><span class="o">,</span> <span class="n">Pageable</span> <span class="n">pageable</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Спецификация по сути является фильтром и позволяет комбинирование фильтров, что даёт мощный инструмент для построения запросов.</p>
+
+<p>Пример использования спецификаций:</p>
+
+<p>Объявляем наши спецификации:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">static</span> <span class="n">Specification</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">firstNameOrLastNameOrLoginLike</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span> <span class="n">search</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="k">new</span> <span class="n">Specification</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;()</span> <span class="o">{</span>
+</span><span class='line'>        <span class="nd">@Override</span>
+</span><span class='line'>        <span class="kd">public</span> <span class="n">Predicate</span> <span class="nf">toPredicate</span><span class="o">(</span><span class="n">Root</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">root</span><span class="o">,</span> <span class="n">CriteriaQuery</span><span class="o">&lt;?&gt;</span> <span class="n">query</span><span class="o">,</span> <span class="n">CriteriaBuilder</span> <span class="n">builder</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="n">Predicate</span> <span class="n">loginPredicate</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="na">like</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">User_</span><span class="o">.</span><span class="na">login</span><span class="o">),</span> <span class="n">search</span><span class="o">);</span>
+</span><span class='line'>            <span class="n">Predicate</span> <span class="n">firstnamePredicate</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="na">like</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">User_</span><span class="o">.</span><span class="na">firstname</span><span class="o">),</span> <span class="n">search</span><span class="o">);</span>
+</span><span class='line'>            <span class="n">Predicate</span> <span class="n">lastnamePredicate</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="na">like</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">User_</span><span class="o">.</span><span class="na">lastname</span><span class="o">),</span> <span class="n">search</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="k">return</span> <span class="n">builder</span><span class="o">.</span><span class="na">or</span><span class="o">(</span><span class="n">loginPredicate</span><span class="o">,</span> <span class="n">firstnamePredicate</span><span class="o">,</span> <span class="n">lastnamePredicate</span><span class="o">);</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>    <span class="o">};</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">public</span> <span class="kd">static</span> <span class="n">Specification</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">hasRole</span><span class="o">(</span><span class="kd">final</span> <span class="n">Role</span> <span class="n">role</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="k">new</span> <span class="n">Specification</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;()</span> <span class="o">{</span>
+</span><span class='line'>        <span class="nd">@Override</span>
+</span><span class='line'>        <span class="kd">public</span> <span class="n">Predicate</span> <span class="nf">toPredicate</span><span class="o">(</span><span class="n">Root</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">root</span><span class="o">,</span> <span class="n">CriteriaQuery</span><span class="o">&lt;?&gt;</span> <span class="n">query</span><span class="o">,</span> <span class="n">CriteriaBuilder</span> <span class="n">builder</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>            <span class="k">return</span> <span class="n">builder</span><span class="o">.</span><span class="na">equal</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">User_</span><span class="o">.</span><span class="na">role</span><span class="o">),</span> <span class="n">role</span><span class="o">);</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>    <span class="o">};</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>И в нашем сервисе комбинируем их:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="n">Page</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">searchUser</span><span class="o">(</span><span class="n">Role</span> <span class="n">role</span><span class="o">,</span> <span class="n">String</span> <span class="n">search</span><span class="o">,</span> <span class="n">Pageable</span> <span class="n">pageable</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">Specifications</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">mainSpec</span> <span class="o">=</span> <span class="n">where</span><span class="o">(</span><span class="n">hasRole</span><span class="o">(</span><span class="n">role</span><span class="o">));</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// уточняем запрос, если была передана строка для поиска</span>
+</span><span class='line'>    <span class="k">if</span> <span class="o">(</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">isNotBlank</span><span class="o">(</span><span class="n">search</span><span class="o">))</span> <span class="o">{</span>
+</span><span class='line'>        <span class="n">mainSpec</span> <span class="o">=</span> <span class="n">mainSpec</span><span class="o">.</span><span class="na">and</span><span class="o">(</span><span class="n">firstNameOrLastNameOrLoginLike</span><span class="o">(</span><span class="n">search</span><span class="o">));</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">return</span> <span class="n">userRepository</span><span class="o">.</span><span class="na">findAll</span><span class="o">(</span><span class="n">mainSpec</span><span class="o">,</span> <span class="n">pageable</span><span class="o">);</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1158,7 +1321,7 @@ public @interface SuppressExceptions {
 <div class='comment'>
 <div class='author'>Anonymous</div>
 <div class='content'>
-Добрый день, прочитал Вашу статью &ndash; интересно! =) На данный момент пытаюсь вникнуть в АОП в БД, но не совсем понимаю как можно реализовать аспекты при работе с БД (именно с точки зрения системы &ndash; код, компиляция и пр. т.к. теоретически все прозрачно и ясно). Не подскажите &ndash; где можно найти, для наглядности, простенькую БД с реализованным аспектами и хоть какое-то пояснение по реализованному &quot;проекту&quot; &ndash; на чем писали, как внедряли аспекты и пр. Мэйл для связи &ndash; <a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#58;&#117;&#116;&#111;&#112;&#x69;&#97;&#50;&#x30;&#48;&#x35;&#64;&#121;&#97;&#x6e;&#100;&#x65;&#x78;&#46;&#x72;&#117;">&#x75;&#x74;&#111;&#x70;&#x69;&#x61;&#x32;&#x30;&#48;&#x35;&#x40;&#121;&#97;&#110;&#x64;&#x65;&#120;&#x2e;&#114;&#x75;</a></div>
+Добрый день, прочитал Вашу статью &ndash; интересно! =) На данный момент пытаюсь вникнуть в АОП в БД, но не совсем понимаю как можно реализовать аспекты при работе с БД (именно с точки зрения системы &ndash; код, компиляция и пр. т.к. теоретически все прозрачно и ясно). Не подскажите &ndash; где можно найти, для наглядности, простенькую БД с реализованным аспектами и хоть какое-то пояснение по реализованному &quot;проекту&quot; &ndash; на чем писали, как внедряли аспекты и пр. Мэйл для связи &ndash; <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#111;&#58;&#117;&#x74;&#111;&#x70;&#x69;&#97;&#x32;&#x30;&#48;&#53;&#x40;&#x79;&#x61;&#110;&#x64;&#101;&#x78;&#x2e;&#114;&#117;">&#117;&#x74;&#111;&#x70;&#105;&#97;&#50;&#x30;&#x30;&#53;&#x40;&#121;&#97;&#x6e;&#x64;&#x65;&#x78;&#46;&#x72;&#117;</a></div>
 </div></p>
 </div>
   
@@ -1617,98 +1780,6 @@ public class StringNormalizer {
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/04/11/gorm/">Несколько слов о GORM</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-04-11T00:45:00-04:00" pubdate data-updated="true">Apr 11<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<p>В данной заметке хочу поделиться некоторыми моментами использования GORM.</p>
-<p><a href="http://grails.org/doc/latest/guide/5.%20Object%20Relational%20Mapping%20%28GORM%29.html">GORM</a> - это <a href="http://en.wikipedia.org/wiki/Object-relational_mapping">ORM</a>-фреймворк, используемый в <a href="http://grails.org/">Grails</a>. Реализован он поверх <a href="http://hibernate.org/">Hibernate</a>, но, при этом, с некоторыми отличными умолчаниями.</p>
-<p>Для разработчиков, знающих <tt>Hibernate</tt>, рекомендую тщательно изучить <tt>GORM</tt>, так как его поведение в некоторых случаях отлично от <tt>Hibernate</tt>, что может приводить к различным сюрпризам.</p>
-<h4></h4>
-<h4>Маппинг один-ко-многим</h4>
-<p>По умолчанию <tt>GORM</tt> для связей <em>один ко многим</em> (one-to-many) <a href="http://www.grails.org/doc/latest/guide/5.%20Object%20Relational%20Mapping%20%28GORM%29.html#5.2.1.2%20One-to-many" title="Grails will, by default, map this kind of relationship with a join table.">создаёт таблицу-связку</a>, которая обычно нужна только при связях между сущностями вида <em>многие ко многим</em>. Чтобы исправить это поведение необходимо указать <tt>GORM</tt>, чтобы он не создавал таблицу связку.</p>
-<pre class="brush: java; highlight: [7]">
-class Person implements Serializable {
-  static hasMany = [
-    scores: ScoreSheet
-  ]
-  
-  static mapping = {
-    scores joinTable: false
-  };
-}
-</pre>
-<h4>Использование однонаправленных связей</h4>
-<p>Если в приложении используются двунаправленные связи и вероятность изменения сущности одновременно несколькими пользователями высокая, то лучше использовать однонаправленные связи для сущностей. Кроме того, лучше проектировать доменные классы таким образом, чтобы связь была не один-ко-многим, а многие к одному.</p>
-<pre class="brush: java">
-class Note implements Serializable {
-  static belongsTo = [
-    person: Person
-  ]
-}
-
-class Person implements Serializable {
-  // person fields.
-}
-</pre>
-<p>Для работы с <tt>Notes</tt> необходимо использовать такие запросы: </p>
-<pre class="brush: java">
-  Note.findByPerson(person).each { -&gt; };
-</pre>
-<p> вместо </p>
-<pre class="brush: java">
-  person.notes.each { -&gt; }
-</pre>
-<h4>Маппинг иерархии классов доменных сущностей</h4>
-<p>GORM поддерживает только <a href="http://www.grails.org/doc/latest/guide/5.%20Object%20Relational%20Mapping%20%28GORM%29.html#5.2.3%20Inheritance%20in%20GORM">два варианта </a>маппинга иерархии классов, в отличии от <a href="http://docs.jboss.org/hibernate/stable/core/reference/en/html/inheritance.html">Hibernate</a>: Таблица на всю иерархию (<tt>table-per-hierarchy</tt>), или таблица на каждый подкласс (<tt>table-per-subclass</tt>). У маппинга <tt>table-per-hierarchy</tt> есть серьёзный недостаток - подклассы не могут иметь ненулевые поля. Поэтому, если этот недостаток критичен, то необходимо использовать маппинг <tt>table-per-subclass</tt>.</p>
-<pre class="brush: java; highlight: [7]">
-class Payment {
-  Long id
-  Long version
-  Integer amount
-
-  static mapping = {
-    tablePerHierarchy false
-  }
-}
-
-class CreditCardPayment extends Payment {
-  String cardNumber
-}
- </pre></div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -1726,6 +1797,10 @@ class CreditCardPayment extends Payment {
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/01/restricting-mongo-template/">Automatic query modification with Spring Data Mongo</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/06/29/spring-enable-annotation/">Пишем @Enable*-аннотацию для Spring</a>
       </li>
     
@@ -1739,10 +1814,6 @@ class CreditCardPayment extends Payment {
     
       <li class="post">
         <a href="/blog/2013/06/19/autowiring-factorybean/">@Autowiring EJBs with Spring</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/06/19/spring-caching/">Использование memcached в качестве backend для Spring Caching Abstraction</a>
       </li>
     
   </ul>
@@ -1804,7 +1875,7 @@ class CreditCardPayment extends Payment {
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Oleg Atamanenko -
+  Copyright &copy; 2014 - Oleg Atamanenko -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
@@ -1823,16 +1894,7 @@ class CreditCardPayment extends Payment {
 }(document, 'script', 'facebook-jssdk'));</script>
 
 
-
-  <script type="text/javascript">
-    (function() {
-      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-      script.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
-    })();
-  </script>
-
-
+Included file 'google_plus_one.html' not found in _includes directory
 
   <script type="text/javascript">
     (function(){

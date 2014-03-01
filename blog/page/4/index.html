@@ -9,7 +9,7 @@
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="Раньше я использовал коллекцию скриптов nautilussvn, весьма неудобную в использовании. Бродя по просторам сети наткнулся на отличную замену. &hellip;">
+  <meta name="description" content="Как вы уже могли заметить, RSS теперь содержит дайджест интересных мне ссылок, которые я нашёл в сети за последнее время. Отпишитесь в комментариях &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -71,6 +71,7 @@
 <ul class="main-navigation">
   <li><a href="/">Blog</a></li>
   <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/about">About me</a></li>
 </ul>
 
 </nav>
@@ -78,6 +79,83 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/12/05/rss/">RSS лента блога и дайджест ссылок за предыдущий день</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-12-05T14:32:00-05:00" pubdate data-updated="true">Dec 5<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Как вы уже могли заметить, RSS теперь содержит дайджест интересных мне ссылок, которые я нашёл в сети за последнее время.<br />
+<br />
+Отпишитесь в комментариях стоит ли это оставить, или убрать дайджест ссылок из ленты?</div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>uthark</div>
+<div class='content'>
+@karry<br /><br />http://delicious.com/dark.schakal</div>
+</div>
+<div class='comment'>
+<div class='author'>karri</div>
+<div class='content'>
+А какой у вас там ник? Поиск мне выдает вот такой результат:<br />uthark runa<br />uthark nightside of the runes<br />utharkhand<br />uthark and futhark<br />thomas karlsson uthark<br />uthark magick</div>
+</div>
+<div class='comment'>
+<div class='author'>uthark</div>
+<div class='content'>
+@karri <br />Могу просто блок на сайте добавить. Кстати, вы можете меня добавить в свою сеть на delicious.</div>
+</div>
+<div class='comment'>
+<div class='author'>karri</div>
+<div class='content'>
+Мне кажется стоит оставить.</div>
+</div>
+<div class='comment'>
+<div class='author'>uthark</div>
+<div class='content'>
+@Andrey, хорошо, приму во внимание.</div>
+</div>
+<div class='comment'>
+<div class='author'>Andrey</div>
+<div class='content'>
+можно, но реже. недавно подписался, а тут через день пошли ссылки, ссылки..</div>
+</div>
+</div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1317,58 +1395,6 @@ Spring Roo поддерживает расширения, что ещё боль
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/06/02/apache-ant-metro/">Apache Ant и Metro</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-06-02T12:31:00-04:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-Столкнулся с такой проблемой - в некоторых случаях приложение, собранное антом не работает. Конкретно - не работает десереализация запросов на веб-сервис. Получаемый запрос содержит <tt>null</tt> в значениях полей.
-
-Опытным путём было выяснено, что на это влияет используемая версия Java. Под 1.5 работает корректно, под 1.6 - не работает. Нашли <a href="https://jaxb.dev.java.net/guide/Runtime_Errors.html#Illegal_class_modifiers_for_package_info__0x1600">ошибку в метро</a>, связанную именно с версией JDK и на этом успокоились. Но было одно исключение из правил. У одного из разработчиков под 1.5 тоже не работало.
-
-Как выяснилось позже, виноват был во всё Ant.
-Metro создавал файл package-info.java, в котором было примерно следующее содержание:
-
-<code>
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://z.y.x.com", elementFormDefault=javax.xml.bind.annotation.XmlNsForm.UNQUALIFIED)
-package com.x.y.z;
-</code>
-
-Ант, в свою очередь, должен был этот файл компилировать. А <a href="http://ant.apache.org/manual/CoreTasks/javac.html">в реальности этого не происходило</a>, поэтому Metro не мог корректно отобразить XML-запрос на объекты доменной области.
-
-Решение было немного кривым, но при этом поразительно простым - принудительный вызов javac на файлах package-info.java.</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -1386,6 +1412,10 @@ package com.x.y.z;
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2014/03/01/restricting-mongo-template/">Automatic query modification with Spring Data Mongo</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/06/29/spring-enable-annotation/">Пишем @Enable*-аннотацию для Spring</a>
       </li>
     
@@ -1399,10 +1429,6 @@ package com.x.y.z;
     
       <li class="post">
         <a href="/blog/2013/06/19/autowiring-factorybean/">@Autowiring EJBs with Spring</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/06/19/spring-caching/">Использование memcached в качестве backend для Spring Caching Abstraction</a>
       </li>
     
   </ul>
@@ -1464,7 +1490,7 @@ package com.x.y.z;
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Oleg Atamanenko -
+  Copyright &copy; 2014 - Oleg Atamanenko -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
@@ -1483,16 +1509,7 @@ package com.x.y.z;
 }(document, 'script', 'facebook-jssdk'));</script>
 
 
-
-  <script type="text/javascript">
-    (function() {
-      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-      script.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
-    })();
-  </script>
-
-
+Included file 'google_plus_one.html' not found in _includes directory
 
   <script type="text/javascript">
     (function(){
