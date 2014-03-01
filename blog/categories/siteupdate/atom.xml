@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: siteupdate | Блог о разработке ПО]]></title>
+  <link href="http://uthark.github.com/blog/categories/siteupdate/atom.xml" rel="self"/>
+  <link href="http://uthark.github.com/"/>
+  <updated>2014-03-01T01:10:39-05:00</updated>
+  <id>http://uthark.github.com/</id>
+  <author>
+    <name><![CDATA[Oleg Atamanenko]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Fixed Google+ comments on the site]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/01/google-plus-comments-fixed/"/>
+    <updated>2014-03-01T01:07:00-05:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/01/google-plus-comments-fixed</id>
+    <content type="html"><![CDATA[<p>Fixed google+ comments disappearing on the site.</p>
+
+<p>Thanks to <a href="http://blog.code-infection.com/2013/04/google-comments-on-your-none-blogger.html">this blog post</a></p>
+]]></content>
+  </entry>
+  
+</feed>
