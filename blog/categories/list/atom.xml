@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: list | Блог о разработке ПО]]></title>
+  <link href="http://uthark.github.com/blog/categories/list/atom.xml" rel="self"/>
+  <link href="http://uthark.github.com/"/>
+  <updated>2014-03-02T16:58:44-05:00</updated>
+  <id>http://uthark.github.com/</id>
+  <author>
+    <name><![CDATA[Oleg Atamanenko]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-March-02]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/02/reading-list-2014-march-02/"/>
+    <updated>2014-03-02T16:41:00-05:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/02/reading-list-2014-march-02</id>
+    <content type="html"><![CDATA[<p>Reading list for today:</p>
+
+<ol>
+<li><a href="http://j.mp/1fEhlXh">The Hipper Element &ndash; Daily UX Crash Course</a></li>
+<li><a href="http://j.mp/1fWJFqA">Developers working in Production. Of course! Maybe, sometimes. What, are you nuts?</a></li>
+<li><a href="http://j.mp/1kfNsR7">Database patterns in Scala</a></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+</feed>

@@ -4,7 +4,7 @@
   <title><![CDATA[Блог о разработке ПО]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-03-01T01:10:39-05:00</updated>
+  <updated>2014-03-02T16:58:44-05:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,22 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-March-02]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/02/reading-list-2014-march-02/"/>
+    <updated>2014-03-02T16:41:00-05:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/02/reading-list-2014-march-02</id>
+    <content type="html"><![CDATA[<p>Reading list for today:</p>
+
+<ol>
+<li><a href="http://j.mp/1fEhlXh">The Hipper Element &ndash; Daily UX Crash Course</a></li>
+<li><a href="http://j.mp/1fWJFqA">Developers working in Production. Of course! Maybe, sometimes. What, are you nuts?</a></li>
+<li><a href="http://j.mp/1kfNsR7">Database patterns in Scala</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Fixed Google+ comments on the site]]></title>
@@ -2864,7 +2880,7 @@ public @interface SuppressExceptions {
 <div class='comment'>
 <div class='author'>Anonymous</div>
 <div class='content'>
-Добрый день, прочитал Вашу статью &ndash; интересно! =) На данный момент пытаюсь вникнуть в АОП в БД, но не совсем понимаю как можно реализовать аспекты при работе с БД (именно с точки зрения системы &ndash; код, компиляция и пр. т.к. теоретически все прозрачно и ясно). Не подскажите &ndash; где можно найти, для наглядности, простенькую БД с реализованным аспектами и хоть какое-то пояснение по реализованному &quot;проекту&quot; &ndash; на чем писали, как внедряли аспекты и пр. Мэйл для связи &ndash; <a href="&#109;&#97;&#x69;&#x6c;&#x74;&#111;&#58;&#117;&#116;&#x6f;&#x70;&#x69;&#x61;&#x32;&#48;&#48;&#53;&#64;&#x79;&#97;&#110;&#x64;&#101;&#120;&#46;&#114;&#117;">&#117;&#116;&#111;&#112;&#105;&#97;&#x32;&#48;&#48;&#x35;&#64;&#121;&#x61;&#x6e;&#x64;&#x65;&#120;&#46;&#x72;&#117;</a></div>
+Добрый день, прочитал Вашу статью &ndash; интересно! =) На данный момент пытаюсь вникнуть в АОП в БД, но не совсем понимаю как можно реализовать аспекты при работе с БД (именно с точки зрения системы &ndash; код, компиляция и пр. т.к. теоретически все прозрачно и ясно). Не подскажите &ndash; где можно найти, для наглядности, простенькую БД с реализованным аспектами и хоть какое-то пояснение по реализованному &quot;проекту&quot; &ndash; на чем писали, как внедряли аспекты и пр. Мэйл для связи &ndash; <a href="&#109;&#97;&#x69;&#x6c;&#x74;&#111;&#58;&#x75;&#116;&#111;&#x70;&#105;&#x61;&#x32;&#x30;&#48;&#53;&#x40;&#121;&#x61;&#110;&#x64;&#101;&#120;&#x2e;&#114;&#x75;">&#x75;&#116;&#x6f;&#x70;&#105;&#97;&#50;&#x30;&#x30;&#53;&#x40;&#121;&#97;&#x6e;&#100;&#x65;&#x78;&#x2e;&#114;&#x75;</a></div>
 </div></p>
 ]]></content>
   </entry>
@@ -3038,31 +3054,6 @@ Bitly bitly = new Bitly(BITLY_USERNAME, BITLY_API_KEY);
 String shortLink = bitly.shorten(link);
 </pre><br />
   <h6>Дальнейшие улучшения</h6>Если перед вами стоит задача быстренько сократить ссылку - то вышеприведённого кода достаточно. Но если вам нужно полноценное решение, со всеми возможностями bit.ly - то посмотрите в сторону <a href="https://code.google.com/p/bitlyj/">bitlyj</a>. Правда, я не уверен, что оно взведётся под андроидом.</div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Удаление различных диакритических символов из строки]]></title>
-    <link href="http://uthark.github.com/blog/2010/05/21/blog-post/"/>
-    <updated>2010-05-21T13:52:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2010/05/21/blog-post</id>
-    <content type="html"><![CDATA[<div class='post'>
-<p>Возникла проблема - каким образом заменить в строке символы из национальных кодировок на соответствующие им из латиницы.</p><p>Например, из строки explicación получить explicacion.</p><pre class="brush: java">
-package com.blogspot.atamanenko;
-
-import java.text.Normalizer;
-import java.text.Normalizer.Form;
-
-public class StringNormalizer {
-
-    public static String normalize(String string) {
-        return Normalizer.normalize(string, Form.NFD)
-            .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
-    }
-}
-
-</pre><p>Вызов <a href='http://java.sun.com/javase/6/docs/api/java/text/Normalizer.html#normalize%28java.lang.CharSequence,%20java.text.Normalizer.Form%29'>Normalizer.normalize</a> проводит <a href='http://www.unicode.org/reports/tr15/tr15-23.html'>нормализацию</a> входной строки. Последующий вызов регулярного выражения удаляет все диакритические знаки, полученные после нормализации.</p></div>
 
 ]]></content>
   </entry>
