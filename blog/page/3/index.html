@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Блог о разработке ПО</title>
+  <title>Software Development and related activities</title>
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="Возникла проблема - каким образом заменить в строке символы из национальных кодировок на соответствующие им из латиницы.Например, из строки &hellip;">
+  <meta name="description" content="Есть такой замечательный сервис - Dropbox. Этот сервис является онлайн-хранилищем ваших данных. Работает очень просто: 1. Вы регистрируетесь в &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -24,7 +24,7 @@
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="/javascripts/ender.js"></script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="http://feeds.feedburner.com/atamanenko" rel="alternate" title="Блог о разработке ПО" type="application/atom+xml">
+  <link href="http://feeds.feedburner.com/atamanenko" rel="alternate" title="Software Development and related activities" type="application/atom+xml">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href='http://fonts.googleapis.com/css?family=Roboto:300,700,900&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
@@ -49,9 +49,9 @@
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">Блог о разработке ПО</a></h1>
+  <h1><a href="/">Software Development and related activities</a></h1>
   
-    <h2>Cтруктурированные нерегулярные заметки о разработке программного обеспечения</h2>
+    <h2>Something I want to share with you</h2>
   
 </hgroup>
 
@@ -85,7 +85,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2010/05/21/blog-post/">Удаление различных диакритических символов из строки</a></h1>
+      <h1 class="entry-title"><a href="/blog/2009/12/08/dropbox/">Использование Dropbox для хранения конфигурационных файлов</a></h1>
     
     
       <p class="meta">
@@ -101,7 +101,7 @@
   
 
 
-<time datetime="2010-05-21T13:52:00-04:00" pubdate data-updated="true">May 21<span>st</span>, 2010</time>
+<time datetime="2009-12-08T12:17:00-05:00" pubdate data-updated="true">Dec 8<span>th</span>, 2009</time>
         
       </p>
     
@@ -109,21 +109,72 @@
 
 
   <div class="entry-content"><div class='post'>
-<p>Возникла проблема - каким образом заменить в строке символы из национальных кодировок на соответствующие им из латиницы.</p><p>Например, из строки explicación получить explicacion.</p><pre class="brush: java">
-package com.blogspot.atamanenko;
+Есть такой замечательный сервис - <a href="https://www.getdropbox.com/">Dropbox</a>. <br />
+<br />
+Этот сервис является онлайн-хранилищем ваших данных. Работает очень просто:<br />
+<br />
+1. Вы регистрируетесь в сервисе.<br />
+2. Устанавливаете клиент<br />
+3. Пользуетесь.<br />
+<br />
+Недавно я понял, что этот сервис можно легко и непринуждённо использовать не только для хранения различных документов и фотографий, а также и конфигурационных файлов приложений, что существенно упрощает жизнь, когда у вас несколько рабочих машин (например, у меня домашний компьютер, ноутбук, а также ещё и рабочий) - необходимо каким-то образом синхронизовать конфиги при изменении их на одной из машине с другими.<br />
+<br />
+Итак, что я сделал.<br />
+<br />
+Нижеприведённые действия я делал на одной машине:<br />
+1. Создал каталог <tt>ConfigFiles</tt><br />
+2. Переместил в него свои конфигурационные файлы (<tt>~/.zshrc</tt>, <tt>~/.zsh</tt>, <tt>~/.vimrc</tt>, <tt>~/.vim</tt>)<br />
+3. Из каталога Dropbox сделал соответствующие симлинки в домашнем каталоге.<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/_y8p0_dtMJ38/Sx6K22h5KKI/AAAAAAAAAuU/DRIi7hO5oFw/s1600-h/Screenshot-Dropbox+-+administrilo+de+dosieroj.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/_y8p0_dtMJ38/Sx6K22h5KKI/AAAAAAAAAuU/DRIi7hO5oFw/s320/Screenshot-Dropbox+-+administrilo+de+dosieroj.png" /></a><br />
+</div><br />
+На каждой из машин<br />
+1. Удалил существовавшие конфигурационные файлы<br />
+2. Сделал симлинки файлов из Dropbox на соответствующие конфигурационные файлы.<br />
+<br />
+В случае с <a href="http://www.zsh.org/">ZSH</a> (впрочем, для любого другого шелла это тоже реализуется) есть ещё один приятный лайфхак - если на разных машинах должны быть немного разные конфиги (например, другая переменная PATH, CDPATH, то это тоже реализуется просто: <br />
+<br />
+Внесите в свой <tt>~/.zshrc</tt> следующий код.<br />
+<pre class="brush:bash;">LOCAL_ENVIRONMENT=~/.environment_`hostname`
+if [[ -a $LOCAL_ENVIRONMENT ]]
+then
+    source $LOCAL_ENVIRONMENT
+fi
 
-import java.text.Normalizer;
-import java.text.Normalizer.Form;
+</pre><br />
+Теперь нужно создать в домашнем каталоге файл с локальной конфигурацией:<br />
+<pre class="brush:bash;">touch ~/.environment_`hostname`
 
-public class StringNormalizer {
+</pre><br />
+И внести в него конфигурацию, локальную для машины.<br />
+<br />
+Да, этот файл тоже может быть симлинком на файл из dropbox.<br />
+<br />
+P.S. Если вас заинтересовал сервис, то прошу вас регистироваться по <a href="https://www.dropbox.com/referrals/NTI4MDgzMjc5">реферальной ссылке</a>, тогда и вам и мне добавят +250 мегабайт бесплатно.<br />
+<br />
+P.P.S. Да, ещё забыл сказать, что сервис достаточно умный и отправляет дельты файлов во время синхронизации. Подробнее - <a href="https://www.dropbox.com/help/8">в официальной документации</a>.</div>
 
-    public static String normalize(String string) {
-        return Normalizer.normalize(string, Form.NFD)
-            .replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
-    }
-}
 
-</pre><p>Вызов <a href='http://java.sun.com/javase/6/docs/api/java/text/Normalizer.html#normalize%28java.lang.CharSequence,%20java.text.Normalizer.Form%29'>Normalizer.normalize</a> проводит <a href='http://www.unicode.org/reports/tr15/tr15-23.html'>нормализацию</a> входной строки. Последующий вызов регулярного выражения удаляет все диакритические знаки, полученные после нормализации.</p></div>
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>kmmbvnr</div>
+<div class='content'>
+Да именно так и пользуюсь Dropbox&#39;ом, для хранения конфигов :)</div>
+</div>
+<div class='comment'>
+<div class='author'>uthark</div>
+<div class='content'>
+@karri Да, сложно вам. С другой стороны, в некоторых компаниях политика безопасности вообще запрещает подобные сервисы.</div>
+</div>
+<div class='comment'>
+<div class='author'>karri</div>
+<div class='content'>
+А у нас на работе тестерам не положен инет :&#39;(</div>
+</div>
+</div>
 
 </div>
   
@@ -137,7 +188,7 @@ public class StringNormalizer {
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2010/05/21/databene-benerator/">Создание больших объёмов тестовых данных с помощью Databene Benerator</a></h1>
+      <h1 class="entry-title"><a href="/blog/2009/12/07/rss_07/">Дайджест ссылок в RSS-ленте</a></h1>
     
     
       <p class="meta">
@@ -153,7 +204,7 @@ public class StringNormalizer {
   
 
 
-<time datetime="2010-05-21T13:26:00-04:00" pubdate data-updated="true">May 21<span>st</span>, 2010</time>
+<time datetime="2009-12-07T08:25:00-05:00" pubdate data-updated="true">Dec 7<span>th</span>, 2009</time>
         
       </p>
     
@@ -161,123 +212,52 @@ public class StringNormalizer {
 
 
   <div class="entry-content"><div class='post'>
-<p>Периодически необходимо решать задачу создания больших ( и не очень) объёмов тестовых данных для проведения различных видов тестирования - функционального, нагрузочного (тестирование стабильности и производительности). При этом часто получается так, что система на тестовых данных ведёт себя совсем иначе, чем на реальных данных. Причина кроется в том, что создать правдоподобные тестовые данные всегда достаточно сложно.</p>
-<p>Изучая данный вопрос я наткнулся на замечательный фреймворк - <a href="http://databene.org/databene-benerator">Databene Benerator</a>, основной целью создания которого как раз и является создание правдоподобных тестовых данных для проведения различных видов тестирования.</p>
-<h4>Установка</h4>
-<p>Установка фреймворка осуществляется двумя способами - как отдельное приложение и как плагин для Maven.</p>
-<h5>Установка под Maven</h5>
-<p>Для использования Databene benerator в проектах, использующих для сборки Apache Maven необходимо добавить в зависимости databene-benerator и сконфигурировать его.</p>
-<pre class="brush: xml;">
-&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;&gt;
-  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-  &lt;groupId&gt;com.myorganization&lt;/groupId&gt;
-  &lt;artifactId&gt;databene-benerator-test&lt;/artifactId&gt;
-  &lt;version&gt;1.0&lt;/version&gt;
-  &lt;packaging&gt;jar&lt;/packaging&gt;
-  &lt;name&gt;data generation project&lt;/name&gt;
-  &lt;dependencies&gt;
-    &lt;dependency&gt;
-      &lt;groupId&gt;org.databene&lt;/groupId&gt;
-      &lt;artifactId&gt;databene-benerator&lt;/artifactId&gt;
-      &lt;version&gt;0.5.9&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-      &lt;groupId&gt;org.databene&lt;/groupId&gt;
-      &lt;artifactId&gt;databene-webdecs&lt;/artifactId&gt;
-      &lt;version&gt;0.4.9&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-      &lt;groupId&gt;org.databene&lt;/groupId&gt;
-      &lt;artifactId&gt;databene-commons&lt;/artifactId&gt;
-      &lt;version&gt;0.4.9&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-      &lt;groupId&gt;mysql&lt;/groupId&gt;
-      &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
-      &lt;version&gt;5.1.6&lt;/version&gt;
-    &lt;/dependency&gt;
-  &lt;/dependencies&gt;
-  &lt;build&gt;
-    &lt;resources&gt;
-      &lt;resource&gt;
-        &lt;directory&gt;src/main/resources&lt;/directory&gt;
-        &lt;filtering&gt;true&lt;/filtering&gt;
-      &lt;/resource&gt;
-    &lt;/resources&gt;
-    &lt;plugins&gt;
-      &lt;plugin&gt;
-        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
-        &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
-        &lt;configuration&gt;
-          &lt;encoding&gt;UTF-8&lt;/encoding&gt;
-          &lt;source&gt;1.5&lt;/source&gt;
-          &lt;target&gt;1.5&lt;/target&gt;
-        &lt;/configuration&gt;
-      &lt;/plugin&gt;
-      &lt;plugin&gt;
-        &lt;groupId&gt;org.databene&lt;/groupId&gt;
-        &lt;artifactId&gt;maven-benerator-plugin&lt;/artifactId&gt;
-        &lt;version&gt;0.5.9&lt;/version&gt;
-        &lt;executions&gt;
-          &lt;execution&gt;
-            &lt;phase&gt;compile&lt;/phase&gt;
-            &lt;goals&gt;
-              &lt;goal&gt;generate&lt;/goal&gt;
-            &lt;/goals&gt;
-          &lt;/execution&gt;
-        &lt;/executions&gt;
-        &lt;configuration&gt;
-          &lt;descriptor&gt;src/main/resources/benerator.ben.xml&lt;/descriptor&gt;
-          &lt;encoding&gt;UTF-8&lt;/encoding&gt;
-          &lt;validate&gt;true&lt;/validate&gt;
-          &lt;dbUrl&gt;jdbc:mysql://localhost:3306/hrtool?useUnicode=true&amp;characterEncoding=UTF-8&lt;/dbUrl&gt;
-          &lt;dbDriver&gt;com.mysql.jdbc.Driver&lt;/dbDriver&gt;
-          &lt;dbSchema&gt;database&lt;/dbSchema&gt;
-          &lt;dbUser&gt;user&lt;/dbUser&gt;
-          &lt;dbPassword&gt;password&lt;/dbPassword&gt;
-        &lt;/configuration&gt;
-        &lt;dependencies&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;log4j&lt;/groupId&gt;
-            &lt;artifactId&gt;log4j&lt;/artifactId&gt;
-            &lt;version&gt;1.2.13&lt;/version&gt;
-            &lt;scope&gt;runtime&lt;/scope&gt;
-          &lt;/dependency&gt;
-          &lt;dependency&gt;
-            &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;
-            &lt;artifactId&gt;poi&lt;/artifactId&gt;
-            &lt;version&gt;3.5-beta5&lt;/version&gt;
-            &lt;scope&gt;runtime&lt;/scope&gt;
-          &lt;/dependency&gt;
-        &lt;/dependencies&gt;
-      &lt;/plugin&gt;
-    &lt;/plugins&gt;
-  &lt;/build&gt;
-&lt;/project&gt;
+Решил убрать дайджест ссылок из RSS-ленты.<br />
+<br />
+Те, кому это нужно могут сделать следующее:<br />
+<br />
+1. Добавить в свой RSS-аггрегатор ленту <tt><a href="http://feeds.delicious.com/v2/rss/dark.schakal?count=15">http://feeds.delicious.com/v2/rss/dark.schakal?count=15</a></tt><br />
+2. Если вы используете сервис Delicious, то можете меня добавить меня в свою сеть по ссылке: <a href="http://delicious.com/settings/networkadd?networkadd=dark.schakal">http://delicious.com/settings/networkadd?networkadd=dark.schakal</a></div>
 
-</pre>
-<p>В конфигурации необходимо указать как минимум следующие параметры:</p>
-<ol><li><span style=" font-family:'Courier New,courier';">dbUrl</span> - строка подключения к базе данных в формате JDBC</li>
-<li><span style=" font-family:'Courier New,courier';">dbDriver</span> - используемый драйвер базы данных</li>
-<li><span style=" font-family:'Courier New,courier';">dbSchema</span> - имя схемы базы данных</li>
-<li><span style=" font-family:'Courier New,courier';">dbUser</span> - имя пользователя, под которым подключаемся к базе данных</li>
-<li><span style=" font-family:'Courier New,courier';">dbPassword</span> - пароль пользователя для подключения к базе данных</li>
-</ol>
-<p>Кроме использования файла pom.xml databene поддерживает возможность указания параметров в файле benerator.properties, что может быть удобно.</p>
-<p>Databene benerator обладает следующими возможностями:</p>
-<ol><li>Решение проблемы создания данных в общем виде. На данный момент поддерживаются XML и реляционные базы данных, но не за горами поддержка веб-сервисов, SAP и любых других систем через механизм расширений.</li>
-<li>Юзабилити. Databene-benerator позволяет упростить создание тестовых данных для сложной модели прикладной области.</li>
-<li>Обработка больших объёмов данных.</li>
-<li>Высокая производительность.</li>
-<li>Поддержка доменных областей.</li>
-<li>Качество данных. Фреймворк поддерживает проверку ограничений модели прикладной области.</li>
-<li>Компонентная, легкорасширяемая архитектура.</li>
-<li>Широкие возможности изменения и настройки генерации тестовых данных</li>
-<li>Создание тестовых данных с нуля.</li>
-<li>Импорт и анонимизация реальных данных.</li>
-</ol>
-<p>В комплекте идёт толковая, но, к сожалению, неполная <a href="http://databene.org/download/databene-benerator-manual-0.6.0.pdf">документация</a> по возможностям.</p></div>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/12/05/rss/">RSS лента блога и дайджест ссылок за предыдущий день</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-12-05T14:32:00-05:00" pubdate data-updated="true">Dec 5<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Как вы уже могли заметить, RSS теперь содержит дайджест интересных мне ссылок, которые я нашёл в сети за последнее время.<br />
+<br />
+Отпишитесь в комментариях стоит ли это оставить, или убрать дайджест ссылок из ленты?</div>
 
 
 <h2>Comments</h2>
@@ -287,12 +267,32 @@ public class StringNormalizer {
 <div class='comment'>
 <div class='author'>uthark</div>
 <div class='content'>
-@karri Прекрасно работает. :) Подсовываете ей Oracle JDBC Driver и всё прекрасно работает. С SQL Server тоже работает.</div>
+@karry<br /><br />http://delicious.com/dark.schakal</div>
 </div>
 <div class='comment'>
 <div class='author'>karri</div>
 <div class='content'>
-Интересно, а эта штуковина будет с Oracle работать?<br /><br />Когда мне необходимо провести нагрузочное тестирование, я обычно пишу скриптики с помощью пакетных методов в Developer, но тестовые данные конечно не блещут разнообразием, вы правы :))</div>
+А какой у вас там ник? Поиск мне выдает вот такой результат:<br />uthark runa<br />uthark nightside of the runes<br />utharkhand<br />uthark and futhark<br />thomas karlsson uthark<br />uthark magick</div>
+</div>
+<div class='comment'>
+<div class='author'>uthark</div>
+<div class='content'>
+@karri <br />Могу просто блок на сайте добавить. Кстати, вы можете меня добавить в свою сеть на delicious.</div>
+</div>
+<div class='comment'>
+<div class='author'>karri</div>
+<div class='content'>
+Мне кажется стоит оставить.</div>
+</div>
+<div class='comment'>
+<div class='author'>uthark</div>
+<div class='content'>
+@Andrey, хорошо, приму во внимание.</div>
+</div>
+<div class='comment'>
+<div class='author'>Andrey</div>
+<div class='content'>
+можно, но реже. недавно подписался, а тут через день пошли ссылки, ссылки..</div>
 </div>
 </div>
 
@@ -308,7 +308,7 @@ public class StringNormalizer {
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2010/04/11/gorm/">Несколько слов о GORM</a></h1>
+      <h1 class="entry-title"><a href="/blog/2009/12/05/nautilus-subversion/">RabbitVCS - расширение для Nautilus для работы с Subversion</a></h1>
     
     
       <p class="meta">
@@ -324,7 +324,7 @@ public class StringNormalizer {
   
 
 
-<time datetime="2010-04-11T00:45:00-04:00" pubdate data-updated="true">Apr 11<span>th</span>, 2010</time>
+<time datetime="2009-12-05T14:03:00-05:00" pubdate data-updated="true">Dec 5<span>th</span>, 2009</time>
         
       </p>
     
@@ -332,61 +332,37 @@ public class StringNormalizer {
 
 
   <div class="entry-content"><div class='post'>
-<p>В данной заметке хочу поделиться некоторыми моментами использования GORM.</p>
-<p><a href="http://grails.org/doc/latest/guide/5.%20Object%20Relational%20Mapping%20%28GORM%29.html">GORM</a> - это <a href="http://en.wikipedia.org/wiki/Object-relational_mapping">ORM</a>-фреймворк, используемый в <a href="http://grails.org/">Grails</a>. Реализован он поверх <a href="http://hibernate.org/">Hibernate</a>, но, при этом, с некоторыми отличными умолчаниями.</p>
-<p>Для разработчиков, знающих <tt>Hibernate</tt>, рекомендую тщательно изучить <tt>GORM</tt>, так как его поведение в некоторых случаях отлично от <tt>Hibernate</tt>, что может приводить к различным сюрпризам.</p>
-<h4></h4>
-<h4>Маппинг один-ко-многим</h4>
-<p>По умолчанию <tt>GORM</tt> для связей <em>один ко многим</em> (one-to-many) <a href="http://www.grails.org/doc/latest/guide/5.%20Object%20Relational%20Mapping%20%28GORM%29.html#5.2.1.2%20One-to-many" title="Grails will, by default, map this kind of relationship with a join table.">создаёт таблицу-связку</a>, которая обычно нужна только при связях между сущностями вида <em>многие ко многим</em>. Чтобы исправить это поведение необходимо указать <tt>GORM</tt>, чтобы он не создавал таблицу связку.</p>
-<pre class="brush: java; highlight: [7]">
-class Person implements Serializable {
-  static hasMany = [
-    scores: ScoreSheet
-  ]
-  
-  static mapping = {
-    scores joinTable: false
-  };
-}
-</pre>
-<h4>Использование однонаправленных связей</h4>
-<p>Если в приложении используются двунаправленные связи и вероятность изменения сущности одновременно несколькими пользователями высокая, то лучше использовать однонаправленные связи для сущностей. Кроме того, лучше проектировать доменные классы таким образом, чтобы связь была не один-ко-многим, а многие к одному.</p>
-<pre class="brush: java">
-class Note implements Serializable {
-  static belongsTo = [
-    person: Person
-  ]
-}
+Раньше я использовал коллекцию скриптов <tt>nautilussvn</tt>, весьма неудобную в использовании.<br />
+<br />
+Бродя по просторам сети наткнулся на отличную замену. Встречайте - <a href="http://rabbitvcs.org/">RabbitVCS</a>.<br />
+<br />
+<h3>Возможности</h3><ul><li>Интеграция с Nautilus</li>
+<li>Поддержка Subversion</li>
+<li>Полная локализация</li>
+<li>Поддержка командной строки</li>
+<li>Доступны пакеты для различных дистрибутивов</li>
+</ul><h3>Установка</h3><br />
+<strong>Для Ubuntu Hardy, Intepid, Jaunty</strong><br />
+<pre class="brush:bash;">deb http://ppa.launchpad.net/rabbitvcs/ppa/ubuntu hardy main
 
-class Person implements Serializable {
-  // person fields.
-}
-</pre>
-<p>Для работы с <tt>Notes</tt> необходимо использовать такие запросы: </p>
-<pre class="brush: java">
-  Note.findByPerson(person).each { -&gt; };
-</pre>
-<p> вместо </p>
-<pre class="brush: java">
-  person.notes.each { -&gt; }
-</pre>
-<h4>Маппинг иерархии классов доменных сущностей</h4>
-<p>GORM поддерживает только <a href="http://www.grails.org/doc/latest/guide/5.%20Object%20Relational%20Mapping%20%28GORM%29.html#5.2.3%20Inheritance%20in%20GORM">два варианта </a>маппинга иерархии классов, в отличии от <a href="http://docs.jboss.org/hibernate/stable/core/reference/en/html/inheritance.html">Hibernate</a>: Таблица на всю иерархию (<tt>table-per-hierarchy</tt>), или таблица на каждый подкласс (<tt>table-per-subclass</tt>). У маппинга <tt>table-per-hierarchy</tt> есть серьёзный недостаток - подклассы не могут иметь ненулевые поля. Поэтому, если этот недостаток критичен, то необходимо использовать маппинг <tt>table-per-subclass</tt>.</p>
-<pre class="brush: java; highlight: [7]">
-class Payment {
-  Long id
-  Long version
-  Integer amount
+</pre><br />
+<strong>Для Ubuntu Karmic</strong><br />
+<pre class="brush:bash;">sudo add-apt-repository ppa:rabbitvcs/ppa
 
-  static mapping = {
-    tablePerHierarchy false
-  }
-}
-
-class CreditCardPayment extends Payment {
-  String cardNumber
-}
- </pre></div>
+</pre><br />
+Установка для других дистрибутивов описана <a href="http://wiki.rabbitvcs.org/wiki/download">на официальном сайте</a>.<br />
+<br />
+<h3>Работа</h3>Несмотря на очень маленький номер версии работает достаточно стабильно, не падает.<br />
+<br />
+<h4>Скриншоты</h4>После установки внешний вид наутилуса преображается и выглядит примерно следующим образом (картинки кликабельны):<br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/_y8p0_dtMJ38/Sxqtltez5bI/AAAAAAAAAtk/KUPsnbkZTNU/s1600-h/Screenshot-Delicious+-+administrilo+de+dosieroj.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/_y8p0_dtMJ38/Sxqtltez5bI/AAAAAAAAAtk/KUPsnbkZTNU/s320/Screenshot-Delicious+-+administrilo+de+dosieroj.png" /></a><br />
+</div><br />
+Диалог коммита выглядит вот так:<br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/_y8p0_dtMJ38/Sxqt9y_wAbI/AAAAAAAAAts/YMfhdkKJ_Ck/s1600-h/Screenshot-1.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/_y8p0_dtMJ38/Sxqt9y_wAbI/AAAAAAAAAts/YMfhdkKJ_Ck/s320/Screenshot-1.png" /></a><br />
+</div><br />
+Контекстное меню:<br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/_y8p0_dtMJ38/SxqwIz8iOfI/AAAAAAAAAt0/bDLo2ZIzpKY/s1600-h/Screenshot-2.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/_y8p0_dtMJ38/SxqwIz8iOfI/AAAAAAAAAt0/bDLo2ZIzpKY/s320/Screenshot-2.png" /></a><br />
+</div><h3>Заключение</h3>Достойный аналог TortoiseSVN под линукс.</div>
 
 </div>
   
@@ -400,7 +376,7 @@ class CreditCardPayment extends Payment {
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2010/03/22/skype-d-bus-python/">Общение со Skype через D-Bus на Python</a></h1>
+      <h1 class="entry-title"><a href="/blog/2009/11/25/delicious-plugin/">Расширение Delicious Plugin идёт в массы</a></h1>
     
     
       <p class="meta">
@@ -416,7 +392,7 @@ class CreditCardPayment extends Payment {
   
 
 
-<time datetime="2010-03-22T13:50:00-04:00" pubdate data-updated="true">Mar 22<span>nd</span>, 2010</time>
+<time datetime="2009-11-25T12:16:00-05:00" pubdate data-updated="true">Nov 25<span>th</span>, 2009</time>
         
       </p>
     
@@ -424,84 +400,684 @@ class CreditCardPayment extends Payment {
 
 
   <div class="entry-content"><div class='post'>
-<p><b>Summary</b>: в данной заметке описывается работа с программой Skype через D-Bus на Python.</p>
+Google запустил сайт <a href="https://chrome.google.com/extensions/" target="_blank">Chrome Extensions</a>.<br />
+<br />
+В данный момент сайт доступен только разработчикам расширений. Залил расширение, написал кратенькое описание. Жду запуска сайта. :)<br />
+<br />
+А пока сайт закрыт для рядовых пользователей последнюю версию можно скачать <a href="http://bit.ly/2KYnr8">тут</a>.<br />
+<br />
+P.S. А тем временем работа над расширением продолжается.<br />
+<br />
+P.P.S. У расширения появилась своя страничка в сети: <a href="http://code.google.com/p/chromium-delicious-extension/">Project Home Page</a></div>
 
-<h4>Введение</h4>
-<p>Захотелось мне странного - когда я ухожу домой, мне нужно выключить amarok, kopete и Skype. Собственно, решено было через D-Bus отправлять вышеперечисленным приложениям релевантные сообщения.</p>
+</div>
+  
+  
 
-<h4>Используем dbus-send</h4>
-<p>Сначала я использовал обычный dbus-send, что оформилось в виде следующего скрипта <tt>go2home</tt>:</p>
-<pre class="brush: bash">
-#!/bin/sh
 
-# Stop amarok
-dbus-send --session --type=method_call --dest=org.kde.amarok /Player org.freedesktop.MediaPlayer.Stop
-
-# Logout from kopete
-dbus-send --session --type=method_call --dest=org.kde.kopete /Kopete org.kde.Kopete.disconnectAll 
-
-# Logout from Skype
-skypeapi.py 'SET USERSTATUS OFFLINE'
-
-# Lock screen
-dbus-send --session --type=method_call --dest=org.freedesktop.ScreenSaver /ScreenSaver org.freedesktop.ScreenSaver.Lock
-</pre>
-
-Детали и параметры работы команды <tt>dbus-send</tt> описаны в <a href="http://dbus.freedesktop.org/doc/dbus-send.1.html">man-странице</a>
-
-<h4>Проблема со скайпом</h4>
-<p> Со скайпом пришлось немного повозиться, так как для работы с ним необходима постоянная сессия, что нельзя сделать с помощью <tt>dbus-send</tt>. </p>
-<p>Прочитав <a href="https://developer.skype.com/Docs/ApiDoc">описание протокола</a> на сайте </p>
-<p> был создан нижеследующий скрипт: skypeapi.py</p>
-<pre class="brush: python">
-#!/usr/bin/env python
-import dbus, sys
-
-def main():
-    remote_bus = dbus.SessionBus()
+    </article>
+  
+  
+    <article>
+      
+  <header>
     
-    # Check if skype is running.
-    system_service_list = remote_bus.get_object('org.freedesktop.DBus', '/org/freedesktop/DBus').ListNames()
-    skype_api_found = 0
-    for service in system_service_list:
-        if service=='com.Skype.API':
-            skype_api_found = 1
-            break
-    if not skype_api_found:
-        sys.exit('No running API-capable Skype found')
-
-    # Get skype dbus api
-    skype_service = remote_bus.get_object('com.Skype.API', '/com/Skype')
-
-    # Connect to skype.
-    answer = skype_service.Invoke('NAME SkypeApiClient')
-    if answer != 'OK':
-        sys.exit('Could not bind to Skype client')
-
-    # Check if protocol is supported.
-    answer = skype_service.Invoke('PROTOCOL 1')
-    if answer != 'PROTOCOL 1':
-        sys.exit('This test program only supports Skype API protocol version 1')
-
-    # Invoke operations
-    for arg in sys.argv:
-        skype_service.Invoke(arg)
+      <h1 class="entry-title"><a href="/blog/2009/11/24/google-chrome/">Создание страницы настроек для расширений Google Chrome</a></h1>
     
-    return 0    
+    
+      <p class="meta">
+        
 
-if __name__ == &quot;__main__&quot;:
-    main()
-</pre>
-<p> При первом запуске скрипта появится скайповский диалог с вопросом, можно ли разрешить приложению доступ к скайпу. После нажатия на &quot;Да&quot; Skype добавит наш скрипт в разрешённые и мы сможем управлять скайпом.</p>
 
-<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://2.bp.blogspot.com/_y8p0_dtMJ38/S6ev4yVZkJI/AAAAAAAAA9Q/O87mz2Qnku0/s1600-h/skype.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 376px; height: 185px;" src="http://2.bp.blogspot.com/_y8p0_dtMJ38/S6ev4yVZkJI/AAAAAAAAA9Q/O87mz2Qnku0/s400/skype.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5451519264074338450" /></a>
 
-После этого для скрипта <tt>go2home</tt> был создана иконка на панели.
 
-<h4>Заключение</h4>
-Как видно, работа с DBus из Python проста и элегантна.
 
-В качестве домашнего упражнения предлагаю написать скрипт, который после разблокирования экрана будет запускать все нужные приложения.</div>
+
+
+
+  
+
+
+<time datetime="2009-11-24T12:09:00-05:00" pubdate data-updated="true">Nov 24<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+В продолжение <a href="http://atamanenko.blogspot.com/2009/11/delicious-bookmarks-google.html">предыдущей заметки</a><br />
+<br />
+Логично предположить, что у расширений могут быть настройки. В Google Chrome/Chromium для этого есть специальный API.<br />
+<br />
+Для того, чтобы создать собственную страницу настроек необходимо сделать следующее:<br />
+<br />
+1. Объявить в манифесте страницу настроек<br />
+<pre class="brush:js; highlight: [5]">{
+  "name": "Delicious plugin", 
+  "version": "0.2", 
+  "background_page": "background.html", 
+  "options_page": "options.html"
+}
+</pre><br />
+2. Реализовать страницу с настройками.<br />
+<br />
+Страница с настройками - это обычная HTML-страничка. Для доступа к настройкам Google Chrome предоставляет объект <tt>localStorage</tt>, который умеет сохранять и возвращать значения.<br />
+<br />
+С объектом <tt>localStorage</tt> работа идёт как с обычным hash. <br />
+<br />
+<pre class="brush:js; html-script: true; highlight:[09, 21, 20, 33, 41]">&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Delicious Bookmarks Options&lt;/title&gt;
+&lt;/head&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    // Saves options to localStorage.
+    function saveOptions() {
+        var share = document.getElementById(&quot;share&quot;);
+        localStorage[&quot;markPrivate&quot;] = share.checked;
+
+        // Update status to let user know options were saved.
+        var status = document.getElementById(&quot;status&quot;);
+        status.innerHTML = &quot;Options Saved.&quot;;
+        setTimeout(function() {
+            status.innerHTML = &quot;&quot;;
+        }, 1500);
+    }
+
+    // Restores select box state to saved value from localStorage.
+    function restoreOptions() {
+        var share = localStorage[&quot;markPrivate&quot;];
+
+        if (!share) {
+            return;
+        }
+        var shareCheckbox = document.getElementById(&quot;share&quot;);
+
+        shareCheckbox.checked = share;
+        
+    }
+&lt;/script&gt;
+
+&lt;body onload=&quot;restoreOptions()&quot;&gt;
+
+&lt;label for=&quot;share&quot;&gt;Mark as Private&lt;/label&gt;
+&lt;input type=&quot;checkbox&quot; class=&quot;checkbox&quot; name=&quot;share&quot; id=&quot;share&quot; /&gt;
+
+
+&lt;br&gt;
+&lt;button onclick=&quot;saveOptions();&quot;&gt;Save&lt;/button&gt;
+&lt;div id=&quot;status&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre><br />
+<h2>Чтение настроек</h2>При инициализации страницы настроек необходимо проставить актуальные значения. Для этого на событе <tt>onload</tt> навешивается функция <tt>restoreOptions()</tt>, которая проставляет в пользовательском интерфейсе текущие настройки. <br />
+<br />
+<h2>Запись настроек</h2>Для сохранения настроек навешивается обработчик <tt>onclick</tt> для кнопки save - метод <tt>saveOptions</tt>.<br />
+<br />
+Вот таким простым способом можно сохранять настройки расширения. <br />
+<br />
+<h1>Документация</h1><ul><li><a href="http://code.google.com/chrome/extensions/options.html">Google Chrome Extensions Options</a><br />
+<li><a href="http://www.w3.org/TR/2009/WD-webstorage-20091029/#the-localstorage-attribute">Документация по localStorage</a></li><br />
+<br />
+</ul></div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>karri</div>
+<div class='content'>
+Мне вот тут понадобилось поставить Flash player для Chromium&#39;a, перерыла кучу ссылок в инете и наткнулась на классный блог http://www.ubuntugeek.com/<br />Он, судя по всему, для таких чайников как я(все было понятно даже на английском), поставила player без проблем и терь сижу довольная до невозможности :) Оч рекомендую начинающим линуксоидам, может кому пригодится :)</div>
+</div>
+</div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/11/14/delicious-bookmarks-google/">Расширение Delicious Bookmarks для Google Chrome/Chromium</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-14T11:34:00-05:00" pubdate data-updated="true">Nov 14<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<h1>Введение</h1><br />
+Решил научиться писать собственные расширения для <a href="http://www.google.com/chrome">Google Chrome</a>/<a href="http://www.chromium.org/">Chromium</a>.<br />
+<br />
+За идею взял официальное расширение от <a href="http://m.www.yahoo.com/">Yahoo!</a> для <a href="http://www.mozilla.com/en-US/firefox/firefox.html">Firefox</a> - <a href="https://addons.mozilla.org/en-US/firefox/addon/3615">Delicious Bookmarks</a>.<br />
+<br />
+<h1>Структура расширения</h1><br />
+Расширение - файл с расширением <tt>.crx</tt>. На самом деле это просто <tt>ZIP</tt>-архив с файлом манифеста внутри.<br />
+<br />
+<h1>Файл манифеста</h1><pre class="brush:js; highlight: [2, 3, 4, 5, 10, 16, 23]">{
+"name": "Delicious plugin", // 1
+"version": "0.2", // 2
+"background_page": "background.html", // 3
+"permissions": [ // 4
+"bookmarks",
+"tabs"
+],
+
+"browser_action": { // 5
+"name": "Save bookmark to delicious.com",
+"default_title": "Save bookmark to delicious.com",
+"default_icon": "delicious.20.gif" // optional
+},
+
+"content_scripts": [ // 6
+{
+"matches": ["http://*/*", "https://*/*"],
+"js": ["getDocumentSelection.js"]
+}
+],
+
+"options_page": "options.html" // 7
+}
+</pre><br />
+Манифест - файл в формате <a href="http://json.org/">JSON</a>.<br />
+<br />
+Манифест состоит из следующих частей:<br />
+<br />
+1. <span style="font-weight:bold;"><tt>name</tt></span> - Имя расширения<br />
+2. <span style="font-weight:bold;"><tt>version</tt></span> - Версия расширения<br />
+3. <span style="font-weight:bold;"><tt>background_page</tt></span> - основной файл с расширением. Это обычный HTML-файл с разметкой.<br />
+4. <span style="font-weight:bold;"><tt>permissions</tt></span> - разрешения для расширения. Указываем, что нам нужен доступ к вкладкам (tabs) и закладкам (bookmarks).<br />
+5. <span style="font-weight:bold;"><tt>browser_action</tt></span> - указываем, что нужно отобразить на панели инструментов браузера.<br />
+6. <span style="font-weight:bold;"><tt>content_scripts</tt></span> - Для доступа к DOM отображаемой страницы необходимы content scripts, данный блок регистрирует скрипт <tt>getDocumentSelection.js</tt> для всех <tt>http</tt> и <tt>https</tt> страниц.<br />
+7. <span style="font-weight:bold;"><tt>options_page</tt></span> - страница с настройками.<br />
+<br />
+Подробное описание файла манифеста есть <a href="http://code.google.com/chrome/extensions/manifest.html">на официальном сайте</a>. <br />
+<br />
+<h1>Описание работы расширения</h1><br />
+<br />
+Расширение работает следующим образом:<br />
+1. При клике на значок расширения вызывается обработчик <tt>addBookmark</tt><br />
+2. Обработчик открывает коммуникационный порт и отправляет сообщение скрипту содержимого.<br />
+3. Скрипт содержимого забирает выделенный текст и отправляет назад расширению выделенный текст.<br />
+4. Расширение забирает выделенный текст, определяет настройки сохранения (Private/Public) и вызывает окно сохранения <span style="font-style:italic;">Delicious</span>.<br />
+<br />
+<h1>Реализация расширения</h1><br />
+<br />
+<span style="font-weight:bold;">background.html</span>:<br />
+<pre class="brush:js; html-script: true">&lt;html&gt;
+&lt;head&gt;
+&lt;script&nbsp;type=&quot;text/javascript&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;saveBookmark()&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Send&nbsp;our&nbsp;password&nbsp;to&nbsp;the&nbsp;current&nbsp;tab&nbsp;when&nbsp;clicked.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chrome.tabs.getSelected(null,&nbsp;function(tab)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;port&nbsp;=&nbsp;chrome.tabs.connect(tab.id,&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;:&nbsp;&quot;deliciousBookmark&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;port.postMessage(&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;action&nbsp;:&nbsp;'getSelection'
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;addBookmark(id,&nbsp;bookmark)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(&quot;added&nbsp;bookmark:&nbsp;&nbsp;&quot;&nbsp;+&nbsp;bookmark);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;saveBookmark();
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;chrome.bookmarks.onCreated.addListener(addBookmark);
+&nbsp;&nbsp;&nbsp;&nbsp;console.log(&quot;Registered&nbsp;listener&quot;);
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;getShareStatus()&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;markPrivate&nbsp;=&nbsp;localStorage[&quot;markPrivate&quot;];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;share&nbsp;=&nbsp;&quot;yes&quot;;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(markPrivate&nbsp;==&nbsp;&quot;true&quot;)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;share&nbsp;=&nbsp;&quot;no&quot;;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;share;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;chrome.extension.onConnect.addListener(function(port)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.assert(port.name&nbsp;==&nbsp;&quot;deliciousBookmark&quot;);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;port.onMessage.addListener(function(msg)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;selection&nbsp;=&nbsp;msg.selection;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chrome.tabs.getSelected(null,&nbsp;function(tab)&nbsp;{
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;encodeURIComponent(tab.url);
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!url&nbsp;||&nbsp;url&nbsp;===&nbsp;&quot;&quot;)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;title&nbsp;=&nbsp;encodeURIComponent(tab.title);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;description&nbsp;=&nbsp;encodeURIComponent(selection);
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;share&nbsp;=&nbsp;getShareStatus();
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;f&nbsp;=&nbsp;'http://delicious.com/save?url='&nbsp;+&nbsp;url&nbsp;+&nbsp;'&amp;title='&nbsp;+&nbsp;title&nbsp;+&nbsp;'&amp;notes='&nbsp;+&nbsp;description
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;'&amp;share='&nbsp;+&nbsp;share&nbsp;+&nbsp;'&amp;v=5&amp;';
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window.open(f&nbsp;+&nbsp;'noui=1&amp;jump=doclose',&nbsp;'deliciousuiv5',
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'location=yes,links=no,scrollbars=no,toolbar=no,width=550,height=550');
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
+&nbsp;&nbsp;&nbsp;&nbsp;});
+
+&nbsp;&nbsp;&nbsp;&nbsp;chrome.browserAction.onClicked.addListener(saveBookmark);
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;/html&gt;
+
+</pre><br />
+<br />
+<span style="font-weight:bold;">getDocumentSelection.js</span><br />
+<br />
+<pre class="brush:js">var port = chrome.extension.connect( {
+name : "deliciousBookmark"
+});
+
+// Also listen for new channels from the extension for when the button is
+// pressed.
+chrome.extension.onConnect.addListener(function(port) {
+console.assert(port.name == "deliciousBookmark");
+port.onMessage.addListener(function(msg) {
+if (msg.action == 'getSelection') {
+var responsePort = chrome.extension.connect( {
+name : "deliciousBookmark"
+});
+var description = document.getSelection() ? '' + document.getSelection() : '';
+responsePort.postMessage( {
+selection : description
+});
+}
+});
+});
+
+
+</pre><br />
+<br />
+<span style="font-weight:bold;">options.html</span><br />
+<br />
+<pre class="brush:js; html-script: true">&lt;html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Delicious Bookmarks Options&lt;/title&gt;
+&lt;/head&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    // Saves options to localStorage.
+    function saveOptions() {
+        var share = document.getElementById(&quot;share&quot;);
+        localStorage[&quot;markPrivate&quot;] = share.checked;
+
+        // Update status to let user know options were saved.
+        var status = document.getElementById(&quot;status&quot;);
+        status.innerHTML = &quot;Options Saved.&quot;;
+        setTimeout(function() {
+            status.innerHTML = &quot;&quot;;
+        }, 1500);
+    }
+
+    // Restores select box state to saved value from localStorage.
+    function restoreOptions() {
+        var share = localStorage[&quot;markPrivate&quot;];
+
+        if (!share) {
+            return;
+        }
+        var shareCheckbox = document.getElementById(&quot;share&quot;);
+
+        shareCheckbox.checked = share;
+        
+    }
+&lt;/script&gt;
+
+&lt;body onload=&quot;restoreOptions()&quot;&gt;
+
+&lt;label for=&quot;share&quot;&gt;Mark as Private&lt;/label&gt;
+&lt;input type=&quot;checkbox&quot; class=&quot;checkbox&quot; name=&quot;share&quot; id=&quot;share&quot; /&gt;
+
+
+&lt;br&gt;
+&lt;button onclick=&quot;saveOptions();&quot;&gt;Save&lt;/button&gt;
+&lt;div id=&quot;status&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre><br />
+<br />
+<h1>Сборка расширения</h1><br />
+В Chromium есть возможность собрать расширение.<br />
+1. Открываем адрес <tt>chrome://extensions/</tt><br />
+2. В правом верхнем углу нажимаем Developer Mode.<br />
+3. На появившейся панели инструментов кликаем Pack Extension<br />
+4. Выбираем каталог, в котором находится расширение<br />
+5. Chromium автоматически собирает расширение в каталоге с исходниками расширения.<br />
+<br />
+<h1>Заключение</h1><br />
+Писать расширения для Google Chrome не просто, а очень просто. <br />
+<br />
+Готовое и собранное расширение можно <a href="http://bit.ly/2KYnr8">скачать здесь</a>.<br />
+<br />
+<h1>Дополнительная информация</h1><br />
+<ol><li><a href="http://code.google.com/chrome/extensions/devguide.html">Google Chrome Extensions Developer&#8217;s Guide</a></li>
+<li><a href="http://code.google.com/chrome/extensions/manifest.html">Manifest file description</a></li>
+<li><a href="http://code.google.com/chrome/extensions/api_index.html">Chrome Extensions API</a></li>
+<li><a href="http://code.google.com/chrome/extensions/packaging.html">Extension Packaging</a></li>
+</ol><br />
+<br />
+В следующей заметке опишу работу messaging для коммуникации расширения со скриптами содержимого.</div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Juev</div>
+<div class='content'>
+Очень много расширений уже реализуют добавление закладок в социальные закладки, но пока не встретил ни одного, которое реализует синхронизацию локальных закладок с сервером&#8230; Как это делает например расширение делисиоус для огнелиса. Если сумеете реализовать, цены расширению не будет!</div>
+</div>
+<div class='comment'>
+<div class='author'>uthark</div>
+<div class='content'>
+@karri<br />Подпишитесь :). Правда, пишу я нерегулярно.</div>
+</div>
+<div class='comment'>
+<div class='author'>karri</div>
+<div class='content'>
+А у вас тут интересно, хоть я и неважный ITтишник =) Пожалуй, подпишусь на вас! =)</div>
+</div>
+<div class='comment'>
+<div class='author'>uthark</div>
+<div class='content'>
+@karri Надеюсь, больше вам этого не придётся делать и расширение сослужит для вас хорошую службу. В следующей версии расширения будет возможность получить быстрый доступ к своему аккаунту на delicious, а также возможность быстрого доступа к закладкам с определённой меткой. Для чего это может быть полезно - читайте  <a href="http://atamanenko.blogspot.com/2009/04/blog-post.html" rel="nofollow">этот</a> и <a href="http://atamanenko.blogspot.com/2009/04/2.html" rel="nofollow">этот</a> посты.</div>
+</div>
+<div class='comment'>
+<div class='author'>karri</div>
+<div class='content'>
+Спасибо! =) Все-таки вчера не дождалась ответа и руками подабовляла в delicious на delicious.com =)</div>
+</div>
+<div class='comment'>
+<div class='author'>uthark</div>
+<div class='content'>
+Достаточно обновить страницу, которую вы хотите сохранить.<br /><br />Кроме того, нужна версия браузера выше 4.0.227.0</div>
+</div>
+<div class='comment'>
+<div class='author'>karri</div>
+<div class='content'>
+А браузер нужно перезапускать? Сорри за такой глупый вопрос, у меня тут дилема: куча нужных вкладок открыто, а Chrome, как FF не спрашивает сохранить ли их при закрытии :( По крайней мере что-то не нашла такой галочки :( Сижу думаю, что делать, delicious не вызывается и закрывать не хоцца &#8230;</div>
+</div>
+<div class='comment'>
+<div class='author'>uthark</div>
+<div class='content'>
+@Denis <br />На здоровье. О найденных ошибках и своих предложениях можешь сообщать в комментариях к этому посту.</div>
+</div>
+<div class='comment'>
+<div class='author'>Denis</div>
+<div class='content'>
+Спасибо. Статья очень понравилась а расширением уже пользуюсь ;)</div>
+</div>
+</div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/11/02/google-wave/">Инвайты на Google Wave</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-02T12:26:00-05:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Кому нужны инвайты на Google Wave, отписываемся в комментариях - поделюсь.
+
+<span style="font-weight:bold;">UPD</span>. Инвайты закончились, всем спасибо.</div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>uthark</div>
+<div class='content'>
+@interceptor said&#8230;<br />@bodhiphone<br /><br />К сожалению, инвайты закончились.</div>
+</div>
+<div class='comment'>
+<div class='author'>bodhiphone</div>
+<div class='content'>
+bodhiphone at gmail com</div>
+</div>
+<div class='comment'>
+<div class='author'>Interceptor</div>
+<div class='content'>
+freeline66@gmail.com<br />Если есть, буду рад !!!</div>
+</div>
+<div class='comment'>
+<div class='author'>uthark</div>
+<div class='content'>
+@avv<br />@ziftech<br />@Роман<br />@samozvanka<br />@aleks<br /><br />Отправил инвайты.</div>
+</div>
+<div class='comment'>
+<div class='author'>aleks</div>
+<div class='content'>
+Очень надеюсь что инвайты еще есть&#8230; заранее спасибо.<br />aleksandr.komp@gmail.com</div>
+</div>
+<div class='comment'>
+<div class='author'>samozvanka</div>
+<div class='content'>
+o.samozvanka@gmail.com<br />и мне, плиз, если остались</div>
+</div>
+<div class='comment'>
+<div class='author'>Роман</div>
+<div class='content'>
+Можно мне? razh@rambler.ru</div>
+</div>
+<div class='comment'>
+<div class='author'>ziftech</div>
+<div class='content'>
+yakov.keranchuk@gmail.com</div>
+</div>
+<div class='comment'>
+<div class='author'>avv</div>
+<div class='content'>
+volkov.525@gmail.com<br /><br />Спасибо заранее!</div>
+</div>
+<div class='comment'>
+<div class='author'>uthark</div>
+<div class='content'>
+@vmorarian @Ivan<br /><br />Отправил.</div>
+</div>
+<div class='comment'>
+<div class='author'>Ivan</div>
+<div class='content'>
+я! мне! :)</div>
+</div>
+<div class='comment'>
+<div class='author'>vmorarian</div>
+<div class='content'>
+vmorarian@gmail.com</div>
+</div>
+</div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/07/07/blog-post/">Двунаправленная ссылочная целостность</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-07-07T11:11:00-04:00" pubdate data-updated="true">Jul 7<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Здравствуйте.<br />
+<br />
+Я считаю, что разработчику всегда стоит иметь представление о том, как работают низлежащие абстракции. Хотя бы потому, что часто <a href="http://c2.com/cgi/wiki?LeakyAbstraction">абстракции</a> <a href="http://en.wikipedia.org/wiki/Leaky_abstraction">бывают</a> <a href="http://www.joelonsoftware.com/articles/LeakyAbstractions.html">протекающими</a>.<br />
+<br />
+А веду я это к тому, что когда фреймворк вываливает стектрейс с несколькими вложенными (и, часто, для непосвященных непонятными) исключениями, то бывает непонятно, что с этим делать, особенно, если не знаешь, как реализована абстракция.<br />
+<br />
+Иногда бывает нужно хранить двунаправленные связи между таблицами. Например, есть игрок и есть его статистика и нужно, чтобы каждая из сущностей знала про другую.<br />
+<br />
+Вопрос - каким образом вставлять в базу данных такие сущности?<br />
+<br />
+При вставке в таблицу в Player нам нужно уже иметь запись в таблице Statistics, а для вставки в таблицу Statistics нужно знать идентификатор игрока, к которому относится эта запись.<br />
+<br />
+Выглядит замкнутым кругом, но решение есть.<br />
+<p>Во-первых, вставки в обе таблицы должны происходить в рамках одной транзакции (как я <a href="http://www.blogger.com/2009/04/blog-post_24.html">уже писал</a>, транзакция обеспечивает перевод базы данных из одного непротиворечащего состояния в другое непротиворечащее состояние).<br />
+</p><br />
+К сожалению, этого недостаточно:<br />
+<br />
+<pre class="brush: sql">begin transaction;
+
+INSERT INTO "Player"  VALUES (10, 20);
+INSERT INTO "Statistics"  VALUES (20, 10);
+
+commit;
+</pre><br />
+<br />
+выдаёт следующую ошибку:<br />
+<br />
+<pre class="brush: plain">ERROR: insert or update on table "Player" violates foreign key constraint "statisticsId"
+SQL state: 23503
+Detail: Key (statisticsId)=(20) is not present in table "Statistics".
+</pre><br />
+<br />
+И снова кажется, что замкнутый круг не разорвать.<br />
+<br />
+Но решение всё же есть.<br />
+Многие базы данных позволяют нарушать консистентность базы данных внутри транзакции. В данном случае можно &#8220;попросить&#8221; базу данных отложить проверку ссылочной целостности. На примере PostgreSQL рассмотрим, как это работает.<br />
+<br />
+<h3>PostgreSQL</h3><br />
+<pre class="brush: sql">begin transaction;
+
+set constraints all deferred; -- 1
+
+INSERT INTO "Player"  VALUES (10, 20);
+INSERT INTO "Statistics"  VALUES (20, 10);
+
+set constraints all immediate; -- 2
+
+commit; -- 3
+</pre><br />
+<br />
+1 - Сделать все ограничения отложенными. Ограничения будут проверены в момент проведения фиксации транзакции (в строке 3)<br />
+2 - Явно делаем все ограничения немедленными. В данном примере это необязательно, так как в 3) они всё равно будут проверены.<br />
+<br />
+После выполнения данного кода получаем:<br />
+<pre class="brush: plain">Query returned successfully with no result in 24 ms.
+</pre><br />
+<br />
+Это уже полностью рабочий пример, чтобы это заработало нужно явно сделать ограничения отложенными - они должны быть объявлены как DEFERRED. Официальная документация к PostgreSQL гласит:<br />
+<blockquote>Upon creation, a constraint is given one of three characteristics: DEFERRABLE INITIALLY DEFERRED, DEFERRABLE INITIALLY IMMEDIATE, or NOT DEFERRABLE. The third class is always IMMEDIATE and is not affected by the SET CONSTRAINTS command. The first two classes start every transaction in the indicated mode, but their behavior can be changed within a transaction by SET CONSTRAINTS.</blockquote><br />
+<br />
+Так что необходимо также модифицировать объявления ограничений:<br />
+<pre class="brush: sql">ALTER TABLE "Player"
+ADD CONSTRAINT "statisticsId" FOREIGN KEY ("statisticsId")
+REFERENCES "Statistics" ("statisticsId") MATCH SIMPLE
+ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY IMMEDIATE;
+
+</pre><br />
+<br />
+Данный пример был приведён для PostgreSQL.<br />
+<br />
+Для других баз данных решения следующие:<br />
+<h3>Sybase</h3><br />
+В Sybase есть переменная <a href="http://manuals.sybase.com/onlinebooks/group-sasarc/awg0600e/dbugen6/@Generic__BookTextView/26075;hf=0;pt=25811">WAIT_FOR_COMMIT</a>, которая управляет поведением проверки ограничений. По умолчанию она отключена. Кроме того, это поведение можно переопределить при объявлении можно указывать CHECK ON COMMIT. Подробнее можно посмотреть в <a href="http://manuals.sybase.com/onlinebooks/group-pbarc/conn5/sqlug/@Generic__BookTextView/39397%3Bpt=39951">официальной документации</a>.<br />
+<br />
+<h3>Oracle</h3><br />
+Также, как и в PostgreSQL:<br />
+<blockquote>You can define constraints as either deferrable or not deferrable, and either initially deferred or initially immediate. These attributes can be different for each constraint. You specify them with keywords in the CONSTRAINT clause:<br />
+DEFERRABLE or NOT DEFERRABLE<br />
+INITIALLY DEFERRED or INITIALLY IMMEDIATE<br />
+<br />
+Constraints can be added, dropped, enabled, disabled, or validated. You can also modify a constraint&#8217;s attributes.<br />
+</blockquote><br />
+Подробнее в <a href="http://download.oracle.com/docs/cd/B10501_01/server.920/a96524/c22integ.htm#4666">официльной документации</a>.<br />
+<br />
+<h3>mySQL</h3><br />
+К сожалению, mySQL не имеет возможности отложенной проверки ограничении, о чём в документации и сказано:<br />
+<blockquote><em>Deviation from SQL standards</em>: Like MySQL in general, in an SQL statement that inserts, deletes, or updates many rows, InnoDB checks UNIQUE and FOREIGN KEY constraints row-by-row. According to the SQL standard, the default behavior should be deferred checking. That is, constraints are only checked after the entire SQL statement has been processed. Until InnoDB implements deferred constraint checking, some things will be impossible, such as deleting a record that refers to itself via a foreign key.</blockquote><br />
+<br />
+Но это не конец света, так как можно отключить проверку внешних ключей:<br />
+<pre class="brush: sql">SET foreign_key_checks = 0;
+-- code goes here
+SET foreign_key_checks = 1;
+</pre><br />
+<br />
+Чем эта информация может быть полезна для разработчика? Например, в случае, если ошибки и недоработки Hibernate покажут себя в виде стектрейса в логе(например, <a href="http://opensource.atlassian.com/projects/hibernate/browse/HHH-2248">HHH-2248</a>), то разработчик будет понимать причину ошибки и то, как реализовать work-around.</div>
 
 
 <h2>Comments</h2>
@@ -511,22 +1087,17 @@ if __name__ == &quot;__main__&quot;:
 <div class='comment'>
 <div class='author'>Oleg Atamanenko</div>
 <div class='content'>
-В данном случае это не так уж и важно.</div>
+Очень рад, что вам эта статья была полезной.</div>
 </div>
 <div class='comment'>
 <div class='author'>Anonymous</div>
 <div class='content'>
-Написать<br />skype_api_found = False<br /><br />религия не позволила?</div>
+спасибо, а я понял что такое двунаправленные связи</div>
 </div>
 <div class='comment'>
-<div class='author'>uthark</div>
+<div class='author'>Safarov</div>
 <div class='content'>
-@karri Не выключались, а только меняли статус. :) Амарок прекращал играть, скайп и kopete уходили в оффлайн.</div>
-</div>
-<div class='comment'>
-<div class='author'>karri</div>
-<div class='content'>
-То есть по нажатию кнопки выключались три приложения, правильно?!</div>
+Спасибо за вашу статью. Для меня она объяснила как можно повысть целостность базы.</div>
 </div>
 </div>
 
@@ -542,7 +1113,7 @@ if __name__ == &quot;__main__&quot;:
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2010/03/21/tiddlywiki/">Разработка макроса для TiddlyWiki</a></h1>
+      <h1 class="entry-title"><a href="/blog/2009/07/03/opera-delicious/">Opera и del.icio.us</a></h1>
     
     
       <p class="meta">
@@ -558,7 +1129,7 @@ if __name__ == &quot;__main__&quot;:
   
 
 
-<time datetime="2010-03-21T10:54:00-04:00" pubdate data-updated="true">Mar 21<span>st</span>, 2010</time>
+<time datetime="2009-07-03T14:13:00-04:00" pubdate data-updated="true">Jul 3<span>rd</span>, 2009</time>
         
       </p>
     
@@ -566,106 +1137,16 @@ if __name__ == &quot;__main__&quot;:
 
 
   <div class="entry-content"><div class='post'>
-<p><b>Summary</b>: Пример разработки плагина для TiddlyWiki</p>
-<h4>Вступление</h4>
-<p><a href="http://www.tiddlywiki.com/">TiddlyWiki</a> - это вики-движок, полностью написанный на <a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a> и хранящийся в одном файле (как сам движок, так и содержимое). Создатели позиционируют его как &quot;переиспользуемую нелинейную персональную веб записную книжку&quot;.</p>
-<p>Я давно использую TiddlyWiki в различных целях:</p>
-<ol><li>По прямому назначению.</li>
-<li>Как систему <a href="http://mgsd.tiddlyspot.com/#mGSD">GTD</a>.</li>
-<li>Как домашнюю страницу на компьютере.</li>
-</ol>
-<p>Моя домашняя страница на компьютере - это, если говорить терминами TiddlyWiki, <a href="http://en.wikipedia.org/wiki/Tiddler">тиддлер</a>, содержащий ссылки на страницы, которые я часто посещаю.</p>
-<p>Для удобства использования я разработал пару стилей CSS, так что ссылки были крупными.</p>
-<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://2.bp.blogspot.com/_y8p0_dtMJ38/S6Y0rP2J0eI/AAAAAAAAA9I/xrZhzZf2ad0/s1600-h/tiddly-before.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 172px; height: 132px;" src="http://2.bp.blogspot.com/_y8p0_dtMJ38/S6Y0rP2J0eI/AAAAAAAAA9I/xrZhzZf2ad0/s400/tiddly-before.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5451102316571251170" /></a>
-<h4>Исходный код плагина</h4>
-<p>После длительного использования tiddlywiki в качестве домашней страницы я понял, что мне хочется, чтобы с каждой ссылкой была иконка сайта. Вручную вставлять картинки мне не хотелось, поэтому было решено написать собственный плагин.</p>
-<pre class="brush: jscript">
-/*{&nbsp;{&nbsp;{*/
-version.extensions.faviconLinkMacro = {major: 0, minor: 1, revision: 0, date: new Date(2010,3,21)};
-// Author: Oleg Atamanenko
-config.macros.faviconLink = {}
-config.macros.faviconLink.handler = function(place, macroName,  params, wikifier, paramString) {
-  var linkBox = createTiddlyElement(place, &quot;span&quot;, null, &quot;favIcon&quot;, &quot;&quot;);
+Так получилось, что в последнее время я стал пользоваться небезызвестной <a href="http://www.opera.com">оперой</a>.
 
-  var args = paramString.parseParams(&quot;list&quot;,null,true);
-  var link = getParam(args, &quot;link&quot;, 'false');
+В связи с этим я стал искать замену часто используемым расширениям, одно из них - delicious bookmarks. Сервис <a href="http://delicious.com">del.icio.us</a> предоставляет букмарклеты для различных браузеров, которые позволяют сохранять закладки быстро и удобно. Вот только есть один недостаток - <a href="https://addons.mozilla.org/en-US/firefox/addon/3615">официальный плагин для Firefox</a> в свойство Notes новой закладки добавляет выделенный текст со страницы, чего букмарклет не делает.
 
-  if (link != 'false'){
-    urlParts = link.split('/');
-    imgLink = urlParts[0] + &quot;//&quot; + urlParts[2] + &quot;/favicon.ico&quot;;
+Посмотрев исходник букмарклета, а это обычный javascript, я добавил небольшой кусочек кода, который восстанавливает справедливость и тоже добавляет в поле Notes текст, выделенный на странице.
 
-    var imgElement = createTiddlyElement(linkBox, &quot;img&quot;, null, &quot;faviconImage&quot;, &quot;&quot;);
-    imgElement.src = imgLink;
-    imgElement.width = 16;
-    imgElement.height = 16;
-
-    var linkTitle = getParam(args, &quot;title&quot;, 'false');
-
-    if(linkTitle == 'false'){
-      linkTitle = link;
-    }
-    var linkElement = createTiddlyElement(linkBox, &quot;a&quot;, null, &quot;faviconLink&quot;, linkTitle);
-    linkElement.href = link;
-    linkElement.target = '_blank';
-  }
-}
-
-/*}&nbsp;}&nbsp;}*/
-</pre>
-<h4> Установка плагина</h4>
-<ol><li>Создаём новый тиддлер, называем его faviconLinkMacro</li>
-<li>Помечаем тиддлер тегом systemConfig, тогда TiddlyWiki при открытии страницы его подгрузит.</li>
-</ol>
-<h4>Использование плагина</h4>
-<ol><li>Плагин создаёт новый макрос, faviconLink, с двумя параметрами link и title.</li>
-<li>Вызов <tt>&lt;&lt;faviconLink link:&#8217;https://mail.google.com/mail&#8217; title:&#8217;mail&#8217;&gt;&gt;</tt> создаёт ссылку с картинкой с GMail</li>
-</ol>
-<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_y8p0_dtMJ38/S6Y0qnki7nI/AAAAAAAAA9A/Ic3skFoirY8/s1600-h/favicon-sample.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 161px; height: 64px;" src="http://1.bp.blogspot.com/_y8p0_dtMJ38/S6Y0qnki7nI/AAAAAAAAA9A/Ic3skFoirY8/s400/favicon-sample.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5451102305759981170" /></a>
-<h4>Настройка визульных стилей плагина</h4>
-<p>Макрос создаёт следующие классы:</p>
-<ol><li>span.favIcon</li>
-<li>img.faviconImage</li>
-<li>a.faviconLink</li>
-</ol>
-<h4> Пример стилей</h4>
-<pre class="brush: css">
-.links span {
-  display: block;
-  position: relative;
-  padding: 0.7em;
-  margin: 0.3em;
-  min-width: 6em;
-  float:left;
-  text-align: center;
-  font-weight: bold;
-  font-size: 1.5em;
-  font-family: &quot;Gill Sans MT&quot;, &quot;Candara&quot;, &quot;Arial&quot;;
-  border: 2px solid [[ColorPalette::SecondaryLight]];
-  background-color: [[ColorPalette::SecondaryPale]];
-}
-
-.links span:hover {
-  border: 2px solid [[ColorPalette::SecondaryMid]];
-  background-color: [[ColorPalette::SecondaryLight]];
-  color: [[ColorPalette::PrimaryMid]];
-}
-
-.links img.faviconImage {
-  position: relative;
-  padding-right: 10px;
-}
-
-</pre>
-<p> Данный CSS необходимо добавить в тиддлер с именем StyleSheet</p>
-<h4>Пример тиддлера со ссылками</h4>
-<pre class="brush: html">
-{&nbsp;{links{
-&lt;&lt;faviconLink link:'http://delicious.com/dark.schakal/2read' title:'2read'&gt;&gt; &lt;&lt;faviconLink link:'https://mail.google.com/mail' title:'mail'&gt;&gt; &lt;&lt;faviconLink link:'http://www.google.com/reader/view' title:'rss'&gt;&gt; &lt;&lt;faviconLink link:'http://atamanenko.blogspot.com/' title:'blog'&gt;&gt; &lt;&lt;faviconLink link:'http://feedburner.google.com/fb/a/myfeeds' title:'feedburner'&gt;&gt; &lt;&lt;faviconLink link:'https://www.google.com/analytics/settings/' title:'analytics'&gt;&gt; &lt;&lt;faviconLink link:'http://wave.google.com' title:'wave'&gt;&gt; &lt;&lt;faviconLink link:'http://www.blogger.com/home' title:'blogger'&gt;&gt; &lt;&lt;faviconLink link:'http://twitter.com/' title:'twitter'&gt;&gt; &lt;&lt;faviconLink link:'https://www.dropbox.com/home#/' title:'dropbox'&gt;&gt; &lt;&lt;faviconLink link:'http://translate.google.com/toolkit/' title:'translator'&gt;&gt; &lt;&lt;faviconLink link:'http://sibir.megafon.ru/sendsms/' title:'SendSMS'&gt;&gt;
-}}}
-</pre>
-Вышеприведённый код тиддлера создаёт следующую страницу:
-
-<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://1.bp.blogspot.com/_y8p0_dtMJ38/S6Y0qOLAO4I/AAAAAAAAA84/DFkORdMO8gE/s1600-h/favicon-sample-big.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 400px; height: 157px;" src="http://1.bp.blogspot.com/_y8p0_dtMJ38/S6Y0qOLAO4I/AAAAAAAAA84/DFkORdMO8gE/s400/favicon-sample-big.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5451102298941963138" /></a></div>
+Ниже привожу изменённый код букмарклета:
+<pre class="brush:js">
+javascript:(function(){f='http://delicious.com/save?url='+encodeURIComponent(window.location.href)+'&title='+encodeURIComponent(document.title)+'&notes='+encodeURIComponent(document.getSelection())+'&v=5&';a=function(){if(!window.open(f+'noui=1&jump=doclose','deliciousuiv5','location=yes,links=no,scrollbars=no,toolbar=no,width=550,height=550'))location.href=f+'jump=yes'};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})()
+</pre></div>
 
 
 <h2>Comments</h2>
@@ -675,17 +1156,12 @@ config.macros.faviconLink.handler = function(place, macroName,  params, wikifier
 <div class='comment'>
 <div class='author'>uthark</div>
 <div class='content'>
-Хорошо, выложу. :) Почистить только нужно.</div>
+Как вы всё сложно делаете.<br />Можно просто кликнуть на значок в тулбаре правой кнопкой и сказать modify и ввести вышеприведённый код. Ровно так у себя и делал. )</div>
 </div>
 <div class='comment'>
-<div class='author'>Николай Мишин</div>
+<div class='author'>Сергей К.</div>
 <div class='content'>
-выложи архив своего tiddywiki c плагинами, а я поделюсь своим</div>
-</div>
-<div class='comment'>
-<div class='author'>Denis</div>
-<div class='content'>
-Спасибо за пример, сегодня же в свою вики встрою )</div>
+Не знал, как добавить кнопку.<br />Надо зайти на сайт http://delicious.com, в разделе Помощь перетянуть их букмарклет (ссылку) для Оперы на панель, а приведенный здесь код скопировать в буфер или отдельный документ. Закрыть оперу. Затем зайти в папку с настройками оперы, на линуксе это папка .opera в домашней папке, на виндовсе это Dokuments and Settings/[имя пользователя]/ApplicationData/Opera/Opera/toolbar, там открыть файл standard_toolbar.ini и найти уже установленный код кнопки. Далее между кавычками вставить вместо записанного кода код с этого сайта, сохранить файл, открыть оперу и пользоваться на здоровье!</div>
 </div>
 </div>
 
@@ -701,7 +1177,7 @@ config.macros.faviconLink.handler = function(place, macroName,  params, wikifier
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2010/03/16/blog-post/">Борьба с убийцами производительности</a></h1>
+      <h1 class="entry-title"><a href="/blog/2009/06/06/spring-roo-2/">Spring Roo (часть 2)</a></h1>
     
     
       <p class="meta">
@@ -717,7 +1193,7 @@ config.macros.faviconLink.handler = function(place, macroName,  params, wikifier
   
 
 
-<time datetime="2010-03-16T11:52:00-04:00" pubdate data-updated="true">Mar 16<span>th</span>, 2010</time>
+<time datetime="2009-06-06T11:19:00-04:00" pubdate data-updated="true">Jun 6<span>th</span>, 2009</time>
         
       </p>
     
@@ -725,44 +1201,479 @@ config.macros.faviconLink.handler = function(place, macroName,  params, wikifier
 
 
   <div class="entry-content"><div class='post'>
-<p><strong>Summary</strong>: Мой опыт борьбы с &quot;убийцами производительности&quot;.</p>
-<h3>Постановка проблемы</h3>
-<p> Иногда бывает так, что хочется отвлечься от работы, от поставленной задачи на какую-нибудь фигню, лишь бы не заниматься текущей задачей. У меня это чаще всего сводилось к тому, что я начинал читать что-нибудь в сети (<a href="http://www.google.com/reader/view/" target="_blank">Google Reader</a>, <a href="http://habrahabr.ru/">Habrahabr</a>, <a href="http://www.linux.org.ru/">LOR</a>, etc). </p>
-<p>Истоки проблемы могут быть абсолютно разными, например: </p>
-<ol><li>Долгий запуск среды разработки </li>
-<li>Долгая сборка проекта</li>
-<li>Нудная задача</li>
-<li>Неинтересная задача</li>
-</ol>
-<p>Все эти причины спокойно могут приводить к потере производительности, причём неявным образом, например - &quot;А посижу пока я на хабре, пока полная сборка идёт&quot;, в итоге после 20 минут обнаруживается, что сборка закончилась уже 15 минут назад.</p>
-<p>Так как у меня тайм-киллер вполне простой - интернет, то и решение вполне простое.</p>
-<p>Вот список действий, что я сделал:</p>
-<ol><li>Удалил быстрые браузеры, теперь у меня только <a href="http://www.mozilla.com/firefox">Mozilla Firefox</a> под Linux и страшный <a href="http://www.microsoft.com/windows/ie/ie6/downloads/default.mspx">Internet Explorer 6.0 под Windows</a>.</li>
-<li>Забанил сайты которые не нужны для работы, но на которых я провожу много времени.</li>
-</ol>
-<p>Сначала я сделал радикальный бан - внёс в <tt>/etc/hosts</tt> эти сайты:</p>
-<pre class="brush: bash">
-127.0.0.1 www.linux.org.ru linux.org.ru
-127.0.0.1 www.habrahabr.ru habrahabr.ru
-127.0.0.1 www.lorquotes.ru lorquotes.ru
+<h1>Архитектура сгенерированного приложения</h1>
+Spring Roo активно использует аспекты. В качестве реализации аспектов была взята библиотека <a href="http://www.eclipse.org/aspectj/">aspectj</a>.
+Большая часть сгенерированного кода попадает в отдельные файлы-аспекты.
+Создадим простой класс:
+<pre class="brush: java">
+new persistent class jpa -name ~.domain.Action -testAutomatically
+add field string name -notNull -sizeMin 1 -sizeMax 80
+add field string description -sizeMax 1024
 </pre>
-<p> Но потом обнаружилось, что есть ещё <a href="http://www.google.com/reader/view/">Google Reader</a>, который также отнимает много времени (у меня было до 200 подписок, что давало до 300 новых статей в сутки). Проблему с <a href="http://www.google.com/reader/view/">Google Reader</a> я решал поэтапно: </p>
-<ol><li>Почистил список лент от юмора, который обновляется практически ежедневно, является пожирателем трафика и времени.</li>
-<li>После этого я почистил список лент от лент, которые достаточно интересные, но при этом без них можно спокойно обходиться (Например, <a href="http://aseigo.blogspot.com/">блог Аарона Сейго</a>, одного из главных разработчиков <a href="http://www.kde.org/">KDE</a>)</li>
-</ol>
-<p>Вышеперечисленные действия помогли мне сократить список фидов с 200 сначала до 100 с небольшим, а затем и до 65. Но я понимал, что это ещё не предел и есть к чему стремиться, поэтому решил перейти к использованию оффлайнового <a href="http://www.whatisrss.com/">RSS</a>-<a href="http://en.wikipedia.org/wiki/RSS_Reader">клиента</a>. </p>
-<p>Для этого я экспортировал <a href="http://www.opml.org/">OPML</a>-файл с подписками из <a href="http://www.google.com/reader/view/">Google Reader</a>, удалил все ленты (к сожалению, <a href="http://www.google.com/support/forum/p/reader/thread?tid=53c0b347fa8cd843&hl=en">удалить аккаунт</a> на <a href="http://www.google.com/reader/view/">Google Reader</a> невозможно, только полностью Google Account) и импортировал на <a href="http://userbase.kde.org/Akregator">Akregator</a> на домашней машинке. Это помогло мне аккумулировать все чтения ленты новостей в один временной промежуток - вечером, дома.</p>
-<p>Но, как оказалось, ещё есть к чему стремиться и гугление на просторах сети дало свои результаты: <a href="http://www.proginosko.com/leechblock.html"><strong>LeechBlock</strong></a>.</p>
-<p>LeechBlock это расширение для Mozilla Firefox, которое позволяет блокировать отдельные сайты на различные промежутки времени.</p>
-<p>Собственно, начав им пользоваться, я понял, что это именно то, что мне нужно:</p>
-<p> <a href="http://picasaweb.google.com/lh/photo/GiOXKIEw3fz0uoNMZxGTlg?authkey=Gv1sRgCOCWw8r8gI-DRQ&feat=embedwebsite"><img src="http://lh6.ggpht.com/_y8p0_dtMJ38/S56FpVJKVHI/AAAAAAAAA8Q/e6hTfBRPkRo/s800/leechblock.png" title="Leechblock Settings UI" alt="Leechblock Settings UI" /></a></p>
-<p> Возможности данного расширения следующие: </p>
-<ol><li>Блокировка сайтов различные периоды времени</li>
-<li>Блокировка сайтов по временному диапазону, в том числе по дням недели.</li>
-<li>Поддержка нескольких наборов сайтов для блокировки</li>
-<li>Возможность быстрого добавления сайта в список для блокировки </li>
-</ol>
-<p>Конечно, данное расширение не является панацеей, его нужно использовать в комплексе с другими средствами.</p></div>
+Spring Roo создаст нам следующие файлы:
+
+<ul><li><span style="font-weight: bold;">Action.java</span>
+Класс содержит только полезную с точки зрения назначения класса информацию. По сути, то, что вводит разработчик в консоль Roo аккумулируется здесь. Весь дополнительный код разносится по другим классам.
+<pre class="brush: java">
+@Entity //1
+@RooJavaBean //2
+@RooToString //3
+@RooEntity(finders = { "findActionsByName" }) //4
+public class Action {
+
+@NotNull
+@Size(min = 1, max = 80)
+private String name;
+
+
+@Size(max = 1024)
+private String description;
+}
+</pre>
+1) Класс является JPA-сущностью.
+2) Аннотация @RooJavaBean говорит, что этот класс - обычный Java-бин.
+3) Аннотация @RooToString говорит, что у этого класса есть перегруженный метод toString().
+4) Аннотация @RooEntity говорит что класс является JPA-сущностью.
+</li><li><span style="font-weight: bold;">Action_Roo_Configurable.aj</span>
+Данный аспект говорит, что класс Action является конфигурируемым через Spring.
+<pre class="brush: java">
+privileged aspect Action_Roo_Configurable {
+declare @type: Action: @org.springframework.beans.factory.annotation.Configurable;
+}
+</pre></li><li><span style="font-weight: bold;">Action_Roo_Entity.aj</span>
+В данном классе собраны все методы DAO для работы с классом Action.
+<pre class="brush: java">
+package org.academ.uthark.research.roo.domain;
+
+privileged aspect Action_Roo_Entity {
+
+@javax.persistence.PersistenceContext
+transient javax.persistence.EntityManager Action.entityManager;
+
+@javax.persistence.Id
+@javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO)
+@javax.persistence.Column(name = "id")
+private java.lang.Long Action.id;
+
+@javax.persistence.Version
+@javax.persistence.Column(name = "version")
+private java.lang.Integer Action.version;
+
+public java.lang.Long Action.getId() {
+return this.id;
+}
+
+public void Action.setId(java.lang.Long id) {
+this.id = id;
+}
+
+public java.lang.Integer Action.getVersion() {
+return this.version;
+}
+
+public void Action.setVersion(java.lang.Integer version) {
+this.version = version;
+}
+
+@org.springframework.transaction.annotation.Transactional
+public void Action.persist() {
+if (this.entityManager == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
+this.entityManager.persist(this);
+}
+
+@org.springframework.transaction.annotation.Transactional
+public void Action.remove() {
+if (this.entityManager == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
+this.entityManager.remove(this);
+}
+
+@org.springframework.transaction.annotation.Transactional
+public void Action.flush() {
+if (this.entityManager == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
+this.entityManager.flush();
+}
+
+@org.springframework.transaction.annotation.Transactional
+public void Action.merge() {
+if (this.entityManager == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
+Action merged = this.entityManager.merge(this);
+this.entityManager.flush();
+this.id = merged.getId();
+}
+
+public static long Action.countActions() {
+return (Long) new Action().entityManager.createQuery("select count(o) from Action o").getSingleResult();
+}
+
+public static java.util.List<org.academ.uthark.research.roo.domain.action> Action.findAllActions() {
+return new Action().entityManager.createQuery("select o from Action o").getResultList();
+}
+
+public static org.academ.uthark.research.roo.domain.Action Action.findAction(java.lang.Long id) {
+if (id == null) throw new IllegalArgumentException("An identifier is required to retrieve an instance of Action");
+return new Action().entityManager.find(Action.class, id);
+}
+
+public static java.util.List<org.academ.uthark.research.roo.domain.action> Action.findActionEntries(int firstResult, int maxResults) {
+return new Action().entityManager.createQuery("select o from Action o").setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+}
+
+}
+</org.academ.uthark.research.roo.domain.action></org.academ.uthark.research.roo.domain.action></pre>
+Как легко видеть, этот аспект добавляет классу Action CRUD-методы, поля id и version.
+</li><li><span style="font-weight: bold;">Action_Roo_Finder.aj</span>
+Этот аспект аккумулирует все finder-методы, созданные через консоль Spring Roo.
+<pre class="brush: java">privileged aspect Action_Roo_Finder {
+
+public static javax.persistence.Query Action.findActionsByName(java.lang.String name) {
+if (name == null) throw new IllegalArgumentException("The name argument is required");
+javax.persistence.Query q = new Action().entityManager.createQuery("FROM Action AS action WHERE action.name = :name");
+q.setParameter("name", name);
+return q;
+}
+
+}
+</pre></li><li><span style="font-weight: bold;">Action_Roo_JavaBean.aj</span>
+Для уменьшения загромождения кода ненужными методами для доступа к полям Spring Roo выносит их в отдельный аспект.
+<pre class="brush: java">
+privileged aspect Action_Roo_JavaBean {
+
+public java.lang.String Action.getName() {
+return this.name;
+}
+
+public void Action.setName(java.lang.String name) {
+this.name = name;
+}
+
+public java.lang.String Action.getDescription() {
+return this.description;
+}
+
+public void Action.setDescription(java.lang.String description) {
+this.description = description;
+}
+
+}
+</pre></li><li>Action_Roo_Plural.aj
+В данном аспекте можно определить, как созданная сущность выглядит во множественном числе.
+<pre class="brush: java">
+package org.academ.uthark.research.roo.domain;
+
+privileged aspect Action_Roo_JavaBean {
+
+public java.lang.String Action.getName() {
+return this.name;
+}
+
+public void Action.setName(java.lang.String name) {
+this.name = name;
+}
+
+public java.lang.String Action.getDescription() {
+return this.description;
+}
+
+public void Action.setDescription(java.lang.String description) {
+this.description = description;
+}
+
+}
+
+</pre></li><li><span style="font-weight: bold;">Action_Roo_ToString.aj</span>
+Аспект, переопределяющий toString()
+<pre class="brush: java">
+privileged aspect Action_Roo_ToString {
+
+public java.lang.String Action.toString() {
+StringBuilder sb = new StringBuilder();
+sb.append("id: ").append(getId()).append(", ");
+sb.append("version: ").append(getVersion()).append(", ");
+sb.append("name: ").append(getName()).append(", ");
+sb.append("description: ").append(getDescription()).append(", ");
+return sb.toString();
+}
+
+}
+
+</pre></li><li><span style="font-weight: bold;">ActionEditor.java</span>
+Кроме того, при создании контроллеров для работы дополнительно создается ActionEditor
+<pre class="brush: java">
+import org.springframework.roo.addon.property.editor.RooEditor;
+
+@RooEditor(providePropertyEditorFor = Action.class)
+public class ActionEditor {
+}
+
+</pre></li><li><span style="font-weight: bold;">ActionEditor_Roo_Editor.aj</span>
+Аспект с реализацией.
+<pre class="brush: java">
+privileged aspect ActionEditor_Roo_Editor {
+
+declare parents: ActionEditor implements java.beans.PropertyEditorSupport;
+
+org.springframework.beans.SimpleTypeConverter ActionEditor.typeConverter = new org.springframework.beans.SimpleTypeConverter();
+
+public java.lang.String ActionEditor.getAsText() {
+ Object obj = getValue(); 
+ if (obj == null) { 
+     return null;     
+ } 
+ return (String) typeConverter.convertIfNecessary(((org.academ.uthark.research.roo.domain.Action) obj).getId() , String.class); 
+}
+
+public void ActionEditor.setAsText(java.lang.String text) {
+ if (text == null || "".equals(text)) { 
+     setValue(null);     
+     return;     
+ } 
+
+ java.lang.Long identifier = (java.lang.Long) typeConverter.convertIfNecessary(text, java.lang.Long.class); 
+ if (identifier == null) { 
+     setValue(null);     
+     return;     
+ } 
+
+ setValue(org.academ.uthark.research.roo.domain.Action.findAction(identifier)); 
+}
+
+}
+
+</pre></li></ul>
+
+<h3>А где же equals()/hashCode()?</h3>
+Легко заметить, что Spring Roo забыл ещё про один важный аспект - про реализацию методов equals() и hashCode(). К релизу, я думаю, эта недоработка будет исправлена.
+
+Как видно, код скрипта для генерации весьма и весьма лаконичен, а получающий java-код наглядно показывает всю многословность языка Java.
+
+<h3>Apache Maven integration</h3>
+Spring Roo при создании проекта создаёт pom.xml, хорошо знакомый всем работавшим с maven. Кроме того, консоль позволяет добавлять и удалять зависимости, не правя файл вручную.
+
+<h3>Расширения</h3>
+Spring Roo поддерживает расширения, что ещё больше даёт возможностей. На сегодняшний день написано уже как минимум одно расширение - <a href="http://jira.springframework.org/browse/ROO-41">Sitemesh Addon</a>.
+
+<h3>Критика</h3>
+В первую очередь критика относится к текущему релизу, а так как он ещё в глубокой альфе, то все может измениться к официальному релизу.
+<ol><li>Нет возможности подставлять свои JSP-шаблоны для сгенерированного CRUD</li><li>В сгенерированном коде есть ошибки, например, если заводим поле типа флоат, создаём контроллер, то при редактировании сущности возможна следующая ошибка: вводим достаточно большое число (1234567), сохраняем сущность, открываем на редактирование. В поле, хранящем флоат получаем 1.23456E7, и после этого невозможно сохранить сущность, так как получаем ошибку валидации.</li><li>Ещё одна ошибка связана с отношением один ко многим. Создаём пару сущностей с таким отношением. Запускаем, пробуем создать сущность. Roo умничает, если нет связанных сущностей в БД, то он даже не генерирует &lt;select&gt;
+</li></ol><h3>Вывод</h3>В целом, Spring Roo достойное начинание, но пользоваться им в Production можно будет ещё нескоро.</div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>ziftech</div>
+<div class='content'>
+Фреймворк интересный, буду следить за развитием, по возможности применять.<br /><br />Вам спасибо за разъяснения))</div>
+</div>
+</div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/02/spring-roo/">Введение в Spring Roo</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-02T13:06:00-04:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<a href="http://blog.springsource.com/2009/05/01/roo-part-1/">Недавно</a> компания <a href="http://springsource.com/">Spring Source</a> презентовала новый продукт - <a href="http://www.springsource.org/roo">Spring Roo</a>. <a href="http://jira.springframework.org/browse/ROO-1">Цель проекта</a> - повысить продуктивность Java-разработчиков. <a href="http://stsmedia.net/introducing-spring-roo/">Почитав</a> <a href="http://stsmedia.net/introducing-spring-roo-part-2-security-jms-email-support/">обзоры</a>, а также <a href="http://blog.springsource.com/2009/05/27/roo-part-2/">потрогав его руками</a> можно сделать вывод о том, что это, в некотором виде, альтернатива <a href="http://appfuse.org/">AppFuse</a> и <a href="http://grails.codehaus.org/">Grails</a>.
+
+<h2>Описание Spring Roo</h2><li>100% программирование на Java, предлагающее разработчикам известную, развитую и популярную платформу разработки.</li><li>Прозрачные, надёжные и продуктивные сервисы среды разработки, такие как помощник кода, отладчики, визуальные отчёты об ошибка и т.д.</li><li>Экстремально эффективная производительность во время выполнения, безопасность типов и отсутствие зависимостей на Roo во время выполнения.</li><li>Автоматическая архитектура с использование лучших практик Spring Framework 3
+</li><li>Структура проекта основана на <a href="http://maven.apache.org/">Maven2</a>.</li><li>Работа с БД основана на <a href="http://java.sun.com/javaee/technologies/entapps/persistence.jsp">JPA</a> (например, через <a href="http://www.hibernate.org/">Hibernate</a>), 100% совместимость с JPA и переносимость реализации.</li><li>Встроенная поддержка конфигурирования баз данных, с автоматической настройкой JDBC для большинства популярных баз данных.</li><li>Прозрачная поддержка внедрения зависимостей (dependency injection) и методов сохранения для всех сущностей, включая полученные через JPA.</li><li>Поддержка валидации бинов (<a href="http://jcp.org/en/jsr/detail?id=303">JSR 303</a>), включая распространение ограничений вплость до DDL базы данных.</li><li>Автоматические интеграционные тесты на <a href="http://junit.org">JUnit</a>, которые создаются на базе возможностей интеграционного тестирования Spring Framework.</li><li>Автоматическая поддержка REST на уровне бэкэнда.</li><li>Автоматизированные тесты для веб-слоя с использованием <a href="http://seleniumhq.org/">Selenium</a>.</li><li>Динамическое создание finder-методов на JPA QL для сущностей безо всякого кодирования.</li><li>Интеграция <a href="http://static.springsource.org/spring-security/site/">Spring Security</a>, включая безопасность адресов с установкой в одну строку (&#8220;install security&#8221;)
+</li><li>Поддеркжа <a href="http://www.springsource.org/webflow">Spring Web Flow</a> одной командой (&#8220;install web flow&#8221;)</li><li>Поддержка мгновенной отправки почтовых сообщение - даже через удалённые SMTP сервера, как GMail.</li><li>Встроенная поддержка конфигурирования <a href="http://logging.apache.org/log4j">log4j</a></li><li>Использование URL rewriting которое позволяет оставаться ссылкам чистыми и поддерживающими REST.
+</li><li>Лёгкое ручное создание веб-контроллеров</li><li>Поддержка полного цикла жизни приложения с сохранением высокой продуктивности.</li><li>Использование встроенного сервлет контейнера <a href="http://tomcat.apache.org">Tomcat</a>.</li><li>Полная интеграция с <a href="http://eclipse.org">Eclipse</a> и <a href="http://www.springsource.com/products/sts">SpringSource Tool Suite</a></li><li>Лёгкая в использовании, с поддержка автодополнения, подсказок и контекста командная строка</li><li>Поддержка автоматизации через скрипты</li></div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>liosha</div>
+<div class='content'>
+Поддерживаю оба коммента.</div>
+</div>
+<div class='comment'>
+<div class='author'>VolchaRa</div>
+<div class='content'>
+чертов эклипс)) а как же нетбинс?</div>
+</div>
+<div class='comment'>
+<div class='author'>starodubtsevss</div>
+<div class='content'>
+кульно, надо попробовать заюзать однозначно</div>
+</div>
+</div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/02/apache-ant-metro/">Apache Ant и Metro</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-02T12:31:00-04:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Столкнулся с такой проблемой - в некоторых случаях приложение, собранное антом не работает. Конкретно - не работает десереализация запросов на веб-сервис. Получаемый запрос содержит <tt>null</tt> в значениях полей.
+
+Опытным путём было выяснено, что на это влияет используемая версия Java. Под 1.5 работает корректно, под 1.6 - не работает. Нашли <a href="https://jaxb.dev.java.net/guide/Runtime_Errors.html#Illegal_class_modifiers_for_package_info__0x1600">ошибку в метро</a>, связанную именно с версией JDK и на этом успокоились. Но было одно исключение из правил. У одного из разработчиков под 1.5 тоже не работало.
+
+Как выяснилось позже, виноват был во всё Ant.
+Metro создавал файл package-info.java, в котором было примерно следующее содержание:
+
+<code>
+@javax.xml.bind.annotation.XmlSchema(namespace = "http://z.y.x.com", elementFormDefault=javax.xml.bind.annotation.XmlNsForm.UNQUALIFIED)
+package com.x.y.z;
+</code>
+
+Ант, в свою очередь, должен был этот файл компилировать. А <a href="http://ant.apache.org/manual/CoreTasks/javac.html">в реальности этого не происходило</a>, поэтому Metro не мог корректно отобразить XML-запрос на объекты доменной области.
+
+Решение было немного кривым, но при этом поразительно простым - принудительный вызов javac на файлах package-info.java.</div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/05/30/protected/">Использование модификатора Protected на полях в базовом классе</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-30T12:45:00-04:00" pubdate data-updated="true">May 30<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Недавно задали мне вопрос - что я думаю об использовании модификатора protected для членов базового класса? Под этим вопросом кроются более серьёзные вещи.
+
+Например, любой член класса, имеющий модификатор protected, расширяет интерфейс базового класса для подклассов - подклассы имеют доступ ко всем protected и public методам этого поля. Иногда это сделано специально, например, для того, чтобы подклассы могли иметь доступ к какой-либо функциональности. Однако, если подкласс будет использовать protected поля неправильно (например, он может установить его в null, нарушив, таким образом, поведение базового класса), то это не принесёт пользы.
+
+Поразмыслив над вопросом я пришел к следующему, достаточно логичному и широкоизвестному выводу - необходимо давать наиболее закрытый доступ, какой можно. То есть, если можно объявить член класса как private, то необходимо сделать его private. Если в подклассах необходим доступ к члену класса, то необходимо проанализировать, какие методы нужны в подклассах и открыть только их через делегирование. Если набор методов заранее неизвестен, то можно сделать protected getter для поля.</div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/05/26/fixed-price-2/">Сферический программист в вакууме и абстрактное понятие качества кода в условиях Fixed-Price проектов (часть 2)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-05-26T14:26:00-04:00" pubdate data-updated="true">May 26<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Причин для написания плохого кода может быть несколько. Некоторые из них лежат на поверхности:
+
+<ol><li>  Отсутствие опыта</li><li>Невнимательность</li><li>  Некомпетентность</li><li>  Немотивированность
+</li></ol><span style="font-weight: bold;">Отсутствие опыта</span> - казалось бы, самая простая причина проблемы; решение проблемы выглядит очевидным - со временем, разработчик будет писать код лучше. Но это ошибочное мнение. Бывает, люди с опытом более 5-10 лет разработки коммерческих приложений пишут настолько плохой код, что иногда кажется, что они это нарочно. Решать эту проблему необходимо постоянным указанием на ошибки. Но это решит только часть проблемы - человек узнает, как писать код в конкретных ситуациях. Но не всякий разработчик (к сожалению, по опыту знаю) сможет экстраполировать знание на все подобные проблемы способ решения.
+
+<span style="font-weight: bold;">Невнимательность</span> - через это проходят почти все. Почти каждый сможет вспомнить случай, когда не был сделан <tt>svn add</tt> перед коммитом. Эта проблема решается обычно самомотивацией человека на хороший код. Впрочем, команда и сервер непрерывной интеграции тоже прилагают усилия для того, чтобы человек проверил ещё раз то, что он хочет выложить в репозиторий.
+
+<span style="font-weight: bold;">Некомпетентность</span> - эта причина пересекается с недостатком опыта, но, при этом отлична от неё. Адекватный разработчик, на мой взгляд, должен стремиться к компетентности в той области, в которой он работает. Но этого, к сожалению часто не происходит. На мой взгляд это из-за следующей причины.
+
+<span style="font-weight: bold;">Немотивированность</span>. Самое большое зло, которое может быть. Причины недостаточной мотивации разработчика могут быть весьма разнообразными - не выспался, дома проблемы, зарплата низкая, задача скучная и неинтересная. Список можно продолжать до бесконечности. Решение этой проблемы кроется, в первую очередь, в качественном управлении. Менеджер должен быть тонким и хорошим психологом, чтобы видеть или чувствовать все эти проблемы и предотвращать их.</div>
 
 
 <h2>Comments</h2>
@@ -772,393 +1683,14 @@ config.macros.faviconLink.handler = function(place, macroName,  params, wikifier
 <div class='comment'>
 <div class='author'>uthark</div>
 <div class='content'>
-@see to learn Это вполне решаемо с помощью этого же плагина. :)<br /><br /><br /><a href="http://picasaweb.google.com/lh/photo/SnNiIIES_ZbHcYqrzg5gPA?authkey=Gv1sRgCOCWw8r8gI-DRQ&amp;feat=embedwebsite" rel="nofollow">Скриншот с примером настройки</a><br /><br />Общий смысл:<br />1. блокируем все сайты (*)<br />2. Добавляем исключения через (+)</div>
+Увы, далеко не всякая это делает. Например, ни Eclipse, ни Jetbrains IDEA не предлагают тебе этого. Хотя и могут показать файлы, которые не были добавлены. В случае с idea у неё есть ещё один неприятный момент - не показывает в момент коммита библиотеки, которые не были добавлены. Пару раз натыкался на такую проблему. Правда, сервер непрерывной интеграции быстро нотифицировал о ней. :)</div>
 </div>
 <div class='comment'>
-<div class='author'>see to learn</div>
+<div class='author'>Ivan</div>
 <div class='content'>
-Мне бы такую примочку, которая показывает сайты только из белого списка.</div>
+&gt;Почти каждый сможет вспомнить случай, <br />&gt;когда не был сделан svn add перед коммитом. <br /><br />хорошая среда разработки предупреждает разработчика о том, что он хочет сделать хуйню %)</div>
 </div>
 </div>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/02/06/grails/">Список для проверки при оптимизации Grails приложений</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-02-06T12:31:00-05:00" pubdate data-updated="true">Feb 6<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-Выкладываю ниже список задач, которые нужно/можно выполнить для оптимизации приложения, написанного на Grails, может кому пригодится.<br />
-<h4>Тестирование проведённых оптимизаций </h4>Первым делом необходимо разработать критерии проверки, которые позволят оценить эффективность проведённых оптимизаций.<br />
-<ol><li>Установить <a href="http://code.google.com/p/javamelody/">Java Melody</a> <a href="http://www.grails.org/plugin/grails-melody">плагин</a> для Grails для проведения анализа. <br />
-</li>
-<li>Разработать скрипты для проведения нагрузочного тестирования.<br />
-</li>
-<li>Прогнать скрипты.<br />
-</li>
-<li>Проанализировать результаты Java Melody, выявить узкие места, произвести нужные оптимизации.</li>
-</ol><h4>Общие оптимизации </h4>Очень часто обновление до последней версии используемых библиотек попутно улучшает производительность.<br />
-<ol><li>Обновить Java до последней версии<br />
-</li>
-<li>Обновить Groovy до последней версии.<br />
-</li>
-<li>Обновить Grails до последней версии.<br />
-</li>
-<li>Обновить jQuery до последней версии.<br />
-</li>
-<li>Оптимизировать настройки виртуальной машины Java (например, -server -Xmx270m -Xms270m -XX:MaxPermSize=80m -Xverify:none -XX:+UseParallelGC -XX:+UseParallelOldGC -XX:+UseAdaptiveSizePolicy -XX:SurvivorRatio=4 -XX:TargetSurvivorRatio=90 -XX:MaxTenuringThreshold=31 -XX:+AggressiveOpts)<br />
-a. http://java.sun.com/javase/technologies/hotspot/gc/gc_tuning_6.html<br />
-Вообще, по оптимизации JVM написаны целые книги, так что не буду здесь останавливаться.<br />
-</li>
-</ol><h4>Оптимизация клиентской части </h4><ol><li>Настроить <a href="http://tomcat.apache.org/tomcat-5.5-doc/config/context.html">кэширование статических ресурсов</a> в Томкате.<br />
-</li>
-<li>Настроить <a href="http://tomcat.apache.org/tomcat-5.5-doc/config/http.html">сжатие статических ресурсов</a> в Томкате.<br />
-</li>
-<li>(поставить прокси на nginx для кэширования статических ресурсов ?)<br />
-</li>
-<li>Установить плагины для Firebug, которые оценят производительность клиентской части.<br />
-<ul><li><a href="http://code.google.com/speed/page-speed">PageSpeed</a> </li>
-<li><a href="http://developer.yahoo.com/yslow/">YSlow</a> </li>
-</ul></li>
-<li>Проанализировать страницы веб-сайта с их помощью<br />
-</li>
-<li>Провести предлагаемые оптимизации.<br />
-</li>
-</ol><h4>Оптимизация клиентской части приложений, написанных на Grails </h4><ol><li>Установить плагин <a href="http://www.grails.org/plugin/ui-performance">UI Performance</a><br />
-</li>
-<li>Провести оптимизацию с использованием плагина UI Performance <br />
-</li>
-</ol><h4>Оптимизация базы данных </h4><ol><li>Оптимизировать производительность сервера базы данных (SQL Server) <br />
-a. http://www.sql-server-performance.com/tips/all_main.aspx <br />
-a. http://msdn.microsoft.com/en-us/library/ms998577.aspx<br />
-</li>
-<li>Проверить наличие индексов в базе данных, добавить необходимые<br />
-</li>
-<li>Найти неоптимальные запросы в БД, оптимизировать</li>
-</ol><h4>Оптимизация работы с базой данных </h4><ol><li>Обновить версию JDBC-драйвера<br />
-</li>
-<li>Настроить кэширование в Hibernate.<br />
-Ресурсов в сети предостаточно, навскидку <a href="http://docs.jboss.org/hibernate/core/3.3/reference/en/html/performance.html">вот</a> <a href="http://www.devx.com/dbzone/Article/29685/1954"> парочка</a>.<br />
-</li>
-</ol><h4>Оптимизация серверной части приложения </h4><ol><li>Произвести профилирование приложения (использовать Visual VM, YJP Profiler), найти узкие места и оптимизировать их.</li>
-</ol><h4>Оптимизация серверной части приложения (опционально) </h4><ol><li>Установить плагин <a href="http://www.grails.org/plugin/perf4j">Perf4J</a> для грэйлза <br />
-</li>
-<li>Добавить необходимые счётчики в код<br />
-</li>
-<li>Прогнать нагрузочные тесты, найти узкие места, оптимизировать.</li>
-</ol><h4>Заключение</h4>В целом, в данном списке нет ничего нового, это всего лишь компиляция публично доступных материалов. Тем не менее, решил это опубликовать, чтобы сэкономить время другим.</div>
-
-
-<h2>Comments</h2>
-
-
-<div class='comments'>
-<div class='comment'>
-<div class='author'>uthark</div>
-<div class='content'>
-@serger По вашей ссылке достаточно странное сравнение.<br />Остались такие вопросы:<br />1. Какие были настройки JVM?<br />2. Почему не учитывается, что при работе на сервере поведение может изменяться (ограничения по количеству потоков, например)<br />3. Не сказано, сколько раз прогонялся каждый тест.<br />4. Сколько было памяти выделено тестам.<br /><br />У меня для groovy вот такой результат получился:<br />Using 100000 iterations.<br />7.531 sec. - +/- 0.1 секунды, прогонял 10 раз.<br /><br />Тесты гонял на домашней машинке (AMD64 4200, 4GB RAM, Java 1.6.0.16, Groovy 1.6.3. OS: Ubuntu 9.10).</div>
-</div>
-<div class='comment'>
-<div class='author'>serger</div>
-<div class='content'>
-и ещё:<br />http://blog.gramant.ru/2009/10/15/%D0%B0%D0%B1%D1%81%D0%BE%D0%BB%D1%8E%D1%82%D0%BD%D0%BE-%D0%B1%D0%B5%D1%81%D0%BF%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D1%8B%D0%B9-%D1%82%D0%B5%D1%81%D1%82-%E2%84%961-php-vs-groovy/</div>
-</div>
-<div class='comment'>
-<div class='author'>uthark</div>
-<div class='content'>
-@serger Да, про груви++ я знаю. Но ведь это костыль. :)</div>
-</div>
-<div class='comment'>
-<div class='author'>serger</div>
-<div class='content'>
-Да, тяжко, но подвижки есть&#8230;<br />http://stronglytypedblog.blogspot.com/2010/02/java-vs-scala-vs-groovy-vs-groovy.html<br />http://stronglytypedblog.blogspot.com/2010/02/groovy-performance-now-were-talkin.html</div>
-</div>
-<div class='comment'>
-<div class='author'>uthark</div>
-<div class='content'>
-@serger Вообще сравнения производительности показывают, что groovy, на котором написан grails в десятки раз медленнее явы [1], [2]. Но зато добавляются бенефиты динамического языка. Вообще я за Roo, но его ещё рано пускать в production.<br /><br /> [1] http://www.codecommit.com/blog/java/groovys-performance-is-not-subjective<br /> [2] http://groovy.dzone.com/news/groovy-vs-java-performance-jav</div>
-</div>
-<div class='comment'>
-<div class='author'>serger</div>
-<div class='content'>
-А на сколько, по Вашему, медленнее Grails, чем допустим, spring MVC, (если знакомы Roo). И на чём конкретно падает производительность?</div>
-</div>
-</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/02/04/blog-post/">Вложенные транзакции в базах данных</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-02-04T14:20:00-05:00" pubdate data-updated="true">Feb 4<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-Summary: Некоторые особенности вложенных транзакций.<br />
-<br />
-Иногда бывает так, что при обработке запроса необходимо открыть ещё одну транзакцию в рамках текущей транзакции. Это называется вложенной транзакцией. <br />
-<br />
-Очень многие базы данных не поддерживают вложенные транзакции вообще, например, MySQL и Oracle. А те, что поддерживают, делают это на минимальном уровне, например, Sybase поддерживает только псевдовложенные транзакции.<br />
-<br />
-Вложенные транзакции могут быть следующих видов:<br />
-<br />
-<ol><li>Псевдо-вложенные транзакции</li>
-<li>Вложенная субтранзакция</li>
-<li>Вложенная независимая транзакция</li>
-</ol><br />
-<h3>Псевдовложенные транзакции</h3><br />
-Этот тип транзакций поддерживается базой данных Sybase.<br />
-Псевдо-вложенные транзакции позволяют использовать транзакции одна внутри другой, при этом не реализуя механизм вложенных транзакций. Суть состоит в том, что имеется счётчик уровня вложенности транзакций, который увеличивается на 1 при каждом вызове <tt>BEGIN TRANSACTION</tt> и уменьшается на 1 при каждом вызове <tt>COMMIT</tt>. Когда счётчик становится равным 0 происходит коммит всех произведённых изменений.<br />
-<br />
-Если во время проведения транзакции происходит ошибка, то вызывается <tt>ROLLBACK</tt>, но здесь есть загвоздка - что делать с последующими вызовами <tt>BEGIN TRANSACTION</tt>  и <tt>COMMIT</tt>. Оптимальным решением является кидание исключения, но это необходимо отслеживать и учитывать на стадии проектирования и реализации, чтобы не возникло неприятных ситуаций при эксплуатации.<br />
-<br />
-Псевдовложенные транзакции являются самым простым способом реализации вложенных транзакций.<br />
-<br />
-Пример псевдотранзакции для базы данных Sybase:<br />
-<pre class="brush: sql">begin tran
-    select @@trancount
-    /* @@trancount = 1 */
-    begin tran
-        select @@trancount
-        /* @@trancount = 2 */
-        begin tran
-            select @@trancount
-            /* @@trancount = 3 */
-        commit tran
-    commit tran
-commit tran
-select @@trancount
-/* @@ trancount = 0 */
-</pre><br />
-<h3>Вложенная субтранзакция</h3><br />
-Данный вид вложенных транзакций решает проблему с обработкой ошибок при <tt>ROLLBACK</tt>. <br />
-При коммите вложенной транзакции происходит коммит, но он не обладает свойством <tt>Durability</tt> - окончательный результат зависит от результата внешней транзакции - если внешняя транзакция заканчивается успешно, то и результат внутренней транзакции также фиксируется. Если же при фиксации изменений внешней транзакции происходит ошибка, то внутренняя транзакция также откатывается. Кроме того, необходимо обратить внимание на то, что если внутренняя транзакция заканчивается неуспешно, то внешняя транзакция может закончиться успешно, если не выкинуть исключение наружу. Таким образом, для данного вида вложенных транзакций необходимо выкидывать исключение наружу, для того, чтобы прервать и откатить внешнюю транзакцию в случае ошибки.<br />
-<br />
-<h3>Вложенная независимая транзакция</h3>Особенность данного вида вложенных транзакций заключается в том, что после создания вложенной транзакции она является полностью независимой от транзакции, внутри которой она была создана. Её результаты фиксируются и откатываются независимо от внешней транзакции.<br />
-<br />
-<h3>Вложенные транзакции и принципы ACID</h3>Вложенные транзакции выглядят достаточно подозрительными в том смысле, что они могут нарушать принципы ACID: <br />
-1. Вложенная субтранзакция может нарушать принцип <tt>Durability</tt>, так как уже зафиксированные изменения могут откатиться в случае отката внешней транзакции.<br />
-2. Вложенная независимая транзакция может нарушать принципы <tt>Atomicity</tt> и <tt>Consistency</tt> при возникновении ошибок во внешней или вложенной транзакции.<br />
-<br />
-Подробнее о принципах <abbr title="Atomicity, Consistency, Isolation, Durability">ACID</abbr> можно прочитать в <a href="http://atamanenko.blogspot.com/2009/04/blog-post_24.html">этом посте</a>.<br />
-<br />
-<h3>Заключение</h3>Я считаю, что следует избегать ситуаций, когда нужны вложенные транзакции. Кроме того, спецификация Java EE <a href="http://java.sun.com/javaee/6/docs/api/javax/ejb/TransactionAttributeType.html">не поддерживает</a> вложенные транзакции.</div>
-
-
-<h2>Comments</h2>
-
-
-<div class='comments'>
-<div class='comment'>
-<div class='author'>uthark</div>
-<div class='content'>
-@karri На мой взгляд лучше всё же использовать официальную документацию в таких случаях. :) <a href="http://download.oracle.com/docs/html/B10813_01/toc.htm" rel="nofollow">Oracle® Database Quick Installation Guide 10g Release 1 (10.1) for Linux x86</a><br /><br />И ставить, всё же, лучше на поддерживаемый Ораклом дистрибутив, например на Redhat.</div>
-</div>
-<div class='comment'>
-<div class='author'>karri</div>
-<div class='content'>
-Вкратце о себе: в прошлом году окончила университет, пол года работаю тестировщиком (тестирую web-приложения и оракловые формсы для биллнговых систем сотовых операторов). Значения SQl начальные: пишу частые несложные запросы для выборки необходимых тестовых данных, заполняю/удаляю/обновляю данные. Иногда запускаю на низком уровне пакетные методы для проверки работоспособности api-методов. Понимаю более сложные запросы (но правда требуется время, чтобы подумать :)). <br /><br />Есть большое желания поставить, даже ни сколько поставить, а сколько грамотно настроить (!) СУБД Oracle под linux. Linux стоит (являюсь пользователем, не администрирую, к своему стыду), осталось Oracle поставить :) <br /><br />Понимаю, что задача для меня сложная, но оч хочется :) При поверхностном поиске наткнулась на статью http://www.interface.ru/home.asp?artId=17461<br />Что вы об этом думаете? С чего бы вы посоветовали мне начать?</div>
-</div>
-<div class='comment'>
-<div class='author'>uthark</div>
-<div class='content'>
-@karri Извините, я не нарочно. :)<br />С Oracle тоже работаю. Проконсультировать могу попробовать. :)</div>
-</div>
-<div class='comment'>
-<div class='author'>karri</div>
-<div class='content'>
-А почему karrY?<br /><br />А вы с Oracle работаете ? Проконсультироваться с вами можно?</div>
-</div>
-<div class='comment'>
-<div class='author'>karri</div>
-<div class='content'>
-This comment has been removed by the author.</div>
-</div>
-<div class='comment'>
-<div class='author'>uthark</div>
-<div class='content'>
-@karry Да, конечно. Интересно. )</div>
-</div>
-<div class='comment'>
-<div class='author'>karri</div>
-<div class='content'>
-Ух ты :) Класс! Нравится?</div>
-</div>
-<div class='comment'>
-<div class='author'>uthark</div>
-<div class='content'>
-@karry Начинал работу Java-разработчиком, сейчас архитектором работаю.</div>
-</div>
-<div class='comment'>
-<div class='author'>karri</div>
-<div class='content'>
-А вы на java пишете?</div>
-</div>
-</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/12/14/autofs-nfs/">Настройка Autofs для монтирования NFS-ресурсов</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-12-14T12:14:00-05:00" pubdate data-updated="true">Dec 14<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-Summary: В данной заметке описана настройка autofs для доступа к сетевым ресурсам, доступным по NFS.<br />
-<br />
-Последние несколько лет (с тех пор, как количество компьютеров дома стало больше одного) возникла проблема беспрепятственного доступа к данным, хранящимся на одном компьютере с другого.<br />
-<br />
-Было найдено самое простое решение - <a href="http://en.wikipedia.org/wiki/Network_File_System_(protocol)">NFS</a>.<br />
-<br />
-Как выяснилось позже это было не самое удачное решение - ноутбук не всегда находился дома, а, значит, домашние сетевые ресурсы не всегда доступны. Соответственно, при загрузке операционной системы происходили задержки из-за поиска компьютера с сетевыми ресурсами. Не очень удобно, но жить можно.<br />
-<br />
-Решил окончательно разобраться с этим и начал искать решение. Оно оказалось на поверхности и затронуло только клиента ресурсов, то есть ноутбук. Решение называется <tt><a href="http://www.autofs.org/">autofs</a></tt>.<br />
-<br />
-1. Устанавливаем <tt>autofs</tt>.<br />
-<pre class="brush: bash">sudo aptitude install autofs5 nfs-common
-</pre><br />
-2. Производим настройку.<br />
-Редактируем файл <tt>/etc/auto.master</tt>. Расскомментируем строку, содержащую строки <tt>/net -hosts</tt>:<br />
-<pre class="brush: bash">/net -hosts
-+auto.master
-</pre><br />
-3. В файл <tt><a href="http://en.wikipedia.org/wiki/Hosts_file">/etc/hosts</a></tt> можно внести адреса серверов с NFS-ресурсами (для того, чтобы избежать <a href="http://en.wikipedia.org/wiki/Domain_Name_System">DNS</a>-запросов). В моём случае:<br />
-<pre class="brush: plain">192.168.18.1 server
-</pre><br />
-4. Перезапускаем сервис <tt>autofs</tt><br />
-<pre class="brush: plain">sudo service autofs restart
-</pre><br />
-5. Теперь открываем в файловом браузер адрес <tt>/net/server</tt> и видим его сетевые ресурсы, доступные для данного клиента.<br />
-<br />
-<div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/_y8p0_dtMJ38/SyZxDikTDxI/AAAAAAAAAvk/LTr3KsGATGk/s1600-h/Screenshot-media+-+administrilo+de+dosieroj.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/_y8p0_dtMJ38/SyZxDikTDxI/AAAAAAAAAvk/LTr3KsGATGk/s320/Screenshot-media+-+administrilo+de+dosieroj.png" /></a><br />
-</div><br />
-6. Пользуемся.</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/12/08/delicious-google-chrome/">Расширение для работы с Delicious доступно на сайте расширений Google Chrome</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-12-08T12:43:00-05:00" pubdate data-updated="true">Dec 8<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-Итак, <a href="code.google.com/p/chromium-delicious-extension/">расширение для работы с Delicious</a> доступно на <a href="https://chrome.google.com/extensions">сайте расширений Google Chrome</a>.<br />
-<br />
-<a href="https://chrome.google.com/extensions/detail/anlkjppofaicbdanhhpbbogknfodfhfm/">Посмотреть и установить</a><br />
-<br />
-Новые версии расширения буду закачить на этот сайт.</div>
 
 </div>
   
@@ -1201,6 +1733,14 @@ Summary: В данной заметке описана настройка autofs
     
       <li class="post">
         <a href="/blog/2013/06/28/jaxrs-spring-autowiring/">@Autowired JAX-RS Client API</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/28/jaxrs/">JAX-RS Client API</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/06/19/autowiring-factorybean/">@Autowiring EJBs with Spring</a>
       </li>
     
   </ul>
@@ -1281,7 +1821,16 @@ Summary: В данной заметке описана настройка autofs
 }(document, 'script', 'facebook-jssdk'));</script>
 
 
-Included file 'google_plus_one.html' not found in _includes directory
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
 
   <script type="text/javascript">
     (function(){
