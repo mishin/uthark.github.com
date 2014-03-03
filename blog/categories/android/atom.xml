@@ -4,7 +4,7 @@
   <title><![CDATA[Category: android | Software Development and related activities]]></title>
   <link href="http://uthark.github.com/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-03-02T23:36:50-05:00</updated>
+  <updated>2014-03-03T00:33:57-05:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,25 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Lyne Game]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/02/lyne-game/"/>
+    <updated>2014-03-02T21:51:00-05:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/02/lyne-game</id>
+    <content type="html"><![CDATA[<p>Found very addictive and cool game: Lyne.</p>
+
+<p>The goal of the game is to connect all dots on the playboard. Worth every cent.</p>
+
+<div class="pb-app-box" data-theme="dark" data-lang="en"><a href="http://playboard.me/android/apps/com.thomasbowker.lynerelease">LYNE  (Playboard)</a> | <a href="https://play.google.com/store/apps/details?id=com.thomasbowker.lynerelease&hl=en" rel="nofollow" target="_blank">LYNE (Play Store)</a></div>
+
+
+<script type="text/javascript" src="http://uthark.github.com//playboard.me/widgets/pb-app-box/1/pb_load_app_box.js"></script>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Сокращаем ссылки на андроиде]]></title>

@@ -9,8 +9,8 @@
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="Выкладываю ниже список задач, которые нужно/можно выполнить для оптимизации приложения, написанного на Grails, может кому пригодится.
-Тестирование &hellip;">
+  <meta name="description" content="Summary: Мой опыт борьбы с &quot;убийцами производительности&quot;.
+Постановка проблемы Иногда бывает так, что хочется отвлечься от работы, от &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -80,6 +80,98 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/03/16/blog-post/">Борьба с убийцами производительности</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-16T11:52:00-04:00" pubdate data-updated="true">Mar 16<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p><strong>Summary</strong>: Мой опыт борьбы с &quot;убийцами производительности&quot;.</p>
+<h3>Постановка проблемы</h3>
+<p> Иногда бывает так, что хочется отвлечься от работы, от поставленной задачи на какую-нибудь фигню, лишь бы не заниматься текущей задачей. У меня это чаще всего сводилось к тому, что я начинал читать что-нибудь в сети (<a href="http://www.google.com/reader/view/" target="_blank">Google Reader</a>, <a href="http://habrahabr.ru/">Habrahabr</a>, <a href="http://www.linux.org.ru/">LOR</a>, etc). </p>
+<p>Истоки проблемы могут быть абсолютно разными, например: </p>
+<ol><li>Долгий запуск среды разработки </li>
+<li>Долгая сборка проекта</li>
+<li>Нудная задача</li>
+<li>Неинтересная задача</li>
+</ol>
+<p>Все эти причины спокойно могут приводить к потере производительности, причём неявным образом, например - &quot;А посижу пока я на хабре, пока полная сборка идёт&quot;, в итоге после 20 минут обнаруживается, что сборка закончилась уже 15 минут назад.</p>
+<p>Так как у меня тайм-киллер вполне простой - интернет, то и решение вполне простое.</p>
+<p>Вот список действий, что я сделал:</p>
+<ol><li>Удалил быстрые браузеры, теперь у меня только <a href="http://www.mozilla.com/firefox">Mozilla Firefox</a> под Linux и страшный <a href="http://www.microsoft.com/windows/ie/ie6/downloads/default.mspx">Internet Explorer 6.0 под Windows</a>.</li>
+<li>Забанил сайты которые не нужны для работы, но на которых я провожу много времени.</li>
+</ol>
+<p>Сначала я сделал радикальный бан - внёс в <tt>/etc/hosts</tt> эти сайты:</p>
+<pre class="brush: bash">
+127.0.0.1 www.linux.org.ru linux.org.ru
+127.0.0.1 www.habrahabr.ru habrahabr.ru
+127.0.0.1 www.lorquotes.ru lorquotes.ru
+</pre>
+<p> Но потом обнаружилось, что есть ещё <a href="http://www.google.com/reader/view/">Google Reader</a>, который также отнимает много времени (у меня было до 200 подписок, что давало до 300 новых статей в сутки). Проблему с <a href="http://www.google.com/reader/view/">Google Reader</a> я решал поэтапно: </p>
+<ol><li>Почистил список лент от юмора, который обновляется практически ежедневно, является пожирателем трафика и времени.</li>
+<li>После этого я почистил список лент от лент, которые достаточно интересные, но при этом без них можно спокойно обходиться (Например, <a href="http://aseigo.blogspot.com/">блог Аарона Сейго</a>, одного из главных разработчиков <a href="http://www.kde.org/">KDE</a>)</li>
+</ol>
+<p>Вышеперечисленные действия помогли мне сократить список фидов с 200 сначала до 100 с небольшим, а затем и до 65. Но я понимал, что это ещё не предел и есть к чему стремиться, поэтому решил перейти к использованию оффлайнового <a href="http://www.whatisrss.com/">RSS</a>-<a href="http://en.wikipedia.org/wiki/RSS_Reader">клиента</a>. </p>
+<p>Для этого я экспортировал <a href="http://www.opml.org/">OPML</a>-файл с подписками из <a href="http://www.google.com/reader/view/">Google Reader</a>, удалил все ленты (к сожалению, <a href="http://www.google.com/support/forum/p/reader/thread?tid=53c0b347fa8cd843&hl=en">удалить аккаунт</a> на <a href="http://www.google.com/reader/view/">Google Reader</a> невозможно, только полностью Google Account) и импортировал на <a href="http://userbase.kde.org/Akregator">Akregator</a> на домашней машинке. Это помогло мне аккумулировать все чтения ленты новостей в один временной промежуток - вечером, дома.</p>
+<p>Но, как оказалось, ещё есть к чему стремиться и гугление на просторах сети дало свои результаты: <a href="http://www.proginosko.com/leechblock.html"><strong>LeechBlock</strong></a>.</p>
+<p>LeechBlock это расширение для Mozilla Firefox, которое позволяет блокировать отдельные сайты на различные промежутки времени.</p>
+<p>Собственно, начав им пользоваться, я понял, что это именно то, что мне нужно:</p>
+<p> <a href="http://picasaweb.google.com/lh/photo/GiOXKIEw3fz0uoNMZxGTlg?authkey=Gv1sRgCOCWw8r8gI-DRQ&feat=embedwebsite"><img src="http://lh6.ggpht.com/_y8p0_dtMJ38/S56FpVJKVHI/AAAAAAAAA8Q/e6hTfBRPkRo/s800/leechblock.png" title="Leechblock Settings UI" alt="Leechblock Settings UI" /></a></p>
+<p> Возможности данного расширения следующие: </p>
+<ol><li>Блокировка сайтов различные периоды времени</li>
+<li>Блокировка сайтов по временному диапазону, в том числе по дням недели.</li>
+<li>Поддержка нескольких наборов сайтов для блокировки</li>
+<li>Возможность быстрого добавления сайта в список для блокировки </li>
+</ol>
+<p>Конечно, данное расширение не является панацеей, его нужно использовать в комплексе с другими средствами.</p></div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>uthark</div>
+<div class='content'>
+@see to learn Это вполне решаемо с помощью этого же плагина. :)<br /><br /><br /><a href="http://picasaweb.google.com/lh/photo/SnNiIIES_ZbHcYqrzg5gPA?authkey=Gv1sRgCOCWw8r8gI-DRQ&amp;feat=embedwebsite" rel="nofollow">Скриншот с примером настройки</a><br /><br />Общий смысл:<br />1. блокируем все сайты (*)<br />2. Добавляем исключения через (+)</div>
+</div>
+<div class='comment'>
+<div class='author'>see to learn</div>
+<div class='content'>
+Мне бы такую примочку, которая показывает сайты только из белого списка.</div>
+</div>
+</div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1552,310 +1644,6 @@ javascript:(function(){f='http://delicious.com/save?url='+encodeURIComponent(win
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/06/06/spring-roo-2/">Spring Roo (часть 2)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-06-06T11:19:00-04:00" pubdate data-updated="true">Jun 6<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<h1>Архитектура сгенерированного приложения</h1>
-Spring Roo активно использует аспекты. В качестве реализации аспектов была взята библиотека <a href="http://www.eclipse.org/aspectj/">aspectj</a>.
-Большая часть сгенерированного кода попадает в отдельные файлы-аспекты.
-Создадим простой класс:
-<pre class="brush: java">
-new persistent class jpa -name ~.domain.Action -testAutomatically
-add field string name -notNull -sizeMin 1 -sizeMax 80
-add field string description -sizeMax 1024
-</pre>
-Spring Roo создаст нам следующие файлы:
-
-<ul><li><span style="font-weight: bold;">Action.java</span>
-Класс содержит только полезную с точки зрения назначения класса информацию. По сути, то, что вводит разработчик в консоль Roo аккумулируется здесь. Весь дополнительный код разносится по другим классам.
-<pre class="brush: java">
-@Entity //1
-@RooJavaBean //2
-@RooToString //3
-@RooEntity(finders = { "findActionsByName" }) //4
-public class Action {
-
-@NotNull
-@Size(min = 1, max = 80)
-private String name;
-
-
-@Size(max = 1024)
-private String description;
-}
-</pre>
-1) Класс является JPA-сущностью.
-2) Аннотация @RooJavaBean говорит, что этот класс - обычный Java-бин.
-3) Аннотация @RooToString говорит, что у этого класса есть перегруженный метод toString().
-4) Аннотация @RooEntity говорит что класс является JPA-сущностью.
-</li><li><span style="font-weight: bold;">Action_Roo_Configurable.aj</span>
-Данный аспект говорит, что класс Action является конфигурируемым через Spring.
-<pre class="brush: java">
-privileged aspect Action_Roo_Configurable {
-declare @type: Action: @org.springframework.beans.factory.annotation.Configurable;
-}
-</pre></li><li><span style="font-weight: bold;">Action_Roo_Entity.aj</span>
-В данном классе собраны все методы DAO для работы с классом Action.
-<pre class="brush: java">
-package org.academ.uthark.research.roo.domain;
-
-privileged aspect Action_Roo_Entity {
-
-@javax.persistence.PersistenceContext
-transient javax.persistence.EntityManager Action.entityManager;
-
-@javax.persistence.Id
-@javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO)
-@javax.persistence.Column(name = "id")
-private java.lang.Long Action.id;
-
-@javax.persistence.Version
-@javax.persistence.Column(name = "version")
-private java.lang.Integer Action.version;
-
-public java.lang.Long Action.getId() {
-return this.id;
-}
-
-public void Action.setId(java.lang.Long id) {
-this.id = id;
-}
-
-public java.lang.Integer Action.getVersion() {
-return this.version;
-}
-
-public void Action.setVersion(java.lang.Integer version) {
-this.version = version;
-}
-
-@org.springframework.transaction.annotation.Transactional
-public void Action.persist() {
-if (this.entityManager == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
-this.entityManager.persist(this);
-}
-
-@org.springframework.transaction.annotation.Transactional
-public void Action.remove() {
-if (this.entityManager == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
-this.entityManager.remove(this);
-}
-
-@org.springframework.transaction.annotation.Transactional
-public void Action.flush() {
-if (this.entityManager == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
-this.entityManager.flush();
-}
-
-@org.springframework.transaction.annotation.Transactional
-public void Action.merge() {
-if (this.entityManager == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
-Action merged = this.entityManager.merge(this);
-this.entityManager.flush();
-this.id = merged.getId();
-}
-
-public static long Action.countActions() {
-return (Long) new Action().entityManager.createQuery("select count(o) from Action o").getSingleResult();
-}
-
-public static java.util.List<org.academ.uthark.research.roo.domain.action> Action.findAllActions() {
-return new Action().entityManager.createQuery("select o from Action o").getResultList();
-}
-
-public static org.academ.uthark.research.roo.domain.Action Action.findAction(java.lang.Long id) {
-if (id == null) throw new IllegalArgumentException("An identifier is required to retrieve an instance of Action");
-return new Action().entityManager.find(Action.class, id);
-}
-
-public static java.util.List<org.academ.uthark.research.roo.domain.action> Action.findActionEntries(int firstResult, int maxResults) {
-return new Action().entityManager.createQuery("select o from Action o").setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
-}
-
-}
-</org.academ.uthark.research.roo.domain.action></org.academ.uthark.research.roo.domain.action></pre>
-Как легко видеть, этот аспект добавляет классу Action CRUD-методы, поля id и version.
-</li><li><span style="font-weight: bold;">Action_Roo_Finder.aj</span>
-Этот аспект аккумулирует все finder-методы, созданные через консоль Spring Roo.
-<pre class="brush: java">privileged aspect Action_Roo_Finder {
-
-public static javax.persistence.Query Action.findActionsByName(java.lang.String name) {
-if (name == null) throw new IllegalArgumentException("The name argument is required");
-javax.persistence.Query q = new Action().entityManager.createQuery("FROM Action AS action WHERE action.name = :name");
-q.setParameter("name", name);
-return q;
-}
-
-}
-</pre></li><li><span style="font-weight: bold;">Action_Roo_JavaBean.aj</span>
-Для уменьшения загромождения кода ненужными методами для доступа к полям Spring Roo выносит их в отдельный аспект.
-<pre class="brush: java">
-privileged aspect Action_Roo_JavaBean {
-
-public java.lang.String Action.getName() {
-return this.name;
-}
-
-public void Action.setName(java.lang.String name) {
-this.name = name;
-}
-
-public java.lang.String Action.getDescription() {
-return this.description;
-}
-
-public void Action.setDescription(java.lang.String description) {
-this.description = description;
-}
-
-}
-</pre></li><li>Action_Roo_Plural.aj
-В данном аспекте можно определить, как созданная сущность выглядит во множественном числе.
-<pre class="brush: java">
-package org.academ.uthark.research.roo.domain;
-
-privileged aspect Action_Roo_JavaBean {
-
-public java.lang.String Action.getName() {
-return this.name;
-}
-
-public void Action.setName(java.lang.String name) {
-this.name = name;
-}
-
-public java.lang.String Action.getDescription() {
-return this.description;
-}
-
-public void Action.setDescription(java.lang.String description) {
-this.description = description;
-}
-
-}
-
-</pre></li><li><span style="font-weight: bold;">Action_Roo_ToString.aj</span>
-Аспект, переопределяющий toString()
-<pre class="brush: java">
-privileged aspect Action_Roo_ToString {
-
-public java.lang.String Action.toString() {
-StringBuilder sb = new StringBuilder();
-sb.append("id: ").append(getId()).append(", ");
-sb.append("version: ").append(getVersion()).append(", ");
-sb.append("name: ").append(getName()).append(", ");
-sb.append("description: ").append(getDescription()).append(", ");
-return sb.toString();
-}
-
-}
-
-</pre></li><li><span style="font-weight: bold;">ActionEditor.java</span>
-Кроме того, при создании контроллеров для работы дополнительно создается ActionEditor
-<pre class="brush: java">
-import org.springframework.roo.addon.property.editor.RooEditor;
-
-@RooEditor(providePropertyEditorFor = Action.class)
-public class ActionEditor {
-}
-
-</pre></li><li><span style="font-weight: bold;">ActionEditor_Roo_Editor.aj</span>
-Аспект с реализацией.
-<pre class="brush: java">
-privileged aspect ActionEditor_Roo_Editor {
-
-declare parents: ActionEditor implements java.beans.PropertyEditorSupport;
-
-org.springframework.beans.SimpleTypeConverter ActionEditor.typeConverter = new org.springframework.beans.SimpleTypeConverter();
-
-public java.lang.String ActionEditor.getAsText() {
- Object obj = getValue(); 
- if (obj == null) { 
-     return null;     
- } 
- return (String) typeConverter.convertIfNecessary(((org.academ.uthark.research.roo.domain.Action) obj).getId() , String.class); 
-}
-
-public void ActionEditor.setAsText(java.lang.String text) {
- if (text == null || "".equals(text)) { 
-     setValue(null);     
-     return;     
- } 
-
- java.lang.Long identifier = (java.lang.Long) typeConverter.convertIfNecessary(text, java.lang.Long.class); 
- if (identifier == null) { 
-     setValue(null);     
-     return;     
- } 
-
- setValue(org.academ.uthark.research.roo.domain.Action.findAction(identifier)); 
-}
-
-}
-
-</pre></li></ul>
-
-<h3>А где же equals()/hashCode()?</h3>
-Легко заметить, что Spring Roo забыл ещё про один важный аспект - про реализацию методов equals() и hashCode(). К релизу, я думаю, эта недоработка будет исправлена.
-
-Как видно, код скрипта для генерации весьма и весьма лаконичен, а получающий java-код наглядно показывает всю многословность языка Java.
-
-<h3>Apache Maven integration</h3>
-Spring Roo при создании проекта создаёт pom.xml, хорошо знакомый всем работавшим с maven. Кроме того, консоль позволяет добавлять и удалять зависимости, не правя файл вручную.
-
-<h3>Расширения</h3>
-Spring Roo поддерживает расширения, что ещё больше даёт возможностей. На сегодняшний день написано уже как минимум одно расширение - <a href="http://jira.springframework.org/browse/ROO-41">Sitemesh Addon</a>.
-
-<h3>Критика</h3>
-В первую очередь критика относится к текущему релизу, а так как он ещё в глубокой альфе, то все может измениться к официальному релизу.
-<ol><li>Нет возможности подставлять свои JSP-шаблоны для сгенерированного CRUD</li><li>В сгенерированном коде есть ошибки, например, если заводим поле типа флоат, создаём контроллер, то при редактировании сущности возможна следующая ошибка: вводим достаточно большое число (1234567), сохраняем сущность, открываем на редактирование. В поле, хранящем флоат получаем 1.23456E7, и после этого невозможно сохранить сущность, так как получаем ошибку валидации.</li><li>Ещё одна ошибка связана с отношением один ко многим. Создаём пару сущностей с таким отношением. Запускаем, пробуем создать сущность. Roo умничает, если нет связанных сущностей в БД, то он даже не генерирует &lt;select&gt;
-</li></ol><h3>Вывод</h3>В целом, Spring Roo достойное начинание, но пользоваться им в Production можно будет ещё нескоро.</div>
-
-
-<h2>Comments</h2>
-
-
-<div class='comments'>
-<div class='comment'>
-<div class='author'>ziftech</div>
-<div class='content'>
-Фреймворк интересный, буду следить за развитием, по возможности применять.<br /><br />Вам спасибо за разъяснения))</div>
-</div>
-</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -1871,6 +1659,10 @@ Spring Roo поддерживает расширения, что ещё боль
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/02/iterm-triggers/">Using iTerm triggers</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/03/02/splean-resonance/">Сплин - Резонанс, часть 1.</a>
@@ -1894,10 +1686,6 @@ Spring Roo поддерживает расширения, что ещё боль
     
       <li class="post">
         <a href="/blog/2014/03/01/google-plus-comments-fixed/">Fixed Google+ comments on the site</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/01/restricting-mongo-template/">Automatic query modification with Spring Data Mongo</a>
       </li>
     
   </ul>
