@@ -9,7 +9,7 @@
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="Есть такой замечательный сервис - Dropbox. Этот сервис является онлайн-хранилищем ваших данных. Работает очень просто: 1. Вы регистрируетесь в &hellip;">
+  <meta name="description" content="Summary: В данной заметке описана настройка autofs для доступа к сетевым ресурсам, доступным по NFS. Последние несколько лет (с тех пор, как &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +79,114 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/12/14/autofs-nfs/">Настройка Autofs для монтирования NFS-ресурсов</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-12-14T12:14:00-05:00" pubdate data-updated="true">Dec 14<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Summary: В данной заметке описана настройка autofs для доступа к сетевым ресурсам, доступным по NFS.<br />
+<br />
+Последние несколько лет (с тех пор, как количество компьютеров дома стало больше одного) возникла проблема беспрепятственного доступа к данным, хранящимся на одном компьютере с другого.<br />
+<br />
+Было найдено самое простое решение - <a href="http://en.wikipedia.org/wiki/Network_File_System_(protocol)">NFS</a>.<br />
+<br />
+Как выяснилось позже это было не самое удачное решение - ноутбук не всегда находился дома, а, значит, домашние сетевые ресурсы не всегда доступны. Соответственно, при загрузке операционной системы происходили задержки из-за поиска компьютера с сетевыми ресурсами. Не очень удобно, но жить можно.<br />
+<br />
+Решил окончательно разобраться с этим и начал искать решение. Оно оказалось на поверхности и затронуло только клиента ресурсов, то есть ноутбук. Решение называется <tt><a href="http://www.autofs.org/">autofs</a></tt>.<br />
+<br />
+1. Устанавливаем <tt>autofs</tt>.<br />
+<pre class="brush: bash">sudo aptitude install autofs5 nfs-common
+</pre><br />
+2. Производим настройку.<br />
+Редактируем файл <tt>/etc/auto.master</tt>. Расскомментируем строку, содержащую строки <tt>/net -hosts</tt>:<br />
+<pre class="brush: bash">/net -hosts
++auto.master
+</pre><br />
+3. В файл <tt><a href="http://en.wikipedia.org/wiki/Hosts_file">/etc/hosts</a></tt> можно внести адреса серверов с NFS-ресурсами (для того, чтобы избежать <a href="http://en.wikipedia.org/wiki/Domain_Name_System">DNS</a>-запросов). В моём случае:<br />
+<pre class="brush: plain">192.168.18.1 server
+</pre><br />
+4. Перезапускаем сервис <tt>autofs</tt><br />
+<pre class="brush: plain">sudo service autofs restart
+</pre><br />
+5. Теперь открываем в файловом браузер адрес <tt>/net/server</tt> и видим его сетевые ресурсы, доступные для данного клиента.<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/_y8p0_dtMJ38/SyZxDikTDxI/AAAAAAAAAvk/LTr3KsGATGk/s1600-h/Screenshot-media+-+administrilo+de+dosieroj.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/_y8p0_dtMJ38/SyZxDikTDxI/AAAAAAAAAvk/LTr3KsGATGk/s320/Screenshot-media+-+administrilo+de+dosieroj.png" /></a><br />
+</div><br />
+6. Пользуемся.</div>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/12/08/delicious-google-chrome/">Расширение для работы с Delicious доступно на сайте расширений Google Chrome</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-12-08T12:43:00-05:00" pubdate data-updated="true">Dec 8<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Итак, <a href="code.google.com/p/chromium-delicious-extension/">расширение для работы с Delicious</a> доступно на <a href="https://chrome.google.com/extensions">сайте расширений Google Chrome</a>.<br />
+<br />
+<a href="https://chrome.google.com/extensions/detail/anlkjppofaicbdanhhpbbogknfodfhfm/">Посмотреть и установить</a><br />
+<br />
+Новые версии расширения буду закачить на этот сайт.</div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1593,112 +1701,6 @@ package com.x.y.z;
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/05/30/protected/">Использование модификатора Protected на полях в базовом классе</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-05-30T12:45:00-04:00" pubdate data-updated="true">May 30<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-Недавно задали мне вопрос - что я думаю об использовании модификатора protected для членов базового класса? Под этим вопросом кроются более серьёзные вещи.
-
-Например, любой член класса, имеющий модификатор protected, расширяет интерфейс базового класса для подклассов - подклассы имеют доступ ко всем protected и public методам этого поля. Иногда это сделано специально, например, для того, чтобы подклассы могли иметь доступ к какой-либо функциональности. Однако, если подкласс будет использовать protected поля неправильно (например, он может установить его в null, нарушив, таким образом, поведение базового класса), то это не принесёт пользы.
-
-Поразмыслив над вопросом я пришел к следующему, достаточно логичному и широкоизвестному выводу - необходимо давать наиболее закрытый доступ, какой можно. То есть, если можно объявить член класса как private, то необходимо сделать его private. Если в подклассах необходим доступ к члену класса, то необходимо проанализировать, какие методы нужны в подклассах и открыть только их через делегирование. Если набор методов заранее неизвестен, то можно сделать protected getter для поля.</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/05/26/fixed-price-2/">Сферический программист в вакууме и абстрактное понятие качества кода в условиях Fixed-Price проектов (часть 2)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-05-26T14:26:00-04:00" pubdate data-updated="true">May 26<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-Причин для написания плохого кода может быть несколько. Некоторые из них лежат на поверхности:
-
-<ol><li>  Отсутствие опыта</li><li>Невнимательность</li><li>  Некомпетентность</li><li>  Немотивированность
-</li></ol><span style="font-weight: bold;">Отсутствие опыта</span> - казалось бы, самая простая причина проблемы; решение проблемы выглядит очевидным - со временем, разработчик будет писать код лучше. Но это ошибочное мнение. Бывает, люди с опытом более 5-10 лет разработки коммерческих приложений пишут настолько плохой код, что иногда кажется, что они это нарочно. Решать эту проблему необходимо постоянным указанием на ошибки. Но это решит только часть проблемы - человек узнает, как писать код в конкретных ситуациях. Но не всякий разработчик (к сожалению, по опыту знаю) сможет экстраполировать знание на все подобные проблемы способ решения.
-
-<span style="font-weight: bold;">Невнимательность</span> - через это проходят почти все. Почти каждый сможет вспомнить случай, когда не был сделан <tt>svn add</tt> перед коммитом. Эта проблема решается обычно самомотивацией человека на хороший код. Впрочем, команда и сервер непрерывной интеграции тоже прилагают усилия для того, чтобы человек проверил ещё раз то, что он хочет выложить в репозиторий.
-
-<span style="font-weight: bold;">Некомпетентность</span> - эта причина пересекается с недостатком опыта, но, при этом отлична от неё. Адекватный разработчик, на мой взгляд, должен стремиться к компетентности в той области, в которой он работает. Но этого, к сожалению часто не происходит. На мой взгляд это из-за следующей причины.
-
-<span style="font-weight: bold;">Немотивированность</span>. Самое большое зло, которое может быть. Причины недостаточной мотивации разработчика могут быть весьма разнообразными - не выспался, дома проблемы, зарплата низкая, задача скучная и неинтересная. Список можно продолжать до бесконечности. Решение этой проблемы кроется, в первую очередь, в качественном управлении. Менеджер должен быть тонким и хорошим психологом, чтобы видеть или чувствовать все эти проблемы и предотвращать их.</div>
-
-
-<h2>Comments</h2>
-
-
-<div class='comments'>
-<div class='comment'>
-<div class='author'>uthark</div>
-<div class='content'>
-Увы, далеко не всякая это делает. Например, ни Eclipse, ни Jetbrains IDEA не предлагают тебе этого. Хотя и могут показать файлы, которые не были добавлены. В случае с idea у неё есть ещё один неприятный момент - не показывает в момент коммита библиотеки, которые не были добавлены. Пару раз натыкался на такую проблему. Правда, сервер непрерывной интеграции быстро нотифицировал о ней. :)</div>
-</div>
-<div class='comment'>
-<div class='author'>Ivan</div>
-<div class='content'>
-&gt;Почти каждый сможет вспомнить случай, <br />&gt;когда не был сделан svn add перед коммитом. <br /><br />хорошая среда разработки предупреждает разработчика о том, что он хочет сделать хуйню %)</div>
-</div>
-</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -1714,6 +1716,14 @@ package com.x.y.z;
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/02/sunset/">PhotoStream #1. Sunset</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/03/02/lyne-game/">Lyne Game</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/03/02/reading-list-2014-march-02/">Reading List 2014-March-02</a>
@@ -1733,14 +1743,6 @@ package com.x.y.z;
     
       <li class="post">
         <a href="/blog/2013/06/28/jaxrs-spring-autowiring/">@Autowired JAX-RS Client API</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/06/28/jaxrs/">JAX-RS Client API</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/06/19/autowiring-factorybean/">@Autowiring EJBs with Spring</a>
       </li>
     
   </ul>

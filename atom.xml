@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-03-02T17:46:32-05:00</updated>
+  <updated>2014-03-02T22:08:10-05:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,34 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[PhotoStream #1. Sunset]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/02/sunset/"/>
+    <updated>2014-03-02T22:03:00-05:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/02/sunset</id>
+    <content type="html"><![CDATA[<p><a href="https://plus.google.com/photos/112372998073079463630/albums/5986392506066477233/5986392511862419154"><img src="https://lh3.googleusercontent.com/-UdxK_gs0ol0/UxPwRbOeLtI/AAAAAAAAPd4/OatnIV3Z5t0/w1012-h760/IMG_20140226_174149.jpg"></a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lyne Game]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/02/lyne-game/"/>
+    <updated>2014-03-02T21:51:00-05:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/02/lyne-game</id>
+    <content type="html"><![CDATA[<p>Found very addictive and cool game: Lyne.</p>
+
+<p>The goal of the game is to connect all dots on the playboard. Worth every cent.</p>
+
+<div class="pb-app-box" data-theme="dark" data-lang="en"><a href="http://playboard.me/android/apps/com.thomasbowker.lynerelease">LYNE  (Playboard)</a> | <a href="https://play.google.com/store/apps/details?id=com.thomasbowker.lynerelease&hl=en" rel="nofollow" target="_blank">LYNE (Play Store)</a></div>
+
+
+<script type="text/javascript" src="http://uthark.github.com//playboard.me/widgets/pb-app-box/1/pb_load_app_box.js"></script>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-March-02]]></title>
@@ -2880,181 +2908,8 @@ public @interface SuppressExceptions {
 <div class='comment'>
 <div class='author'>Anonymous</div>
 <div class='content'>
-Добрый день, прочитал Вашу статью &ndash; интересно! =) На данный момент пытаюсь вникнуть в АОП в БД, но не совсем понимаю как можно реализовать аспекты при работе с БД (именно с точки зрения системы &ndash; код, компиляция и пр. т.к. теоретически все прозрачно и ясно). Не подскажите &ndash; где можно найти, для наглядности, простенькую БД с реализованным аспектами и хоть какое-то пояснение по реализованному &quot;проекту&quot; &ndash; на чем писали, как внедряли аспекты и пр. Мэйл для связи &ndash; <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#111;&#58;&#117;&#x74;&#x6f;&#x70;&#x69;&#97;&#50;&#48;&#x30;&#53;&#x40;&#121;&#x61;&#110;&#x64;&#x65;&#x78;&#x2e;&#x72;&#x75;">&#x75;&#x74;&#x6f;&#x70;&#105;&#x61;&#x32;&#48;&#48;&#x35;&#64;&#x79;&#97;&#110;&#100;&#101;&#120;&#x2e;&#114;&#117;</a></div>
+Добрый день, прочитал Вашу статью &ndash; интересно! =) На данный момент пытаюсь вникнуть в АОП в БД, но не совсем понимаю как можно реализовать аспекты при работе с БД (именно с точки зрения системы &ndash; код, компиляция и пр. т.к. теоретически все прозрачно и ясно). Не подскажите &ndash; где можно найти, для наглядности, простенькую БД с реализованным аспектами и хоть какое-то пояснение по реализованному &quot;проекту&quot; &ndash; на чем писали, как внедряли аспекты и пр. Мэйл для связи &ndash; <a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#58;&#x75;&#116;&#x6f;&#112;&#105;&#97;&#50;&#x30;&#x30;&#53;&#x40;&#x79;&#x61;&#x6e;&#x64;&#x65;&#120;&#x2e;&#114;&#x75;">&#x75;&#116;&#x6f;&#x70;&#x69;&#x61;&#50;&#48;&#x30;&#x35;&#64;&#121;&#x61;&#x6e;&#x64;&#x65;&#x78;&#x2e;&#x72;&#117;</a></div>
 </div></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Немного о виртуальных методах в Java]]></title>
-    <link href="http://uthark.github.com/blog/2011/07/21/java/"/>
-    <updated>2011-07-21T01:06:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2011/07/21/java</id>
-    <content type="html"><![CDATA[<div class='post'>
-Сегодня я хочу рассмотреть некоторые особенности переопределения методов в Java.  В java нельзя переопределить:   <br />
-<ul><li>поля класса</li>
-<li>конструкторы, инициализаторы класса</li>
-<li>статические методы</li>
-<li>статические поля</li>
-</ul><br />
-Подробнее об этом можно прочитать в <a href="http://java.sun.com/docs/books/jls/third_edition/html/classes.html#228745">Java Language Specification, §8.4.8</a><br />
-<br />
-Итак, в java все нестатические неприватные (то есть, <tt>protected</tt>, <tt>package</tt> и <tt>public</tt>) методы являются виртуальными. Ключевое слово <tt>final</tt> запрещает возможность дальнейшего переопределения метода в подклассах.  Рассмотрим следующий пример:  <br />
-<br />
-<pre class="brush: java">public class A {
-     int i = 3;
-     int getI() {return i;}
-}
-
-public class B extends A{
-     int i = 5;
-     int getI() {return i;}
-}
-
-A a = new B();
-System.out.println(a.i);
-System.out.println(a.getI());
-
-</pre><br />
-Вопрос: что выведет данный код?<br />
-Ответ: <br />
-1. Так как поля класса не наследуются, то у класса A своё поле i и у класса B тоже своё поле i. Так как для полей полиморфизм не действует, то при обращении a.i мы обращаемся к классу A, поэтому на экран будет выведено 3.<br />
-2. При вызове метода a.getI() у нас в дело вступает полиморфизм, поэтому будет вызван метод от класса, инстанс которого был создан. Соответственно, мы получим на выходе 5.<br />
-<br />
-<br />
-Другой пример:<br />
-<br />
-<pre class="brush: java">public class A {
-     static int i = 3;
-     static int getI() {return i;} 
-}
-
-public class B extends A{
-     static int i = 5;
-     static int getI() {return i;}
-}
-
-A a = new B();
-System.out.println(a.i);
-System.out.println(a.getI());
-
-</pre><br />
-Статические поля и методы виртуальными не являются, поэтому оба вызова выведут нам 3.</div>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Сокращаем ссылки на андроиде]]></title>
-    <link href="http://uthark.github.com/blog/2010/12/06/blog-post/"/>
-    <updated>2010-12-06T12:11:00-05:00</updated>
-    <id>http://uthark.github.com/blog/2010/12/06/blog-post</id>
-    <content type="html"><![CDATA[<div class='post'>
-<h5>Вступление</h5>Встала передо мной задача - сокращать ссылки перед тем, как отправлять их в Twitter. Для решения этой задачи я решил использовать <a href="http://bit.ly">bit.ly</a>, благо, их API внятный и простой.  <h5>Программируем!</h5>Решение нарисовалось в виде следующего класса:  <br />
-<pre class="brush: java">
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.utils.URIUtils;
-import org.apache.http.client.utils.URLEncodedUtils;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import android.util.Log;
-
-import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.ArrayList;
-import java.util.List;
-
-
-/**
- * Helper class to work with bitly.
- *
- * @author Oleg Atamanenko
- * @since 06-Dec-2010 12:49:36
- */
-public class Bitly {
-
-    private static final String TAG = "Bitly";
-
-    private static final String SHORTEN = "/v3/shorten";
-    private static final String API_URL = "api.bit.ly";
-    private static final String RESPONSE_FORMAT = "json";
-
-    private String username;
-    private String apiKey;
-
-
-    public Bitly(String username, String apiKey) {
-        this.username = username;
-        this.apiKey = apiKey;
-    }
-
-    public String shorten(String longUrl) throws BitlyException {
-        DefaultHttpClient httpClient = new DefaultHttpClient();
-
-        try {
-            List<NameValuePair> params = new ArrayList<NameValuePair>();
-            params.add(new BasicNameValuePair("login", username));
-            params.add(new BasicNameValuePair("apiKey", apiKey));
-            params.add(new BasicNameValuePair("longUrl", longUrl));
-            params.add(new BasicNameValuePair("format", RESPONSE_FORMAT));
-
-
-            URI uri = URIUtils.createURI("http", API_URL, -1, SHORTEN, URLEncodedUtils.format(params, "UTF-8"), null);
-            HttpGet request = new HttpGet(uri);
-
-            Log.d(TAG, "Sending request: " + request.getURI());
-
-            HttpResponse httpResponse = httpClient.execute(request);
-
-            HttpEntity httpEntity = httpResponse.getEntity();
-            String response = EntityUtils.toString(httpEntity);
-            Log.i(TAG, "Bitly response is: " + response);
-            httpResponse.getEntity().consumeContent();
-
-            JSONObject jsonResponse = new JSONObject(response);
-
-            checkForExceptions(jsonResponse);
-
-            JSONObject data = jsonResponse.getJSONObject("data");
-            return data.getString("url");
-
-        } catch (ClientProtocolException e) {
-            throw new BitlyException(e);
-        } catch (IOException e) {
-            throw new BitlyException(e);
-        } catch (JSONException e) {
-            throw new BitlyException(e);
-        } catch (URISyntaxException e) {
-            throw new BitlyException(e);
-        }
-    }
-
-    private void checkForExceptions(JSONObject jsonResponse) throws JSONException, BitlyException {
-        int statusCode = jsonResponse.getInt("status_code");
-        if (statusCode != 200) {
-            String message = jsonResponse.getString("status_txt");
-            throw new BitlyException(message);
-        }
-    }
-
-}
-</pre>  Конструктор класс принимает на вход следующие параметры: <ul><li><code>userName</code> - имя пользователя bit.ly.</li>
-<li><code>apiKey</code> - Ключ для доступа к API, его можно узнать на <a href="https://bit.ly/a/your_api_key">специальной страничке</a></li>
-</ul><a href="https://code.google.com/p/bitly-api/wiki/ApiDocumentation">Полная документация к Bit.ly API</a> расположена на отдельном проекте в Google Code  <h5>Использование</h5>Единственный метод, реализованный сейчас - это метод <code>shorten()</code>. На вход требуется подать полную ссылку <code>longUrl</code>, на выходе получается укороченная версия ссылки, либо кидается исключение с сообщением от bit.ly API.   <h6>Пример вызова</h6><pre class="brush: java">
-Bitly bitly = new Bitly(BITLY_USERNAME, BITLY_API_KEY);
-String shortLink = bitly.shorten(link);
-</pre><br />
-  <h6>Дальнейшие улучшения</h6>Если перед вами стоит задача быстренько сократить ссылку - то вышеприведённого кода достаточно. Но если вам нужно полноценное решение, со всеми возможностями bit.ly - то посмотрите в сторону <a href="https://code.google.com/p/bitlyj/">bitlyj</a>. Правда, я не уверен, что оно взведётся под андроидом.</div>
-
 ]]></content>
   </entry>
   
