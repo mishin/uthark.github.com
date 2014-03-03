@@ -9,7 +9,8 @@
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="When I created About Me page I found issue with rendering: for some reason styles and some javascripts were missing on the page. Investigation showed &hellip;">
+  <meta name="description" content="Splean released new album &ndash; Resonance, part 1. Good album, good texts. You can listen previews here or here (Russia only).
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -79,6 +80,46 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/02/splean-resonance/">Сплин - Резонанс, часть 1.</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-02T23:29:00-05:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Splean <a href="http://www.navigatorrecords.ru/showalbum.php?code=206">released new album</a> &ndash; Resonance, part 1.</p>
+
+<p>Good album, good texts.</p>
+
+<p>You can listen previews <a href="https://play.google.com/music/playpreview?preview=AE9vGKqOscNKDl7gMYDS126d1iINPIg449z4g_bwiXboIi8Qu74XsZRRzinlJnrN3NscIJS-_VgndoHTGYZFCl_l_TvPM2mwqVNg1BOW_rie_WOpZkqaubw%3D">here</a> or <a href="http://music.yandex.ru/#!/album/1801924">here (Russia only)</a>.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -2228,144 +2269,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/04/28/spring-data-jpa_28/">Собственная реализация методов в Spring Data JPA</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-04-28T04:03:00-04:00" pubdate data-updated="true">Apr 28<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Очевидно, что мы не всегда можем воспользоваться автоматической генерацией кода, предоставляемой <a href="http://www.springsource.org/spring-data/jpa">Spring Data JPA</a>. Например, у нас слишком сложный запрос, или нам необходимо вызвать процедуру в базе данных, либо у нас сложная бизнес-логика.</p>
-
-<p>Рассмотрим следующий пример &ndash; например, нам нужна функциональность уникального счётчика, который мы решили реализовать с помощью последовательности (sequence).</p>
-
-<p>Сначала определим интерфейс, в котором опишем все методы, которые мы будем реализовывать самостоятельно. В нашем случае, это будет только один метод:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserRepositoryCustom</span> <span class="o">{</span>
-</span><span class='line'>    <span class="cm">/**</span>
-</span><span class='line'><span class="cm">     * Returns next unique id.</span>
-</span><span class='line'><span class="cm">     *</span>
-</span><span class='line'><span class="cm">     * @return next unique id.</span>
-</span><span class='line'><span class="cm">     */</span>
-</span><span class='line'>    <span class="n">Integer</span> <span class="nf">getNextUniqueId</span><span class="o">();</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Затем обновим объявление репозитория, чтобы он унаследовал новый интерфейс <tt>UserRepositoryCustom</tt></p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserRepository</span> <span class="kd">extends</span> <span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">User</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;,</span> <span class="n">UserRepositoryCustom</span> <span class="o">{</span>
-</span><span class='line'>   <span class="o">...</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Теперь напишем реализацию метода:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserRepositoryImpl</span> <span class="kd">implements</span> <span class="n">UserRepositoryCustom</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@PersistenceContext</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">EntityManager</span> <span class="n">entityManager</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Override</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">getNextUniqueId</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="c1">// When using Hibernate via JPA native queries fails with mapping exception, so just use Hibernate directly:</span>
-</span><span class='line'>        <span class="n">Session</span> <span class="n">session</span> <span class="o">=</span> <span class="o">(</span><span class="n">Session</span><span class="o">)</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">getDelegate</span><span class="o">();</span>
-</span><span class='line'>        <span class="n">SQLQuery</span> <span class="n">nativeQuery</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">createSQLQuery</span><span class="o">(</span><span class="s">&quot;SELECT \&quot;nextval\&quot;(&#39;unique_id_seq&#39;) &quot;</span><span class="o">);</span>
-</span><span class='line'>        <span class="n">List</span><span class="o">&lt;</span><span class="n">BigInteger</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">nativeQuery</span><span class="o">.</span><span class="na">list</span><span class="o">();</span>
-</span><span class='line'>        <span class="k">if</span> <span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
-</span><span class='line'>            <span class="k">throw</span> <span class="k">new</span> <span class="nf">IncorrectResultSizeDataAccessException</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="n">BigInteger</span> <span class="n">result</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">intValue</span><span class="o">();</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>И, наконец, укажем Spring Data JPA, чтобы в качестве класса для прокси использовался наш класс с реализацией собственных методов. Для этого нам нужна ещё одна секция <tt>repositories</tt> в конфигурационном файле:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'>    <span class="nt">&lt;repositories</span> <span class="na">base-package=</span><span class="s">&quot;[base.repository.package]&quot;</span><span class="nt">/&gt;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nt">&lt;repositories</span> <span class="na">base-package=</span><span class="s">&quot;[base.repository.package]&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;repository</span> <span class="na">id=</span><span class="s">&quot;userRepository&quot;</span> <span class="na">custom-impl-ref=</span><span class="s">&quot;userRepositoryImpl&quot;</span><span class="nt">/&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/repositories&gt;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nt">&lt;beans:bean</span> <span class="na">id=</span><span class="s">&quot;userRepositoryImpl&quot;</span> <span class="na">class=</span><span class="s">&quot;...UserRepositoryImpl&quot;</span><span class="nt">/&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Вот и всё.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -2379,6 +2282,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/02/splean-resonance/">Сплин - Резонанс, часть 1.</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/03/02/octopress-quote-fix/">Fixing unescaped quotes in page rendering in Octopress</a>
@@ -2402,10 +2309,6 @@
     
       <li class="post">
         <a href="/blog/2014/03/01/restricting-mongo-template/">Automatic query modification with Spring Data Mongo</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/06/29/spring-enable-annotation/">Пишем @Enable*-аннотацию для Spring</a>
       </li>
     
   </ul>
