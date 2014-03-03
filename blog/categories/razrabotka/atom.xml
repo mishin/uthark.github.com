@@ -4,7 +4,7 @@
   <title><![CDATA[Category: разработка | Software Development and related activities]]></title>
   <link href="http://uthark.github.com/blog/categories/razrabotka/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-03-03T00:53:26-05:00</updated>
+  <updated>2014-03-03T02:48:37-05:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -24,7 +24,7 @@
 
 <p>Сначала определим интерфейс, в котором опишем все методы, которые мы будем реализовывать самостоятельно. В нашем случае, это будет только один метод:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -54,7 +54,7 @@
 
 <p>Затем обновим объявление репозитория, чтобы он унаследовал новый интерфейс <tt>UserRepositoryCustom</tt></p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -72,7 +72,7 @@
 
 <p>Теперь напишем реализацию метода:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -122,7 +122,7 @@
 
 <p>И, наконец, укажем Spring Data JPA, чтобы в качестве класса для прокси использовался наш класс с реализацией собственных методов. Для этого нам нужна ещё одна секция <tt>repositories</tt> в конфигурационном файле:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -265,7 +265,7 @@ public class LoggerPostProcessor implements BeanPostProcessor {
 
 <p>Как оказалось, иногда использование DateFormat не помогает. В случае, если строка &ndash; это заголовок <tt>Date</tt> из письма, то нам нужно использовать <tt><a href="http://docs.oracle.com/javaee/5/api/javax/mail/internet/MailDateFormat.html">javax.mail.internet.MailDateFormat</a></tt> для преобразования такой строки.</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">String</span> <span class="n">dateStr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">hellip</span><span class="o">;</span>
 </span><span class='line'><span class="n">Date</span> <span class="n">parsedDate</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MailDateFormat</span><span class="o">().</span><span class="na">parse</span><span class="o">(</span><span class="n">dateStr</span><span class="o">);</span>

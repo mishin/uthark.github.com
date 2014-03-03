@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-03-03T00:53:26-05:00</updated>
+  <updated>2014-03-03T02:48:37-05:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Using iTerm triggers]]></title>
+    <title type="html"><![CDATA[Using iTerm Triggers]]></title>
     <link href="http://uthark.github.com/blog/2014/03/02/iterm-triggers/"/>
     <updated>2014-03-02T23:51:00-05:00</updated>
     <id>http://uthark.github.com/blog/2014/03/02/iterm-triggers</id>
@@ -52,7 +52,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Fixing unescaped quotes in page rendering in Octopress]]></title>
+    <title type="html"><![CDATA[Fixing Unescaped Quotes in Page Rendering in Octopress]]></title>
     <link href="http://uthark.github.com/blog/2014/03/02/octopress-quote-fix/"/>
     <updated>2014-03-02T22:11:00-05:00</updated>
     <id>http://uthark.github.com/blog/2014/03/02/octopress-quote-fix</id>
@@ -143,7 +143,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 <div class="pb-app-box" data-theme="dark" data-lang="en"><a href="http://playboard.me/android/apps/com.thomasbowker.lynerelease">LYNE  (Playboard)</a> | <a href="https://play.google.com/store/apps/details?id=com.thomasbowker.lynerelease&hl=en" rel="nofollow" target="_blank">LYNE (Play Store)</a></div>
 
 
-<script type="text/javascript" src="http://uthark.github.com//playboard.me/widgets/pb-app-box/1/pb_load_app_box.js"></script>
+<script type="text/javascript" src="//playboard.me/widgets/pb-app-box/1/pb_load_app_box.js"></script>
 
 
 
@@ -167,7 +167,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Fixed Google+ comments on the site]]></title>
+    <title type="html"><![CDATA[Fixed Google+ Comments on the Site]]></title>
     <link href="http://uthark.github.com/blog/2014/03/01/google-plus-comments-fixed/"/>
     <updated>2014-03-01T01:07:00-05:00</updated>
     <id>http://uthark.github.com/blog/2014/03/01/google-plus-comments-fixed</id>
@@ -178,7 +178,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Automatic query modification with Spring Data Mongo]]></title>
+    <title type="html"><![CDATA[Automatic Query Modification With Spring Data Mongo]]></title>
     <link href="http://uthark.github.com/blog/2014/03/01/restricting-mongo-template/"/>
     <updated>2014-03-01T00:19:00-05:00</updated>
     <id>http://uthark.github.com/blog/2014/03/01/restricting-mongo-template</id>
@@ -428,7 +428,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Пишем аннотацию:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -455,7 +455,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Теперь осталось написать реализацию интерфейса <code>org.springframework.context.annotation.ImportBeanDefinitionRegistrar</code>. Так как у нас уже есть написанный ранее <a href="http://static.springsource.org/spring-framework/docs/3.2.x/javadoc-api/org/springframework/beans/factory/config/BeanFactoryPostProcessor.html">BeanFactoryPostProcessor</a> в виде <code>RestClientPostProcessor</code>, реализация интерфейса будет простой &ndash; мы создадим описание бина для Spring и зарегистрируем его в реестре бинов.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -510,7 +510,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Теперь мы можем использовать аннотацию:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -554,7 +554,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Первое решение, которое приходит в лоб &ndash; объявить бин в конфигурации для каждого интерфейса:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -596,7 +596,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Пишем класс:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -717,7 +717,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Теперь этот процессор необходимо зарегистрировать в контексте Spring:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -738,7 +738,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>И теперь можно использовать <code>UserRest</code> как обычный бин:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='java'><span class='line'>    <span class="nd">@Autowired</span>
 </span><span class='line'>    <span class="kd">private</span> <span class="n">UserShowRest</span> <span class="n">userShowRest</span><span class="o">;</span>
@@ -766,7 +766,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Для реализации чтения будем использовать <a href="http://jackson.codehaus.org/Home">Jackson Java JSON-processor</a> и его возможности <a href="http://fasterxml.github.io/jackson-databind/javadoc/2.2.0/com/fasterxml/jackson/databind/type/TypeFactory.html"><code>com.fasterxml.jackson.databind.type.TypeFactory</code></a></p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -911,7 +911,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Теперь мы можем создать клиента следующим образом:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -931,13 +931,13 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[@Autowiring EJBs with Spring]]></title>
+    <title type="html"><![CDATA[@Autowiring EJBs With Spring]]></title>
     <link href="http://uthark.github.com/blog/2013/06/19/autowiring-factorybean/"/>
     <updated>2013-06-19T20:00:00-04:00</updated>
     <id>http://uthark.github.com/blog/2013/06/19/autowiring-factorybean</id>
     <content type="html"><![CDATA[<p>Предположим, что у нас есть проект на Spring, в котором необходимо использовать внешние EJB. Для получения бинов необходимо создавать <a href="http://docs.oracle.com/javase/6/docs/api/javax/naming/InitialContext.html">InitialContext</a> и делать <code>lookup()</code> нужных ejb. Но эту задачу можно автоматизировать и пользоваться <a href="http://static.springsource.org/spring/docs/3.2.x/javadoc-api/org/springframework/beans/factory/annotation/Autowired.html">@Autowired</a>, то есть код будет выглядеть вот так:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -956,7 +956,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Для этого в Spring существует <a href="http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/htmlsingle/#beans-factory-extension-factorybean">FactoryBean</a> &ndash; класс, который знает, как создавать бины нужного типа. Собственно, нам необходимо написать такой класс (код на <a href="http://www.scala-lang.org/">Scala</a>):</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1048,7 +1048,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Использование memcached в качестве backend для Spring Caching Abstraction]]></title>
+    <title type="html"><![CDATA[Использование Memcached в качестве Backend для Spring Caching Abstraction]]></title>
     <link href="http://uthark.github.com/blog/2013/06/19/spring-caching/"/>
     <updated>2013-06-19T19:00:00-04:00</updated>
     <id>http://uthark.github.com/blog/2013/06/19/spring-caching</id>
@@ -1058,7 +1058,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <h2>Подключение зависимостей</h2>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1085,7 +1085,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <h2>Включение кэширования</h2>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1104,7 +1104,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Объявляем необходимые для работы бины:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1199,7 +1199,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <h2>Использование</h2>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1225,7 +1225,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <h2>Создание аннотации</h2>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1256,7 +1256,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <h2>Написание валидатора</h2>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1307,7 +1307,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Если есть желание возвращать динамическое сообщение об ошибке, то это можно сделать следующим образом:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='java'><span class='line'>    <span class="n">context</span><span class="o">.</span><span class="na">disableDefaultConstraintViolation</span><span class="o">();</span>
 </span><span class='line'>    <span class="n">context</span><span class="o">.</span><span class="na">buildConstraintViolationWithTemplate</span><span class="o">(</span><span class="s">&quot;&lt;Custom error message&gt;&quot;</span><span class="o">).</span><span class="na">addConstraintViolation</span><span class="o">();</span>
@@ -1318,7 +1318,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>На этом всё, теперь нам остаётся только добавить валидацию на нашу модель или входной параметр.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1344,7 +1344,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Эту задачу можно решить в лоб, написав вручную код валидации в каждом из методов сервиса, например, вот так:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1376,7 +1376,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 </ol>
 
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1397,7 +1397,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 </ol>
 
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1423,7 +1423,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 </ol>
 
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1455,7 +1455,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 </ol>
 
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1519,14 +1519,14 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Для начала необходимо установить Virtualbox и Vagrant.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='sh'><span class='line'>    sudo aptitude install virtualbox vagrant
 </span></code></pre></td></tr></table></div></figure>
 
 
 <p>После этого нам нужен образ, из которого мы можем создавать виртуальные машины. Его можно сделать самим или взять уже готовый с сайта Vagrant. Упростим себе жизнь и скачаем образ с сайта:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='sh'><span class='line'>    vagrant box add lucid32 http://files.vagrantup.com/lucid32.box
 </span></code></pre></td></tr></table></div></figure>
 
@@ -1535,7 +1535,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Для этого нам нужно создать папку, в которой мы будем работать, например:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='sh'><span class='line'>    mkdir vagrant-test
 </span><span class='line'>    <span class="nb">cd </span>vagrant-test
@@ -1544,7 +1544,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>И инициализировать Vagrant:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='sh'><span class='line'>    vagrant init
 </span></code></pre></td></tr></table></div></figure>
 
@@ -1553,7 +1553,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Пример сгенерированного файла:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1758,7 +1758,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Например, можно изменить размер RAM, доступный операционной системе:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">customize</span> <span class="o">[</span><span class="s2">&quot;modifyvm&quot;</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="s2">&quot;--memory&quot;</span><span class="p">,</span> <span class="mi">1536</span><span class="o">]</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -1767,7 +1767,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Это достигается следующим изменением конфигурации:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1834,7 +1834,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Сначала определим интерфейс, в котором опишем все методы, которые мы будем реализовывать самостоятельно. В нашем случае, это будет только один метод:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1855,7 +1855,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Затем обновим объявление репозитория, чтобы он унаследовал новый интерфейс <tt>UserRepositoryCustom</tt></p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserRepository</span> <span class="kd">extends</span> <span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">User</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;,</span> <span class="n">UserRepositoryCustom</span> <span class="o">{</span>
@@ -1866,7 +1866,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Теперь напишем реализацию метода:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1913,7 +1913,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>И, наконец, укажем Spring Data JPA, чтобы в качестве класса для прокси использовался наш класс с реализацией собственных методов. Для этого нам нужна ещё одна секция <tt>repositories</tt> в конфигурационном файле:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -1945,7 +1945,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Например, метод User.findByLoginAndPassword сгенерирует примерно следующий код:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">FROM</span> <span class="k">User</span> <span class="n">u</span> <span class="k">where</span> <span class="n">u</span><span class="p">.</span><span class="n">login</span> <span class="o">=</span> <span class="p">:</span><span class="n">login</span> <span class="k">and</span> <span class="n">password</span> <span class="o">=</span> <span class="p">:</span><span class="n">password</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -1969,7 +1969,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Очевидно, что при использовании запросов нам необходимо каким-то образом указывать параметры для запросов. Для этого есть аннотация <a href="http://static.springsource.org/spring-data/data-commons/docs/current/api/org/springframework/data/repository/query/Param.html">@Param</a>:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Query</span><span class="o">(</span><span class="s">&quot;select u from User u where u.login = :login and u.password = :password&quot;</span><span class="o">)</span>
 </span><span class='line'><span class="n">Page</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">findByLoginAndPassword</span><span class="o">(</span><span class="nd">@Param</span><span class="o">(</span><span class="s">&quot;login&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">login</span><span class="o">,</span> <span class="nd">@Param</span><span class="o">(</span><span class="s">&quot;password&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">password</span><span class="o">);</span>
@@ -1982,7 +1982,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Для поддержки спецификаций необходимо объявить метод в репозитории:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">Page</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">findAll</span><span class="o">(</span><span class="n">Specification</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">spec</span><span class="o">,</span> <span class="n">Pageable</span> <span class="n">pageable</span><span class="o">);</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -1993,7 +1993,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>Объявляем наши спецификации:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2042,7 +2042,7 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 <p>И в нашем сервисе комбинируем их:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -2182,7 +2182,7 @@ public class LoggerPostProcessor implements BeanPostProcessor {
 
 <p>Как оказалось, иногда использование DateFormat не помогает. В случае, если строка &ndash; это заголовок <tt>Date</tt> из письма, то нам нужно использовать <tt><a href="http://docs.oracle.com/javaee/5/api/javax/mail/internet/MailDateFormat.html">javax.mail.internet.MailDateFormat</a></tt> для преобразования такой строки.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">String</span> <span class="n">dateStr</span> <span class="o">=</span> <span class="o">...</span>
 </span><span class='line'><span class="n">Date</span> <span class="n">parsedDate</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MailDateFormat</span><span class="o">().</span><span class="na">parse</span><span class="o">(</span><span class="n">dateStr</span><span class="o">);</span>

@@ -18,13 +18,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://uthark.github.com/blog/2012/10/24/vagrant/">
+  <link rel="canonical" href="http://uthark.github.com/blog/2012/10/24/vagrant">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <link href="http://feeds.feedburner.com/atamanenko" rel="alternate" title="Software Development and related activities" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href='http://fonts.googleapis.com/css?family=Roboto:300,700,900&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
@@ -124,14 +125,14 @@
 
 <p>Для начала необходимо установить Virtualbox и Vagrant.</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='sh'><span class='line'>    sudo aptitude install virtualbox vagrant
 </span></code></pre></td></tr></table></div></figure>
 
 
 <p>После этого нам нужен образ, из которого мы можем создавать виртуальные машины. Его можно сделать самим или взять уже готовый с сайта Vagrant. Упростим себе жизнь и скачаем образ с сайта:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='sh'><span class='line'>    vagrant box add lucid32 http://files.vagrantup.com/lucid32.box
 </span></code></pre></td></tr></table></div></figure>
 
@@ -140,7 +141,7 @@
 
 <p>Для этого нам нужно создать папку, в которой мы будем работать, например:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='sh'><span class='line'>    mkdir vagrant-test
 </span><span class='line'>    <span class="nb">cd </span>vagrant-test
@@ -149,7 +150,7 @@
 
 <p>И инициализировать Vagrant:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='sh'><span class='line'>    vagrant init
 </span></code></pre></td></tr></table></div></figure>
 
@@ -158,7 +159,7 @@
 
 <p>Пример сгенерированного файла:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -363,7 +364,7 @@
 
 <p>Например, можно изменить размер RAM, доступный операционной системе:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">customize</span> <span class="o">[</span><span class="s2">&quot;modifyvm&quot;</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="s2">&quot;--memory&quot;</span><span class="p">,</span> <span class="mi">1536</span><span class="o">]</span>
 </span></code></pre></td></tr></table></div></figure>
 
@@ -372,7 +373,7 @@
 
 <p>Это достигается следующим изменением конфигурации:</p>
 
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -461,13 +462,13 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://uthark.github.com/blog/2012/10/24/vagrant/" data-via="" data-counturl="http://uthark.github.com/blog/2012/10/24/vagrant/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://uthark.github.com/blog/2012/10/24/vagrant/" data-via="" data-counturl="http://uthark.github.com/blog/2012/10/24/vagrant/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
   
   
-    <div class="fb-like" data-send="true" data-width="450" data-show-faces="true"></div>
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
   
 </div>
 
@@ -542,7 +543,7 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2014/03/02/iterm-triggers/">Using iTerm triggers</a>
+        <a href="/blog/2014/03/02/iterm-triggers/">Using iTerm Triggers</a>
       </li>
     
       <li class="post">
@@ -550,7 +551,7 @@
       </li>
     
       <li class="post">
-        <a href="/blog/2014/03/02/octopress-quote-fix/">Fixing unescaped quotes in page rendering in Octopress</a>
+        <a href="/blog/2014/03/02/octopress-quote-fix/">Fixing Unescaped Quotes in Page Rendering in Octopress</a>
       </li>
     
       <li class="post">
@@ -566,7 +567,7 @@
       </li>
     
       <li class="post">
-        <a href="/blog/2014/03/01/google-plus-comments-fixed/">Fixed Google+ comments on the site</a>
+        <a href="/blog/2014/03/01/google-plus-comments-fixed/">Fixed Google+ Comments on the Site</a>
       </li>
     
   </ul>
@@ -581,7 +582,7 @@
   <a href="https://github.com/uthark">@uthark</a> on GitHub
   
   <script type="text/javascript">
-    $.domReady(function(){
+    $(document).ready(function(){
         if (!window.jXHR){
             var jxhr = document.createElement('script');
             jxhr.type = 'text/javascript';
@@ -642,7 +643,7 @@
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id;
+  js = d.createElement(s); js.id = id; js.async = true;
   js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
@@ -664,7 +665,7 @@
       var twitterWidgets = document.createElement('script');
       twitterWidgets.type = 'text/javascript';
       twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
       document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
     })();
   </script>

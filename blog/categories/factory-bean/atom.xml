@@ -4,7 +4,7 @@
   <title><![CDATA[Category: factory bean | Software Development and related activities]]></title>
   <link href="http://uthark.github.com/blog/categories/factory-bean/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-03-03T00:53:26-05:00</updated>
+  <updated>2014-03-03T02:48:37-05:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -20,7 +20,7 @@
     <id>http://uthark.github.com/blog/2013/06/19/autowiring-factorybean</id>
     <content type="html"><![CDATA[<p>Предположим, что у нас есть проект на Spring, в котором необходимо использовать внешние EJB. Для получения бинов необходимо создавать <a href="http://docs.oracle.com/javase/6/docs/api/javax/naming/InitialContext.html">InitialContext</a> и делать <code>lookup()</code> нужных ejb. Но эту задачу можно автоматизировать и пользоваться <a href="http://static.springsource.org/spring/docs/3.2.x/javadoc-api/org/springframework/beans/factory/annotation/Autowired.html">@Autowired</a>, то есть код будет выглядеть вот так:</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -38,7 +38,7 @@
 
 <p>Для этого в Spring существует <a href="http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/htmlsingle/#beans-factory-extension-factorybean">FactoryBean</a> &ndash; класс, который знает, как создавать бины нужного типа. Собственно, нам необходимо написать такой класс (код на <a href="http://www.scala-lang.org/">Scala</a>):</p>
 
-<p><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
