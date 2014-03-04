@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-03-04T01:14:06-05:00</updated>
+  <updated>2014-03-04T10:26:02-05:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,129 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-March-04]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/04/reading-list-2014-march-04/"/>
+    <updated>2014-03-04T10:13:06-05:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/04/reading-list-2014-march-04</id>
+    <content type="html"><![CDATA[<p>Reading list for today:</p>
+
+<h3>General</h3>
+
+<ol>
+<li><a href="http://j.mp/1pYG9hG">Tesla Is a Car, Not a Revolution</a></li>
+<li><a href="http://j.mp/1jnHj1C">Unemployment in America</a></li>
+<li><a href="http://j.mp/1djyvZL">Listen while you work: What music does to your brain</a></li>
+</ol>
+
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1c3tmXf">Announcement: Sync Desktop 1.2 Released for Liferay Portal 6.2</a></li>
+<li><a href="http://j.mp/1i1BwxS">Etsy’s Journey to Continuous Integration for Mobile Apps</a></li>
+<li><a href="http://j.mp/1fui7X4">ASP.NET Web API Versioning with Media Types</a></li>
+<li><a href="http://j.mp/1eZmUf4">AirPair Launches Evernote Community Powered API Live Help</a></li>
+<li><a href="http://j.mp/1pYGell">Dependency inversion: the structure logarithm.</a></li>
+<li><a href="http://j.mp/1i1BAh5">Failure is an option &ndash; Andreas M. Antonopoulos</a></li>
+<li><a href="http://j.mp/1i96NmM">How do you document your ops infrastructure?</a></li>
+<li><a href="http://j.mp/1ejcWEx">Innodb Performance Optimization Basics</a></li>
+<li><a href="http://j.mp/1dCPXUY">Getting Started with Puppet</a></li>
+<li><a href="http://j.mp/1h2zEbT">FrequencyReducesDifficulty</a></li>
+<li><a href="http://j.mp/1h2zzVQ">What is Data Redundancy? &ndash; Definition from Techopedia</a>1. <a href="http://j.mp/1bgZRRK">Enabling Specification</a></li>
+<li><a href="http://j.mp/1cgqBMV">You are not the model. Your intuition is what the&hellip;</a></li>
+<li><a href="http://j.mp/1j7Jc5I">An immutable operating system</a></li>
+<li><a href="http://j.mp/1f1UftS">Scaling Meteor: The Challenges of Real-time Apps</a></li>
+<li><a href="http://j.mp/1eXLZqF">The Hipper Element</a></li>
+<li><a href="http://j.mp/1eXLZXw">The Hipper Element</a></li>
+<li><a href="http://j.mp/1fui79L">Best Practices for Designing a Pragmatic RESTful API</a>1. <a href="http://j.mp/1m8Ag20">Programmer Happiness: It&rsquo;s the Little Things</a></li>
+<li><a href="http://j.mp/1eX0yuw">The Netflix Dynamic Scripting Platform</a></li>
+<li><a href="http://j.mp/1jh1JJx">Tracking Events using the Amazon Mobile Ads API</a></li>
+<li><a href="http://j.mp/1kbYi7C">Coding conventions: 9 areas where developers actually agree</a></li>
+<li><a href="http://j.mp/1eZmULW">The MongoDB Blog</a></li>
+<li><a href="http://j.mp/1c3r2zI">Amazon Web Services Blog</a></li>
+</ol>
+
+
+<h3>Project management</h3>
+
+<ol>
+<li><a href="http://j.mp/1kSawm5">Cost of Delay: Not Shipping on Time, Part 1</a></li>
+<li><a href="http://j.mp/Ne8bGZ">Cost of Delay Due to Technical Debt, Part 4</a></li>
+<li><a href="http://j.mp/1i1FG91">WIP limit versus batch size, fair comparison?</a></li>
+</ol>
+
+
+<h3>Productivity</h3>
+
+<ol>
+<li><a href="http://j.mp/1m62dHP">Five email tics I&rsquo;d love for you to lose</a></li>
+<li><a href="http://j.mp/1bLuiKG">Five fast email productivity tips</a></li>
+<li><a href="http://j.mp/1bLufhN">Inbox Zero: What&rsquo;s the action here?</a></li>
+<li><a href="http://j.mp/1bLucCH">Inbox Zero: Where filters will and won&rsquo;t help</a></li>
+<li><a href="http://j.mp/1oianLJ">Inbox Zero</a></li>
+<li><a href="http://j.mp/1m62iLv">Open Thread: The value and quality of email at work</a></li>
+<li><a href="http://j.mp/1m62hHk">Fresh Start: The Email DMZ</a></li>
+</ol>
+
+
+<h3>Android</h3>
+
+<ol>
+<li><a href="http://j.mp/1lAam3k">Security Tips &ndash; Android Developers</a></li>
+<li><a href="http://j.mp/MXo301">Android Developers &ndash; Canvas and Drawables</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1k4NFWI">JSR-352, Spring Batch and You</a></li>
+<li><a href="http://j.mp/1kSawT8">Evaluating expressions using Spring Expression Language (SpEL)</a></li>
+<li><a href="http://j.mp/1feVWAv">Serializing Java Objects with Non-Serializable Attributes</a></li>
+<li><a href="http://j.mp/1iWYl6t">Spring Data Elasticsearch 1.0 M1 released</a></li>
+<li><a href="http://j.mp/1m8Aaay">Convert Java Objects to XML and XML to Java Objects with XStream</a></li>
+<li><a href="http://j.mp/1djyAg1">A quick introduction to AssertJ</a></li>
+<li><a href="http://j.mp/1n4WChR">Java DSL for easy testing of REST services</a></li>
+<li><a href="http://j.mp/1esVCwU">Java 8 Type Annotations</a></li>
+<li><a href="http://j.mp/1fCX9Hn">Java SE 8 Date and Time</a></li>
+<li><a href="http://j.mp/1eW4jWG">10 Reasons Why Java Rocks More Than Ever: Part 9 – Backwards Compatibility</a></li>
+<li><a href="http://j.mp/1hE8VjO">Groovy Bean Configuration in Spring Framework 4</a></li>
+<li><a href="http://j.mp/1eZkg8X">Don&rsquo;t wait, upgrade &ndash; Hibernate Validator 5.1.0.Final is out!</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/1bQ3ps5">sksamuel/elastic4s · GitHub</a></li>
+<li><a href="http://j.mp/1iUm0EE">novus/salat · GitHub</a></li>
+<li><a href="http://j.mp/1omacfJ">Starting with Scala Macros: a short tutorial</a></li>
+<li><a href="http://j.mp/1ePiuvT">pulsation/slick-android-example · GitHub</a></li>
+<li><a href="http://j.mp/1gAws4A">What is a Type System for?</a></li>
+<li><a href="http://j.mp/1dgHqLq">Scala Akka Workshop – Evolving a Robot in an Actor Cluster</a></li>
+</ol>
+
+
+<h3>Linux</h3>
+
+<ol>
+<li><a href="http://j.mp/1cFeg5c">First look at cockpit, a web based server management interface [Update]</a></li>
+<li><a href="http://j.mp/1mdCxJc">Chris&rsquo;s Wiki : blog/linux/SystemdWhyItWon</a></li>
+</ol>
+
+
+<h3>Tools</h3>
+
+<ol>
+<li><a href="http://direnv.net/">direnv &mdash; Unclutter your .profile</a></li>
+<li><a href="http://j.mp/1pYG65t">A little collection of cool unix terminal/console/curses tools</a></li>
+<li><a href="http://j.mp/1pYG51f">orchardup/fig · GitHub</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Snowboarding]]></title>
@@ -2028,141 +2151,6 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
 
 <p>Вот и всё.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ищем с помощью Spring Data JPA]]></title>
-    <link href="http://uthark.github.com/blog/2012/04/24/spring-data-jpa/"/>
-    <updated>2012-04-24T03:04:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2012/04/24/spring-data-jpa</id>
-    <content type="html"><![CDATA[<p>Рассмотрим подробнее одну из наиболее полезных вещей в Spring Data JPA &ndash; генерация JPQL-запросов на основе имени метода.</p>
-
-<p>Spring Data JPA умеет автоматически генерировать запросы используя для подсказки название метода.</p>
-
-<p>Например, метод User.findByLoginAndPassword сгенерирует примерно следующий код:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">FROM</span> <span class="k">User</span> <span class="n">u</span> <span class="k">where</span> <span class="n">u</span><span class="p">.</span><span class="n">login</span> <span class="o">=</span> <span class="p">:</span><span class="n">login</span> <span class="k">and</span> <span class="n">password</span> <span class="o">=</span> <span class="p">:</span><span class="n">password</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Вообще Spring Data JPA пытается быть умным, поэтому реализация <tt>findBy{&hellip;}</tt> методов ищется следующим образом:</p>
-
-<ol>
-<li>Сначала смотрится аннотация <a href="http://static.springsource.org/spring-data/data-jpa/docs/current/api/org/springframework/data/jpa/repository/Query.html">@Query</a> на объявлении метода, если она есть, то используется.</li>
-<li>Затем смотрится аннотация <a href="http://docs.oracle.com/javaee/5/api/javax/persistence/NamedQuery.html">@NamedQuery</a> с именем вида <tt>Entity.findMethodName</tt>, для вышеприведённого случая это будет <tt>User.findByLoginAndPassword</tt>. </li>
-<li>Если ничего не нашли. то по сигнатуре метода <a href="https://github.com/SpringSource/spring-data-jpa/blob/master/src/main/java/org/springframework/data/jpa/repository/query/JpaQueryCreator.java">генерируется запрос</a>.</li>
-</ol>
-
-
-<p>У <tt>@Query</tt> следующие плюсы:</p>
-
-<ol>
-<li>Позволяет не засорять объявление доменной сущности.</li>
-<li>Сильно помогает, если у нас в запросе есть неявные джойны, потому что для таких запросов Spring Data JPA <a href="https://jira.springsource.org/browse/DATAJPA-35">не умеет корректно генерировать</a> запрос <tt>SELECT COUNT(*)</tt>, который нужен в тех случаях, когда метод должен вернуть <a href="http://static.springsource.org/spring-data/data-commons/docs/current/api/org/springframework/data/domain/Page.html">Page</a>. </li>
-</ol>
-
-
-<p>Очевидно, что при использовании запросов нам необходимо каким-то образом указывать параметры для запросов. Для этого есть аннотация <a href="http://static.springsource.org/spring-data/data-commons/docs/current/api/org/springframework/data/repository/query/Param.html">@Param</a>:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Query</span><span class="o">(</span><span class="s">&quot;select u from User u where u.login = :login and u.password = :password&quot;</span><span class="o">)</span>
-</span><span class='line'><span class="n">Page</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">findByLoginAndPassword</span><span class="o">(</span><span class="nd">@Param</span><span class="o">(</span><span class="s">&quot;login&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">login</span><span class="o">,</span> <span class="nd">@Param</span><span class="o">(</span><span class="s">&quot;password&quot;</span><span class="o">)</span> <span class="n">String</span> <span class="n">password</span><span class="o">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Кроме того, Spring Data JPA поддерживает отличную <a href="http://www.martinfowler.com/apsupp/spec.pdf">концепцию спецификаций</a>.</p>
-
-<p>Спецификации позволяют делать составлять сложные запросы из набора простых.</p>
-
-<p>Для поддержки спецификаций необходимо объявить метод в репозитории:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">Page</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">findAll</span><span class="o">(</span><span class="n">Specification</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">spec</span><span class="o">,</span> <span class="n">Pageable</span> <span class="n">pageable</span><span class="o">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Спецификация по сути является фильтром и позволяет комбинирование фильтров, что даёт мощный инструмент для построения запросов.</p>
-
-<p>Пример использования спецификаций:</p>
-
-<p>Объявляем наши спецификации:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">static</span> <span class="n">Specification</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">firstNameOrLastNameOrLoginLike</span><span class="o">(</span><span class="kd">final</span> <span class="n">String</span> <span class="n">search</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="k">new</span> <span class="n">Specification</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;()</span> <span class="o">{</span>
-</span><span class='line'>        <span class="nd">@Override</span>
-</span><span class='line'>        <span class="kd">public</span> <span class="n">Predicate</span> <span class="nf">toPredicate</span><span class="o">(</span><span class="n">Root</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">root</span><span class="o">,</span> <span class="n">CriteriaQuery</span><span class="o">&lt;?&gt;</span> <span class="n">query</span><span class="o">,</span> <span class="n">CriteriaBuilder</span> <span class="n">builder</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="n">Predicate</span> <span class="n">loginPredicate</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="na">like</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">User_</span><span class="o">.</span><span class="na">login</span><span class="o">),</span> <span class="n">search</span><span class="o">);</span>
-</span><span class='line'>            <span class="n">Predicate</span> <span class="n">firstnamePredicate</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="na">like</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">User_</span><span class="o">.</span><span class="na">firstname</span><span class="o">),</span> <span class="n">search</span><span class="o">);</span>
-</span><span class='line'>            <span class="n">Predicate</span> <span class="n">lastnamePredicate</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="na">like</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">User_</span><span class="o">.</span><span class="na">lastname</span><span class="o">),</span> <span class="n">search</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="k">return</span> <span class="n">builder</span><span class="o">.</span><span class="na">or</span><span class="o">(</span><span class="n">loginPredicate</span><span class="o">,</span> <span class="n">firstnamePredicate</span><span class="o">,</span> <span class="n">lastnamePredicate</span><span class="o">);</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>    <span class="o">};</span>
-</span><span class='line'><span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">public</span> <span class="kd">static</span> <span class="n">Specification</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">hasRole</span><span class="o">(</span><span class="kd">final</span> <span class="n">Role</span> <span class="n">role</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="k">return</span> <span class="k">new</span> <span class="n">Specification</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;()</span> <span class="o">{</span>
-</span><span class='line'>        <span class="nd">@Override</span>
-</span><span class='line'>        <span class="kd">public</span> <span class="n">Predicate</span> <span class="nf">toPredicate</span><span class="o">(</span><span class="n">Root</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">root</span><span class="o">,</span> <span class="n">CriteriaQuery</span><span class="o">&lt;?&gt;</span> <span class="n">query</span><span class="o">,</span> <span class="n">CriteriaBuilder</span> <span class="n">builder</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>            <span class="k">return</span> <span class="n">builder</span><span class="o">.</span><span class="na">equal</span><span class="o">(</span><span class="n">root</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">User_</span><span class="o">.</span><span class="na">role</span><span class="o">),</span> <span class="n">role</span><span class="o">);</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>    <span class="o">};</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>И в нашем сервисе комбинируем их:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="n">Page</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">searchUser</span><span class="o">(</span><span class="n">Role</span> <span class="n">role</span><span class="o">,</span> <span class="n">String</span> <span class="n">search</span><span class="o">,</span> <span class="n">Pageable</span> <span class="n">pageable</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">Specifications</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="n">mainSpec</span> <span class="o">=</span> <span class="n">where</span><span class="o">(</span><span class="n">hasRole</span><span class="o">(</span><span class="n">role</span><span class="o">));</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">// уточняем запрос, если была передана строка для поиска</span>
-</span><span class='line'>    <span class="k">if</span> <span class="o">(</span><span class="n">StringUtils</span><span class="o">.</span><span class="na">isNotBlank</span><span class="o">(</span><span class="n">search</span><span class="o">))</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">mainSpec</span> <span class="o">=</span> <span class="n">mainSpec</span><span class="o">.</span><span class="na">and</span><span class="o">(</span><span class="n">firstNameOrLastNameOrLoginLike</span><span class="o">(</span><span class="n">search</span><span class="o">));</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">return</span> <span class="n">userRepository</span><span class="o">.</span><span class="na">findAll</span><span class="o">(</span><span class="n">mainSpec</span><span class="o">,</span> <span class="n">pageable</span><span class="o">);</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
 ]]></content>
   </entry>
   
