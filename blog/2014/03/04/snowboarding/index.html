@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Apache Ant и Metro - Software Development and related activities</title>
+  <title>Snowboarding - Software Development and related activities</title>
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="Столкнулся с такой проблемой - в некоторых случаях приложение, собранное антом не работает. Конкретно - не работает десереализация запросов на веб- &hellip;">
+  <meta name="description" content="Today in the evening I got to Whitetail Ski Resort. ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://uthark.github.com/blog/2009/06/02/apache-ant-metro">
+  <link rel="canonical" href="http://uthark.github.com/blog/2014/03/04/snowboarding">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/atamanenko" rel="alternate" title="Software Development and related activities" type="application/atom+xml">
@@ -85,7 +85,7 @@
   
   <header>
     
-      <h1 class="entry-title">Apache Ant и Metro</h1>
+      <h1 class="entry-title">Snowboarding</h1>
     
     
       <p class="meta">
@@ -101,29 +101,18 @@
   
 
 
-<time datetime="2009-06-02T12:31:00-04:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2009</time>
+<time datetime="2014-03-04T01:04:55-05:00" pubdate data-updated="true">Mar 4<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><div class='post'>
-Столкнулся с такой проблемой - в некоторых случаях приложение, собранное антом не работает. Конкретно - не работает десереализация запросов на веб-сервис. Получаемый запрос содержит <tt>null</tt> в значениях полей.
+<div class="entry-content"><p>Today in the evening I got to <a href="http://www.skiwhitetail.com/winter">Whitetail Ski Resort</a>.</p>
 
-Опытным путём было выяснено, что на это влияет используемая версия Java. Под 1.5 работает корректно, под 1.6 - не работает. Нашли <a href="https://jaxb.dev.java.net/guide/Runtime_Errors.html#Illegal_class_modifiers_for_package_info__0x1600">ошибку в метро</a>, связанную именно с версией JDK и на этом успокоились. Но было одно исключение из правил. У одного из разработчиков под 1.5 тоже не работало.
+<iframe style="overflow: scroll; width: 100%; height: 600px" src="http://www.endomondo.com/embed/workouts?w=tmMEXnSDfDg&width=950&height=600" frameborder="0" scrolling="yes" ></iframe>
 
-Как выяснилось позже, виноват был во всё Ant.
-Metro создавал файл package-info.java, в котором было примерно следующее содержание:
 
-<code>
-@javax.xml.bind.annotation.XmlSchema(namespace = "http://z.y.x.com", elementFormDefault=javax.xml.bind.annotation.XmlNsForm.UNQUALIFIED)
-package com.x.y.z;
-</code>
-
-Ант, в свою очередь, должен был этот файл компилировать. А <a href="http://ant.apache.org/manual/CoreTasks/javac.html">в реальности этого не происходило</a>, поэтому Metro не мог корректно отобразить XML-запрос на объекты доменной области.
-
-Решение было немного кривым, но при этом поразительно простым - принудительный вызов javac на файлах package-info.java.</div>
 
 </div>
 
@@ -147,12 +136,12 @@ package com.x.y.z;
   
 
 
-<time datetime="2009-06-02T12:31:00-04:00" pubdate data-updated="true">Jun 2<span>nd</span>, 2009</time>
+<time datetime="2014-03-04T01:04:55-05:00" pubdate data-updated="true">Mar 4<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/apache-ant/'>apache ant</a>, <a class='category' href='/blog/categories/java/'>java</a>, <a class='category' href='/blog/categories/ghrabli/'>грабли</a>
+    <a class='category' href='/blog/categories/diary/'>diary</a>
   
 </span>
 
@@ -161,7 +150,7 @@ package com.x.y.z;
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://uthark.github.com/blog/2009/06/02/apache-ant-metro/" data-via="" data-counturl="http://uthark.github.com/blog/2009/06/02/apache-ant-metro/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://uthark.github.com/blog/2014/03/04/snowboarding/" data-via="" data-counturl="http://uthark.github.com/blog/2014/03/04/snowboarding/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -174,15 +163,62 @@ package com.x.y.z;
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2009/05/30/protected/" title="Previous Post: Использование модификатора protected на полях в базовом классе">&laquo; Использование модификатора protected на полях в базовом классе</a>
+        <a class="basic-alignment left" href="/blog/2014/03/03/reading-list-2014-march-03/" title="Previous Post: Reading List 2014-March-03">&laquo; Reading List 2014-March-03</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2009/06/02/spring-roo/" title="Next Post: Введение в Spring Roo">Введение в Spring Roo &raquo;</a>
       
     </p>
   </footer>
 </article>
 
+
+<section>
+    <h1>Comments</h1>
+
+    <div id="gpluscomments"
+     data-href='http://uthark.github.com/blog/2014/03/04/snowboarding/'
+     data-viewtype='FILTERED_POSTMOD'></div>
+<script type="text/javascript">
+    window.___gcfg = {lang: ''};
+
+    (function() {
+      function _getComputedStyle(el, cssprop){
+       if (el.currentStyle) {
+        // for IE
+        return el.currentStyle[cssprop]
+       } else if (document.defaultView && document.defaultView.getComputedStyle) {
+        // Any other normal brwoser (like Chrome, Firefox)
+        return document.defaultView.getComputedStyle(el, "")[cssprop]
+       } else {
+        // Try get inline style
+        return el.style[cssprop]
+        }
+      }
+
+
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.async = true;
+      script.onload = function() {
+        if (gapi && gapi['comments'] && gapi.comments['render']) {
+          var gPlusComments = document.getElementById('gpluscomments');
+          gapi.comments.render(
+            'gpluscomments',
+            {
+              href: gPlusComments.getAttribute('data-href'),
+              view_type: gPlusComments.getAttribute('data-viewtype'),
+              first_party_property: "BLOGGER",
+              width: parseInt(_getComputedStyle(gPlusComments, "width"), 10)
+            }
+          );
+        }
+      };
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+</section>
 
 </div>
 
