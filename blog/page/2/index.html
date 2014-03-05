@@ -9,7 +9,7 @@
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="В Spring 3.1 появился замечательный модуль &ndash; Spring Cache, который является абстракцией над кэшированием, что позволяет декларативно &hellip;">
+  <meta name="description" content="Предположим, что у нас есть проект на Spring, в котором необходимо использовать внешние EJB. Для получения бинов необходимо создавать InitialContext &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +82,150 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/06/19/autowiring-factorybean/">@Autowiring EJBs With Spring</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-06-19T20:00:00-04:00" pubdate data-updated="true">Jun 19<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Предположим, что у нас есть проект на Spring, в котором необходимо использовать внешние EJB. Для получения бинов необходимо создавать <a href="http://docs.oracle.com/javase/6/docs/api/javax/naming/InitialContext.html">InitialContext</a> и делать <code>lookup()</code> нужных ejb. Но эту задачу можно автоматизировать и пользоваться <a href="http://static.springsource.org/spring/docs/3.2.x/javadoc-api/org/springframework/beans/factory/annotation/Autowired.html">@Autowired</a>, то есть код будет выглядеть вот так:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Service</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserService</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@Autowired</span>
+</span><span class='line'>  <span class="kd">private</span> <span class="n">UserRemoteBean</span> <span class="n">userRemoteBean</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Для этого в Spring существует <a href="http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/htmlsingle/#beans-factory-extension-factorybean">FactoryBean</a> &ndash; класс, который знает, как создавать бины нужного типа. Собственно, нам необходимо написать такой класс (код на <a href="http://www.scala-lang.org/">Scala</a>):</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+</pre></td><td class='code'><pre><code class='scala'><span class='line'><span class="nd">@Component</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">UserRemoteBeanFactoryBean</span> <span class="k">extends</span> <span class="nc">FactoryBean</span><span class="o">[</span><span class="kt">UserRemoteBean</span><span class="o">]</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">ACCESS_BEAN_REMOTE_NAME</span><span class="k">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">&quot;our ejb name.&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">private</span> <span class="k">val</span> <span class="n">log</span><span class="k">:</span> <span class="kt">Logger</span> <span class="o">=</span> <span class="nc">LoggerFactory</span><span class="o">.</span><span class="n">getLogger</span><span class="o">(</span><span class="n">getObjectType</span><span class="o">)</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">var</span> <span class="n">ctx</span><span class="k">:</span> <span class="kt">Context</span> <span class="o">=</span> <span class="kc">null</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="n">getObject</span><span class="k">:</span> <span class="kt">UserRemoteBean</span> <span class="o">=</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="o">(</span><span class="s">&quot;Requesting new instance of {}&quot;</span><span class="o">,</span> <span class="n">getObjectType</span><span class="o">)</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">try</span> <span class="o">{</span>
+</span><span class='line'>      <span class="n">ctx</span><span class="o">.</span><span class="n">lookup</span><span class="o">(</span><span class="nc">ACCESS_BEAN_REMOTE_NAME</span><span class="o">).</span><span class="n">asInstanceOf</span><span class="o">[</span><span class="kt">UserRemoteBean</span><span class="o">]</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>    <span class="k">catch</span> <span class="o">{</span>
+</span><span class='line'>      <span class="k">case</span> <span class="n">e</span><span class="k">:</span> <span class="kt">NamingException</span> <span class="o">=&gt;</span> <span class="o">{</span>
+</span><span class='line'>        <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="o">(</span><span class="s">&quot;Unable to get ejb: {}&quot;</span><span class="o">,</span> <span class="nc">Array</span><span class="o">[</span><span class="kt">AnyRef</span><span class="o">](</span><span class="n">e</span><span class="o">.</span><span class="n">getMessage</span><span class="o">,</span> <span class="n">e</span><span class="o">)</span><span class="k">:</span> <span class="k">_</span><span class="kt">*</span><span class="o">)</span>
+</span><span class='line'>        <span class="k">throw</span> <span class="k">new</span> <span class="nc">RuntimeException</span><span class="o">(</span><span class="s">&quot;Unable to get UserRemoteBean bean &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="o">.</span><span class="n">getMessage</span><span class="o">,</span> <span class="n">e</span><span class="o">)</span>
+</span><span class='line'>      <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nd">@PostConstruct</span>
+</span><span class='line'>  <span class="k">protected</span> <span class="k">def</span> <span class="n">init</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>    <span class="k">val</span> <span class="n">jndiProperties</span><span class="k">:</span> <span class="kt">Hashtable</span><span class="o">[</span><span class="kt">String</span>, <span class="kt">Object</span><span class="o">]</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">Hashtable</span><span class="o">[</span><span class="kt">String</span>, <span class="kt">Object</span><span class="o">]</span>
+</span><span class='line'>    <span class="n">jndiProperties</span><span class="o">.</span><span class="n">put</span><span class="o">(</span><span class="nc">Context</span><span class="o">.</span><span class="nc">URL_PKG_PREFIXES</span><span class="o">,</span> <span class="s">&quot;org.jboss.ejb.client.naming&quot;</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">jndiProperties</span><span class="o">.</span><span class="n">put</span><span class="o">(</span><span class="s">&quot;jboss.naming.client.ejb.context&quot;</span><span class="o">,</span> <span class="k">new</span> <span class="n">java</span><span class="o">.</span><span class="n">lang</span><span class="o">.</span><span class="nc">Boolean</span><span class="o">(</span><span class="kc">true</span><span class="o">))</span>
+</span><span class='line'>    <span class="k">try</span>
+</span><span class='line'>      <span class="n">ctx</span> <span class="k">=</span> <span class="k">new</span> <span class="nc">InitialContext</span><span class="o">(</span><span class="n">jndiProperties</span><span class="o">)</span>
+</span><span class='line'>    <span class="k">catch</span> <span class="o">{</span>
+</span><span class='line'>      <span class="k">case</span> <span class="n">e</span><span class="k">:</span> <span class="kt">NamingException</span> <span class="o">=&gt;</span> <span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="o">(</span><span class="s">&quot;Unable to create JNDI Context: {}&quot;</span><span class="o">,</span> <span class="nc">Array</span><span class="o">[</span><span class="kt">AnyRef</span><span class="o">](</span><span class="n">e</span><span class="o">.</span><span class="n">getMessage</span><span class="o">,</span> <span class="n">e</span><span class="o">)</span><span class="k">:</span> <span class="k">_</span><span class="kt">*</span><span class="o">)</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="n">isSingleton</span><span class="k">:</span> <span class="kt">Boolean</span> <span class="o">=</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kc">false</span>
+</span><span class='line'>  <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="n">getObjectType</span><span class="k">:</span> <span class="kt">Class</span><span class="o">[</span><span class="k">_</span><span class="o">]</span> <span class="k">=</span> <span class="n">classOf</span><span class="o">[</span><span class="kt">UserRemoteBean</span><span class="o">]</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -2346,7 +2490,7 @@ public @interface SuppressExceptions {
 <div class='comment'>
 <div class='author'>Anonymous</div>
 <div class='content'>
-Добрый день, прочитал Вашу статью &ndash; интересно! =) На данный момент пытаюсь вникнуть в АОП в БД, но не совсем понимаю как можно реализовать аспекты при работе с БД (именно с точки зрения системы &ndash; код, компиляция и пр. т.к. теоретически все прозрачно и ясно). Не подскажите &ndash; где можно найти, для наглядности, простенькую БД с реализованным аспектами и хоть какое-то пояснение по реализованному &quot;проекту&quot; &ndash; на чем писали, как внедряли аспекты и пр. Мэйл для связи &ndash; <a href="&#109;&#97;&#105;&#x6c;&#116;&#x6f;&#58;&#x75;&#x74;&#111;&#x70;&#x69;&#97;&#50;&#x30;&#48;&#53;&#64;&#x79;&#x61;&#110;&#x64;&#x65;&#120;&#x2e;&#x72;&#117;">&#117;&#x74;&#x6f;&#112;&#x69;&#x61;&#x32;&#48;&#48;&#53;&#64;&#x79;&#x61;&#110;&#100;&#101;&#120;&#x2e;&#x72;&#x75;</a></div>
+Добрый день, прочитал Вашу статью &ndash; интересно! =) На данный момент пытаюсь вникнуть в АОП в БД, но не совсем понимаю как можно реализовать аспекты при работе с БД (именно с точки зрения системы &ndash; код, компиляция и пр. т.к. теоретически все прозрачно и ясно). Не подскажите &ndash; где можно найти, для наглядности, простенькую БД с реализованным аспектами и хоть какое-то пояснение по реализованному &quot;проекту&quot; &ndash; на чем писали, как внедряли аспекты и пр. Мэйл для связи &ndash; <a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#x75;&#116;&#111;&#112;&#x69;&#97;&#x32;&#48;&#x30;&#x35;&#x40;&#121;&#97;&#x6e;&#100;&#101;&#120;&#46;&#114;&#117;">&#117;&#116;&#111;&#x70;&#x69;&#97;&#50;&#48;&#x30;&#x35;&#x40;&#121;&#x61;&#x6e;&#x64;&#101;&#x78;&#46;&#114;&#x75;</a></div>
 </div></p>
 </div>
   
@@ -2634,177 +2778,6 @@ public class StringNormalizer {
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/05/21/databene-benerator/">Создание больших объёмов тестовых данных с помощью Databene Benerator</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-05-21T13:26:00-04:00" pubdate data-updated="true">May 21<span>st</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<p>Периодически необходимо решать задачу создания больших ( и не очень) объёмов тестовых данных для проведения различных видов тестирования - функционального, нагрузочного (тестирование стабильности и производительности). При этом часто получается так, что система на тестовых данных ведёт себя совсем иначе, чем на реальных данных. Причина кроется в том, что создать правдоподобные тестовые данные всегда достаточно сложно.</p>
-<p>Изучая данный вопрос я наткнулся на замечательный фреймворк - <a href="http://databene.org/databene-benerator">Databene Benerator</a>, основной целью создания которого как раз и является создание правдоподобных тестовых данных для проведения различных видов тестирования.</p>
-<h4>Установка</h4>
-<p>Установка фреймворка осуществляется двумя способами - как отдельное приложение и как плагин для Maven.</p>
-<h5>Установка под Maven</h5>
-<p>Для использования Databene benerator в проектах, использующих для сборки Apache Maven необходимо добавить в зависимости databene-benerator и сконфигурировать его.</p>
-<pre class="brush: xml;">
-&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
-         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;&gt;
-  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
-  &lt;groupId&gt;com.myorganization&lt;/groupId&gt;
-  &lt;artifactId&gt;databene-benerator-test&lt;/artifactId&gt;
-  &lt;version&gt;1.0&lt;/version&gt;
-  &lt;packaging&gt;jar&lt;/packaging&gt;
-  &lt;name&gt;data generation project&lt;/name&gt;
-  &lt;dependencies&gt;
-    &lt;dependency&gt;
-      &lt;groupId&gt;org.databene&lt;/groupId&gt;
-      &lt;artifactId&gt;databene-benerator&lt;/artifactId&gt;
-      &lt;version&gt;0.5.9&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-      &lt;groupId&gt;org.databene&lt;/groupId&gt;
-      &lt;artifactId&gt;databene-webdecs&lt;/artifactId&gt;
-      &lt;version&gt;0.4.9&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-      &lt;groupId&gt;org.databene&lt;/groupId&gt;
-      &lt;artifactId&gt;databene-commons&lt;/artifactId&gt;
-      &lt;version&gt;0.4.9&lt;/version&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-      &lt;groupId&gt;mysql&lt;/groupId&gt;
-      &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
-      &lt;version&gt;5.1.6&lt;/version&gt;
-    &lt;/dependency&gt;
-  &lt;/dependencies&gt;
-  &lt;build&gt;
-    &lt;resources&gt;
-      &lt;resource&gt;
-        &lt;directory&gt;src/main/resources&lt;/directory&gt;
-        &lt;filtering&gt;true&lt;/filtering&gt;
-      &lt;/resource&gt;
-    &lt;/resources&gt;
-    &lt;plugins&gt;
-      &lt;plugin&gt;
-        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
-        &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
-        &lt;configuration&gt;
-          &lt;encoding&gt;UTF-8&lt;/encoding&gt;
-          &lt;source&gt;1.5&lt;/source&gt;
-          &lt;target&gt;1.5&lt;/target&gt;
-        &lt;/configuration&gt;
-      &lt;/plugin&gt;
-      &lt;plugin&gt;
-        &lt;groupId&gt;org.databene&lt;/groupId&gt;
-        &lt;artifactId&gt;maven-benerator-plugin&lt;/artifactId&gt;
-        &lt;version&gt;0.5.9&lt;/version&gt;
-        &lt;executions&gt;
-          &lt;execution&gt;
-            &lt;phase&gt;compile&lt;/phase&gt;
-            &lt;goals&gt;
-              &lt;goal&gt;generate&lt;/goal&gt;
-            &lt;/goals&gt;
-          &lt;/execution&gt;
-        &lt;/executions&gt;
-        &lt;configuration&gt;
-          &lt;descriptor&gt;src/main/resources/benerator.ben.xml&lt;/descriptor&gt;
-          &lt;encoding&gt;UTF-8&lt;/encoding&gt;
-          &lt;validate&gt;true&lt;/validate&gt;
-          &lt;dbUrl&gt;jdbc:mysql://localhost:3306/hrtool?useUnicode=true&amp;characterEncoding=UTF-8&lt;/dbUrl&gt;
-          &lt;dbDriver&gt;com.mysql.jdbc.Driver&lt;/dbDriver&gt;
-          &lt;dbSchema&gt;database&lt;/dbSchema&gt;
-          &lt;dbUser&gt;user&lt;/dbUser&gt;
-          &lt;dbPassword&gt;password&lt;/dbPassword&gt;
-        &lt;/configuration&gt;
-        &lt;dependencies&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;log4j&lt;/groupId&gt;
-            &lt;artifactId&gt;log4j&lt;/artifactId&gt;
-            &lt;version&gt;1.2.13&lt;/version&gt;
-            &lt;scope&gt;runtime&lt;/scope&gt;
-          &lt;/dependency&gt;
-          &lt;dependency&gt;
-            &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;
-            &lt;artifactId&gt;poi&lt;/artifactId&gt;
-            &lt;version&gt;3.5-beta5&lt;/version&gt;
-            &lt;scope&gt;runtime&lt;/scope&gt;
-          &lt;/dependency&gt;
-        &lt;/dependencies&gt;
-      &lt;/plugin&gt;
-    &lt;/plugins&gt;
-  &lt;/build&gt;
-&lt;/project&gt;
-
-</pre>
-<p>В конфигурации необходимо указать как минимум следующие параметры:</p>
-<ol><li><span style=" font-family:'Courier New,courier';">dbUrl</span> - строка подключения к базе данных в формате JDBC</li>
-<li><span style=" font-family:'Courier New,courier';">dbDriver</span> - используемый драйвер базы данных</li>
-<li><span style=" font-family:'Courier New,courier';">dbSchema</span> - имя схемы базы данных</li>
-<li><span style=" font-family:'Courier New,courier';">dbUser</span> - имя пользователя, под которым подключаемся к базе данных</li>
-<li><span style=" font-family:'Courier New,courier';">dbPassword</span> - пароль пользователя для подключения к базе данных</li>
-</ol>
-<p>Кроме использования файла pom.xml databene поддерживает возможность указания параметров в файле benerator.properties, что может быть удобно.</p>
-<p>Databene benerator обладает следующими возможностями:</p>
-<ol><li>Решение проблемы создания данных в общем виде. На данный момент поддерживаются XML и реляционные базы данных, но не за горами поддержка веб-сервисов, SAP и любых других систем через механизм расширений.</li>
-<li>Юзабилити. Databene-benerator позволяет упростить создание тестовых данных для сложной модели прикладной области.</li>
-<li>Обработка больших объёмов данных.</li>
-<li>Высокая производительность.</li>
-<li>Поддержка доменных областей.</li>
-<li>Качество данных. Фреймворк поддерживает проверку ограничений модели прикладной области.</li>
-<li>Компонентная, легкорасширяемая архитектура.</li>
-<li>Широкие возможности изменения и настройки генерации тестовых данных</li>
-<li>Создание тестовых данных с нуля.</li>
-<li>Импорт и анонимизация реальных данных.</li>
-</ol>
-<p>В комплекте идёт толковая, но, к сожалению, неполная <a href="http://databene.org/download/databene-benerator-manual-0.6.0.pdf">документация</a> по возможностям.</p></div>
-
-
-<h2>Comments</h2>
-
-
-<div class='comments'>
-<div class='comment'>
-<div class='author'>uthark</div>
-<div class='content'>
-@karri Прекрасно работает. :) Подсовываете ей Oracle JDBC Driver и всё прекрасно работает. С SQL Server тоже работает.</div>
-</div>
-<div class='comment'>
-<div class='author'>karri</div>
-<div class='content'>
-Интересно, а эта штуковина будет с Oracle работать?<br /><br />Когда мне необходимо провести нагрузочное тестирование, я обычно пишу скриптики с помощью пакетных методов в Developer, но тестовые данные конечно не блещут разнообразием, вы правы :))</div>
-</div>
-</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -2820,6 +2793,10 @@ public class StringNormalizer {
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/05/reading-list-2014-march-05/">Reading List 2014-March-05</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/03/04/reading-list-2014-march-04/">Reading List 2014-March-04</a>
@@ -2843,10 +2820,6 @@ public class StringNormalizer {
     
       <li class="post">
         <a href="/blog/2014/03/02/octopress-quote-fix/">Fixing Unescaped Quotes in Page Rendering in Octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/02/sunset/">PhotoStream #1. Sunset</a>
       </li>
     
   </ul>

@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-03-04T10:26:02-05:00</updated>
+  <updated>2014-03-05T11:39:54-05:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,86 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-March-05]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/05/reading-list-2014-march-05/"/>
+    <updated>2014-03-05T11:29:54-05:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/05/reading-list-2014-march-05</id>
+    <content type="html"><![CDATA[<p>Reading list for today:</p>
+
+<h3>General</h3>
+
+<ol>
+<li><a href="http://j.mp/1eFiNnW">Cheap Words</a></li>
+<li><a href="http://j.mp/MMcBEe">5-Year-Olds Can Learn Calculus</a></li>
+<li><a href="http://j.mp/1pYG7q2">At the RSA Security Conference, Things Get Testy and Then They Get Awkward</a></li>
+</ol>
+
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1pYGcdl">How to Eliminate Bugs Through High Cohesion</a></li>
+<li><a href="http://j.mp/1i1BAxB">Stupid Mistakes Devs Make, Part I: Taking App Messages at Face Value</a></li>
+<li><a href="http://j.mp/1eKslym">How to Get a Job at Google</a></li>
+<li><a href="http://j.mp/1hIDPaA">Essential Characteristics of PaaS</a></li>
+<li><a href="http://j.mp/MMcCrM">Which hypervisor? Why not all of them!</a></li>
+<li><a href="http://j.mp/1c7eoj0">Building Successful Web APIs</a></li>
+<li><a href="http://j.mp/1hIDNzL">TLS Triple Handshakes</a></li>
+<li><a href="http://j.mp/MMczMD">Don&rsquo;t Get Lost in Agile Ceremonies</a></li>
+<li><a href="http://j.mp/1eU064Z">Haskell Functions Take One Argument</a></li>
+<li><a href="http://j.mp/1dncw4h">Dave Gilbert&rsquo;s Weblog</a></li>
+<li><a href="http://j.mp/1dXFowR">FPG, Eh?</a></li>
+<li><a href="http://j.mp/1n75wLN">June Software Grows Audience and Revenue with Expansion to Android</a></li>
+<li><a href="http://j.mp/1ePoHb4">Don&rsquo;t build the best REST API, build the best HTTP API. — John Sheehan</a></li>
+<li><a href="http://j.mp/1kLR7Di">Web Analytics Consulting: A Simple Framework For Smarter Decisions</a></li>
+<li><a href="http://j.mp/MMcAA8">The “Four Hamiltons” Framework for Mitigating Faults in the Cloud: Avoid it, Mask it, Bound it, Fix it Fast</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/1kVn7VJ">Akka 2.2.4 Maintenance Release – Blog</a></li>
+<li><a href="http://j.mp/1eVQWVy">Scalala &ndash; A numerical linear algebra library for Scala</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1f1XltB">Spring Data Redis 1.2 GA Released</a></li>
+<li><a href="http://j.mp/1f7teks">Spring Boot 1.0.0.RC4 Available Now</a></li>
+<li><a href="http://j.mp/1f1Xmhn">Red Hats announces JBoss BPM Suite 6 and JBoss BRMS 6</a></li>
+<li><a href="http://j.mp/1n75xzs">How to avoid ruining your world with lambdas in Java 8</a></li>
+<li><a href="http://j.mp/1f5r8ln">How (Not) to Create a Permgen Leak</a></li>
+<li><a href="http://j.mp/OWjGnJ">Caching Best Practices</a></li>
+<li><a href="http://j.mp/MMcDff">Java Enterprise Software Versus What it Should Be</a></li>
+<li><a href="http://j.mp/1i8SUkl">Second milestone towards Hibernate Search 5: introducing MoreLikeThis Queries</a></li>
+<li><a href="http://j.mp/1cmXcAX">Lambda examples and Effectively Final in Java 8</a></li>
+<li><a href="http://j.mp/1ky3wO5">Recommendations for your portal-ext.properties</a></li>
+<li><a href="http://j.mp/1dncsS8">Survey: Developers eager for Java 8</a></li>
+<li><a href="http://j.mp/1dXFqVv">Liferay Auto Complete List with Ajax</a></li>
+<li><a href="http://j.mp/1dlRG59">An open source JVM Sampling Profiler</a></li>
+<li><a href="http://j.mp/MMcCIg">Lessons Learned: ActiveMQ, Apache Camel and Connection Pooling</a></li>
+<li><a href="http://j.mp/1ePoFQm">Cassandra: tuning the JVM for read heavy workloads</a></li>
+<li><a href="http://j.mp/1ky3w0F">Top 10 MQ Series Interview Questions Answers &ndash; WebSphere and Active MQ</a></li>
+</ol>
+
+
+<h3>Frontent development</h3>
+
+<ol>
+<li><a href="http://j.mp/1q3OQr0">Knockout.js 3.1 Released</a></li>
+<li><a href="http://j.mp/1fFEkxk">The JavaScript Alternatives</a></li>
+<li><a href="http://j.mp/1e0ZOVB">Javascript without the this</a></li>
+<li><a href="http://j.mp/1fFnvTc">Node.js arrives for the JVM</a></li>
+<li><a href="http://j.mp/1drpoX8">Why The Hell Would I Use Node.js? A Case-by-Case Introduction</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-March-04]]></title>
@@ -2040,117 +2120,6 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 <li><a href="https://github.com/mitchellh/vagrant">Исходный код</a></li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Собственная реализация методов в Spring Data JPA]]></title>
-    <link href="http://uthark.github.com/blog/2012/04/28/spring-data-jpa_28/"/>
-    <updated>2012-04-28T04:03:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2012/04/28/spring-data-jpa_28</id>
-    <content type="html"><![CDATA[<p>Очевидно, что мы не всегда можем воспользоваться автоматической генерацией кода, предоставляемой <a href="http://www.springsource.org/spring-data/jpa">Spring Data JPA</a>. Например, у нас слишком сложный запрос, или нам необходимо вызвать процедуру в базе данных, либо у нас сложная бизнес-логика.</p>
-
-<p>Рассмотрим следующий пример &ndash; например, нам нужна функциональность уникального счётчика, который мы решили реализовать с помощью последовательности (sequence).</p>
-
-<p>Сначала определим интерфейс, в котором опишем все методы, которые мы будем реализовывать самостоятельно. В нашем случае, это будет только один метод:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserRepositoryCustom</span> <span class="o">{</span>
-</span><span class='line'>    <span class="cm">/**</span>
-</span><span class='line'><span class="cm">     * Returns next unique id.</span>
-</span><span class='line'><span class="cm">     *</span>
-</span><span class='line'><span class="cm">     * @return next unique id.</span>
-</span><span class='line'><span class="cm">     */</span>
-</span><span class='line'>    <span class="n">Integer</span> <span class="nf">getNextUniqueId</span><span class="o">();</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Затем обновим объявление репозитория, чтобы он унаследовал новый интерфейс <tt>UserRepositoryCustom</tt></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">UserRepository</span> <span class="kd">extends</span> <span class="n">JpaRepository</span><span class="o">&lt;</span><span class="n">User</span><span class="o">,</span> <span class="n">Integer</span><span class="o">&gt;,</span> <span class="n">UserRepositoryCustom</span> <span class="o">{</span>
-</span><span class='line'>   <span class="o">...</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Теперь напишем реализацию метода:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserRepositoryImpl</span> <span class="kd">implements</span> <span class="n">UserRepositoryCustom</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@PersistenceContext</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">EntityManager</span> <span class="n">entityManager</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Override</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">getNextUniqueId</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="c1">// When using Hibernate via JPA native queries fails with mapping exception, so just use Hibernate directly:</span>
-</span><span class='line'>        <span class="n">Session</span> <span class="n">session</span> <span class="o">=</span> <span class="o">(</span><span class="n">Session</span><span class="o">)</span> <span class="n">entityManager</span><span class="o">.</span><span class="na">getDelegate</span><span class="o">();</span>
-</span><span class='line'>        <span class="n">SQLQuery</span> <span class="n">nativeQuery</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="na">createSQLQuery</span><span class="o">(</span><span class="s">&quot;SELECT \&quot;nextval\&quot;(&#39;unique_id_seq&#39;) &quot;</span><span class="o">);</span>
-</span><span class='line'>        <span class="n">List</span><span class="o">&lt;</span><span class="n">BigInteger</span><span class="o">&gt;</span> <span class="n">list</span> <span class="o">=</span> <span class="n">nativeQuery</span><span class="o">.</span><span class="na">list</span><span class="o">();</span>
-</span><span class='line'>        <span class="k">if</span> <span class="o">(</span><span class="n">list</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
-</span><span class='line'>            <span class="k">throw</span> <span class="k">new</span> <span class="nf">IncorrectResultSizeDataAccessException</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="n">BigInteger</span> <span class="n">result</span> <span class="o">=</span> <span class="n">list</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">return</span> <span class="n">result</span><span class="o">.</span><span class="na">intValue</span><span class="o">();</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>И, наконец, укажем Spring Data JPA, чтобы в качестве класса для прокси использовался наш класс с реализацией собственных методов. Для этого нам нужна ещё одна секция <tt>repositories</tt> в конфигурационном файле:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'>    <span class="nt">&lt;repositories</span> <span class="na">base-package=</span><span class="s">&quot;[base.repository.package]&quot;</span><span class="nt">/&gt;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nt">&lt;repositories</span> <span class="na">base-package=</span><span class="s">&quot;[base.repository.package]&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;repository</span> <span class="na">id=</span><span class="s">&quot;userRepository&quot;</span> <span class="na">custom-impl-ref=</span><span class="s">&quot;userRepositoryImpl&quot;</span><span class="nt">/&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/repositories&gt;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nt">&lt;beans:bean</span> <span class="na">id=</span><span class="s">&quot;userRepositoryImpl&quot;</span> <span class="na">class=</span><span class="s">&quot;...UserRepositoryImpl&quot;</span><span class="nt">/&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Вот и всё.</p>
 ]]></content>
   </entry>
   
