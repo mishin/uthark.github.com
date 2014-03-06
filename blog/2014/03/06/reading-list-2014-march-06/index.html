@@ -5,11 +5,14 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Использование модификатора Protected на полях в базовом классе - Software Development and related activities</title>
+  <title>Reading List 2014-March-06 - Software Development and related activities</title>
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="Недавно задали мне вопрос - что я думаю об использовании модификатора protected для членов базового класса? Под этим вопросом кроются более &hellip;">
+  <meta name="description" content="Reading list for today: Software development The myth of the fall
+The Technologies that Drive Lob
+AngularJS meets Marvel Comics
+Handwriting Arrives &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://uthark.github.com/blog/2009/05/30/protected">
+  <link rel="canonical" href="http://uthark.github.com/blog/2014/03/06/reading-list-2014-march-06">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/atamanenko" rel="alternate" title="Software Development and related activities" type="application/atom+xml">
@@ -85,7 +88,7 @@
   
   <header>
     
-      <h1 class="entry-title">Использование модификатора Protected на полях в базовом классе</h1>
+      <h1 class="entry-title">Reading List 2014-March-06</h1>
     
     
       <p class="meta">
@@ -101,19 +104,72 @@
   
 
 
-<time datetime="2009-05-30T12:45:00-04:00" pubdate data-updated="true">May 30<span>th</span>, 2009</time>
+<time datetime="2014-03-06T10:57:55-05:00" pubdate data-updated="true">Mar 6<span>th</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><div class='post'>
-Недавно задали мне вопрос - что я думаю об использовании модификатора protected для членов базового класса? Под этим вопросом кроются более серьёзные вещи.
+<div class="entry-content"><p>Reading list for today:</p>
 
-Например, любой член класса, имеющий модификатор protected, расширяет интерфейс базового класса для подклассов - подклассы имеют доступ ко всем protected и public методам этого поля. Иногда это сделано специально, например, для того, чтобы подклассы могли иметь доступ к какой-либо функциональности. Однако, если подкласс будет использовать protected поля неправильно (например, он может установить его в null, нарушив, таким образом, поведение базового класса), то это не принесёт пользы.
+<h3>Software development</h3>
 
-Поразмыслив над вопросом я пришел к следующему, достаточно логичному и широкоизвестному выводу - необходимо давать наиболее закрытый доступ, какой можно. То есть, если можно объявить член класса как private, то необходимо сделать его private. Если в подклассах необходим доступ к члену класса, то необходимо проанализировать, какие методы нужны в подклассах и открыть только их через делегирование. Если набор методов заранее неизвестен, то можно сделать protected getter для поля.</div>
+<ol>
+<li><a href="http://j.mp/1pYGdhm">The myth of the fall</a></li>
+<li><a href="http://j.mp/1mdCFZa">The Technologies that Drive Lob</a></li>
+<li><a href="http://j.mp/1erUM3z">AngularJS meets Marvel Comics</a></li>
+<li><a href="http://j.mp/1kzb9Ut">Handwriting Arrives in Evernote for Android</a></li>
+<li><a href="http://j.mp/1e5sEnW">How do I find out what application elements can be scripted with AppleScript?</a></li>
+</ol>
+
+
+<h3>Productivity</h3>
+
+<ol>
+<li><a href="http://j.mp/1bLunhs">Writing sensible email messages</a></li>
+<li><a href="http://j.mp/1m62bj1">Inbox Zero: Better Practices for staying (near) zero</a></li>
+<li><a href="http://j.mp/1bLueKR">Inbox Zero: Processing to zero</a></li>
+</ol>
+
+
+<h3>Agile</h3>
+
+<ol>
+<li><a href="http://j.mp/1hIDTaD">Compensation Strategies for Agile Teams</a></li>
+<li><a href="http://j.mp/1erUPwm">The Top Five Agile Methodology PPTs</a></li>
+<li><a href="http://j.mp/1m8AhCV">Structure, Governance, and Metrics on Large Scale Agile Teams</a></li>
+<li><a href="http://j.mp/1gEfpwA">Goals of a Retrospective</a></li>
+</ol>
+
+
+<h3>Cloud</h3>
+
+<ol>
+<li><a href="http://j.mp/1iatLWp">Announcing updates to the Google Cloud Platform Partner Program</a></li>
+<li><a href="http://j.mp/1ewmZqa">The PaaS shakeup and what it means for OpenStack</a></li>
+<li><a href="http://j.mp/1kzbcQi">Drupal on Google App Engine</a></li>
+<li><a href="http://j.mp/1kzb6YN">VM Import/Export Now Supports Windows 2012</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1cc2wga">Using RESTFul services with Liferay</a></li>
+<li><a href="http://j.mp/1dlRJ0O">Tweaking xUnit</a></li>
+<li><a href="http://j.mp/1ewU7OB">An XMPP Server for Google Cloud Messaging</a></li>
+<li><a href="http://j.mp/1bQ3snB">Activate Framework Architecture</a></li>
+<li><a href="http://j.mp/OWVVM5">Swagger All The Way Into RESTful Services</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/1lBqAff">Akka 2.3.0 Major Release – Blog</a></li>
+<li><a href="http://j.mp/1e5p1hE">Scala 2.11.0-RC1 is now available!</a></li>
+</ol>
 
 </div>
 
@@ -137,12 +193,12 @@
   
 
 
-<time datetime="2009-05-30T12:45:00-04:00" pubdate data-updated="true">May 30<span>th</span>, 2009</time>
+<time datetime="2014-03-06T10:57:55-05:00" pubdate data-updated="true">Mar 6<span>th</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/dizain/'>дизайн</a>, <a class='category' href='/blog/categories/razrabotka/'>разработка</a>
+    <a class='category' href='/blog/categories/reading-list/'>reading list</a>
   
 </span>
 
@@ -151,7 +207,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://uthark.github.com/blog/2009/05/30/protected/" data-via="" data-counturl="http://uthark.github.com/blog/2009/05/30/protected/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://uthark.github.com/blog/2014/03/06/reading-list-2014-march-06/" data-via="" data-counturl="http://uthark.github.com/blog/2014/03/06/reading-list-2014-march-06/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -164,15 +220,62 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2009/05/26/fixed-price-2/" title="Previous Post: Сферический программист в вакууме и абстрактное понятие качества кода в условиях Fixed-Price проектов (часть 2)">&laquo; Сферический программист в вакууме и абстрактное понятие качества кода в условиях Fixed-Price проектов (часть 2)</a>
+        <a class="basic-alignment left" href="/blog/2014/03/05/solving-issue-with-db2-on-vmware-fusion-on-macbook-pro-2013-late/" title="Previous Post: Solving issue with DB2 on VMWare Fusion on MacBook Pro 2013 Late">&laquo; Solving issue with DB2 on VMWare Fusion on MacBook Pro 2013 Late</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2009/06/02/apache-ant-metro/" title="Next Post: Apache Ant и Metro">Apache Ant и Metro &raquo;</a>
       
     </p>
   </footer>
 </article>
 
+
+<section>
+    <h1>Comments</h1>
+
+    <div id="gpluscomments"
+     data-href='http://uthark.github.com/blog/2014/03/06/reading-list-2014-march-06/'
+     data-viewtype='FILTERED_POSTMOD'></div>
+<script type="text/javascript">
+    window.___gcfg = {lang: ''};
+
+    (function() {
+      function _getComputedStyle(el, cssprop){
+       if (el.currentStyle) {
+        // for IE
+        return el.currentStyle[cssprop]
+       } else if (document.defaultView && document.defaultView.getComputedStyle) {
+        // Any other normal brwoser (like Chrome, Firefox)
+        return document.defaultView.getComputedStyle(el, "")[cssprop]
+       } else {
+        // Try get inline style
+        return el.style[cssprop]
+        }
+      }
+
+
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.async = true;
+      script.onload = function() {
+        if (gapi && gapi['comments'] && gapi.comments['render']) {
+          var gPlusComments = document.getElementById('gpluscomments');
+          gapi.comments.render(
+            'gpluscomments',
+            {
+              href: gPlusComments.getAttribute('data-href'),
+              view_type: gPlusComments.getAttribute('data-viewtype'),
+              first_party_property: "BLOGGER",
+              width: parseInt(_getComputedStyle(gPlusComments, "width"), 10)
+            }
+          );
+        }
+      };
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+</section>
 
 </div>
 

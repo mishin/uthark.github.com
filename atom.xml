@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-03-05T14:52:05-05:00</updated>
+  <updated>2014-03-06T11:27:27-05:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,74 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-March-06]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/06/reading-list-2014-march-06/"/>
+    <updated>2014-03-06T10:57:55-05:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/06/reading-list-2014-march-06</id>
+    <content type="html"><![CDATA[<p>Reading list for today:</p>
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1pYGdhm">The myth of the fall</a></li>
+<li><a href="http://j.mp/1mdCFZa">The Technologies that Drive Lob</a></li>
+<li><a href="http://j.mp/1erUM3z">AngularJS meets Marvel Comics</a></li>
+<li><a href="http://j.mp/1kzb9Ut">Handwriting Arrives in Evernote for Android</a></li>
+<li><a href="http://j.mp/1e5sEnW">How do I find out what application elements can be scripted with AppleScript?</a></li>
+</ol>
+
+
+<h3>Productivity</h3>
+
+<ol>
+<li><a href="http://j.mp/1bLunhs">Writing sensible email messages</a></li>
+<li><a href="http://j.mp/1m62bj1">Inbox Zero: Better Practices for staying (near) zero</a></li>
+<li><a href="http://j.mp/1bLueKR">Inbox Zero: Processing to zero</a></li>
+</ol>
+
+
+<h3>Agile</h3>
+
+<ol>
+<li><a href="http://j.mp/1hIDTaD">Compensation Strategies for Agile Teams</a></li>
+<li><a href="http://j.mp/1erUPwm">The Top Five Agile Methodology PPTs</a></li>
+<li><a href="http://j.mp/1m8AhCV">Structure, Governance, and Metrics on Large Scale Agile Teams</a></li>
+<li><a href="http://j.mp/1gEfpwA">Goals of a Retrospective</a></li>
+</ol>
+
+
+<h3>Cloud</h3>
+
+<ol>
+<li><a href="http://j.mp/1iatLWp">Announcing updates to the Google Cloud Platform Partner Program</a></li>
+<li><a href="http://j.mp/1ewmZqa">The PaaS shakeup and what it means for OpenStack</a></li>
+<li><a href="http://j.mp/1kzbcQi">Drupal on Google App Engine</a></li>
+<li><a href="http://j.mp/1kzb6YN">VM Import/Export Now Supports Windows 2012</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1cc2wga">Using RESTFul services with Liferay</a></li>
+<li><a href="http://j.mp/1dlRJ0O">Tweaking xUnit</a></li>
+<li><a href="http://j.mp/1ewU7OB">An XMPP Server for Google Cloud Messaging</a></li>
+<li><a href="http://j.mp/1bQ3snB">Activate Framework Architecture</a></li>
+<li><a href="http://j.mp/OWVVM5">Swagger All The Way Into RESTful Services</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/1lBqAff">Akka 2.3.0 Major Release – Blog</a></li>
+<li><a href="http://j.mp/1e5p1hE">Scala 2.11.0-RC1 is now available!</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Solving Issue With DB2 on VMWare Fusion on MacBook Pro 2013 Late]]></title>
@@ -1662,168 +1730,6 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 </span></code></pre></td></tr></table></div></figure>
 
 
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Валидация входных параметров с использованием Spring]]></title>
-    <link href="http://uthark.github.com/blog/2013/06/19/validation/"/>
-    <updated>2013-06-19T07:00:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2013/06/19/validation</id>
-    <content type="html"><![CDATA[<p>Очень часто возникает задача проверки входных параметров в сервис на корректность с точки зрения бизнес логики.</p>
-
-<p>Эту задачу можно решить в лоб, написав вручную код валидации в каждом из методов сервиса, например, вот так:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'>  <span class="kd">public</span> <span class="n">User</span> <span class="nf">save</span><span class="o">(</span><span class="n">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="k">if</span><span class="o">(</span><span class="n">user</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="s">&quot;User is null&quot;</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>    <span class="c1">// other checks</span>
-</span><span class='line'>    <span class="c1">//...</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">// business logic starts here...</span>
-</span><span class='line'>    <span class="c1">//...</span>
-</span><span class='line'>    <span class="k">return</span> <span class="n">savedUser</span><span class="o">;</span>
-</span><span class='line'>  <span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Очевидно, что если в каждом методе делать такие проверки, то код бизнес-логики загрязняется проверками, что ухудшает читаемость кода. Решить эту проблему можно следующим образом:</p>
-
-<ol>
-<li>Добавляем аннотации для валидации входных параметров.</li>
-</ol>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'>  <span class="kd">public</span> <span class="nd">@NotNull</span> <span class="n">User</span> <span class="n">save</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="n">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="c1">// business logic starts here...</span>
-</span><span class='line'>    <span class="c1">//...</span>
-</span><span class='line'>    <span class="k">return</span> <span class="n">savedUser</span><span class="o">;</span>
-</span><span class='line'>  <span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Чтобы заставить этот код работать, мы будем использовать возможности Spring Validation.</p>
-
-<ol>
-<li>Spring предоставляет аннотацию <a href="http://static.springsource.org/spring/docs/3.2.x/javadoc-api/org/springframework/validation/annotation/Validated.html">@Validated</a>, которая в отличие от <a href="http://docs.oracle.com/javaee/7/api/javax/validation/Valid.html">@javax.validation.Valid</a> позволяет определять группу валидации.</li>
-<li>Этой аннотацией необходимо проаннотировать бин, методы которого необходимо валидировать.</li>
-</ol>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'>    <span class="nd">@Validated</span>
-</span><span class='line'>    <span class="nd">@Service</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserService</span> <span class="o">{</span>
-</span><span class='line'>        <span class="kd">public</span> <span class="nd">@NotNull</span> <span class="n">User</span> <span class="n">save</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="n">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>            <span class="c1">// business logic starts here...</span>
-</span><span class='line'>            <span class="c1">//...</span>
-</span><span class='line'>            <span class="k">return</span> <span class="n">savedUser</span><span class="o">;</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>    <span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ol>
-<li>Для реализации самой валидации нам необходим валидатор. В качестве реализации <a href="http://jcp.org/en/jsr/detail?id=303">JSR-303</a> можно использовать, например, <a href="http://www.hibernate.org/subprojects/validator.html">Hibernate Validator</a>. Для этого в <code>pom.xml</code> необходимо добавить требуемые зависимости:</li>
-</ol>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'>    <span class="nt">&lt;dependency&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;groupId&gt;</span>javax.validation<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;artifactId&gt;</span>validation-api<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;version&gt;</span>1.0.0.GA<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/dependency&gt;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nt">&lt;dependency&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;groupId&gt;</span>org.hibernate<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;artifactId&gt;</span>hibernate-validator<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;version&gt;</span>4.3.1.Final<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/dependency&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Обращаю внимание, что текущей на данный момент является <a href="http://beanvalidation.org/1.1/spec">спецификация</a> <a href="http://jcp.org/en/jsr/detail?id=349">JSR-349 Bean Validation 1.1</a>, которая поддерживает валидацию методов из коробки, но текущая версия Spring 3.2 &ndash; не поддерживает новый API, поэтому необходимо использовать старую версию API, и, соответственно, реализацию. Релевантный баг в Spring <a href="https://jira.springsource.org/browse/SPR-8199">SPR-8199</a>, поддержка нового API ожидается в Spring Framework 4.0.</p>
-
-<ol>
-<li>Необходимо объявить необходимые бины в конфигурации Spring:</li>
-</ol>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'>    <span class="nd">@Bean</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">LocalValidatorFactoryBean</span> <span class="nf">validatorFactory</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">LocalValidatorFactoryBean</span> <span class="n">factoryBean</span> <span class="o">=</span> <span class="k">new</span> <span class="n">LocalValidatorFactoryBean</span><span class="o">();</span>
-</span><span class='line'>        <span class="n">factoryBean</span><span class="o">.</span><span class="na">afterPropertiesSet</span><span class="o">();</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">factoryBean</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Bean</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">Validator</span> <span class="nf">validator</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="nf">validatorFactory</span><span class="o">().</span><span class="na">getValidator</span><span class="o">();</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Bean</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">MethodValidationPostProcessor</span> <span class="nf">methodValidationPostProcessor</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="k">new</span> <span class="nf">MethodValidationPostProcessor</span><span class="o">();</span>
-</span><span class='line'>    <span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ol>
-<li>На этом всё. Как видно, декларативная валидация входных параметров реализуется очень просто.</li>
-</ol>
 
 ]]></content>
   </entry>
