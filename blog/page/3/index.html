@@ -9,7 +9,9 @@
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="Наверно, вы уже сталкивались с таким понятием, как AOП &ndash; аспектно-ориентированное программирование. Обычно, про него вспоминают, когда говорят &hellip;">
+  <meta name="description" content="Введение
+Для разработки REST веб-сервисов Java предлагает JSR-311 - JAX-RS: The Java&trade; API for RESTful Web Services
+Как это обычно бывает в &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +84,368 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/02/08/java-rest/">Разработка и тестирование Java REST веб-сервисов</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-02-08T13:05:00-05:00" pubdate data-updated="true">Feb 8<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<h4>Введение</h4>
+Для разработки <a href="http://restpatterns.org/">REST</a> веб-сервисов Java предлагает <a href="http://jcp.org/en/jsr/detail?id=311">JSR-311 - JAX-RS: The Java&trade; API for RESTful Web Services</a>
+Как это обычно бывает в мире Enterprise Java, существует несколько реализаций данной спецификации:
+<ul>
+<li><a href="http://jersey.java.net/">Jersey</a> - это эталонная реализация спецификации от компании <strike>Sun</strike> Oracle</li>
+<li><a href="http://cxf.apache.org/">Apache CXF</a></li>
+<li><a href="http://www.jboss.org/resteasy">JBoss RESTEasy</a></li>
+</ul>
+На примере последней реализации, я и расскажу, каким образом можно написать REST-сервис.
+
+<h4>Пишем REST-сервис</h4>
+
+<pre class="brush:java">
+
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+
+@Path("/service/entity")
+@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+public interface EntityRestService {
+
+ @GET
+ @Path("/all")
+ EntityList listAll();
+
+ @GET
+ @Path("/{id}")
+ Entity findById(@PathParam("id") Integer id);
+
+
+}
+</pre>
+
+Создаём интерфейс, в котором расставляем JAX-RS аннотации. Аннотация <a href="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/Path.html">@Path</a> указывает путь, по которому будет доступен наш сервис. Аннотация <a href="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/GET.html">@GET</a> определяет, какой HTTP-запрос будет обрабатываться данным методом. Аннотация <a href="http://jsr311.java.net/nonav/releases/1.1/javax/ws/rs/Produces.html">@Produces</a> позволяет указать, в каком формате данный сервис предоставляет результаты.
+
+<h4>Конфигурация JBoss RESTEasy</h4>
+
+Конфигурация очень проста, во-первых, нам нужно добавить обновить <tt>pom.xml</tt> и добавить необходимые зависимости:
+
+<h5>Обновляем <tt>pom.xml</tt></h5>
+
+Добавляем compile-time зависимость на JAX-RS API
+<pre class="brush:xml">
+&lt;dependency&gt;
+    &lt;groupId&gt;org.jboss.resteasy&lt;/groupId&gt;
+    &lt;artifactId&gt;jaxrs-api&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</pre>
+
+и runtime зависимости на реализацию
+<pre class="brush:xml">
+&lt;dependency&gt;
+    &lt;groupId&gt;org.jboss.resteasy&lt;/groupId&gt;
+    &lt;artifactId&gt;resteasy-jaxrs&lt;/artifactId&gt;
+    &lt;version&gt;${resteasy-jaxrs.version}&lt;/version&gt;
+    &lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.jboss.resteasy&lt;/groupId&gt;
+    &lt;artifactId&gt;resteasy-jackson-provider&lt;/artifactId&gt;
+    &lt;version&gt;${resteasy-jaxrs.version}&lt;/version&gt;
+    &lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;
+
+</pre>
+
+<h5>Обновляем конфигурацию веб-приложения в <tt>web.xml</tt></h5>
+Необходимо выполнить следующую модификацию <tt>web.xml</tt>
+<pre class="brush: xml">
+ &lt;listener&gt;
+  &lt;listener-class&gt;org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap&lt;/listener-class&gt;
+ &lt;/listener&gt;
+
+ &lt;context-param&gt;
+  &lt;param-name&gt;resteasy.servlet.mapping.prefix&lt;/param-name&gt;
+  &lt;param-value&gt;/rest&lt;/param-value&gt;
+ &lt;/context-param&gt;
+ &lt;servlet&gt;
+  &lt;servlet-name&gt;REST Easy&lt;/servlet-name&gt;
+  &lt;servlet-class&gt;org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher&lt;/servlet-class&gt;
+ &lt;/servlet&gt;
+ &lt;servlet-mapping&gt;
+  &lt;servlet-name&gt;REST Easy&lt;/servlet-name&gt;
+  &lt;url-pattern&gt;/rest/*&lt;/url-pattern&gt;
+ &lt;/servlet-mapping&gt;
+</pre>
+
+Данный код объявляет <a href="http://docs.jboss.org/resteasy/docs/2.3.1.GA/javadocs/org/jboss/resteasy/plugins/server/servlet/HttpServletDispatcher.html">сервлет HttpServletDispatcher</a>, который будет обрабатывать все запросы, которые приходят на <tt>/rest/*</tt>. Слушатель <tt><a href="http://docs.jboss.org/resteasy/docs/2.3.1.GA/javadocs/org/jboss/resteasy/plugins/server/servlet/ResteasyBootstrap.html">ResteasyBootstrap</a></tt> выполняет всю необходимую инициализацию JBoss RESTEasy.
+
+
+<h5>Поддержка Spring</h5>
+Для того, чтобы использовать <a href="http://www.springsource.org/spring-framework">Spring Framework</a>, нам необходимо сделать следующие изменения:
+
+1. Добавить зависимость в <tt>pom.xml</tt>
+<pre class="brush: xml">
+&lt;dependency&gt;
+    &lt;groupId&gt;org.jboss.resteasy&lt;/groupId&gt;
+    &lt;artifactId&gt;resteasy-spring&lt;/artifactId&gt;
+    &lt;version&gt;${resteasy-jaxrs.version}&lt;/version&gt;
+    &lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;
+</pre>
+
+
+2. Добавить Spring-ового слушателя в <tt>web.xml</tt>
+
+<pre class="brush: xml">
+ &lt;listener&gt;
+  &lt;listener-class&gt;org.jboss.resteasy.plugins.spring.SpringContextLoaderListener&lt;/listener-class&gt;
+ &lt;/listener&gt;
+
+</pre>
+
+После этих изменений JBoss RESTEasy будет в курсе про Spring, это позволит в реализации REST-сервисов полноценно использовать все возможности, предоставляемые Spring Framework.
+
+<h4>Пишем тесты</h4>
+Написание тестов - весьма полезная вещь, ниже я покажу пример теста для REST-сервиса.
+В рамках данного теста у нас будет подниматься <a href="http://docs.jboss.org/resteasy/docs/2.3.1.GA/javadocs/org/jboss/resteasy/plugins/server/tjws/TJWSEmbeddedJaxrsServer.html">встраиваемый веб-сервер TJWSEmbeddedJaxrsServer</a>, к которому мы будем обращаться для тестирования наших REST-сервисов.
+<pre class="brush: java">
+
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration({"/applicationContext-test.xml"})
+@TestExecutionListeners({DependencyInjectionTestExecutionListener.class, DirtiesContextTestExecutionListener.class})
+public class TestEntityServiceRest {
+
+ private static final int PORT = 8081;
+ private static final String BASE_URL = "http://localhost:" + PORT;
+
+ @Autowired
+ EntityService entityService;
+
+ @Autowired
+ ConfigurableApplicationContext applicationContext;
+
+
+ protected HttpClient client;
+ protected TJWSEmbeddedJaxrsServer server;
+
+
+ @Before
+ public void setUpClient() throws Exception {
+  client = new DefaultHttpClient();
+ }
+
+ @Before
+ public void setUpServer() throws Exception {
+  server = new TJWSEmbeddedJaxrsServer();
+  server.setPort(PORT);
+  ResteasyDeployment deployment = server.getDeployment();
+
+  server.start();
+
+  Dispatcher dispatcher = deployment.getDispatcher();
+  SpringBeanProcessor processor = new SpringBeanProcessor(dispatcher, deployment.getRegistry(), deployment.getProviderFactory());
+  applicationContext.addBeanFactoryPostProcessor(processor);
+
+  SpringResourceFactory noDefaults = new SpringResourceFactory(
+    "entityServiceRestImpl", applicationContext, EntityRestServiceImpl.class);
+  dispatcher.getRegistry().addResourceFactory(noDefaults);
+ }
+
+ @After
+ public void stop() {
+  server.stop();
+ }
+
+ @Test
+ public void testListAll() throws Exception {
+
+  int i = 0;
+  final List&lt;Entity&gt; returnedList = new ArrayList&lt;Entity&gt;();
+  int EXPECTED_SIZE = 6;
+  while (i &lt; EXPECTED_SIZE) {
+   i++;
+   final Entity entity = new Entity();
+   entity.setId(i);
+   entity.setName("test" + i);
+   returnedList.add(entity);
+  }
+  when(entityService.findAll()).thenReturn(returnedList);
+
+
+  HttpGet get = new HttpGet(BASE_URL + "/service/entity/");
+
+  HttpResponse response = client.execute(get);
+  InputStream content = response.getEntity().getContent();
+
+  EntityList result = fromString(EntityList.class, content);
+  content.close();
+
+  Assert.assertNotNull(result);
+  Assert.assertEquals(EXPECTED_SIZE, result.getEntities().size());
+ }
+
+ @Test
+ public void testFindById() throws Exception {
+
+  final Entity validEntity = getValidEntity();
+  validEntity.setId(2);
+
+  when(entityService.findById(validEntity.getId())).thenAnswer(new Answer&lt;Object&gt;() {
+   @Override
+   public Object answer(InvocationOnMock invocation) throws Throwable {
+    return validEntity;
+   }
+  });
+
+  HttpGet get = new HttpGet(BASE_URL + "/service/entity/2");
+
+  HttpResponse response = client.execute(get);
+  InputStream content = response.getEntity().getContent();
+
+  Entity result = fromString(Entity.class, content);
+  content.close();
+
+  Assert.assertNotNull(result);
+
+  deepAssertEquals(validEntity, result);
+
+ }
+
+ private void deepAssertEquals(Object expected, Object actual) throws IllegalAccessException, InvocationTargetException {
+  Assert.assertEquals(expected.getClass(), actual.getClass());
+  PropertyDescriptor[] propertyDescriptors = BeanUtils.getPropertyDescriptors(expected.getClass());
+  for (PropertyDescriptor propertyDescriptor : propertyDescriptors) {
+   Object expectedValue = propertyDescriptor.getReadMethod().invoke(expected);
+   Object actualValue = propertyDescriptor.getReadMethod().invoke(actual);
+   Assert.assertEquals(expectedValue, actualValue);
+  }
+ }
+
+        public static &lt;T&gt; T fromString(Class&lt;T&gt; clazz, String input) throws JAXBException {
+  JAXBContext ctx = JAXBContext.newInstance(clazz);
+  Unmarshaller unmarshaller = ctx.createUnmarshaller();
+  @SuppressWarnings(&quot;unchecked&quot;)
+  T unmarshal = (T) unmarshaller.unmarshal(new StringReader(input));
+  return unmarshal;
+ }
+
+ public static &lt;T&gt; T fromString(Class&lt;T&gt; clazz, InputStream input) throws JAXBException {
+  JAXBContext ctx = JAXBContext.newInstance(clazz);
+  @SuppressWarnings(&quot;unchecked&quot;)
+  T unmarshal = (T) ctx.createUnmarshaller().unmarshal(input);
+  return unmarshal;
+ }
+}
+
+
+</pre>
+
+<h4>Запуск тестов</h4>
+Половина дела сделана, теперь нам необходимо настроить инфраструктуру для тестирования наших свеженаписанных REST-сервисов.
+
+Для этого нам необходимо внести следующие модификации в <tt>pom.xml</tt>:
+
+<pre class="brush: xml">
+
+&lt;plugin&gt;
+    &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+    &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+    &lt;version&gt;2.11&lt;/version&gt;
+
+    &lt;executions&gt;
+        &lt;execution&gt;
+     &lt;id&gt;Unit tests&lt;/id&gt;
+            &lt;phase&gt;test&lt;/phase&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;test&lt;/goal&gt;
+            &lt;/goals&gt;
+            &lt;configuration&gt;
+                &lt;excludes&gt;
+                    &lt;exclude&gt;**/IT*.java&lt;/exclude&gt;
+                &lt;/excludes&gt;
+            &lt;/configuration&gt;
+        &lt;/execution&gt;
+        &lt;execution&gt;
+            &lt;id&gt;Integration tests&lt;/id&gt;
+            &lt;phase&gt;integration-test&lt;/phase&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;test&lt;/goal&gt;
+            &lt;/goals&gt;
+            &lt;configuration&gt;
+                &lt;includes&gt;
+                    &lt;include&gt;**/IT*.java&lt;/include&gt;
+                &lt;/includes&gt;
+            &lt;/configuration&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.httpcomponents&lt;/groupId&gt;
+    &lt;artifactId&gt;httpclient&lt;/artifactId&gt;
+    &lt;version&gt;4.1.2&lt;/version&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.jboss.resteasy&lt;/groupId&gt;
+    &lt;artifactId&gt;resteasy-jaxrs&lt;/artifactId&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.jboss.resteasy&lt;/groupId&gt;
+    &lt;artifactId&gt;resteasy-spring&lt;/artifactId&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.jboss.resteasy&lt;/groupId&gt;
+    &lt;artifactId&gt;tjws&lt;/artifactId&gt;
+    &lt;version&gt;${resteasy-jaxrs.version}&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+    &lt;artifactId&gt;servlet-api&lt;/artifactId&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;commons-io&lt;/groupId&gt;
+    &lt;artifactId&gt;commons-io&lt;/artifactId&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+</pre>
+
+<h4>Заключение</h4>
+В целом, ничего сложного, главное делать всё аккуратно. Хорошего вам кода!</div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -399,7 +763,7 @@ public @interface SuppressExceptions {
 <div class='comment'>
 <div class='author'>Anonymous</div>
 <div class='content'>
-Добрый день, прочитал Вашу статью &ndash; интересно! =) На данный момент пытаюсь вникнуть в АОП в БД, но не совсем понимаю как можно реализовать аспекты при работе с БД (именно с точки зрения системы &ndash; код, компиляция и пр. т.к. теоретически все прозрачно и ясно). Не подскажите &ndash; где можно найти, для наглядности, простенькую БД с реализованным аспектами и хоть какое-то пояснение по реализованному &quot;проекту&quot; &ndash; на чем писали, как внедряли аспекты и пр. Мэйл для связи &ndash; <a href="&#109;&#x61;&#x69;&#108;&#116;&#111;&#58;&#117;&#116;&#x6f;&#x70;&#x69;&#97;&#50;&#48;&#x30;&#x35;&#64;&#121;&#x61;&#110;&#100;&#101;&#120;&#x2e;&#114;&#x75;">&#117;&#116;&#x6f;&#x70;&#105;&#97;&#50;&#48;&#x30;&#53;&#x40;&#x79;&#97;&#110;&#x64;&#x65;&#120;&#x2e;&#114;&#x75;</a></div>
+Добрый день, прочитал Вашу статью &ndash; интересно! =) На данный момент пытаюсь вникнуть в АОП в БД, но не совсем понимаю как можно реализовать аспекты при работе с БД (именно с точки зрения системы &ndash; код, компиляция и пр. т.к. теоретически все прозрачно и ясно). Не подскажите &ndash; где можно найти, для наглядности, простенькую БД с реализованным аспектами и хоть какое-то пояснение по реализованному &quot;проекту&quot; &ndash; на чем писали, как внедряли аспекты и пр. Мэйл для связи &ndash; <a href="&#x6d;&#97;&#x69;&#108;&#116;&#x6f;&#x3a;&#x75;&#x74;&#111;&#x70;&#x69;&#97;&#50;&#48;&#48;&#x35;&#x40;&#x79;&#x61;&#110;&#x64;&#x65;&#120;&#46;&#x72;&#117;">&#x75;&#116;&#111;&#112;&#x69;&#97;&#50;&#x30;&#48;&#x35;&#64;&#x79;&#x61;&#x6e;&#100;&#101;&#x78;&#x2e;&#114;&#117;</a></div>
 </div></p>
 </div>
   
@@ -1825,49 +2189,6 @@ P.P.S. Да, ещё забыл сказать, что сервис достат�
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/12/07/rss_07/">Дайджест ссылок в RSS-ленте</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-12-07T08:25:00-05:00" pubdate data-updated="true">Dec 7<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-Решил убрать дайджест ссылок из RSS-ленты.<br />
-<br />
-Те, кому это нужно могут сделать следующее:<br />
-<br />
-1. Добавить в свой RSS-аггрегатор ленту <tt><a href="http://feeds.delicious.com/v2/rss/dark.schakal?count=15">http://feeds.delicious.com/v2/rss/dark.schakal?count=15</a></tt><br />
-2. Если вы используете сервис Delicious, то можете меня добавить меня в свою сеть по ссылке: <a href="http://delicious.com/settings/networkadd?networkadd=dark.schakal">http://delicious.com/settings/networkadd?networkadd=dark.schakal</a></div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/4/">&larr; Older</a>
@@ -1883,6 +2204,10 @@ P.P.S. Да, ещё забыл сказать, что сервис достат�
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/07/reading-list-2014-march-07/">Reading List 2014-March-07</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/03/06/limiting-threads-count-for-greenrobot-eventbus/">Limiting Threads Count for GreenRobot EventBus</a>
@@ -1906,10 +2231,6 @@ P.P.S. Да, ещё забыл сказать, что сервис достат�
     
       <li class="post">
         <a href="/blog/2014/03/04/reading-list-2014-march-04/">Reading List 2014-March-04</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/04/snowboarding/">Snowboarding</a>
       </li>
     
   </ul>
