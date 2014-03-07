@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-03-06T19:35:53-05:00</updated>
+  <updated>2014-03-06T23:11:26-05:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,113 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Limiting Threads Count for GreenRobot EventBus]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/06/limiting-threads-count-for-greenrobot-eventbus/"/>
+    <updated>2014-03-06T22:38:54-05:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/06/limiting-threads-count-for-greenrobot-eventbus</id>
+    <content type="html"><![CDATA[<p>In one of my projects I used <a href="https://github.com/greenrobot/EventBus">EventBus</a> library. The library is pretty cool and I would recommend everybody to use it.</p>
+
+<p>But I found one small issue with this library &ndash; in case you send too many events very fast (i.e. more than 1000 per second) you may face issue with application crash due to inability to create new thread.</p>
+
+<p>The problem is lying in the used <code>ExecutorService</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">de</span><span class="o">.</span><span class="na">greenrobot</span><span class="o">.</span><span class="na">event</span><span class="o">;</span>
+</span><span class='line'><span class="c1">// imports</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">EventBus</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kd">static</span> <span class="n">ExecutorService</span> <span class="n">executorService</span> <span class="o">=</span> <span class="n">Executors</span><span class="o">.</span><span class="na">newCachedThreadPool</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// class content skipped </span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As you can see, it calls <code>newCachedThreadPool</code> method to create thread pool.</p>
+
+<p>From <a href="http://developer.android.com/reference/java/util/concurrent/Executors.html#newCachedThreadPool()">javadoc</a> for this method:</p>
+
+<blockquote><p>Creates a thread pool that creates new threads as needed, but will reuse
+previously constructed threads when they are available.</p></blockquote>
+
+<p>This is where we hit the wall &ndash; if we send too many requests and each request is slow (i.e. saving into database or network request) then we will try to create too many threads and app will crash.</p>
+
+<p>Thankfully, <code>executorService</code> is <code>static</code> but not <code>final</code>. And this will allow us to solve the issue easily.</p>
+
+<p>Let&rsquo;s create our configurer class in package <code>de.greenrobot.event</code> so we will be able to access <code>executorService</code> property which is package-visible and override it with different thread pool:</p>
+
+<figure class='code'><figcaption><span>EventBusExecutorServiceConfigurer</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">de</span><span class="o">.</span><span class="na">greenrobot</span><span class="o">.</span><span class="na">event</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">java.util.concurrent.Executors</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EventBusExecutorServiceConfigurer</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">configureEventBus</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>        <span class="n">ExecutorService</span> <span class="n">executorServiceToUse</span><span class="o">;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="o">(</span><span class="n">Build</span><span class="o">.</span><span class="na">VERSION</span><span class="o">.</span><span class="na">SDK_INT</span> <span class="o">&gt;=</span> <span class="n">Build</span><span class="o">.</span><span class="na">VERSION_CODES</span><span class="o">.</span><span class="na">HONEYCOMB</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>            <span class="n">executorServiceToUse</span> <span class="o">=</span> <span class="o">(</span><span class="n">ExecutorService</span><span class="o">)</span> <span class="n">AsyncTask</span><span class="o">.</span><span class="na">THREAD_POOL_EXECUTOR</span><span class="o">;</span>
+</span><span class='line'>        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span><span class='line'>            <span class="n">executorServiceToUse</span> <span class="o">=</span> <span class="n">Executors</span><span class="o">.</span><span class="na">newFixedThreadPool</span><span class="o">(</span>
+</span><span class='line'>                <span class="n">Runtime</span><span class="o">.</span><span class="na">getRuntime</span><span class="o">().</span><span class="na">availableProcessors</span><span class="o">());</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>        <span class="n">EventBus</span><span class="o">.</span><span class="na">executorService</span> <span class="o">=</span> <span class="n">executorServiceToUse</span><span class="o">;</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Android 3.0+ has special <a href="http://developer.android.com/reference/android/os/AsyncTask.html#THREAD_POOL_EXECUTOR">THREAD_POOL_EXECUTOR</a> which is supposed to be used by asynchronous tasks, so we use it on newer devices. On older, pre-Honeycomb devices we create our own thread pool.</p>
+
+<p>And then in Android application we configure <code>executorService</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomApplication</span> <span class="kd">extends</span> <span class="n">Application</span> <span class="o">{</span>
+</span><span class='line'>    <span class="nd">@Override</span>
+</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">();</span>
+</span><span class='line'>        <span class="k">new</span> <span class="nf">EventBusExecutorServiceConfigurer</span><span class="o">().</span><span class="na">configureEventBus</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">// other initialization</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Using Custom Font in Android TextView]]></title>
@@ -1691,173 +1798,6 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 </span><span class='line'>  <span class="o">}</span>
 </span><span class='line'>
 </span><span class='line'>  <span class="k">def</span> <span class="n">getObjectType</span><span class="k">:</span> <span class="kt">Class</span><span class="o">[</span><span class="k">_</span><span class="o">]</span> <span class="k">=</span> <span class="n">classOf</span><span class="o">[</span><span class="kt">UserRemoteBean</span><span class="o">]</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Использование Memcached в качестве Backend для Spring Caching Abstraction]]></title>
-    <link href="http://uthark.github.com/blog/2013/06/19/spring-caching/"/>
-    <updated>2013-06-19T19:00:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2013/06/19/spring-caching</id>
-    <content type="html"><![CDATA[<p>В <a href="http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/html/new-in-3.1.html">Spring 3.1</a> появился замечательный модуль &ndash; <a href="http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/html/cache.html">Spring Cache</a>, который является абстракцией над кэшированием, что позволяет декларативно реализовывать кэширование в приложении.</p>
-
-<p>Я не буду вдаваться в подробности работы, их можно прочитать в документации, но опишу, каким образом можно настроить <a href="http://memcached.org/">memcached</a> в качестве бэкэнда для работы.</p>
-
-<h2>Подключение зависимостей</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;dependency&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;groupId&gt;</span>com.google.code.simple-spring-memcached<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;artifactId&gt;</span>spymemcached-provider<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;version&gt;</span>3.1.0<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'><span class="nt">&lt;/dependency&gt;</span>
-</span><span class='line'><span class="nt">&lt;dependency&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;groupId&gt;</span>com.google.code.simple-spring-memcached<span class="nt">&lt;/groupId&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;artifactId&gt;</span>spring-cache<span class="nt">&lt;/artifactId&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;version&gt;</span>3.1.0<span class="nt">&lt;/version&gt;</span>
-</span><span class='line'><span class="nt">&lt;/dependency&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>spymemcached-provider</code> &ndash; это библиотечка для работы с <code>memcached</code> из Java, а <code>spring-cache</code> &ndash; модуль интеграции со Spring.</p>
-
-<h2>Включение кэширования</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Configuration</span><span class="o">(</span><span class="s">&quot;serviceConfiguration&quot;</span><span class="o">)</span>
-</span><span class='line'><span class="nd">@EnableCaching</span><span class="o">(</span><span class="n">proxyTargetClass</span> <span class="o">=</span> <span class="kc">true</span><span class="o">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="n">AdviceMode</span><span class="o">.</span><span class="na">PROXY</span><span class="o">)</span>
-</span><span class='line'><span class="nd">@Import</span><span class="o">(</span><span class="n">CacheConfiguration</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ServiceConfiguration</span> <span class="o">{</span>
-</span><span class='line'>  <span class="c1">// bean declarations goes here.</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Аннотация <code>@EnableCaching</code> включает кэширование. Конфигурацию бинов для кэширования мы выносим в отдельный класс, <code>CacheConfiguration</code>, чтобы не смешивать бины, отвечающие за кэширование с бинами, отвечающими за бизнес-логику.</p>
-
-<p>Объявляем необходимые для работы бины:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Configuration</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CacheConfiguration</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Value</span><span class="o">(</span><span class="s">&quot;${memcached.url}&quot;</span><span class="o">)</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">String</span> <span class="n">memcachedUrl</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Bean</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">CacheManager</span> <span class="nf">cacheManager</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">SSMCacheManager</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SSMCacheManager</span><span class="o">();</span>
-</span><span class='line'>        <span class="n">result</span><span class="o">.</span><span class="na">setCaches</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span>
-</span><span class='line'>                <span class="k">new</span> <span class="nf">SSMCache</span><span class="o">(</span><span class="n">defaultCacheFactory</span><span class="o">().</span><span class="na">getObject</span><span class="o">(),</span> <span class="mi">45</span><span class="o">)</span>
-</span><span class='line'>        <span class="o">));</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Bean</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">CacheFactory</span> <span class="nf">defaultCacheFactory</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">CacheFactory</span> <span class="n">factory</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CacheFactory</span><span class="o">();</span>
-</span><span class='line'>        <span class="n">factory</span><span class="o">.</span><span class="na">setCacheName</span><span class="o">(</span><span class="s">&quot;defaultCache&quot;</span><span class="o">);</span>
-</span><span class='line'>        <span class="n">factory</span><span class="o">.</span><span class="na">setAddressProvider</span><span class="o">(</span><span class="n">addressProvider</span><span class="o">());</span>
-</span><span class='line'>        <span class="n">factory</span><span class="o">.</span><span class="na">setCacheClientFactory</span><span class="o">(</span><span class="n">cacheClientFactory</span><span class="o">());</span>
-</span><span class='line'>        <span class="n">factory</span><span class="o">.</span><span class="na">setConfiguration</span><span class="o">(</span><span class="n">cacheConfiguration</span><span class="o">());</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">factory</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Bean</span>
-</span><span class='line'>    <span class="nd">@Scope</span><span class="o">(</span><span class="n">ConfigurableBeanFactory</span><span class="o">.</span><span class="na">SCOPE_PROTOTYPE</span><span class="o">)</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">CacheClientFactory</span> <span class="nf">cacheClientFactory</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="k">new</span> <span class="nf">MemcacheClientFactoryImpl</span><span class="o">();</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Bean</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">AddressProvider</span> <span class="nf">addressProvider</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="k">new</span> <span class="nf">DefaultAddressProvider</span><span class="o">(</span><span class="n">memcachedUrl</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Bean</span>
-</span><span class='line'>    <span class="nd">@Scope</span><span class="o">(</span><span class="n">ConfigurableBeanFactory</span><span class="o">.</span><span class="na">SCOPE_PROTOTYPE</span><span class="o">)</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">com</span><span class="o">.</span><span class="na">google</span><span class="o">.</span><span class="na">code</span><span class="o">.</span><span class="na">ssm</span><span class="o">.</span><span class="na">providers</span><span class="o">.</span><span class="na">CacheConfiguration</span> <span class="nf">cacheConfiguration</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">com</span><span class="o">.</span><span class="na">google</span><span class="o">.</span><span class="na">code</span><span class="o">.</span><span class="na">ssm</span><span class="o">.</span><span class="na">providers</span><span class="o">.</span><span class="na">CacheConfiguration</span> <span class="n">configuration</span> <span class="o">=</span>
-</span><span class='line'>                <span class="k">new</span> <span class="n">com</span><span class="o">.</span><span class="na">google</span><span class="o">.</span><span class="na">code</span><span class="o">.</span><span class="na">ssm</span><span class="o">.</span><span class="na">providers</span><span class="o">.</span><span class="na">CacheConfiguration</span><span class="o">();</span>
-</span><span class='line'>        <span class="n">configuration</span><span class="o">.</span><span class="na">setConsistentHashing</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">configuration</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Использование</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Cacheable</span><span class="o">(</span><span class="s">&quot;defaultCache&quot;</span><span class="o">)</span>
-</span><span class='line'><span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">User</span><span class="o">&gt;</span> <span class="nf">getUser</span><span class="o">(</span><span class="nd">@NotNull</span> <span class="n">String</span> <span class="n">username</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">IOException</span> <span class="o">{</span>
-</span><span class='line'>    <span class="c1">// ...</span>
 </span><span class='line'><span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure>
 

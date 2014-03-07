@@ -9,7 +9,7 @@
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="Today I want to share with you custom TextView which allows to set font to be used in xml layout. First, we need to declare our custom styleable &hellip;">
+  <meta name="description" content="In one of my projects I used EventBus library. The library is pretty cool and I would recommend everybody to use it. But I found one small issue with &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +82,140 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/06/limiting-threads-count-for-greenrobot-eventbus/">Limiting Threads Count for GreenRobot EventBus</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-06T22:38:54-05:00" pubdate data-updated="true">Mar 6<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>In one of my projects I used <a href="https://github.com/greenrobot/EventBus">EventBus</a> library. The library is pretty cool and I would recommend everybody to use it.</p>
+
+<p>But I found one small issue with this library &ndash; in case you send too many events very fast (i.e. more than 1000 per second) you may face issue with application crash due to inability to create new thread.</p>
+
+<p>The problem is lying in the used <code>ExecutorService</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">de</span><span class="o">.</span><span class="na">greenrobot</span><span class="o">.</span><span class="na">event</span><span class="o">;</span>
+</span><span class='line'><span class="c1">// imports</span>
+</span><span class='line'><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">EventBus</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kd">static</span> <span class="n">ExecutorService</span> <span class="n">executorService</span> <span class="o">=</span> <span class="n">Executors</span><span class="o">.</span><span class="na">newCachedThreadPool</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// class content skipped </span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As you can see, it calls <code>newCachedThreadPool</code> method to create thread pool.</p>
+
+<p>From <a href="http://developer.android.com/reference/java/util/concurrent/Executors.html#newCachedThreadPool()">javadoc</a> for this method:</p>
+
+<blockquote><p>Creates a thread pool that creates new threads as needed, but will reuse
+previously constructed threads when they are available.</p></blockquote>
+
+<p>This is where we hit the wall &ndash; if we send too many requests and each request is slow (i.e. saving into database or network request) then we will try to create too many threads and app will crash.</p>
+
+<p>Thankfully, <code>executorService</code> is <code>static</code> but not <code>final</code>. And this will allow us to solve the issue easily.</p>
+
+<p>Let&rsquo;s create our configurer class in package <code>de.greenrobot.event</code> so we will be able to access <code>executorService</code> property which is package-visible and override it with different thread pool:</p>
+
+<figure class='code'><figcaption><span>EventBusExecutorServiceConfigurer</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">package</span> <span class="n">de</span><span class="o">.</span><span class="na">greenrobot</span><span class="o">.</span><span class="na">event</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kn">import</span> <span class="nn">java.util.concurrent.Executors</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">EventBusExecutorServiceConfigurer</span> <span class="o">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">configureEventBus</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>        <span class="n">ExecutorService</span> <span class="n">executorServiceToUse</span><span class="o">;</span>
+</span><span class='line'>        <span class="k">if</span> <span class="o">(</span><span class="n">Build</span><span class="o">.</span><span class="na">VERSION</span><span class="o">.</span><span class="na">SDK_INT</span> <span class="o">&gt;=</span> <span class="n">Build</span><span class="o">.</span><span class="na">VERSION_CODES</span><span class="o">.</span><span class="na">HONEYCOMB</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>            <span class="n">executorServiceToUse</span> <span class="o">=</span> <span class="o">(</span><span class="n">ExecutorService</span><span class="o">)</span> <span class="n">AsyncTask</span><span class="o">.</span><span class="na">THREAD_POOL_EXECUTOR</span><span class="o">;</span>
+</span><span class='line'>        <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+</span><span class='line'>            <span class="n">executorServiceToUse</span> <span class="o">=</span> <span class="n">Executors</span><span class="o">.</span><span class="na">newFixedThreadPool</span><span class="o">(</span>
+</span><span class='line'>                <span class="n">Runtime</span><span class="o">.</span><span class="na">getRuntime</span><span class="o">().</span><span class="na">availableProcessors</span><span class="o">());</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>        <span class="n">EventBus</span><span class="o">.</span><span class="na">executorService</span> <span class="o">=</span> <span class="n">executorServiceToUse</span><span class="o">;</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Android 3.0+ has special <a href="http://developer.android.com/reference/android/os/AsyncTask.html#THREAD_POOL_EXECUTOR">THREAD_POOL_EXECUTOR</a> which is supposed to be used by asynchronous tasks, so we use it on newer devices. On older, pre-Honeycomb devices we create our own thread pool.</p>
+
+<p>And then in Android application we configure <code>executorService</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">CustomApplication</span> <span class="kd">extends</span> <span class="n">Application</span> <span class="o">{</span>
+</span><span class='line'>    <span class="nd">@Override</span>
+</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">();</span>
+</span><span class='line'>        <span class="k">new</span> <span class="nf">EventBusExecutorServiceConfigurer</span><span class="o">().</span><span class="na">configureEventBus</span><span class="o">();</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="c1">// other initialization</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1277,260 +1411,6 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/01/restricting-mongo-template/">Automatic Query Modification With Spring Data Mongo</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-01T00:19:00-05:00" pubdate data-updated="true">Mar 1<span>st</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>Introduction</h3>
-
-<p>Today I want to show how one can automatically apply additional restrictions on <a href="http://www.mongodb.org/">MongoDB</a> Queries with <a href="http://docs.spring.io/spring-data/mongodb/docs/current/api/org/springframework/data/mongodb/core/MongoTemplate.html">MongoTemplate</a> or <a href="http://docs.spring.io/spring-data/mongodb/docs/current/reference/htmlsingle/">Spring Data Mongo</a>.</p>
-
-<h3>Implementation</h3>
-
-<p>First, let&rsquo;s introduce interface <code>QueryModifier</code>:</p>
-
-<figure class='code'><figcaption><span>Declaration of QueryModifier interface</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">import</span> <span class="nn">org.springframework.data.mongodb.core.query.Query</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">QueryModifier</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="cm">/**</span>
-</span><span class='line'><span class="cm">  * Modifies source query according to the rules.</span>
-</span><span class='line'><span class="cm">  * @param query Source query to modify.</span>
-</span><span class='line'><span class="cm">  * @param collectionName name of the collection against which query will be executed.</span>
-</span><span class='line'><span class="cm">  * @return Modified query.</span>
-</span><span class='line'><span class="cm">  */</span>
-</span><span class='line'>    <span class="n">Query</span> <span class="nf">modify</span><span class="o">(</span><span class="n">Query</span> <span class="n">query</span><span class="o">,</span> <span class="n">String</span> <span class="n">collectionName</span><span class="o">);</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Implementations of this interface will pickup original query and modify it somehow. In order to make it work we need inject this modification after query was generated by <code>Spring Data but before query is sent to the MongoDB instance. The perfect place for this is</code>MongoTemplate`.</p>
-
-<p>So, let&rsquo;s create subclass of <code>MongoTemplate</code> and override <code>find()</code> and <code>executeQuery()</code> methods.</p>
-
-<figure class='code'><figcaption><span>RestrictingMongoTemplate</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">import</span> <span class="nn">com.mongodb.*</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">org.slf4j.*</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">org.springframework.data.authentication.UserCredentials</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">org.springframework.data.mongodb.MongoDbFactory</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">org.springframework.data.mongodb.core.*</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="kn">import</span> <span class="nn">java.util.*</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RestrictingMongoTemplate</span> <span class="kd">extends</span> <span class="n">MongoTemplate</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">QueryModifier</span><span class="o">&gt;</span> <span class="n">queryModifiers</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="cm">/** omitting constructors */</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setQueryModifiers</span><span class="o">(</span><span class="n">List</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">QueryModifier</span><span class="o">&gt;</span> <span class="n">queryModifiers</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="o">.</span><span class="na">queryModifiers</span> <span class="o">=</span> <span class="n">queryModifiers</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Override</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">executeQuery</span><span class="o">(</span><span class="n">Query</span> <span class="n">query</span><span class="o">,</span> <span class="n">String</span> <span class="n">collectionName</span><span class="o">,</span> <span class="n">DocumentCallbackHandler</span> <span class="n">dch</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">for</span> <span class="o">(</span><span class="n">QueryModifier</span> <span class="n">queryModifier</span> <span class="o">:</span> <span class="n">queryModifiers</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>            <span class="n">query</span> <span class="o">=</span> <span class="n">queryModifier</span><span class="o">.</span><span class="na">modify</span><span class="o">(</span><span class="n">query</span><span class="o">,</span> <span class="n">collectionName</span><span class="o">);</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="kd">super</span><span class="o">.</span><span class="na">executeQuery</span><span class="o">(</span><span class="n">query</span><span class="o">,</span> <span class="n">collectionName</span><span class="o">,</span> <span class="n">dch</span><span class="o">);</span>
-</span><span class='line'>   <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">find</span><span class="o">(</span><span class="n">Query</span> <span class="n">query</span><span class="o">,</span> <span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">entityClass</span><span class="o">,</span> <span class="n">String</span> <span class="n">collectionName</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="kt">int</span> <span class="n">limit</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="na">getLimit</span><span class="o">();</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">for</span> <span class="o">(</span><span class="n">QueryModifier</span> <span class="n">queryModifier</span> <span class="o">:</span> <span class="n">queryModifiers</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>            <span class="n">query</span> <span class="o">=</span> <span class="n">queryModifier</span><span class="o">.</span><span class="na">modify</span><span class="o">(</span><span class="n">query</span><span class="o">,</span> <span class="n">collectionName</span><span class="o">);</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="n">query</span><span class="o">.</span><span class="na">limit</span><span class="o">(</span><span class="n">limit</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">return</span> <span class="kd">super</span><span class="o">.</span><span class="na">find</span><span class="o">(</span><span class="n">query</span><span class="o">,</span> <span class="n">entityClass</span><span class="o">,</span> <span class="n">collectionName</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Let&rsquo;s implement simple QueryModifier which will add restriction to return only active documents from Mongo:</p>
-
-<figure class='code'><figcaption><span>Sample implementation of QueryModifier interface</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">import</span> <span class="nn">model.Document</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">org.springframework.data.mongodb.core.query.Criteria</span><span class="o">;</span>
-</span><span class='line'><span class="kn">import</span> <span class="nn">org.springframework.data.mongodb.core.query.Query</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ActiveQueryModifier</span> <span class="kd">implements</span> <span class="n">QueryModifier</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Override</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">Query</span> <span class="nf">modify</span><span class="o">(</span><span class="n">Query</span> <span class="n">query</span><span class="o">,</span> <span class="n">String</span> <span class="n">collectionName</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">if</span> <span class="o">(</span><span class="n">Document</span><span class="o">.</span><span class="na">COLLECTION_NAME</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">collectionName</span><span class="o">))</span> <span class="o">{</span>
-</span><span class='line'>            <span class="k">return</span> <span class="n">query</span><span class="o">.</span><span class="na">addCriteria</span><span class="o">(</span><span class="n">Criteria</span><span class="o">.</span><span class="na">where</span><span class="o">(</span><span class="s">&quot;active&quot;</span><span class="o">).</span><span class="na">is</span><span class="o">(</span><span class="n">Boolean</span><span class="o">.</span><span class="na">TRUE</span><span class="o">));</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">query</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Next step is to provide our custom implementation of <code>MongoTemplate</code> to Spring Data:</p>
-
-<figure class='code'><figcaption><span>Example of Spring Configuration</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@PropertySource</span><span class="o">(</span><span class="s">&quot;classpath:application.properties&quot;</span><span class="o">)</span>
-</span><span class='line'><span class="nd">@EnableMongoRepositories</span><span class="o">(</span>
-</span><span class='line'>        <span class="n">basePackages</span> <span class="o">=</span> <span class="s">&quot;model&quot;</span><span class="o">,</span>
-</span><span class='line'>        <span class="n">mongoTemplateRef</span> <span class="o">=</span> <span class="s">&quot;mongoTemplate&quot;</span><span class="o">)</span>
-</span><span class='line'><span class="nd">@Configuration</span><span class="o">(</span><span class="s">&quot;configuration&quot;</span><span class="o">)</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ServiceConfiguration</span> <span class="kd">extends</span> <span class="n">AbstractMongoConfiguration</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Value</span><span class="o">(</span><span class="s">&quot;${mongo.db.name}&quot;</span><span class="o">)</span>
-</span><span class='line'>    <span class="kd">protected</span> <span class="n">String</span> <span class="n">mongoDatabaseName</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Override</span>
-</span><span class='line'>    <span class="kd">protected</span> <span class="n">String</span> <span class="nf">getDatabaseName</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">mongoDatabaseName</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Override</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">RestrictingMongoTemplate</span> <span class="nf">mongoTemplate</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">UnknownHostException</span> <span class="o">{</span>
-</span><span class='line'>      <span class="n">RestrictingMongoTemplate</span> <span class="n">mongoTemplate</span> <span class="o">=</span>
-</span><span class='line'>                <span class="k">new</span> <span class="nf">RestrictingMongoTemplate</span><span class="o">(</span><span class="n">mongo</span><span class="o">(),</span> <span class="n">mongoDatabaseName</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="n">mongoTemplate</span><span class="o">.</span><span class="na">setQueryModifiers</span><span class="o">(</span><span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span>
-</span><span class='line'>                <span class="k">new</span> <span class="nf">ActiveQueryModifier</span><span class="o">()</span>
-</span><span class='line'>        <span class="o">));</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">return</span> <span class="n">mongoTemplate</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">// creation of Mongo bean omitted.</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>That&rsquo;s all for today. If you have any questions &ndash; <a href="https://plus.google.com/112372998073079463630/posts">Ask me on Google+</a></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1544,6 +1424,10 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/06/limiting-threads-count-for-greenrobot-eventbus/">Limiting Threads Count for GreenRobot EventBus</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/03/06/customizing-font-in-android-textview/">Using Custom Font in Android TextView</a>
@@ -1567,10 +1451,6 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
     
       <li class="post">
         <a href="/blog/2014/03/04/snowboarding/">Snowboarding</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/03/reading-list-2014-march-03/">Reading List 2014-March-03</a>
       </li>
     
   </ul>
