@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-03-10T10:45:43-04:00</updated>
+  <updated>2014-03-11T08:37:49-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,131 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-March-11]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/11/reading-list-2014-march-11/"/>
+    <updated>2014-03-11T08:25:00-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/11/reading-list-2014-march-11</id>
+    <content type="html"><![CDATA[<h3>General</h3>
+
+<ol>
+<li><a href="http://j.mp/1nB9Fb7">What is the purpose of incremental reading?</a></li>
+<li><a href="http://j.mp/N1Fdte">Incremental reading</a></li>
+<li><a href="http://j.mp/1iux2o3">Cloze test</a></li>
+<li><a href="http://j.mp/1lqYbpo">The 20 rules of formulating knowledge in learning</a></li>
+<li><a href="http://j.mp/1edRyBM">Link: Bad brains: some people are physically incapable of enjoying music</a></li>
+<li><a href="http://j.mp/1elY5KS">Clue To Mysterious Lights That Appear Before Earthquakes</a></li>
+<li><a href="http://j.mp/1nF38NA">How in-app purchase is not really destroying the games industry</a></li>
+<li><a href="http://j.mp/1fRAp0o">XKCD | When You Assume</a></li>
+<li><a href="http://j.mp/1lJ8mZl">Decision making, problem solving, introducing ideas, being influencial</a></li>
+<li><a href="http://j.mp/1nxoueV">Helvetica: one font to rule them all</a></li>
+</ol>
+
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/NGsm0u">Timezone-aware contribution graphs · GitHub</a></li>
+<li><a href="http://j.mp/1cpYGzT">GitLab CI 4.3 released</a></li>
+<li><a href="http://j.mp/1nd0HE9">Microservices | Martin Fowler</a></li>
+<li><a href="http://j.mp/1elY6hQ">The day I met a customer</a></li>
+<li><a href="http://j.mp/1lPLt6z">How not to write an API</a></li>
+<li><a href="http://j.mp/MuooYs">Takipi &ndash; Server Debugging Made Easy</a></li>
+<li><a href="http://j.mp/1fnG8zP">Logging or Debugging</a></li>
+<li><a href="http://j.mp/1fnG3fq">3 Reasons to Choose Vert.x</a></li>
+<li><a href="http://j.mp/1lPLuqU">What TDD Is and Is Not</a></li>
+<li><a href="http://j.mp/1gghi4B">Climbing the ladder from EITA to EA</a></li>
+<li><a href="http://j.mp/1fRAqS6">Introduction to the MEAN Stack</a></li>
+<li><a href="http://j.mp/1ilgZc4">Propositions as Types</a></li>
+<li><a href="http://j.mp/1kb7AkJ">Signing SOAP Messages – Generation of Enveloped XML Signatures</a></li>
+<li><a href="http://j.mp/1fXJyVj">Why shouldn&rsquo;t I test private methods?</a></li>
+<li><a href="http://j.mp/1lJ8lob">Software Version Controlling Best Practices</a></li>
+<li><a href="http://j.mp/1lJ8l7M">Use KISS consciously</a></li>
+<li><a href="http://j.mp/1edRwtG">XML to Avro Conversion</a></li>
+<li><a href="http://j.mp/KO4hU7">Logging As Storytelling #2: Actions!</a></li>
+</ol>
+
+
+<h3>Cloud</h3>
+
+<ol>
+<li><a href="http://j.mp/1kbSSdn">Important AWS Account Key Change Coming on April 21, 2014</a></li>
+<li><a href="http://j.mp/1fnGh6i">Announcing the global Cloud Platform Developer Roadshow</a></li>
+<li><a href="http://j.mp/1edRrX2">Big data: when single node is better than clustered</a></li>
+<li><a href="http://j.mp/1itScCI">SAP HANA – Production Ready on AWS With up to 244 GiB of RAM</a></li>
+</ol>
+
+
+<h3>DevOps</h3>
+
+<ol>
+<li><a href="http://j.mp/1fkwCJ5">My Experiences with DevOps while Working in Bing Ads</a></li>
+<li><a href="http://j.mp/1kGzqFq">Deployment to Upgrade: Puppet OpenStack Modules Are Your Friends</a></li>
+<li><a href="http://j.mp/1g2h0dc">XebiaLabs: Why Dev Needs DevOps</a></li>
+</ol>
+
+
+<h3>Mongo</h3>
+
+<ol>
+<li><a href="http://j.mp/1fi4vfd">Saving Private Functions | MongoHQ</a></li>
+<li><a href="http://j.mp/1cCV3a2">MongoDB Driver Tips &amp; Tricks: Mongoid 3</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/OdCQo0">Final Service Release for Spring Data Release Train Babbage</a></li>
+<li><a href="http://j.mp/1lMXfyo">Apache Cassandra steaming through 2.1 Release</a></li>
+<li><a href="http://j.mp/1bB1YKv">Fixing the Java memory model</a></li>
+<li><a href="http://j.mp/1ddsKIA">Java memory model is back</a></li>
+<li><a href="http://j.mp/LhA4fH">Rule Engine &amp; Drools</a></li>
+<li><a href="http://j.mp/1lPS40L">Using Java EE&rsquo;s ManagedExecutorService to asynchronously execute transactions</a></li>
+<li><a href="http://j.mp/1m8A6Yp">AES-256 Encryption with Java and JCEKS</a></li>
+<li><a href="http://j.mp/1imu0yu">OSGi Alliance Blog</a></li>
+<li><a href="http://j.mp/1cpYEYx">Deploy to Maven Central Repository</a></li>
+<li><a href="http://j.mp/1iqy4S3">Vaadin and Spring integration through JavaConfig</a></li>
+<li><a href="http://j.mp/PlvW16">Java Q&amp;A: The ultimate superclass, Part 1</a></li>
+<li><a href="http://j.mp/1kGzkha">ObjectStreamClass: Peeking at a Java Object&rsquo;s Serialization</a></li>
+<li><a href="http://j.mp/1lRDLsG">Oracle GoldenGate: Transactional Data Capture from WebLogic Java Messaging Service</a></li>
+<li><a href="http://j.mp/1lrnQy0">PRNG optimizations (David Dice&rsquo;s Weblog)</a></li>
+<li><a href="http://j.mp/1cFvQoz">Android Bound Service: IPC with Messenger</a></li>
+<li><a href="http://j.mp/1lOpvkk">New Dev Guide Content: Liferay Faces, Mobile SDK, Portlet Prefs, and UI Examples</a></li>
+<li><a href="http://j.mp/1fnGbeP">Websockets with Spring 4</a></li>
+<li><a href="http://j.mp/1fWPgXk">Install Apache Spark and Fast Log Analytics</a></li>
+<li><a href="http://j.mp/1lJ8mIM">Good use of Closures</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/1ipMemo">A collection of ScalaTest BDD examples using FunSpec</a></li>
+<li><a href="http://j.mp/1loxUaZ">Analyzing Apache access logs with Spark and Scala</a></li>
+<li><a href="http://j.mp/NRXytI">Social login for your applications</a></li>
+<li><a href="http://j.mp/NRXHNC">Streaming with previous and next</a></li>
+</ol>
+
+
+<h3>Frontent development</h3>
+
+<ol>
+<li><a href="http://j.mp/1g8T0Zg">Angular directives for Bootstrap</a></li>
+</ol>
+
+
+<h3>In russian</h3>
+
+<ol>
+<li><a href="http://j.mp/1lJ8lVf">20% генома неандертальцев собирается из генов современных людей</a></li>
+<li><a href="http://j.mp/1oFt89m">От лифта к небоскребу: социология, архитектура и техника</a></li>
+<li><a href="http://j.mp/1i2GXyt">Граница протонной устойчивости ядер может оказаться довольно размытой</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-March-10]]></title>
@@ -1488,212 +1613,6 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 <p>Обратите внимание, что endpoint можно передавать с использованием подстановочных свойств.</p>
 
 <p>На этом всё, если есть вопросы &ndash; <a href="https://plus.google.com/112372998073079463630/posts">спрашивайте в Google+</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[@Autowired JAX-RS Client API]]></title>
-    <link href="http://uthark.github.com/blog/2013/06/28/jaxrs-spring-autowiring/"/>
-    <updated>2013-06-28T19:05:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2013/06/28/jaxrs-spring-autowiring</id>
-    <content type="html"><![CDATA[<p>Продолжая разговор о <a href="http://www.jcp.org/en/jsr/detail?id=339">JAX RS</a> <a href="https://jax-rs-spec.java.net/nonav/2.0/apidocs/javax/ws/rs/client/package-summary.html">Client API</a> &ndash; предположим, что мы уже <a href="http://uthark.github.com/blog/2013/06/28/jaxrs/">используем JAX-RS клиент</a></p>
-
-<p>У нас есть класс, который умеет создавать прокси для любого REST-интерфейса в проекте. Теперь мы хотим сделать так, чтобы эти интерфейсы можно было автоматически создавать в контексте Spring и связывать с другими бинами.</p>
-
-<p>Первое решение, которое приходит в лоб &ndash; объявить бин в конфигурации для каждого интерфейса:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Configuration</span>
-</span><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">SpringConfiguration</span> <span class="o">{</span>
-</span><span class='line'>    <span class="nd">@Bean</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">UserRest</span> <span class="nf">userRest</span><span class="o">(){</span>
-</span><span class='line'>        <span class="n">List</span><span class="o">&lt;?&gt;</span> <span class="n">providers</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="k">new</span> <span class="n">JsonMessageHandler</span><span class="o">(</span><span class="k">new</span> <span class="n">ObjectMapper</span><span class="o">()));</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">JAXRSClientFactory</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&quot;http://localhost:8080&quot;</span><span class="o">,</span> <span class="n">UserRest</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">providers</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Написав объявление нескольких таких бинов можно задуматься &ndash; &ldquo;Есть ли способ проще?&rdquo;.</p>
-
-<p>Есть, и я вам сейчас его покажу.</p>
-
-<p>Для того, чтобы добавлять собственные бины в Spring контекст, мы воспользуемся возможностью расширения Spring контекста с использованием <a href="http://static.springsource.org/spring/docs/3.2.x/javadoc-api/org/springframework/beans/factory/config/BeanFactoryPostProcessor.html"><code>BeanFactoryPostProcessor</code></a>.
-Метод <code>postProcessBeanFactory</code> данного класса позволяет выполнить дополнительную обработку фабрики бинов Spring, например, удалить, добавить, переопределить бин.
-Это именно то, что нам нужно &ndash; автоматически добавить новые бины в фабрику.</p>
-
-<p>Итак, что нам нужно сделать:</p>
-
-<ol>
-<li>Найти все доступные REST интерфейсы в текущем classpath.</li>
-<li>Для каждого из них создать прокси с использованием <code>JAXRSClientFactory</code> .</li>
-<li>Зарегистрировать каждый прокси в фабрике бинов для дальнейшего использования (например, для @Autowired).</li>
-</ol>
-
-
-<p>По спецификации JAX-RS, чтобы класс распознавался как REST-ресурс, у него должна быть аннотация <a href="https://jax-rs-spec.java.net/nonav/2.0/apidocs/javax/ws/rs/Path.html"><code>@Path()</code></a>.</p>
-
-<p>Для поиска всех возможных классов/интерфейсов воспользуемся классом <a href="http://static.springsource.org/spring/docs/3.2.x/javadoc-api/org/springframework/context/annotation/ClassPathScanningCandidateComponentProvider.html"><code>ClassPathScanningCandidateComponentProvider</code></a>, который умеет сканировать классы в выбранном пакете и применять фильтры, чтобы собрать только нужные. Также нам нужно учесть, что по умолчанию <code>ClassPathScanningCandidateComponentProvider</code> пытается определить, может ли найденный класс быть и бином (например, проверяет, что это не абстрактный класс и не интерфейс), поэтому нам нужно написать подкласс, который позволит нам работать с интерфейсами.</p>
-
-<p>Пишем класс:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RestClientPostProcessor</span> <span class="kd">implements</span> <span class="n">BeanFactoryPostProcessor</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Logger</span> <span class="n">LOGGER</span> <span class="o">=</span> <span class="n">LoggerFactory</span><span class="o">.</span><span class="na">getLogger</span><span class="o">(</span><span class="n">RestClientPostProcessor</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">protected</span> <span class="n">String</span> <span class="n">endpoint</span> <span class="o">=</span> <span class="s">&quot;http://localhost:8080&quot;</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">Class</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">Annotation</span><span class="o">&gt;</span> <span class="n">requiredAnnotation</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="na">class</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">String</span> <span class="n">basePackage</span> <span class="o">=</span> <span class="s">&quot;&lt;base package&gt;&quot;</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">ObjectMapper</span> <span class="n">objectMapper</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="c1">// getters/setters omitted.</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">protected</span> <span class="n">Object</span> <span class="nf">createBean</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">clazz</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">List</span><span class="o">&lt;?&gt;</span> <span class="n">providers</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="k">new</span> <span class="n">JsonMessageHandler</span><span class="o">(</span><span class="n">objectMapper</span><span class="o">));</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">JAXRSClientFactory</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">endpoint</span><span class="o">,</span> <span class="n">clazz</span><span class="o">,</span> <span class="n">providers</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Override</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">postProcessBeanFactory</span><span class="o">(</span><span class="n">ConfigurableListableBeanFactory</span> <span class="n">beanFactory</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">BeansException</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="n">ClassPathScanningCandidateComponentProvider</span> <span class="n">provider</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClasspathScanner</span><span class="o">();</span>
-</span><span class='line'>        <span class="n">provider</span><span class="o">.</span><span class="na">addIncludeFilter</span><span class="o">(</span><span class="k">new</span> <span class="n">AnnotationTypeFilter</span><span class="o">(</span><span class="n">requiredAnnotation</span><span class="o">));</span>
-</span><span class='line'>        <span class="n">Set</span><span class="o">&lt;</span><span class="n">BeanDefinition</span><span class="o">&gt;</span> <span class="n">components</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="na">findCandidateComponents</span><span class="o">(</span><span class="n">basePackage</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">for</span> <span class="o">(</span><span class="n">BeanDefinition</span> <span class="n">component</span> <span class="o">:</span> <span class="n">components</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>            <span class="n">createAndRegisterBean</span><span class="o">(</span><span class="n">beanFactory</span><span class="o">,</span> <span class="n">component</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">createAndRegisterBean</span><span class="o">(</span><span class="n">ConfigurableListableBeanFactory</span> <span class="n">beanFactory</span><span class="o">,</span> <span class="n">BeanDefinition</span> <span class="n">component</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">try</span> <span class="o">{</span>
-</span><span class='line'>            <span class="n">String</span> <span class="n">beanClassName</span> <span class="o">=</span> <span class="n">component</span><span class="o">.</span><span class="na">getBeanClassName</span><span class="o">();</span>
-</span><span class='line'>            <span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">clazz</span> <span class="o">=</span> <span class="n">Class</span><span class="o">.</span><span class="na">forName</span><span class="o">(</span><span class="n">beanClassName</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="n">Object</span> <span class="n">o</span> <span class="o">=</span> <span class="n">createBean</span><span class="o">(</span><span class="n">clazz</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="n">beanFactory</span><span class="o">.</span><span class="na">registerResolvableDependency</span><span class="o">(</span><span class="n">clazz</span><span class="o">,</span> <span class="n">o</span><span class="o">);</span>
-</span><span class='line'>        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">ClassNotFoundException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>            <span class="n">LOGGER</span><span class="o">.</span><span class="na">warn</span><span class="o">(</span><span class="s">&quot;Unable to find class: {}&quot;</span><span class="o">,</span> <span class="n">component</span><span class="o">.</span><span class="na">getBeanClassName</span><span class="o">(),</span> <span class="n">e</span><span class="o">);</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">ClasspathScanner</span> <span class="kd">extends</span> <span class="n">ClassPathScanningCandidateComponentProvider</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="kd">public</span> <span class="nf">ClasspathScanner</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>            <span class="kd">super</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="nd">@Override</span> <span class="kd">protected</span> <span class="kt">boolean</span> <span class="n">isCandidateComponent</span><span class="o">(</span><span class="n">AnnotatedBeanDefinition</span> <span class="n">beanDefinition</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>            <span class="c1">// override this method, because our classes are interfaces, by default interfaces are</span>
-</span><span class='line'>            <span class="c1">// not allowed.</span>
-</span><span class='line'>            <span class="k">return</span> <span class="n">beanDefinition</span><span class="o">.</span><span class="na">getMetadata</span><span class="o">().</span><span class="na">isIndependent</span><span class="o">();</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Теперь этот процессор необходимо зарегистрировать в контексте Spring:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Configuration</span>
-</span><span class='line'><span class="kd">class</span> <span class="nc">TestAutowiringConfiguration</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Bean</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kd">static</span> <span class="n">RestClientPostProcessor</span> <span class="nf">autowiringRestApiProcessor</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="k">new</span> <span class="nf">RestClientPostProcessor</span><span class="o">();</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>И теперь можно использовать <code>UserRest</code> как обычный бин:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'>    <span class="nd">@Autowired</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">UserShowRest</span> <span class="n">userShowRest</span><span class="o">;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Если есть вопросы &ndash; <a href="https://plus.google.com/112372998073079463630/posts">спрашивайте в Google+</a></p>
 ]]></content>
   </entry>
   
