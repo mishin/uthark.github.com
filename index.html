@@ -9,8 +9,9 @@
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="General Nano Workouts help you get in shape and life healthy during everyday activities.
-How to survive a job you absolutely hate 10 Software &hellip;">
+  <meta name="description" content="General How to survive a job you absolutely hate 10
+Obama Proposes the End of Pennies
+What if I wrote a book? | XKCD Software development Is goto &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +84,106 @@ How to survive a job you absolutely hate 10 Software &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/13/reading-list-2014-march-13/">Reading List 2014-March-13</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-13T10:42:46-04:00" pubdate data-updated="true">Mar 13<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>General</h3>
+
+<ol>
+<li><a href="http://j.mp/1cCV51z">How to survive a job you absolutely hate 10</a></li>
+<li><a href="http://j.mp/1g9W97L">Obama Proposes the End of Pennies</a></li>
+<li><a href="http://j.mp/1cBfjbX">What if I wrote a book? | XKCD</a></li>
+</ol>
+
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1lSMcnk">Is goto Still Considered Harmful?</a></li>
+<li><a href="http://j.mp/O1PRBm">The Configuration File – “remote” Section – Git Config</a></li>
+<li><a href="http://j.mp/1gdOa9K">The Web API Checklist — 43 Things To Think About When Designing, Testing, and Releasing your API</a></li>
+</ol>
+
+
+<h3>Agile</h3>
+
+<ol>
+<li><a href="http://j.mp/O1m7oe">Choosing a leader like an agilist</a></li>
+<li><a href="http://j.mp/1cCV4e2">It’s Far Too Easy To Measure Agile’s Value In The Wrong Way</a></li>
+<li><a href="http://j.mp/1crxcK5">Definition of Done: A Reference</a></li>
+</ol>
+
+
+<h3>Cloud</h3>
+
+<ol>
+<li><a href="http://j.mp/N9Ap52">Securing your AWS Infrastructure with IAM</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1iAIDBP">JEP 192: String Deduplication in G1</a></li>
+<li><a href="http://j.mp/1gdOipT">JPA 2.1: Entity Graph</a></li>
+<li><a href="http://j.mp/OmHe4f">JPA 2.1 Entity Graphs (The Aquarium)</a></li>
+<li><a href="http://j.mp/1gdKeG7">Method References :: in Java 8</a></li>
+<li><a href="http://j.mp/N9AcyN">Java 8 Friday Goodies: SQL ResultSet Streams</a></li>
+<li><a href="http://j.mp/1ecISLT">Flavors of Nested Classes in Java 8</a></li>
+<li><a href="http://j.mp/1nLKYZI">Nested Interface in Java</a></li>
+<li><a href="http://j.mp/1kkzIlz">Creating a simple JAX-RS MessageBodyWriter</a></li>
+<li><a href="http://j.mp/1gdKe9d">HOW-TO: Test dependencies in a Maven project (JUnit, Mockito, Hamcrest, AssertJ)</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/1iESl6t">No Exceptions: Checked Exceptions for Scala | Landon Fuller</a></li>
+</ol>
+
+
+<h3>Video</h3>
+
+<ol>
+<li><a href="http://j.mp/1iatDGg">Webinar Replay: Spring Data Repositories &ndash; Best Practices</a></li>
+<li><a href="http://j.mp/1f5r7O8">SpringOne2GX 2013 Replay: RabbitMQ is the new King</a></li>
+<li><a href="http://j.mp/1dpvXcI">SpringOne2GX 2013 Replay: Spring Integration Internals</a></li>
+<li><a href="http://j.mp/1hGsM1J">Red Hat JBoss BPM Suite – Run the Mortgage Demo (video)</a></li>
+</ol>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1653,102 +1754,6 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/02/octopress-quote-fix/">Fixing Unescaped Quotes in Page Rendering in Octopress</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-02T22:11:00-05:00" pubdate data-updated="true">Mar 2<span>nd</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>When I created <a href="/about">About Me</a> page I found issue with rendering: for some reason styles and some javascripts were missing on the page.</p>
-
-<p>Investigation showed that content in <code>meta tag</code> description contained unquoted quotes, thus resulting in broken HTML.</p>
-
-<p>After searching within <a href="https://github.com/imathis/octopress/">octopress sources</a> I found the issue:</p>
-
-<figure class='code'><figcaption><span>Rendering of description tag, excerpt from _includes/head.html</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">capture</span> <span class="n">description</span> <span class="sx">%}</span>
-</span><span class='line'><span class="sx">    {% if page.description %}</span>
-</span><span class='line'>        <span class="p">{{</span> <span class="n">page</span><span class="o">.</span><span class="n">description</span> <span class="p">}}</span>
-</span><span class='line'>    <span class="p">{</span><span class="o">%</span> <span class="k">else</span> <span class="sx">%}</span>
-</span><span class='line'><span class="sx">        {{ content | raw_content }</span><span class="p">}</span>
-</span><span class='line'>    <span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="sx">%}</span>
-</span><span class='line'><span class="sx">{% endcapture %}</span>
-</span><span class='line'><span class="o">&lt;</span><span class="n">meta</span> <span class="nb">name</span><span class="o">=</span><span class="s2">&quot;description&quot;</span> <span class="n">content</span><span class="o">=</span><span class="s2">&quot;{{ description | strip_html | condense_spaces | truncate:150 }}&quot;</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>After capturing, <code>description</code> is being processed with filters, defined in <code>plugins/octopress_filters.rb</code>. In this case, the following filter are applied:</p>
-
-<ul>
-<li>strip_html</li>
-<li>condense_spaces</li>
-<li>truncate</li>
-</ul>
-
-
-<p>So, as you can see, if description contains quotes, then it will be rendered as is, without any escaping and quotes will break resulting page.</p>
-
-<p>In order to fix this I decided to add new filter, which will just remove quotes.</p>
-
-<p>So, let&rsquo;s add new function, <code>strip_quotes</code> in <code>plugins/octopress_filters.rb</code>:</p>
-
-<figure class='code'><figcaption><span>strip_quotes function</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Strips quotes</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">strip_quotes</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">input</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/[\&#39;\&quot;&quot;]/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And then we need to update rendering of description tag &ndash; add newly created filter:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;description&quot;</span> <span class="na">content=</span><span class="s">&quot;{{ description | strip_html | condense_spaces | strip_quotes | truncate:150 }}&quot;</span><span class="nt">&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>After this fix description is being rendered properly.</p>
-
-<p>P.S. In order to render properly <code>{{</code> and <code>}}</code> in the octopress it is required to put content you want to render within <code>raw</code> and <code>endraw</code> tags. See <a href="http://stackoverflow.com/questions/15786144/how-to-escape-in-markdown-on-octopress">StackOverflow</a> <a href="http://stackoverflow.com/questions/3426182/how-to-escape-liquid-template-tags/13582517#13582517">questions</a> for details.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1762,6 +1767,10 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/13/reading-list-2014-march-13/">Reading List 2014-March-13</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/03/12/reading-list-2014-march-12/">Reading List 2014-March-12</a>
@@ -1785,10 +1794,6 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
     
       <li class="post">
         <a href="/blog/2014/03/06/customizing-font-in-android-textview/">Using Custom Font in Android TextView</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/06/reading-list-2014-march-06/">Reading List 2014-March-06</a>
       </li>
     
   </ul>
