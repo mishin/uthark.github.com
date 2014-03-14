@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-03-13T10:47:20-04:00</updated>
+  <updated>2014-03-14T15:00:20-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,65 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-March-14]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/14/reading-list-2014-march-14/"/>
+    <updated>2014-03-14T14:56:55-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/14/reading-list-2014-march-14</id>
+    <content type="html"><![CDATA[<h3>General</h3>
+
+<ol>
+<li><a href="http://j.mp/1go7JRd">How much are you worth to your employer?</a></li>
+<li><a href="http://j.mp/1iJybbo">Denial of Service Attacks · GitHub</a></li>
+<li><a href="http://j.mp/1eFiNnW">Cheap Words</a></li>
+</ol>
+
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1fC1Ik3">Atom, Hackable Text Editor By GitHub</a></li>
+<li><a href="http://j.mp/1knErCX">Brendan Eich: Web development is tough, developers are tougher</a></li>
+<li><a href="http://j.mp/1knEhvi">Your quick guide to better JavaScript testing</a></li>
+<li><a href="http://j.mp/NRX8ng">Mediator Parallel Routing Rules</a></li>
+</ol>
+
+
+<h3>NoSQL</h3>
+
+<ol>
+<li><a href="http://j.mp/1iJYtuc">Processing 2 Billion Documents A Day And 30TB A Month With MongoDB | The MongoDB Blog</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1go7SnD">First service release for Spring Data release train Codd released</a></li>
+<li><a href="http://j.mp/1ewzO4H">Spring Data Couchbase 1.0 GA Released</a></li>
+<li><a href="http://j.mp/1go7RjO">ClassNotFoundException: is it slowing down your JVM?</a></li>
+<li><a href="http://j.mp/1nZLDqz">Parameterized JUnit tests</a></li>
+<li><a href="http://j.mp/N7djMj">Real-World Rule Engines</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/1go7R3k">ReactiveMongo, Play &amp; AngularJS</a></li>
+</ol>
+
+
+<h3>In Russian</h3>
+
+<ol>
+<li><a href="http://j.mp/1e0ZPc9">Точка зрения | Русский как язык международного общения</a></li>
+<li><a href="http://j.mp/1dSZLLz">Главы | Эволюция творческого мышления</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-March-13]]></title>
@@ -1389,17 +1448,6 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 <li><a href="http://j.mp/1kfNsR7">Database patterns in Scala</a></li>
 </ol>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Fixed Google+ Comments on the Site]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/01/google-plus-comments-fixed/"/>
-    <updated>2014-03-01T01:07:00-05:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/01/google-plus-comments-fixed</id>
-    <content type="html"><![CDATA[<p>Fixed google+ comments disappearing on the site.</p>
-
-<p>Thanks to <a href="http://blog.code-infection.com/2013/04/google-comments-on-your-none-blogger.html">this blog post</a></p>
 ]]></content>
   </entry>
   
