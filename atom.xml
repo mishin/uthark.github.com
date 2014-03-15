@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-03-14T15:00:20-04:00</updated>
+  <updated>2014-03-14T23:44:23-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,30 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Life Fee]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/14/life-fee/"/>
+    <updated>2014-03-14T23:42:10-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/14/life-fee</id>
+    <content type="html"><![CDATA[<p>Found in sources:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="k">try</span> <span class="o">{</span>
+</span><span class='line'>    <span class="c1">// do some business logic.</span>
+</span><span class='line'><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">errorBean</span><span class="o">.</span><span class="na">addError</span><span class="o">(</span><span class="s">&quot;System exception. Unable to locate life fee.&quot;</span><span class="o">);</span>
+</span><span class='line'><span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is just awesome!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-March-14]]></title>
@@ -1431,22 +1455,6 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 <script type="text/javascript" src="//playboard.me/widgets/pb-app-box/1/pb_load_app_box.js"></script>
 
 
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-March-02]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/02/reading-list-2014-march-02/"/>
-    <updated>2014-03-02T16:41:00-05:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/02/reading-list-2014-march-02</id>
-    <content type="html"><![CDATA[<p>Reading list for today:</p>
-
-<ol>
-<li><a href="http://j.mp/1fEhlXh">The Hipper Element &ndash; Daily UX Crash Course</a></li>
-<li><a href="http://j.mp/1fWJFqA">Developers working in Production. Of course! Maybe, sometimes. What, are you nuts?</a></li>
-<li><a href="http://j.mp/1kfNsR7">Database patterns in Scala</a></li>
-</ol>
 
 ]]></content>
   </entry>
