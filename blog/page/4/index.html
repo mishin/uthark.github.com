@@ -9,9 +9,8 @@
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="Summary: Пример разработки плагина для TiddlyWiki
-Вступление
-TiddlyWiki - это вики-движок, полностью написанный на JavaScript и хранящийся в одном &hellip;">
+  <meta name="description" content="Summary: в данной заметке описывается работа с программой Skype через D-Bus на Python. Введение
+Захотелось мне странного - когда я ухожу домой, мне &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,6 +83,148 @@ TiddlyWiki - это вики-движок, полностью написанны
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/03/22/skype-d-bus-python/">Общение со Skype через D-Bus на Python</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-03-22T13:50:00-04:00" pubdate data-updated="true">Mar 22<span>nd</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p><b>Summary</b>: в данной заметке описывается работа с программой Skype через D-Bus на Python.</p>
+
+<h4>Введение</h4>
+<p>Захотелось мне странного - когда я ухожу домой, мне нужно выключить amarok, kopete и Skype. Собственно, решено было через D-Bus отправлять вышеперечисленным приложениям релевантные сообщения.</p>
+
+<h4>Используем dbus-send</h4>
+<p>Сначала я использовал обычный dbus-send, что оформилось в виде следующего скрипта <tt>go2home</tt>:</p>
+<pre class="brush: bash">
+#!/bin/sh
+
+# Stop amarok
+dbus-send --session --type=method_call --dest=org.kde.amarok /Player org.freedesktop.MediaPlayer.Stop
+
+# Logout from kopete
+dbus-send --session --type=method_call --dest=org.kde.kopete /Kopete org.kde.Kopete.disconnectAll 
+
+# Logout from Skype
+skypeapi.py 'SET USERSTATUS OFFLINE'
+
+# Lock screen
+dbus-send --session --type=method_call --dest=org.freedesktop.ScreenSaver /ScreenSaver org.freedesktop.ScreenSaver.Lock
+</pre>
+
+Детали и параметры работы команды <tt>dbus-send</tt> описаны в <a href="http://dbus.freedesktop.org/doc/dbus-send.1.html">man-странице</a>
+
+<h4>Проблема со скайпом</h4>
+<p> Со скайпом пришлось немного повозиться, так как для работы с ним необходима постоянная сессия, что нельзя сделать с помощью <tt>dbus-send</tt>. </p>
+<p>Прочитав <a href="https://developer.skype.com/Docs/ApiDoc">описание протокола</a> на сайте </p>
+<p> был создан нижеследующий скрипт: skypeapi.py</p>
+<pre class="brush: python">
+#!/usr/bin/env python
+import dbus, sys
+
+def main():
+    remote_bus = dbus.SessionBus()
+    
+    # Check if skype is running.
+    system_service_list = remote_bus.get_object('org.freedesktop.DBus', '/org/freedesktop/DBus').ListNames()
+    skype_api_found = 0
+    for service in system_service_list:
+        if service=='com.Skype.API':
+            skype_api_found = 1
+            break
+    if not skype_api_found:
+        sys.exit('No running API-capable Skype found')
+
+    # Get skype dbus api
+    skype_service = remote_bus.get_object('com.Skype.API', '/com/Skype')
+
+    # Connect to skype.
+    answer = skype_service.Invoke('NAME SkypeApiClient')
+    if answer != 'OK':
+        sys.exit('Could not bind to Skype client')
+
+    # Check if protocol is supported.
+    answer = skype_service.Invoke('PROTOCOL 1')
+    if answer != 'PROTOCOL 1':
+        sys.exit('This test program only supports Skype API protocol version 1')
+
+    # Invoke operations
+    for arg in sys.argv:
+        skype_service.Invoke(arg)
+    
+    return 0    
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</pre>
+<p> При первом запуске скрипта появится скайповский диалог с вопросом, можно ли разрешить приложению доступ к скайпу. После нажатия на &quot;Да&quot; Skype добавит наш скрипт в разрешённые и мы сможем управлять скайпом.</p>
+
+<a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://2.bp.blogspot.com/_y8p0_dtMJ38/S6ev4yVZkJI/AAAAAAAAA9Q/O87mz2Qnku0/s1600-h/skype.png"><img style="display:block; margin:0px auto 10px; text-align:center;cursor:pointer; cursor:hand;width: 376px; height: 185px;" src="http://2.bp.blogspot.com/_y8p0_dtMJ38/S6ev4yVZkJI/AAAAAAAAA9Q/O87mz2Qnku0/s400/skype.png" border="0" alt=""id="BLOGGER_PHOTO_ID_5451519264074338450" /></a>
+
+После этого для скрипта <tt>go2home</tt> был создана иконка на панели.
+
+<h4>Заключение</h4>
+Как видно, работа с DBus из Python проста и элегантна.
+
+В качестве домашнего упражнения предлагаю написать скрипт, который после разблокирования экрана будет запускать все нужные приложения.</div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Oleg Atamanenko</div>
+<div class='content'>
+В данном случае это не так уж и важно.</div>
+</div>
+<div class='comment'>
+<div class='author'>Anonymous</div>
+<div class='content'>
+Написать<br />skype_api_found = False<br /><br />религия не позволила?</div>
+</div>
+<div class='comment'>
+<div class='author'>uthark</div>
+<div class='content'>
+@karri Не выключались, а только меняли статус. :) Амарок прекращал играть, скайп и kopete уходили в оффлайн.</div>
+</div>
+<div class='comment'>
+<div class='author'>karri</div>
+<div class='content'>
+То есть по нажатию кнопки выключались три приложения, правильно?!</div>
+</div>
+</div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1589,160 +1730,6 @@ vmorarian@gmail.com</div>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/07/07/blog-post/">Двунаправленная ссылочная целостность</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-07-07T11:11:00-04:00" pubdate data-updated="true">Jul 7<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-Здравствуйте.<br />
-<br />
-Я считаю, что разработчику всегда стоит иметь представление о том, как работают низлежащие абстракции. Хотя бы потому, что часто <a href="http://c2.com/cgi/wiki?LeakyAbstraction">абстракции</a> <a href="http://en.wikipedia.org/wiki/Leaky_abstraction">бывают</a> <a href="http://www.joelonsoftware.com/articles/LeakyAbstractions.html">протекающими</a>.<br />
-<br />
-А веду я это к тому, что когда фреймворк вываливает стектрейс с несколькими вложенными (и, часто, для непосвященных непонятными) исключениями, то бывает непонятно, что с этим делать, особенно, если не знаешь, как реализована абстракция.<br />
-<br />
-Иногда бывает нужно хранить двунаправленные связи между таблицами. Например, есть игрок и есть его статистика и нужно, чтобы каждая из сущностей знала про другую.<br />
-<br />
-Вопрос - каким образом вставлять в базу данных такие сущности?<br />
-<br />
-При вставке в таблицу в Player нам нужно уже иметь запись в таблице Statistics, а для вставки в таблицу Statistics нужно знать идентификатор игрока, к которому относится эта запись.<br />
-<br />
-Выглядит замкнутым кругом, но решение есть.<br />
-<p>Во-первых, вставки в обе таблицы должны происходить в рамках одной транзакции (как я <a href="http://www.blogger.com/2009/04/blog-post_24.html">уже писал</a>, транзакция обеспечивает перевод базы данных из одного непротиворечащего состояния в другое непротиворечащее состояние).<br />
-</p><br />
-К сожалению, этого недостаточно:<br />
-<br />
-<pre class="brush: sql">begin transaction;
-
-INSERT INTO "Player"  VALUES (10, 20);
-INSERT INTO "Statistics"  VALUES (20, 10);
-
-commit;
-</pre><br />
-<br />
-выдаёт следующую ошибку:<br />
-<br />
-<pre class="brush: plain">ERROR: insert or update on table "Player" violates foreign key constraint "statisticsId"
-SQL state: 23503
-Detail: Key (statisticsId)=(20) is not present in table "Statistics".
-</pre><br />
-<br />
-И снова кажется, что замкнутый круг не разорвать.<br />
-<br />
-Но решение всё же есть.<br />
-Многие базы данных позволяют нарушать консистентность базы данных внутри транзакции. В данном случае можно &#8220;попросить&#8221; базу данных отложить проверку ссылочной целостности. На примере PostgreSQL рассмотрим, как это работает.<br />
-<br />
-<h3>PostgreSQL</h3><br />
-<pre class="brush: sql">begin transaction;
-
-set constraints all deferred; -- 1
-
-INSERT INTO "Player"  VALUES (10, 20);
-INSERT INTO "Statistics"  VALUES (20, 10);
-
-set constraints all immediate; -- 2
-
-commit; -- 3
-</pre><br />
-<br />
-1 - Сделать все ограничения отложенными. Ограничения будут проверены в момент проведения фиксации транзакции (в строке 3)<br />
-2 - Явно делаем все ограничения немедленными. В данном примере это необязательно, так как в 3) они всё равно будут проверены.<br />
-<br />
-После выполнения данного кода получаем:<br />
-<pre class="brush: plain">Query returned successfully with no result in 24 ms.
-</pre><br />
-<br />
-Это уже полностью рабочий пример, чтобы это заработало нужно явно сделать ограничения отложенными - они должны быть объявлены как DEFERRED. Официальная документация к PostgreSQL гласит:<br />
-<blockquote>Upon creation, a constraint is given one of three characteristics: DEFERRABLE INITIALLY DEFERRED, DEFERRABLE INITIALLY IMMEDIATE, or NOT DEFERRABLE. The third class is always IMMEDIATE and is not affected by the SET CONSTRAINTS command. The first two classes start every transaction in the indicated mode, but their behavior can be changed within a transaction by SET CONSTRAINTS.</blockquote><br />
-<br />
-Так что необходимо также модифицировать объявления ограничений:<br />
-<pre class="brush: sql">ALTER TABLE "Player"
-ADD CONSTRAINT "statisticsId" FOREIGN KEY ("statisticsId")
-REFERENCES "Statistics" ("statisticsId") MATCH SIMPLE
-ON UPDATE NO ACTION ON DELETE NO ACTION DEFERRABLE INITIALLY IMMEDIATE;
-
-</pre><br />
-<br />
-Данный пример был приведён для PostgreSQL.<br />
-<br />
-Для других баз данных решения следующие:<br />
-<h3>Sybase</h3><br />
-В Sybase есть переменная <a href="http://manuals.sybase.com/onlinebooks/group-sasarc/awg0600e/dbugen6/@Generic__BookTextView/26075;hf=0;pt=25811">WAIT_FOR_COMMIT</a>, которая управляет поведением проверки ограничений. По умолчанию она отключена. Кроме того, это поведение можно переопределить при объявлении можно указывать CHECK ON COMMIT. Подробнее можно посмотреть в <a href="http://manuals.sybase.com/onlinebooks/group-pbarc/conn5/sqlug/@Generic__BookTextView/39397%3Bpt=39951">официальной документации</a>.<br />
-<br />
-<h3>Oracle</h3><br />
-Также, как и в PostgreSQL:<br />
-<blockquote>You can define constraints as either deferrable or not deferrable, and either initially deferred or initially immediate. These attributes can be different for each constraint. You specify them with keywords in the CONSTRAINT clause:<br />
-DEFERRABLE or NOT DEFERRABLE<br />
-INITIALLY DEFERRED or INITIALLY IMMEDIATE<br />
-<br />
-Constraints can be added, dropped, enabled, disabled, or validated. You can also modify a constraint&#8217;s attributes.<br />
-</blockquote><br />
-Подробнее в <a href="http://download.oracle.com/docs/cd/B10501_01/server.920/a96524/c22integ.htm#4666">официльной документации</a>.<br />
-<br />
-<h3>mySQL</h3><br />
-К сожалению, mySQL не имеет возможности отложенной проверки ограничении, о чём в документации и сказано:<br />
-<blockquote><em>Deviation from SQL standards</em>: Like MySQL in general, in an SQL statement that inserts, deletes, or updates many rows, InnoDB checks UNIQUE and FOREIGN KEY constraints row-by-row. According to the SQL standard, the default behavior should be deferred checking. That is, constraints are only checked after the entire SQL statement has been processed. Until InnoDB implements deferred constraint checking, some things will be impossible, such as deleting a record that refers to itself via a foreign key.</blockquote><br />
-<br />
-Но это не конец света, так как можно отключить проверку внешних ключей:<br />
-<pre class="brush: sql">SET foreign_key_checks = 0;
--- code goes here
-SET foreign_key_checks = 1;
-</pre><br />
-<br />
-Чем эта информация может быть полезна для разработчика? Например, в случае, если ошибки и недоработки Hibernate покажут себя в виде стектрейса в логе(например, <a href="http://opensource.atlassian.com/projects/hibernate/browse/HHH-2248">HHH-2248</a>), то разработчик будет понимать причину ошибки и то, как реализовать work-around.</div>
-
-
-<h2>Comments</h2>
-
-
-<div class='comments'>
-<div class='comment'>
-<div class='author'>Oleg Atamanenko</div>
-<div class='content'>
-Очень рад, что вам эта статья была полезной.</div>
-</div>
-<div class='comment'>
-<div class='author'>Anonymous</div>
-<div class='content'>
-спасибо, а я понял что такое двунаправленные связи</div>
-</div>
-<div class='comment'>
-<div class='author'>Safarov</div>
-<div class='content'>
-Спасибо за вашу статью. Для меня она объяснила как можно повысть целостность базы.</div>
-</div>
-</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -1758,6 +1745,10 @@ SET foreign_key_checks = 1;
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/18/reading-list-2014-march-18/">Reading List 2014-March-18</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/03/17/reading-list-2014-march-17/">Reading List 2014-March-17</a>
@@ -1781,10 +1772,6 @@ SET foreign_key_checks = 1;
     
       <li class="post">
         <a href="/blog/2014/03/11/reading-list-2014-march-11/">Reading List 2014-March-11</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/10/reading-list-2014-march-10/">Reading List 2014-March-10</a>
       </li>
     
   </ul>

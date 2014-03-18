@@ -9,9 +9,7 @@
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="General The internet is f*cked
-Comcast makes absurd argument that Google Fiber is a serious competitor
-Do You Have the Wrong Job Title? Product &hellip;">
+  <meta name="description" content="Today in the evening I got to Whitetail Ski Resort. ">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,6 +82,47 @@ Do You Have the Wrong Job Title? Product &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/04/snowboarding/">Snowboarding</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-04T01:04:55-05:00" pubdate data-updated="true">Mar 4<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Today in the evening I got to <a href="http://www.skiwhitetail.com/winter">Whitetail Ski Resort</a>.</p>
+
+<iframe style="overflow: scroll; width: 100%; height: 600px" src="http://www.endomondo.com/embed/workouts?w=tmMEXnSDfDg&width=950&height=600" frameborder="0" scrolling="yes" ></iframe>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1747,154 +1786,6 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/06/19/custom-bean-validator/">Пишем валидатор для Bean Validation API</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-19T08:00:00-04:00" pubdate data-updated="true">Jun 19<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://jcp.org/en/jsr/detail?id=303">JSR-303</a> предоставляет удобный API для проверки валидности объектов, а также входных параметров. Очевидно, что <a href="http://docs.oracle.com/javaee/6/tutorial/doc/gircz.html">стандартных валидаторов</a> в какой-то момент может быть недостаточно, поэтому необходимо писать собственный.</p>
-
-<p>Хочу показать на примере валидации запроса к <a href="http://www.mongodb.org/">MongoDB</a>, как легко это делается.</p>
-
-<h2>Создание аннотации</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@Target</span><span class="o">({</span><span class="n">FIELD</span><span class="o">,</span> <span class="n">PARAMETER</span><span class="o">})</span>
-</span><span class='line'><span class="nd">@Retention</span><span class="o">(</span><span class="n">RUNTIME</span><span class="o">)</span>
-</span><span class='line'><span class="nd">@Documented</span>
-</span><span class='line'><span class="nd">@Constraint</span><span class="o">(</span><span class="n">validatedBy</span> <span class="o">=</span> <span class="o">{</span><span class="n">MongoQueryValidator</span><span class="o">.</span><span class="na">class</span><span class="o">})</span>
-</span><span class='line'><span class="kd">public</span> <span class="nd">@interface</span> <span class="n">MongoQuery</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">String</span> <span class="nf">message</span><span class="o">()</span> <span class="k">default</span> <span class="s">&quot;Invalid mongo query&quot;</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">Class</span><span class="o">&lt;?&gt;[]</span> <span class="n">groups</span><span class="o">()</span> <span class="k">default</span> <span class="o">{};</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">Class</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">Payload</span><span class="o">&gt;[]</span> <span class="n">payload</span><span class="o">()</span> <span class="k">default</span> <span class="o">{};</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Обратите внимание на аннотацию <a href="http://docs.oracle.com/javaee/7/api/javax/validation/Constraint.html">@Constraint</a> &ndash; она описывает, какой класс будет проводить реальную валидацию. Атрибуты <code>groups()</code> и <code>payload()</code> являются обязательными.</p>
-
-<h2>Написание валидатора</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MongoQueryValidator</span> <span class="kd">implements</span> <span class="n">ConstraintValidator</span><span class="o">&lt;</span><span class="n">MongoQuery</span><span class="o">,</span> <span class="n">CharSequence</span><span class="o">&gt;</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Override</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initialize</span><span class="o">(</span><span class="n">MongoQuery</span> <span class="n">constraintAnnotation</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Override</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isValid</span><span class="o">(</span><span class="n">CharSequence</span> <span class="n">value</span><span class="o">,</span> <span class="n">ConstraintValidatorContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="c1">// ignore null and empty strings.</span>
-</span><span class='line'>        <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">value</span> <span class="o">||</span> <span class="n">value</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">try</span> <span class="o">{</span>
-</span><span class='line'>            <span class="n">Query</span> <span class="n">query</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BasicQuery</span><span class="o">(</span><span class="n">value</span><span class="o">.</span><span class="na">toString</span><span class="o">());</span>
-</span><span class='line'>            <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-</span><span class='line'>        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>            <span class="k">return</span> <span class="kc">false</span><span class="o">;</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>В данном случае, валидатор у нас простой &ndash; мы пытаемся создать Mongo Query из переданной строки, если это не удаётся, то считаем, что строка не является корректным запросом к Mongo и возвращаем <code>false</code>.</p>
-
-<p>Если есть желание возвращать динамическое сообщение об ошибке, то это можно сделать следующим образом:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'>    <span class="n">context</span><span class="o">.</span><span class="na">disableDefaultConstraintViolation</span><span class="o">();</span>
-</span><span class='line'>    <span class="n">context</span><span class="o">.</span><span class="na">buildConstraintViolationWithTemplate</span><span class="o">(</span><span class="s">&quot;&lt;Custom error message&gt;&quot;</span><span class="o">).</span><span class="na">addConstraintViolation</span><span class="o">();</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Использование</h2>
-
-<p>На этом всё, теперь нам остаётся только добавить валидацию на нашу модель или входной параметр.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Model</span> <span class="o">{</span>
-</span><span class='line'>    <span class="nd">@MongoQuery</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">String</span> <span class="n">queryCriteria</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -1910,6 +1801,10 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/18/reading-list-2014-march-18/">Reading List 2014-March-18</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/03/17/reading-list-2014-march-17/">Reading List 2014-March-17</a>
@@ -1933,10 +1828,6 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
     
       <li class="post">
         <a href="/blog/2014/03/11/reading-list-2014-march-11/">Reading List 2014-March-11</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/10/reading-list-2014-march-10/">Reading List 2014-March-10</a>
       </li>
     
   </ul>

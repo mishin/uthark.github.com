@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-03-17T12:58:30-04:00</updated>
+  <updated>2014-03-18T14:05:07-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,62 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-March-18]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/18/reading-list-2014-march-18/"/>
+    <updated>2014-03-18T13:59:16-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/18/reading-list-2014-march-18</id>
+    <content type="html"><![CDATA[<h3>Software Development</h3>
+
+<ol>
+<li><a href="http://j.mp/1ma825T">The Help Vampire: A Spotter’s Guide</a></li>
+<li><a href="http://j.mp/OqTcdm">Go for Java Programmers: Introduction</a></li>
+<li><a href="http://j.mp/1hube6A">rm is dangerous</a></li>
+<li><a href="http://j.mp/1hubeUk">What&rsquo;s the opposite of duplication?</a></li>
+<li><a href="http://j.mp/1ny3Uyh">What do developers spend all that time on?</a></li>
+<li><a href="http://j.mp/NlYIgc">Myths about /dev/urandom</a></li>
+<li><a href="http://j.mp/1cOPLbi">How to Make Python Faster Without Trying That Much</a></li>
+<li><a href="http://j.mp/1hnxO0W">Mighty Spring — Adventures in Dogfooding : Engineers as Recruiters</a></li>
+<li><a href="http://j.mp/1nAHrAG">Choosing a Templating Language in Clojure</a></li>
+<li><a href="http://j.mp/OqTfWx">XKCD | Manuals</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1kYM3P5">Spring Test MVC HtmlUnit 1.0.0.M1 Released</a></li>
+<li><a href="http://j.mp/1iq1Y6p">The Java HotSpot Performance Engine: Method Inlining Example</a></li>
+<li><a href="http://j.mp/1gtYQ4g">Integration testing with Maven and Docker</a></li>
+<li><a href="http://j.mp/1cOPOnm">A quick introduction to Apache Mesos</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/1iwl4rA">The Ultimate Guide to Getting Started with the Play Framework</a></li>
+</ol>
+
+
+<h3>Android</h3>
+
+<ol>
+<li><a href="http://j.mp/1hubd2L">Google Play services 4.3</a></li>
+</ol>
+
+
+<h3>In Russian</h3>
+
+<ol>
+<li><a href="http://j.mp/1nAHxbz">Сейсмометрия установила новые ограничения на интенсивность гравитационно-волнового шума вселенной</a></li>
+<li><a href="http://j.mp/NqDHRE">FAQ: Региональное неравенство</a></li>
+<li><a href="http://j.mp/1nAHv3j">Разнообразие тропических насекомых поддерживается благодаря узкой специализации паразитов</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-March-17]]></title>
@@ -1518,17 +1574,6 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 <p>After this fix description is being rendered properly.</p>
 
 <p>P.S. In order to render properly <code>{{</code> and <code>}}</code> in the octopress it is required to put content you want to render within <code>raw</code> and <code>endraw</code> tags. See <a href="http://stackoverflow.com/questions/15786144/how-to-escape-in-markdown-on-octopress">StackOverflow</a> <a href="http://stackoverflow.com/questions/3426182/how-to-escape-liquid-template-tags/13582517#13582517">questions</a> for details.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[PhotoStream #1. Sunset]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/02/sunset/"/>
-    <updated>2014-03-02T22:03:00-05:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/02/sunset</id>
-    <content type="html"><![CDATA[<p>Sunset on M St.</p>
-
-<p><a href="https://plus.google.com/photos/112372998073079463630/albums/5986392506066477233/5986392511862419154"><img src="https://lh3.googleusercontent.com/-UdxK_gs0ol0/UxPwRbOeLtI/AAAAAAAAPd4/OatnIV3Z5t0/w1012-h760/IMG_20140226_174149.jpg"></a></p>
 ]]></content>
   </entry>
   
