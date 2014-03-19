@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-03-18T14:05:07-04:00</updated>
+  <updated>2014-03-19T11:21:51-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,112 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-March-19]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/19/reading-list-2014-march-19/"/>
+    <updated>2014-03-19T11:06:41-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/19/reading-list-2014-march-19</id>
+    <content type="html"><![CDATA[<p>I would like to conratulate everyone with Java 8 release.</p>
+
+<h3>Java 8 announces</h3>
+
+<ol>
+<li><a href="http://j.mp/1ePUMfa">JDK 8: General Availability</a></li>
+<li><a href="http://j.mp/1ePUKUs">Java 8 officially arrives at last</a></li>
+<li><a href="http://j.mp/1ePUN2M">Go Reactive with Java 8</a></li>
+<li><a href="http://j.mp/1l1BVoO">Java 8, now what?</a></li>
+<li><a href="http://j.mp/1nBTpKg">JDK 8 Is Released! (The Java Tutorials Blog)</a></li>
+<li><a href="http://j.mp/1lMWliA">Java 8 is now released! ~ Java EE Support Patterns</a></li>
+<li><a href="http://j.mp/O7wt5Y">Create the Future with Java 8 (The Java Source)</a></li>
+<li><a href="http://j.mp/1ePUIMq">Java SE Embedded 8 is Now Available (The Java Source)</a></li>
+<li><a href="http://j.mp/1fYqxHj">[#JDK-8036100] Default method returns true for a while, and then returns false</a></li>
+<li><a href="http://j.mp/1eQplBw">java.util.Comparator::thenComparing has unnecessary type restriction</a></li>
+</ol>
+
+
+<h3>General</h3>
+
+<ol>
+<li><a href="http://j.mp/ObEbMk">First Impressions of iOS 7 for Keyboard Power Users</a></li>
+<li><a href="http://j.mp/ObDYZr">Command-Tab on your iPad</a></li>
+<li><a href="http://j.mp/NqDGx4">How to increase reading speed with or without apps/extensions?</a></li>
+</ol>
+
+
+<h3>Software Development</h3>
+
+<ol>
+<li><a href="http://j.mp/NreJkZ">Tips-and-Tricks: Command-Line Access to Google Cloud Platform using Google Cloud SDK</a></li>
+<li><a href="http://j.mp/1eQphS3">Dynamic Code Injection for Good</a></li>
+<li><a href="http://j.mp/1ny3TKJ">Littlest database that could</a></li>
+<li><a href="http://j.mp/1g74VcK">Switching tasks</a></li>
+<li><a href="http://j.mp/1iBoQ2G">Fluent Interface for More Readable Code</a></li>
+<li><a href="http://j.mp/1eQpfJX">Use Statements and Code Readability</a></li>
+<li><a href="http://j.mp/1fYqmvB">Redis Publish Subscribe and Long Polling with Spring&rsquo;s DeferredResult</a></li>
+<li><a href="http://j.mp/1ePUHYX">In depth: Pebble OAuth configuration using Node.js</a></li>
+<li><a href="http://j.mp/1knEuPi">Oracle GoldenGate: Coordinated Apply</a></li>
+<li><a href="http://j.mp/1iUL1Uc">The Trap You Set For Yourself</a></li>
+<li><a href="http://j.mp/1nsUyE6">Ego depletion</a></li>
+<li><a href="http://j.mp/1fYqtHj">The GitHub Debacle and Why Holacracy is Bullshit</a></li>
+</ol>
+
+
+<h3>Cloud</h3>
+
+<ol>
+<li><a href="http://j.mp/1l1BZVL">AWS SDK for Java Maven Archetype</a></li>
+<li><a href="http://j.mp/1ifxkM9">Route 53 and CloudTrail Checks for the AWS Trusted Advisor</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1eMYuWS">Hibernate ORM 4.2.11.Final Released</a></li>
+<li><a href="http://j.mp/1g6MmFu">spring-projects/spring-test-mvc-htmlunit · GitHub</a></li>
+<li><a href="http://j.mp/1ePUNzF">Implementing a high performance Money class  </a></li>
+<li><a href="http://j.mp/1ePUJ32">Joy of Coding&hellip; and mutation testing in Java</a></li>
+<li><a href="http://j.mp/1ifxl2R">A CDI 2 Wish List (The Aquarium)</a></li>
+<li><a href="http://j.mp/1iULg1A">Parameterised tests for JUnit</a></li>
+<li><a href="http://j.mp/1ifxl2B">HTTP Session Failover in WildFly 8 · WildFly</a></li>
+</ol>
+
+
+<h3>Android</h3>
+
+<ol>
+<li><a href="http://j.mp/1g74W0i">Android Wear Developer Preview Now Available</a></li>
+<li><a href="http://j.mp/1lLoeYx">Sharing what’s up our sleeve</a></li>
+<li><a href="http://j.mp/1eQpi8N">Google’s seriously cool new Android radial menu design revealed</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/1orU3XU">Akka Toolkit 2.3 released</a></li>
+</ol>
+
+
+<h3>Frontend</h3>
+
+<ol>
+<li><a href="http://j.mp/1ePUKDU">Angular 2.0</a></li>
+<li><a href="http://j.mp/1dG8Ruf">SpringOne2GX Replay: AngularJS, Backbone.js and Client-Centric Design</a></li>
+<li><a href="http://j.mp/1fYqueB">Complexity Creeps: Why I&rsquo;m Concerned for the Future of Angular.js 17 March 2014</a></li>
+</ol>
+
+
+<h3>In russian</h3>
+
+<ol>
+<li><a href="http://j.mp/1g74YFk">Загадка топ-антитоп асимметрии на Тэватроне, похоже, исчезла</a></li>
+<li><a href="http://j.mp/1lW7twp">Американец, осмелившийся обосновать действия Путина</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-March-18]]></title>
@@ -1505,75 +1611,6 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 <p>Good album, good texts.</p>
 
 <p>You can listen previews <a href="https://play.google.com/music/playpreview?preview=AE9vGKqOscNKDl7gMYDS126d1iINPIg449z4g_bwiXboIi8Qu74XsZRRzinlJnrN3NscIJS-_VgndoHTGYZFCl_l_TvPM2mwqVNg1BOW_rie_WOpZkqaubw%3D">here</a> or <a href="http://music.yandex.ru/#!/album/1801924">here (Russia only)</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Fixing Unescaped Quotes in Page Rendering in Octopress]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/02/octopress-quote-fix/"/>
-    <updated>2014-03-02T22:11:00-05:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/02/octopress-quote-fix</id>
-    <content type="html"><![CDATA[<p>When I created <a href="http://uthark.github.com/about">About Me</a> page I found issue with rendering: for some reason styles and some javascripts were missing on the page.</p>
-
-<p>Investigation showed that content in <code>meta tag</code> description contained unquoted quotes, thus resulting in broken HTML.</p>
-
-<p>After searching within <a href="https://github.com/imathis/octopress/">octopress sources</a> I found the issue:</p>
-
-<figure class='code'><figcaption><span>Rendering of description tag, excerpt from _includes/head.html</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span><span class="o">%</span> <span class="n">capture</span> <span class="n">description</span> <span class="sx">%}</span>
-</span><span class='line'><span class="sx">    {% if page.description %}</span>
-</span><span class='line'>        <span class="p">{{</span> <span class="n">page</span><span class="o">.</span><span class="n">description</span> <span class="p">}}</span>
-</span><span class='line'>    <span class="p">{</span><span class="o">%</span> <span class="k">else</span> <span class="sx">%}</span>
-</span><span class='line'><span class="sx">        {{ content | raw_content }</span><span class="p">}</span>
-</span><span class='line'>    <span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="sx">%}</span>
-</span><span class='line'><span class="sx">{% endcapture %}</span>
-</span><span class='line'><span class="o">&lt;</span><span class="n">meta</span> <span class="nb">name</span><span class="o">=</span><span class="s2">&quot;description&quot;</span> <span class="n">content</span><span class="o">=</span><span class="s2">&quot;{{ description | strip_html | condense_spaces | truncate:150 }}&quot;</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>After capturing, <code>description</code> is being processed with filters, defined in <code>plugins/octopress_filters.rb</code>. In this case, the following filter are applied:</p>
-
-<ul>
-<li>strip_html</li>
-<li>condense_spaces</li>
-<li>truncate</li>
-</ul>
-
-
-<p>So, as you can see, if description contains quotes, then it will be rendered as is, without any escaping and quotes will break resulting page.</p>
-
-<p>In order to fix this I decided to add new filter, which will just remove quotes.</p>
-
-<p>So, let&rsquo;s add new function, <code>strip_quotes</code> in <code>plugins/octopress_filters.rb</code>:</p>
-
-<figure class='code'><figcaption><span>strip_quotes function</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Strips quotes</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">strip_quotes</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">input</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/[\&#39;\&quot;&quot;]/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And then we need to update rendering of description tag &ndash; add newly created filter:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;description&quot;</span> <span class="na">content=</span><span class="s">&quot;{{ description | strip_html | condense_spaces | strip_quotes | truncate:150 }}&quot;</span><span class="nt">&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>After this fix description is being rendered properly.</p>
-
-<p>P.S. In order to render properly <code>{{</code> and <code>}}</code> in the octopress it is required to put content you want to render within <code>raw</code> and <code>endraw</code> tags. See <a href="http://stackoverflow.com/questions/15786144/how-to-escape-in-markdown-on-octopress">StackOverflow</a> <a href="http://stackoverflow.com/questions/3426182/how-to-escape-liquid-template-tags/13582517#13582517">questions</a> for details.</p>
 ]]></content>
   </entry>
   

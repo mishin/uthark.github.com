@@ -4,7 +4,7 @@
   <title><![CDATA[Category: reading list | Software Development and related activities]]></title>
   <link href="http://uthark.github.com/blog/categories/reading-list/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-03-18T14:05:07-04:00</updated>
+  <updated>2014-03-19T11:21:51-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,112 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-March-19]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/19/reading-list-2014-march-19/"/>
+    <updated>2014-03-19T11:06:41-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/19/reading-list-2014-march-19</id>
+    <content type="html"><![CDATA[<p>I would like to conratulate everyone with Java 8 release.</p>
+
+<h3>Java 8 announces</h3>
+
+<ol>
+<li><a href="http://j.mp/1ePUMfa">JDK 8: General Availability</a></li>
+<li><a href="http://j.mp/1ePUKUs">Java 8 officially arrives at last</a></li>
+<li><a href="http://j.mp/1ePUN2M">Go Reactive with Java 8</a></li>
+<li><a href="http://j.mp/1l1BVoO">Java 8, now what?</a></li>
+<li><a href="http://j.mp/1nBTpKg">JDK 8 Is Released! (The Java Tutorials Blog)</a></li>
+<li><a href="http://j.mp/1lMWliA">Java 8 is now released! ~ Java EE Support Patterns</a></li>
+<li><a href="http://j.mp/O7wt5Y">Create the Future with Java 8 (The Java Source)</a></li>
+<li><a href="http://j.mp/1ePUIMq">Java SE Embedded 8 is Now Available (The Java Source)</a></li>
+<li><a href="http://j.mp/1fYqxHj">[#JDK-8036100] Default method returns true for a while, and then returns false</a></li>
+<li><a href="http://j.mp/1eQplBw">java.util.Comparator::thenComparing has unnecessary type restriction</a></li>
+</ol>
+
+
+<h3>General</h3>
+
+<ol>
+<li><a href="http://j.mp/ObEbMk">First Impressions of iOS 7 for Keyboard Power Users</a></li>
+<li><a href="http://j.mp/ObDYZr">Command-Tab on your iPad</a></li>
+<li><a href="http://j.mp/NqDGx4">How to increase reading speed with or without apps/extensions?</a></li>
+</ol>
+
+
+<h3>Software Development</h3>
+
+<ol>
+<li><a href="http://j.mp/NreJkZ">Tips-and-Tricks: Command-Line Access to Google Cloud Platform using Google Cloud SDK</a></li>
+<li><a href="http://j.mp/1eQphS3">Dynamic Code Injection for Good</a></li>
+<li><a href="http://j.mp/1ny3TKJ">Littlest database that could</a></li>
+<li><a href="http://j.mp/1g74VcK">Switching tasks</a></li>
+<li><a href="http://j.mp/1iBoQ2G">Fluent Interface for More Readable Code</a></li>
+<li><a href="http://j.mp/1eQpfJX">Use Statements and Code Readability</a></li>
+<li><a href="http://j.mp/1fYqmvB">Redis Publish Subscribe and Long Polling with Spring&rsquo;s DeferredResult</a></li>
+<li><a href="http://j.mp/1ePUHYX">In depth: Pebble OAuth configuration using Node.js</a></li>
+<li><a href="http://j.mp/1knEuPi">Oracle GoldenGate: Coordinated Apply</a></li>
+<li><a href="http://j.mp/1iUL1Uc">The Trap You Set For Yourself</a></li>
+<li><a href="http://j.mp/1nsUyE6">Ego depletion</a></li>
+<li><a href="http://j.mp/1fYqtHj">The GitHub Debacle and Why Holacracy is Bullshit</a></li>
+</ol>
+
+
+<h3>Cloud</h3>
+
+<ol>
+<li><a href="http://j.mp/1l1BZVL">AWS SDK for Java Maven Archetype</a></li>
+<li><a href="http://j.mp/1ifxkM9">Route 53 and CloudTrail Checks for the AWS Trusted Advisor</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1eMYuWS">Hibernate ORM 4.2.11.Final Released</a></li>
+<li><a href="http://j.mp/1g6MmFu">spring-projects/spring-test-mvc-htmlunit · GitHub</a></li>
+<li><a href="http://j.mp/1ePUNzF">Implementing a high performance Money class  </a></li>
+<li><a href="http://j.mp/1ePUJ32">Joy of Coding&hellip; and mutation testing in Java</a></li>
+<li><a href="http://j.mp/1ifxl2R">A CDI 2 Wish List (The Aquarium)</a></li>
+<li><a href="http://j.mp/1iULg1A">Parameterised tests for JUnit</a></li>
+<li><a href="http://j.mp/1ifxl2B">HTTP Session Failover in WildFly 8 · WildFly</a></li>
+</ol>
+
+
+<h3>Android</h3>
+
+<ol>
+<li><a href="http://j.mp/1g74W0i">Android Wear Developer Preview Now Available</a></li>
+<li><a href="http://j.mp/1lLoeYx">Sharing what’s up our sleeve</a></li>
+<li><a href="http://j.mp/1eQpi8N">Google’s seriously cool new Android radial menu design revealed</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/1orU3XU">Akka Toolkit 2.3 released</a></li>
+</ol>
+
+
+<h3>Frontend</h3>
+
+<ol>
+<li><a href="http://j.mp/1ePUKDU">Angular 2.0</a></li>
+<li><a href="http://j.mp/1dG8Ruf">SpringOne2GX Replay: AngularJS, Backbone.js and Client-Centric Design</a></li>
+<li><a href="http://j.mp/1fYqueB">Complexity Creeps: Why I&rsquo;m Concerned for the Future of Angular.js 17 March 2014</a></li>
+</ol>
+
+
+<h3>In russian</h3>
+
+<ol>
+<li><a href="http://j.mp/1g74YFk">Загадка топ-антитоп асимметрии на Тэватроне, похоже, исчезла</a></li>
+<li><a href="http://j.mp/1lW7twp">Американец, осмелившийся обосновать действия Путина</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-March-18]]></title>
@@ -288,86 +394,6 @@
 <li><a href="http://j.mp/1f5r7O8">SpringOne2GX 2013 Replay: RabbitMQ is the new King</a></li>
 <li><a href="http://j.mp/1dpvXcI">SpringOne2GX 2013 Replay: Spring Integration Internals</a></li>
 <li><a href="http://j.mp/1hGsM1J">Red Hat JBoss BPM Suite – Run the Mortgage Demo (video)</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-March-12]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/12/reading-list-2014-march-12/"/>
-    <updated>2014-03-12T10:46:27-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/12/reading-list-2014-march-12</id>
-    <content type="html"><![CDATA[<h3>General</h3>
-
-<ol>
-<li><a href="http://j.mp/1hTd5nr">Nano Workouts help you get in shape and life healthy during everyday activities.</a></li>
-<li><a href="http://j.mp/1cCV51z">How to survive a job you absolutely hate 10</a></li>
-</ol>
-
-
-<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/1keyQin">SoftwareDevelopmentAttitude</a></li>
-<li><a href="http://j.mp/N3x6fJ">Updated Amazon Appstore Badges</a></li>
-<li><a href="http://j.mp/1ftbwwJ">Software is disrupting Industries: are you Trendwatcher or Trendsetter?</a></li>
-<li><a href="http://j.mp/1fqBEZ3">Because my friend works here…</a></li>
-<li><a href="http://j.mp/1fqBm4E">Labeling Ourselves for Others</a></li>
-<li><a href="http://j.mp/1lSMcnk">Is goto Still Considered Harmful?</a></li>
-<li><a href="http://j.mp/1i46zdE">Why Puppet/Chef/Ansible aren&rsquo;t good enough (and we can do better) | Domen Kožar&rsquo;s thoughts</a></li>
-</ol>
-
-
-<h3>Agile</h3>
-
-<ol>
-<li><a href="http://j.mp/O1m7oe">Choosing a leader like an agilist</a></li>
-<li><a href="http://j.mp/1i46yXc">Don’t Estimate Software Defects</a></li>
-<li><a href="http://j.mp/1cCV4e2">It’s Far Too Easy To Measure Agile’s Value In The Wrong Way</a></li>
-</ol>
-
-
-<h3>Project management</h3>
-
-<ol>
-<li><a href="http://j.mp/1lSLRB6">The Change Management Challenge</a></li>
-<li><a href="http://j.mp/1fqadi5">Cost of Delay: Why You Should Care, Part 6</a></li>
-</ol>
-
-
-<h3>Cloud</h3>
-
-<ol>
-<li><a href="http://j.mp/1ftbDse">Common Building Blocks of Cloud APIs</a></li>
-<li><a href="http://j.mp/1eoXisy">Improvements for managing Persistent Disks</a></li>
-<li><a href="http://j.mp/1fqBpNE">Help For Moving From Physical Servers to the Cloud</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/1ftbzZE">Apache Tomcat Connectors 1.2.39 released</a></li>
-<li><a href="http://j.mp/1kg1mA2">CVE-2014-009 Fixed in Spring Security 3.2.2 and 3.1.6</a></li>
-<li><a href="http://j.mp/1kg1kIH">Spring Social 1.1.0.RC1 Released</a></li>
-<li><a href="http://j.mp/1keyKal">Configuring a Liferay cluster (and make it use unicast)</a></li>
-<li><a href="http://j.mp/1i3SKMb">Java 8 Launch (The Aquarium)</a></li>
-<li><a href="http://j.mp/1ftbGEn">Java 8 : What do developers think?</a></li>
-<li><a href="http://j.mp/1ecISLT">Flavors of Nested Classes in Java 8</a></li>
-<li><a href="http://j.mp/N4t0nu">Code benchmarking in JUnit4</a></li>
-<li><a href="http://j.mp/1eoXnfT">Online Java Compiler – What options are there</a></li>
-<li><a href="http://j.mp/OkZjj1">SpringOne2GX 2013 Replay: Thymeleaf &ndash; improving your Spring view layer with natural templates</a></li>
-<li><a href="http://j.mp/1ftbC7K">SpringOne2GX 2013 Replay: Pragmatic JavaScript</a></li>
-<li><a href="http://j.mp/1i46Ddr">Building a Social Music Service Using AWS, Scala, Akka, Play, MongoDB, and Elasticsearch</a></li>
-</ol>
-
-
-<h3>Scala</h3>
-
-<ol>
-<li><a href="http://j.mp/1eoXbNE">Upcoming webinars: Akka Persistence and Java 8</a></li>
-<li><a href="http://j.mp/1fqBmBs">Basic Category Theory Terms</a></li>
 </ol>
 
 ]]></content>
