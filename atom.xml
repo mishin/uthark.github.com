@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-03-20T12:24:54-04:00</updated>
+  <updated>2014-03-21T13:56:47-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,47 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-March-21]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/21/reading-list-2014-march-21/"/>
+    <updated>2014-03-21T13:53:47-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/21/reading-list-2014-march-21</id>
+    <content type="html"><![CDATA[<p>Hi. Take a look at today&rsquo;s articles on mutation testing.</p>
+
+<h3>General</h3>
+
+<ol>
+<li><a href="http://j.mp/NyfWqN">Google? Evil? You have no idea</a></li>
+</ol>
+
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1fYqzii">Mutation Testing With PIT: A Step Beyond Normal Code Coverage</a></li>
+<li><a href="http://j.mp/1hKGZIZ">Mutation Testing</a></li>
+<li><a href="http://j.mp/Po8WyA">Concurrency torture: testing your code within the Java Memory Model</a></li>
+<li><a href="http://j.mp/1oBgha0">Recent activity for authentication credentials · GitHub</a></li>
+<li><a href="http://j.mp/1lR7QWf">Rich Object Models and Angular.js: Getter Methods</a></li>
+<li><a href="http://j.mp/1gcNeIN">Mule Unit Tests with Inbound Message Properties in Session or Invocation Scope</a></li>
+<li><a href="http://j.mp/1gcNcRb">Feature-based development</a></li>
+<li><a href="http://j.mp/OGafrI">Object-oriented design principles and the 5 ways of creating SOLID applications</a></li>
+<li><a href="http://j.mp/1hKWxMS">Android Wear Prototype: Quick Sharing to Pocket</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1nZLCmu">3 Reasons to choose Vert.x</a></li>
+<li><a href="http://j.mp/1fMb600">Java 8 in Enterprise Projects</a></li>
+<li><a href="http://j.mp/1fMb7AV">Reality check: Java 8 finally catches a multicore break</a></li>
+<li><a href="http://j.mp/1j9QeI3">Spring Security – Behind the scenes</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-March-20]]></title>
@@ -1637,31 +1678,6 @@ previously constructed threads when they are available.</p></blockquote>
 <li><a href="http://j.mp/1pJZx1S">«Все эти годы мы ловим эхо»</a></li>
 </ol>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Using iTerm Triggers]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/02/iterm-triggers/"/>
-    <updated>2014-03-02T23:51:00-05:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/02/iterm-triggers</id>
-    <content type="html"><![CDATA[<p>I want to share one of the cool features which <a href="http://www.iterm2.com/">iTerm.app</a> has &ndash; triggers.
-The idea behind triggers is simple &ndash; it allows to perform arbitrary action based on the output in console window. For example, it can colorize specified content (based on <a href="http://en.wikipedia.org/wiki/Regular_expression">regular expressions</a>).</p>
-
-<p>Start <code>iTerm</code>, open settings (<code>⌘+,</code>), go to <code>Profiles</code>, then tab <code>Advanced</code>.
-Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
-
-<p><img src="https://lh4.googleusercontent.com/-n8Ynka3iux0/UxQQDk6VewI/AAAAAAAAPgg/FoQAq7y2a78/w2088-h1242-no/Screen+Shot+2014-03-02+at+11.48.02+PM.png" title="iTerm Settings" ></p>
-
-<p>Then you can define your own triggers:</p>
-
-<p><img src="https://lh5.googleusercontent.com/-zXeqBjdPMlE/UxQQMQ4EyXI/AAAAAAAAPhg/0tS9qMw5atw/w2086-h932-no/Screen+Shot+2014-03-02+at+11.48.15+PM.png" title="Triggers Configuration" ></p>
-
-<p>Example output:</p>
-
-<p><img src="https://lh6.googleusercontent.com/-hiVCoX2YS60/UxQSnH64xwI/AAAAAAAAPxw/KIlW7dpv-tM/w1816-h1386-no/Screen+Shot+2014-03-03+at+12.26.03+AM.png" title="Example output" ></p>
-
-<p>Happy coding!</p>
 ]]></content>
   </entry>
   
