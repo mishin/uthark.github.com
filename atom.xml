@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-03-21T13:56:47-04:00</updated>
+  <updated>2014-03-24T10:59:41-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,67 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-March-24]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/24/reading-list-2014-march-24/"/>
+    <updated>2014-03-24T10:48:15-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/24/reading-list-2014-march-24</id>
+    <content type="html"><![CDATA[<h3>General</h3>
+
+<ol>
+<li><a href="http://j.mp/1rlfSuw">A Startlingly Simple Theory About the Missing Malaysia Airlines Jet</a></li>
+<li><a href="http://j.mp/1iqQ6Rw">The Problem and Future of Education | Arsalan Bashir</a></li>
+<li><a href="http://j.mp/1ggzpZW">No One Knows What the F*** They&rsquo;re Doing (or &ldquo;The 3 Types of Knowledge&rdquo;)</a></li>
+<li><a href="http://j.mp/1lUNco9">How Google Does Fundamental Research Without a Separate Research Lab</a></li>
+</ol>
+
+
+<h3>Cloud</h3>
+
+<ol>
+<li><a href="http://j.mp/1j8UyHj">ELB Connection Draining &ndash; Remove Instances From Service With Care | Amazon Web Services Blog</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1lX9SEj">Apache Camel 2.13.0 released</a></li>
+<li><a href="http://j.mp/1gbaaId">5 Features In Java 8 That WILL Change How You Code</a></li>
+<li><a href="http://j.mp/OJyeXg">Spring MVC Test with HtmlUnit</a></li>
+<li><a href="http://j.mp/1la1UKW">Reality check: Java 8 finally catches a multi-core break</a></li>
+<li><a href="http://j.mp/1hb3Vzn">Getting JUnit Test Names Right</a></li>
+<li><a href="http://j.mp/Q2BMoz">Java 8 Friday Goodies: Lean Concurrency</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/1lX9LbO">Scala 2.11.0-RC3 is now available!</a></li>
+</ol>
+
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1giYLGu">Mocks Aren&rsquo;t Stubs</a></li>
+<li><a href="http://j.mp/1h2kYU8">TestDouble | Martin Fowler</a></li>
+<li><a href="http://j.mp/1j8UBmC">Production Debugging: A story about “Exception code: 0xe053534f”</a></li>
+<li><a href="http://j.mp/NAOQiP">How you can benefit from Groovy Shell</a></li>
+<li><a href="http://j.mp/1prSfwD">A Better Query Language than SQL</a></li>
+<li><a href="http://j.mp/1prShEJ">Trigger Continuous Delivery every GitHub commit</a></li>
+<li><a href="http://j.mp/1jry4ND">How I make very early software cost estimates (Part 1)</a></li>
+<li><a href="http://j.mp/1eZ7c4s">The Importance of Unit Testing</a></li>
+<li><a href="http://j.mp/1jcjyOa">unit testing your code using  Mockito | Android Developers</a></li>
+<li><a href="http://j.mp/1jvNP68">OS X perf tools, slide from &hellip;</a></li>
+<li><a href="http://j.mp/1ggzqgp">Let&rsquo;s Talk Tech : The Accidental Standard</a></li>
+<li><a href="http://j.mp/1oBgeea">Classloading in Liferay</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-March-21]]></title>
@@ -1594,89 +1655,6 @@ previously constructed threads when they are available.</p></blockquote>
 <iframe style="overflow: scroll; width: 100%; height: 600px" src="http://www.endomondo.com/embed/workouts?w=tmMEXnSDfDg&width=950&height=600" frameborder="0" scrolling="yes" ></iframe>
 
 
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-March-03]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/03/reading-list-2014-march-03/"/>
-    <updated>2014-03-03T14:57:23-05:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/03/reading-list-2014-march-03</id>
-    <content type="html"><![CDATA[<h3>General</h3>
-
-<ol>
-<li><a href="http://j.mp/NF0bP8">The internet is f*cked</a></li>
-<li><a href="http://j.mp/1hzY6iN">Comcast makes absurd argument that Google Fiber is a serious competitor</a></li>
-<li><a href="http://j.mp/1hI8kjr">Do You Have the Wrong Job Title?</a></li>
-</ol>
-
-
-<h3>Product Management</h3>
-
-<ol>
-<li><a href="http://j.mp/1ewU9WR">Complaint-Driven Development</a></li>
-<li><a href="http://j.mp/1pt9OiJ">Cost of Delay Due to Indecision, Part 3</a></li>
-<li><a href="http://j.mp/1ewU85a">Product Roadmaps Are Anti-Agile</a></li>
-<li><a href="http://j.mp/1gfHhZA">Splitting User Stories</a></li>
-<li><a href="http://j.mp/1kxDB6i">Are You Agile When You&rsquo;re Going Fast?</a></li>
-</ol>
-
-
-<h3>Software Development</h3>
-
-<ol>
-<li><a href="http://j.mp/1fui2Tr">StackOverflow &ndash; Best practices for API versioning? [closed]</a></li>
-<li><a href="http://j.mp/1dOsQaX">Atlassian Champions Git With Essentials</a></li>
-<li><a href="http://j.mp/1cQSH52">XKCD Now</a></li>
-<li><a href="http://j.mp/1hZ2K8d">Don’t Play ‘Schedule Chicken’</a></li>
-<li><a href="http://j.mp/1dTAbWX">You shouldn&rsquo;t have to worry about front end optimization</a></li>
-<li><a href="http://j.mp/1dhul4M">Amazon Web Services Blog</a></li>
-<li><a href="http://j.mp/1i4B6uR">Fast Remote Service Tests</a></li>
-<li><a href="http://j.mp/1dHUsCm">Least Significant Bit &ndash; hunting bugs with git bisect and submodules</a></li>
-<li><a href="http://j.mp/1chfEk9">The Art of AngularJS</a></li>
-<li><a href="http://j.mp/1dhug0I">Geoip geolocation with Google BigQuery</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/1eX0wms">Announcement: Liferay Faces 4.x M1 Released</a></li>
-<li><a href="http://j.mp/NlkZLK">Custom Spring namespaces made easier with JAXB</a></li>
-<li><a href="http://j.mp/1mdCCfZ">Java 8 Resources | lambdas | method references | defender methods | streams</a></li>
-<li><a href="http://j.mp/1i6yoVK">Jersey: Ignoring SSL certificate – javax.net.ssl.SSLHandshakeException: java.security.cert.CertificateException</a></li>
-<li><a href="http://j.mp/1dSZOa8">Java 8: Lambda Expressions vs Auto Closeable</a></li>
-<li><a href="http://j.mp/1i6yqgd">Allocating memory for the JVM: a case study</a></li>
-<li><a href="http://j.mp/1i6ynB9">5 techniques to improve your server logging</a></li>
-<li><a href="http://j.mp/1knYDnL">A Deeper Look into the Java 8 Date and Time API</a></li>
-<li><a href="http://j.mp/1fCd0zW">The hole in the middle pattern at Mark Needham</a></li>
-<li><a href="http://j.mp/1hBvc1I">The JDBC Boolean Compatibility List</a></li>
-<li><a href="http://j.mp/1oksa1Z">Hibernate ORM 4.3.4.Final &amp; 4.2.10.Final Released</a></li>
-<li><a href="http://j.mp/1dhuoxi">Externalizable in java</a></li>
-</ol>
-
-
-<h3>Scala</h3>
-
-<ol>
-<li><a href="http://j.mp/1jBRyjC">Scala 2.10.4-RC3 is now available!</a></li>
-<li><a href="http://j.mp/1eW9Eru">Akka’s Futures – A short cautionary tale</a></li>
-<li><a href="http://j.mp/1hBK93V">Integrating Play Framework And Maven</a></li>
-<li><a href="http://j.mp/1eSFchK">Dependency injection with Scala macros: auto-wiring</a></li>
-<li><a href="http://j.mp/1hOeIkQ">Using Scala traits as modules, or the &ldquo;Thin Cake&rdquo; Pattern</a></li>
-<li><a href="http://j.mp/1dSZSql">Init.d shell script for Play framework distributed applications</a></li>
-</ol>
-
-
-<h3>In Russian</h3>
-
-<ol>
-<li><a href="http://j.mp/1dOsOzO">«Великое Кислородное Событие» на рубеже архея и протерозоя не было ни великим, ни событием</a></li>
-<li><a href="http://j.mp/1eFQ3QR">Путину бедному мозг больной свело</a></li>
-<li><a href="http://j.mp/1ddZLsN">Остановка налогового лифта</a></li>
-<li><a href="http://j.mp/1pJZx1S">«Все эти годы мы ловим эхо»</a></li>
-</ol>
 
 ]]></content>
   </entry>
