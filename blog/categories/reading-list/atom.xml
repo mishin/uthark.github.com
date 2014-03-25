@@ -4,7 +4,7 @@
   <title><![CDATA[Category: reading list | Software Development and related activities]]></title>
   <link href="http://uthark.github.com/blog/categories/reading-list/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-03-24T10:59:41-04:00</updated>
+  <updated>2014-03-25T11:34:59-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,60 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-March-25]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/25/reading-list-2014-march-25/"/>
+    <updated>2014-03-25T11:31:11-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/25/reading-list-2014-march-25</id>
+    <content type="html"><![CDATA[<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1jw9cnU">BLAKE2: “Harder, Better, Faster, Stronger” Than MD5 | Least Authority</a></li>
+<li><a href="http://j.mp/1diFHrk">WebP improves while rolling out across Google</a></li>
+<li><a href="http://j.mp/ORBVd9">Automated Testing with Docker</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1jmDcai">Solr 4.7 – Efficient Deep Paging</a></li>
+<li><a href="http://j.mp/1glMd0f">Tyrus 1.5 released! Just in time for Java 8 (The Aquarium)</a></li>
+<li><a href="http://j.mp/1glM8cW">Liferay 6.2 CE GA2 Now Available</a></li>
+<li><a href="http://j.mp/1jw9oDy">Top 5 Reasons to Choose ScalaTest Over JUnit</a></li>
+<li><a href="http://j.mp/1diG8BV">What I miss in Java 8 lambda functions</a></li>
+</ol>
+
+
+<h3>Android</h3>
+
+<ol>
+<li><a href="http://j.mp/1fbKkPe">Report : What content makes up an Android Game?</a></li>
+<li><a href="http://j.mp/1fbKjec">PNG Bloat in Android Games</a></li>
+<li><a href="http://j.mp/1fbKoOQ">How to move from PNG to GPU Textures on Android (and keep your sanity)</a></li>
+<li><a href="http://j.mp/1iuvhUD">Cast Icon Update | Leon Nicholls</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/1hisTgs">Scala 2.10.4 is now available!</a></li>
+<li><a href="http://j.mp/1gxL46B">SBuild 0.7.3</a></li>
+<li><a href="http://j.mp/1glMa4y">Scala and Play Plugins Update in IntelliJ IDEA 13.1</a></li>
+</ol>
+
+
+<h3>In Russian</h3>
+
+<ol>
+<li><a href="http://j.mp/1jw0S7N">Андрей Зубов: Это уже было</a></li>
+<li><a href="http://j.mp/1fefSE6">FAQ: Кварки</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-March-24]]></title>
@@ -280,62 +334,6 @@
 <ol>
 <li><a href="http://j.mp/1g74YFk">Загадка топ-антитоп асимметрии на Тэватроне, похоже, исчезла</a></li>
 <li><a href="http://j.mp/1lW7twp">Американец, осмелившийся обосновать действия Путина</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-March-18]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/18/reading-list-2014-march-18/"/>
-    <updated>2014-03-18T13:59:16-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/18/reading-list-2014-march-18</id>
-    <content type="html"><![CDATA[<h3>Software Development</h3>
-
-<ol>
-<li><a href="http://j.mp/1ma825T">The Help Vampire: A Spotter’s Guide</a></li>
-<li><a href="http://j.mp/OqTcdm">Go for Java Programmers: Introduction</a></li>
-<li><a href="http://j.mp/1hube6A">rm is dangerous</a></li>
-<li><a href="http://j.mp/1hubeUk">What&rsquo;s the opposite of duplication?</a></li>
-<li><a href="http://j.mp/1ny3Uyh">What do developers spend all that time on?</a></li>
-<li><a href="http://j.mp/NlYIgc">Myths about /dev/urandom</a></li>
-<li><a href="http://j.mp/1cOPLbi">How to Make Python Faster Without Trying That Much</a></li>
-<li><a href="http://j.mp/1hnxO0W">Mighty Spring — Adventures in Dogfooding : Engineers as Recruiters</a></li>
-<li><a href="http://j.mp/1nAHrAG">Choosing a Templating Language in Clojure</a></li>
-<li><a href="http://j.mp/OqTfWx">XKCD | Manuals</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/1kYM3P5">Spring Test MVC HtmlUnit 1.0.0.M1 Released</a></li>
-<li><a href="http://j.mp/1iq1Y6p">The Java HotSpot Performance Engine: Method Inlining Example</a></li>
-<li><a href="http://j.mp/1gtYQ4g">Integration testing with Maven and Docker</a></li>
-<li><a href="http://j.mp/1cOPOnm">A quick introduction to Apache Mesos</a></li>
-</ol>
-
-
-<h3>Scala</h3>
-
-<ol>
-<li><a href="http://j.mp/1iwl4rA">The Ultimate Guide to Getting Started with the Play Framework</a></li>
-</ol>
-
-
-<h3>Android</h3>
-
-<ol>
-<li><a href="http://j.mp/1hubd2L">Google Play services 4.3</a></li>
-</ol>
-
-
-<h3>In Russian</h3>
-
-<ol>
-<li><a href="http://j.mp/1nAHxbz">Сейсмометрия установила новые ограничения на интенсивность гравитационно-волнового шума вселенной</a></li>
-<li><a href="http://j.mp/NqDHRE">FAQ: Региональное неравенство</a></li>
-<li><a href="http://j.mp/1nAHv3j">Разнообразие тропических насекомых поддерживается благодаря узкой специализации паразитов</a></li>
 </ol>
 
 ]]></content>

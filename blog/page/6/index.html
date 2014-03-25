@@ -9,7 +9,7 @@
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="Сегодня была оказана помощь лягушкам, которых инстинкт гонит в озеро для размножения. Прогулка с ведром и фонарём, булькание лягушек в озере и их &hellip;">
+  <meta name="description" content="Так как использование блокировок по-разному влияет на производительность, необходимо выбирать, в каких случаях какой вид блокировок лучше &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +82,94 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/04/26/blog-post_26/">Критерии выбора блокировок</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-04-26T04:30:00-04:00" pubdate data-updated="true">Apr 26<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Так как использование блокировок по-разному влияет на производительность, необходимо выбирать, в каких случаях какой вид блокировок лучше использовать.
+
+<style type="text/css">.nobr br { display: none }</style>
+<div class="nobr">
+<table>
+
+<tbody><tr>
+<th>Условие</th>
+<th>Пессимистичная</th>
+<th>Оптимистичная</th>
+<th>Сверх-оптимистичная</th>
+</tr>
+<tr>
+<td>Конфликты часты
+</td>
+<td>+
+</td>
+<td>−
+</td>
+<td>−
+</td>
+</tr>
+<tr>
+<td>Конфликты редки
+</td>
+<td>−
+</td>
+<td>+
+</td>
+<td>−
+</td>
+</tr>
+<tr>
+<td>Данные только добавляются (например, журнал)
+</td>
+<td>−
+</td>
+<td>−
+</td>
+<td>+
+</td>
+</tr>
+<tr>
+<td>Данные только читаются (справочники)</td>
+<td>−</td>
+<td>−</td>
+<td>+</td>
+</tr></tbody>
+<caption>Критерии выбора блокировок</caption>
+</table>
+</div></div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -771,50 +859,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2008/02/25/blog-post_4049/">Работа пятницавечер</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2008-02-25T02:10:00-05:00" pubdate data-updated="true">Feb 25<span>th</span>, 2008</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-В пятницу на работе был фан.
-
-С утра наши девочки отожгли - заставили преодолевать различные препятствия по пути до рабочего места - сначала ходьба на резиновых подстилках не заступая на пол, потом проползание сквозь мешок, прыжки на скакалке, перелезания через перекладину, ходьба по узкой дощечке и кидание мяча в корзину. Было весело.
-
-Вечером фан продолжился и были конкурсы. В одном из которых мне и вручили &#8220;оффигительный набор отверток&#8221; (с). А точнее - шестигранников.
-
-Побольше бы такого фана, и жизнь была бы веселее.</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/7/">&larr; Older</a>
@@ -830,6 +874,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/25/reading-list-2014-march-25/">Reading List 2014-March-25</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/03/24/reading-list-2014-march-24/">Reading List 2014-March-24</a>
@@ -853,10 +901,6 @@
     
       <li class="post">
         <a href="/blog/2014/03/17/reading-list-2014-march-17/">Reading List 2014-March-17</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/14/life-fee/">Life Fee</a>
       </li>
     
   </ul>

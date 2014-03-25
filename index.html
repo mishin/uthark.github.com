@@ -9,9 +9,9 @@
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="General A Startlingly Simple Theory About the Missing Malaysia Airlines Jet
-The Problem and Future of Education | Arsalan Bashir
-No One Knows What &hellip;">
+  <meta name="description" content="Software development BLAKE2: “Harder, Better, Faster, Stronger” Than MD5 | Least Authority
+WebP improves while rolling out across Google
+Automated &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,6 +84,87 @@ No One Knows What &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/25/reading-list-2014-march-25/">Reading List 2014-March-25</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-25T11:31:11-04:00" pubdate data-updated="true">Mar 25<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1jw9cnU">BLAKE2: “Harder, Better, Faster, Stronger” Than MD5 | Least Authority</a></li>
+<li><a href="http://j.mp/1diFHrk">WebP improves while rolling out across Google</a></li>
+<li><a href="http://j.mp/ORBVd9">Automated Testing with Docker</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1jmDcai">Solr 4.7 – Efficient Deep Paging</a></li>
+<li><a href="http://j.mp/1glMd0f">Tyrus 1.5 released! Just in time for Java 8 (The Aquarium)</a></li>
+<li><a href="http://j.mp/1glM8cW">Liferay 6.2 CE GA2 Now Available</a></li>
+<li><a href="http://j.mp/1jw9oDy">Top 5 Reasons to Choose ScalaTest Over JUnit</a></li>
+<li><a href="http://j.mp/1diG8BV">What I miss in Java 8 lambda functions</a></li>
+</ol>
+
+
+<h3>Android</h3>
+
+<ol>
+<li><a href="http://j.mp/1fbKkPe">Report : What content makes up an Android Game?</a></li>
+<li><a href="http://j.mp/1fbKjec">PNG Bloat in Android Games</a></li>
+<li><a href="http://j.mp/1fbKoOQ">How to move from PNG to GPU Textures on Android (and keep your sanity)</a></li>
+<li><a href="http://j.mp/1iuvhUD">Cast Icon Update | Leon Nicholls</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/1hisTgs">Scala 2.10.4 is now available!</a></li>
+<li><a href="http://j.mp/1gxL46B">SBuild 0.7.3</a></li>
+<li><a href="http://j.mp/1glMa4y">Scala and Play Plugins Update in IntelliJ IDEA 13.1</a></li>
+</ol>
+
+
+<h3>In Russian</h3>
+
+<ol>
+<li><a href="http://j.mp/1jw0S7N">Андрей Зубов: Это уже было</a></li>
+<li><a href="http://j.mp/1fefSE6">FAQ: Кварки</a></li>
+</ol>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1540,286 +1621,6 @@ previously constructed threads when they are available.</p></blockquote>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/06/customizing-font-in-android-textview/">Using Custom Font in Android TextView</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-06T19:13:17-05:00" pubdate data-updated="true">Mar 6<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Today I want to share with you custom <a href="http://developer.android.com/reference/android/widget/TextView.html">TextView</a> which allows to set font to be used in xml layout.</p>
-
-<p>First, we need to declare our custom styleable</p>
-
-<figure class='code'><figcaption><span>attrs.xml</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-</span><span class='line'><span class="nt">&lt;resources&gt;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nt">&lt;declare-styleable</span> <span class="na">name=</span><span class="s">&quot;TypefaceTextView&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;attr</span> <span class="na">name=</span><span class="s">&quot;typeface&quot;</span> <span class="na">format=</span><span class="s">&quot;string&quot;</span><span class="nt">/&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/declare-styleable&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="nt">&lt;/resources&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then we need to create subclass of <code>TextView</code> which will use custom attribute.</p>
-
-<figure class='code'><figcaption><span>TypefaceTextView</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TypefaceTextView</span> <span class="kd">extends</span> <span class="n">TextView</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="nf">TypefaceTextView</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="nf">TypefaceTextView</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="n">AttributeSet</span> <span class="n">attrs</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">attrs</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="nf">TypefaceTextView</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="n">AttributeSet</span> <span class="n">attrs</span><span class="o">,</span> <span class="kt">int</span> <span class="n">defStyle</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">attrs</span><span class="o">,</span> <span class="n">defStyle</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="n">TypedArray</span> <span class="n">ta</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getTheme</span><span class="o">().</span><span class="na">obtainStyledAttributes</span><span class="o">(</span><span class="n">attrs</span><span class="o">,</span> <span class="n">R</span><span class="o">.</span><span class="na">styleable</span><span class="o">.</span><span class="na">TypefaceTextView</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>
-</span><span class='line'>        <span class="k">try</span> <span class="o">{</span>
-</span><span class='line'>            <span class="n">String</span> <span class="n">font</span> <span class="o">=</span> <span class="n">ta</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">styleable</span><span class="o">.</span><span class="na">TypefaceTextView_typeface</span><span class="o">);</span>
-</span><span class='line'>            <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">font</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>                <span class="n">font</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">default_font_name</span><span class="o">);</span>
-</span><span class='line'>            <span class="o">}</span>
-</span><span class='line'>            <span class="n">Typeface</span> <span class="n">typeface</span> <span class="o">=</span> <span class="n">TypefaceCache</span><span class="o">.</span><span class="na">getTypeface</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">font</span><span class="o">);</span>
-</span><span class='line'>            <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">!=</span> <span class="n">typeface</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>                <span class="n">setTypeface</span><span class="o">(</span><span class="n">typeface</span><span class="o">);</span>
-</span><span class='line'>            <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
-</span><span class='line'>            <span class="n">ta</span><span class="o">.</span><span class="na">recycle</span><span class="o">();</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Also, above class allows to use default custom font, all is needed is to define its name in <code>strings.xml</code></p>
-
-<figure class='code'><figcaption><span>TypefaceTextView</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="o">&lt;?</span><span class="n">xml</span> <span class="n">version</span><span class="o">=</span><span class="s">&quot;1.0&quot;</span> <span class="n">encoding</span><span class="o">=</span><span class="s">&quot;utf-8&quot;</span><span class="o">?&gt;</span>
-</span><span class='line'><span class="o">&lt;</span><span class="n">resources</span><span class="o">&gt;</span>
-</span><span class='line'>    <span class="o">&lt;</span><span class="n">string</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;default_font_name&quot;</span> <span class="n">translatable</span><span class="o">=</span><span class="s">&quot;false&quot;</span><span class="o">&gt;</span><span class="n">custom</span><span class="o">.</span><span class="na">ttf</span><span class="o">&lt;/</span><span class="n">string</span><span class="o">&gt;</span>
-</span><span class='line'><span class="o">&lt;/</span><span class="n">resources</span><span class="o">&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Due to the <a href="https://code.google.com/p/android/issues/detail?id=9904">bug in Android</a> we have to cache all created typefaces in cache:</p>
-
-<figure class='code'><figcaption><span>TypefaceCache</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TypefaceCache</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Map</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Typeface</span><span class="o">&gt;</span> <span class="n">CACHE</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Typeface</span><span class="o">&gt;();</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="kd">static</span> <span class="n">Typeface</span> <span class="nf">getTypeface</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="n">String</span> <span class="n">font</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">font</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>            <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>        <span class="n">Typeface</span> <span class="n">typeface</span> <span class="o">=</span> <span class="n">CACHE</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">font</span><span class="o">);</span>
-</span><span class='line'>        <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">typeface</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>            <span class="n">typeface</span> <span class="o">=</span> <span class="n">Typeface</span><span class="o">.</span><span class="na">createFromAsset</span><span class="o">(</span><span class="n">context</span><span class="o">.</span><span class="na">getAssets</span><span class="o">(),</span> <span class="n">font</span><span class="o">);</span>
-</span><span class='line'>            <span class="n">CACHE</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">font</span><span class="o">,</span> <span class="n">typeface</span><span class="o">);</span>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">typeface</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Basically, that&rsquo;s it. In order to use it is required to put TTF font in the <code>assets</code> folder and reference the font:</p>
-
-<figure class='code'><figcaption><span>Example usage.</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
-</span><span class='line'><span class="nt">&lt;com.example.android.widget.TypefaceTextView</span>
-</span><span class='line'>    <span class="na">xmlns:a=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
-</span><span class='line'>    <span class="na">xmlns:custom=</span><span class="s">&quot;http://schemas.android.com/apk/res-auto&quot;</span>
-</span><span class='line'>    <span class="na">a:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
-</span><span class='line'>    <span class="na">custom:typeface=</span><span class="s">&quot;custom-font.ttf&quot;</span><span class="nt">/&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And the last use case it to set custom font for the actionbar title. In this case we can implement custom <a href="http://developer.android.com/reference/android/text/style/CharacterStyle.html"><code>android.text.style.CharacterStyle</code></a></p>
-
-<figure class='code'><figcaption><span>TypefaceSpan</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TypefaceSpan</span> <span class="kd">extends</span> <span class="n">MetricAffectingSpan</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">Typeface</span> <span class="n">mTypeface</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="cm">/**</span>
-</span><span class='line'><span class="cm">     * Load the {@link Typeface} and apply to a {@link Spannable}.</span>
-</span><span class='line'><span class="cm">     */</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="nf">TypefaceSpan</span><span class="o">(</span><span class="n">Context</span> <span class="n">context</span><span class="o">,</span> <span class="n">String</span> <span class="n">typefaceName</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">mTypeface</span> <span class="o">=</span> <span class="n">TypefaceCache</span><span class="o">.</span><span class="na">getTypeface</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">typefaceName</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Override</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">updateMeasureState</span><span class="o">(</span><span class="n">TextPaint</span> <span class="n">p</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">p</span><span class="o">.</span><span class="na">setTypeface</span><span class="o">(</span><span class="n">mTypeface</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="c1">// Note: This flag is required for proper typeface rendering</span>
-</span><span class='line'>        <span class="n">p</span><span class="o">.</span><span class="na">setFlags</span><span class="o">(</span><span class="n">p</span><span class="o">.</span><span class="na">getFlags</span><span class="o">()</span> <span class="o">|</span> <span class="n">Paint</span><span class="o">.</span><span class="na">SUBPIXEL_TEXT_FLAG</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Override</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">updateDrawState</span><span class="o">(</span><span class="n">TextPaint</span> <span class="n">tp</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">tp</span><span class="o">.</span><span class="na">setTypeface</span><span class="o">(</span><span class="n">mTypeface</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="c1">// Note: This flag is required for proper typeface rendering</span>
-</span><span class='line'>        <span class="n">tp</span><span class="o">.</span><span class="na">setFlags</span><span class="o">(</span><span class="n">tp</span><span class="o">.</span><span class="na">getFlags</span><span class="o">()</span> <span class="o">|</span> <span class="n">Paint</span><span class="o">.</span><span class="na">SUBPIXEL_TEXT_FLAG</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Then we can set actionbar title using the following code:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">setActionBarTitle</span><span class="o">(</span><span class="n">Activity</span> <span class="n">context</span><span class="o">,</span> <span class="n">CharSequence</span> <span class="n">title</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>    <span class="n">SpannableString</span> <span class="n">s</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SpannableString</span><span class="o">(</span><span class="n">title</span><span class="o">);</span>
-</span><span class='line'>    <span class="n">s</span><span class="o">.</span><span class="na">setSpan</span><span class="o">(</span><span class="k">new</span> <span class="n">TypefaceSpan</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">context</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">default_font_name</span><span class="o">)),</span> <span class="mi">0</span><span class="o">,</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">(),</span>
-</span><span class='line'>        <span class="n">Spannable</span><span class="o">.</span><span class="na">SPAN_EXCLUSIVE_EXCLUSIVE</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">if</span> <span class="o">(</span><span class="n">Build</span><span class="o">.</span><span class="na">VERSION</span><span class="o">.</span><span class="na">SDK_INT</span> <span class="o">&gt;=</span> <span class="n">Build</span><span class="o">.</span><span class="na">VERSION_CODES</span><span class="o">.</span><span class="na">HONEYCOMB</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">context</span><span class="o">.</span><span class="na">getActionBar</span><span class="o">().</span><span class="na">setTitle</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Additional information</h3>
-
-<ol>
-<li><a href="http://developer.android.com/training/custom-views/#create-view.html">Creating a View Class | Android Developers</a></li>
-</ol>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1833,6 +1634,10 @@ previously constructed threads when they are available.</p></blockquote>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/25/reading-list-2014-march-25/">Reading List 2014-March-25</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/03/24/reading-list-2014-march-24/">Reading List 2014-March-24</a>
@@ -1856,10 +1661,6 @@ previously constructed threads when they are available.</p></blockquote>
     
       <li class="post">
         <a href="/blog/2014/03/17/reading-list-2014-march-17/">Reading List 2014-March-17</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/14/life-fee/">Life Fee</a>
       </li>
     
   </ul>
