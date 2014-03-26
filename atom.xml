@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-03-25T18:54:42-04:00</updated>
+  <updated>2014-03-26T11:28:45-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,74 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-March-26]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/26/reading-list-2014-march-26/"/>
+    <updated>2014-03-26T11:21:55-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/26/reading-list-2014-march-26</id>
+    <content type="html"><![CDATA[<h3>General</h3>
+
+<ol>
+<li><a href="http://j.mp/NKHJ7B">Skitch for Android Update: New Toolbars and More | Evernote blog</a></li>
+<li><a href="http://j.mp/ORrAyb">New Pocket for Firefox: Simplified Saving, Auto-Complete Tagging, and More</a></li>
+<li><a href="http://on.recode.net/1j0rM7w">Microsoft Researcher Wins the “Nobel Prize” of Computer Science</a></li>
+</ol>
+
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1dqLefm">The Microservice Architecture Sounds Like Service-Oriented Architecture</a></li>
+<li><a href="http://j.mp/1lkxrdf">Implementing Static Analysis isn&rsquo;t that easy</a></li>
+<li><a href="http://j.mp/1gymVgl">Google Tag Manager | Android</a></li>
+</ol>
+
+
+<h3>Cloud</h3>
+
+<ol>
+<li><a href="http://j.mp/1hphqvm">Google Announces Massive Price Drops For Its Cloud Computing Services And Storage, Introduces Sustained-Use Discounts</a></li>
+<li><a href="http://j.mp/1j8UAiA">Cassandra Hits One Million Writes Per Second on Google Compute Engine</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1nYhf35">Oracle Announces Java 8</a></li>
+<li><a href="http://j.mp/Qe3vmd">Spring Security 3.2.3 Released</a></li>
+<li><a href="http://j.mp/1jCeJJy">Tyrus 1.5 (Pavel Bucek&rsquo;s weblog)</a></li>
+<li><a href="http://j.mp/1hnADO1">Java API for JSON Processing (JSR 353) (The Aquarium)</a></li>
+<li><a href="http://j.mp/1jIhhG4">Key Collections powered by Java 8 Lambdas</a></li>
+<li><a href="http://j.mp/1ry7LLm">Hibernate, JPA, Spring and Hsqldb</a></li>
+<li><a href="http://j.mp/1jJ9Heq">Executor, ExecutorService, ThreadPool, and Future in Java</a></li>
+<li><a href="http://j.mp/1ry7Hv3">Porting legacy Java backend to Spring Boot in one week</a></li>
+<li><a href="http://j.mp/ORrAhF">burek for breakfast &ndash; Food For Tests: JDK 7u60 Build b11 &amp; JDK 8u20 Build b05</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/NRB23x">Akka 2.3.1 Maintenance Release</a></li>
+<li><a href="http://j.mp/1pxddKB">Announcing Slick 2.0.1</a></li>
+<li><a href="http://j.mp/1jCeHBH">Kamon 0.0.14 release | Google Groups</a></li>
+<li><a href="http://j.mp/QbNjBQ">Dependency Injection in Akka with Scaldi</a></li>
+<li><a href="http://j.mp/1drgaw1">Why does IntelliJ IDEA compile Scala so slowly? &ndash; Stack Overflow</a></li>
+</ol>
+
+
+<h3>In russian</h3>
+
+<ol>
+<li><a href="http://j.mp/1jIhaKH">FAQ: Специальная теория относительности</a></li>
+<li><a href="http://j.mp/1gtFCBN">Главы | Новая нормальность</a></li>
+<li><a href="http://j.mp/1ff0do0">визуалам</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Scala for the Intrigued]]></title>
@@ -1511,93 +1579,6 @@ previously constructed threads when they are available.</p></blockquote>
 
 
 <p>The answer was found on <a href="https://communities.vmware.com/thread/461857">VMWare Community Forums</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-March-05]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/05/reading-list-2014-march-05/"/>
-    <updated>2014-03-05T11:29:54-05:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/05/reading-list-2014-march-05</id>
-    <content type="html"><![CDATA[<p>Reading list for today:</p>
-
-<h3>General</h3>
-
-<ol>
-<li><a href="http://j.mp/1eFiNnW">Cheap Words</a></li>
-<li><a href="http://j.mp/MMcBEe">5-Year-Olds Can Learn Calculus</a></li>
-<li><a href="http://j.mp/1pYG7q2">At the RSA Security Conference, Things Get Testy and Then They Get Awkward</a></li>
-</ol>
-
-
-<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/1pYGcdl">How to Eliminate Bugs Through High Cohesion</a></li>
-<li><a href="http://j.mp/1i1BAxB">Stupid Mistakes Devs Make, Part I: Taking App Messages at Face Value</a></li>
-<li><a href="http://j.mp/1kNN9wW">A beginner&rsquo;s guide to Git feature branches</a></li>
-<li><a href="http://j.mp/1eKslym">How to Get a Job at Google</a></li>
-<li><a href="http://j.mp/1hIDPaA">Essential Characteristics of PaaS</a></li>
-<li><a href="http://j.mp/MMcCrM">Which hypervisor? Why not all of them!</a></li>
-<li><a href="http://j.mp/1c7eoj0">Building Successful Web APIs</a></li>
-<li><a href="http://j.mp/1hIDNzL">TLS Triple Handshakes</a></li>
-<li><a href="http://j.mp/MMczMD">Don&rsquo;t Get Lost in Agile Ceremonies</a></li>
-<li><a href="http://j.mp/1eU064Z">Haskell Functions Take One Argument</a></li>
-<li><a href="http://j.mp/1dncw4h">Dave Gilbert&rsquo;s Weblog</a></li>
-<li><a href="http://j.mp/1dXFowR">FPG, Eh?</a></li>
-<li><a href="http://j.mp/1n75wLN">June Software Grows Audience and Revenue with Expansion to Android</a></li>
-<li><a href="http://j.mp/1ePoHb4">Don&rsquo;t build the best REST API, build the best HTTP API. — John Sheehan</a></li>
-<li><a href="http://j.mp/1kLR7Di">Web Analytics Consulting: A Simple Framework For Smarter Decisions</a></li>
-<li><a href="http://j.mp/MMcAA8">The “Four Hamiltons” Framework for Mitigating Faults in the Cloud: Avoid it, Mask it, Bound it, Fix it Fast</a></li>
-<li><a href="http://j.mp/1nZQar9">Should You Be Squatting At Your Desk?</a></li>
-<li><a href="http://j.mp/1fui7qf">API Versioning</a></li>
-<li><a href="http://j.mp/1fui5i4">Versioning RESTful Services</a></li>
-<li><a href="http://j.mp/1gUKwFA">ZeroMQ: The Design of Messaging Middleware</a></li>
-</ol>
-
-
-<h3>Scala</h3>
-
-<ol>
-<li><a href="http://j.mp/1kVn7VJ">Akka 2.2.4 Maintenance Release – Blog</a></li>
-<li><a href="http://j.mp/1eVQWVy">Scalala &ndash; A numerical linear algebra library for Scala</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/1f1XltB">Spring Data Redis 1.2 GA Released</a></li>
-<li><a href="http://j.mp/1f7teks">Spring Boot 1.0.0.RC4 Available Now</a></li>
-<li><a href="http://j.mp/1f1Xmhn">Red Hats announces JBoss BPM Suite 6 and JBoss BRMS 6</a></li>
-<li><a href="http://j.mp/N85RB5">Webinar Replay: Introduction to Apache Tomcat 8</a></li>
-<li><a href="http://j.mp/1n75xzs">How to avoid ruining your world with lambdas in Java 8</a></li>
-<li><a href="http://j.mp/1eXhoz3">State of the Lambda: Libraries Edition</a></li>
-<li><a href="http://j.mp/1cmXcAX">Lambda examples and Effectively Final in Java 8</a></li>
-<li><a href="http://j.mp/1f5r8ln">How (Not) to Create a Permgen Leak</a></li>
-<li><a href="http://j.mp/OWjGnJ">Caching Best Practices</a></li>
-<li><a href="http://j.mp/MMcDff">Java Enterprise Software Versus What it Should Be</a></li>
-<li><a href="http://j.mp/1i8SUkl">Second milestone towards Hibernate Search 5: introducing MoreLikeThis Queries</a></li>
-<li><a href="http://j.mp/1ky3wO5">Recommendations for your portal-ext.properties</a></li>
-<li><a href="http://j.mp/1dncsS8">Survey: Developers eager for Java 8</a></li>
-<li><a href="http://j.mp/1dXFqVv">Liferay Auto Complete List with Ajax</a></li>
-<li><a href="http://j.mp/1dlRG59">An open source JVM Sampling Profiler</a></li>
-<li><a href="http://j.mp/MMcCIg">Lessons Learned: ActiveMQ, Apache Camel and Connection Pooling</a></li>
-<li><a href="http://j.mp/1ePoFQm">Cassandra: tuning the JVM for read heavy workloads</a></li>
-<li><a href="http://j.mp/1ky3w0F">Top 10 MQ Series Interview Questions Answers &ndash; WebSphere and Active MQ</a></li>
-</ol>
-
-
-<h3>Frontent development</h3>
-
-<ol>
-<li><a href="http://j.mp/1q3OQr0">Knockout.js 3.1 Released</a></li>
-<li><a href="http://j.mp/1fFEkxk">The JavaScript Alternatives</a></li>
-<li><a href="http://j.mp/1e0ZOVB">Javascript without the this</a></li>
-<li><a href="http://j.mp/1fFnvTc">Node.js arrives for the JVM</a></li>
-<li><a href="http://j.mp/1drpoX8">Why The Hell Would I Use Node.js? A Case-by-Case Introduction</a></li>
-</ol>
-
 ]]></content>
   </entry>
   
