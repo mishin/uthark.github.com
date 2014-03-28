@@ -9,8 +9,7 @@
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="Введение
-Уже прошло несколько лет с тех пор, как появился JPA. Работа с EntityManager увлекательна, но разработчики пишут красивый API, а &hellip;">
+  <meta name="description" content="Казалось бы, есть простейшая задача &ndash; преобразовать строковое представление даты в объект класса java.util.Date. Как оказалось, иногда &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,6 +82,53 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/04/20/blog-post/">Преобразуем строку в дату</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-04-20T04:25:00-04:00" pubdate data-updated="true">Apr 20<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Казалось бы, есть простейшая задача &ndash; преобразовать строковое представление даты в объект класса <tt>java.util.Date</tt>.</p>
+
+<p>Как оказалось, иногда использование DateFormat не помогает. В случае, если строка &ndash; это заголовок <tt>Date</tt> из письма, то нам нужно использовать <tt><a href="http://docs.oracle.com/javaee/5/api/javax/mail/internet/MailDateFormat.html">javax.mail.internet.MailDateFormat</a></tt> для преобразования такой строки.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">String</span> <span class="n">dateStr</span> <span class="o">=</span> <span class="o">...</span>
+</span><span class='line'><span class="n">Date</span> <span class="n">parsedDate</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MailDateFormat</span><span class="o">().</span><span class="na">parse</span><span class="o">(</span><span class="n">dateStr</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -985,7 +1031,7 @@ public @interface SuppressExceptions {
 <div class='comment'>
 <div class='author'>Anonymous</div>
 <div class='content'>
-Добрый день, прочитал Вашу статью &ndash; интересно! =) На данный момент пытаюсь вникнуть в АОП в БД, но не совсем понимаю как можно реализовать аспекты при работе с БД (именно с точки зрения системы &ndash; код, компиляция и пр. т.к. теоретически все прозрачно и ясно). Не подскажите &ndash; где можно найти, для наглядности, простенькую БД с реализованным аспектами и хоть какое-то пояснение по реализованному &quot;проекту&quot; &ndash; на чем писали, как внедряли аспекты и пр. Мэйл для связи &ndash; <a href="&#x6d;&#97;&#105;&#108;&#116;&#111;&#x3a;&#x75;&#116;&#x6f;&#x70;&#x69;&#x61;&#50;&#x30;&#48;&#53;&#x40;&#121;&#x61;&#x6e;&#100;&#x65;&#x78;&#x2e;&#x72;&#117;">&#117;&#116;&#x6f;&#112;&#x69;&#x61;&#50;&#x30;&#x30;&#x35;&#x40;&#121;&#x61;&#110;&#x64;&#101;&#x78;&#x2e;&#x72;&#x75;</a></div>
+Добрый день, прочитал Вашу статью &ndash; интересно! =) На данный момент пытаюсь вникнуть в АОП в БД, но не совсем понимаю как можно реализовать аспекты при работе с БД (именно с точки зрения системы &ndash; код, компиляция и пр. т.к. теоретически все прозрачно и ясно). Не подскажите &ndash; где можно найти, для наглядности, простенькую БД с реализованным аспектами и хоть какое-то пояснение по реализованному &quot;проекту&quot; &ndash; на чем писали, как внедряли аспекты и пр. Мэйл для связи &ndash; <a href="&#109;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#x75;&#116;&#x6f;&#112;&#105;&#97;&#50;&#x30;&#x30;&#x35;&#64;&#121;&#97;&#x6e;&#100;&#x65;&#x78;&#46;&#x72;&#117;">&#117;&#x74;&#111;&#x70;&#105;&#97;&#50;&#48;&#x30;&#x35;&#64;&#x79;&#x61;&#x6e;&#x64;&#x65;&#120;&#x2e;&#114;&#x75;</a></div>
 </div></p>
 </div>
   
@@ -2266,48 +2312,6 @@ Summary: В данной заметке описана настройка autofs
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/12/08/delicious-google-chrome/">Расширение для работы с Delicious доступно на сайте расширений Google Chrome</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-12-08T12:43:00-05:00" pubdate data-updated="true">Dec 8<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-Итак, <a href="code.google.com/p/chromium-delicious-extension/">расширение для работы с Delicious</a> доступно на <a href="https://chrome.google.com/extensions">сайте расширений Google Chrome</a>.<br />
-<br />
-<a href="https://chrome.google.com/extensions/detail/anlkjppofaicbdanhhpbbogknfodfhfm/">Посмотреть и установить</a><br />
-<br />
-Новые версии расширения буду закачить на этот сайт.</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -2323,6 +2327,10 @@ Summary: В данной заметке описана настройка autofs
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/03/28/atom-dot-io-invites/">Atom.io Invites</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/03/27/reading-list-2014-march-27/">Reading List 2014-March-27</a>
@@ -2346,10 +2354,6 @@ Summary: В данной заметке описана настройка autofs
     
       <li class="post">
         <a href="/blog/2014/03/21/reading-list-2014-march-21/">Reading List 2014-March-21</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/20/reading-list-2014-march-20/">Reading List 2014-March-20</a>
       </li>
     
   </ul>
