@@ -4,7 +4,7 @@
   <title><![CDATA[Category: development | Software Development and related activities]]></title>
   <link href="http://uthark.github.com/blog/categories/development/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-03-28T14:45:26-04:00</updated>
+  <updated>2014-03-28T16:49:55-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -162,6 +162,113 @@ public void setUp() {
 ```</p>
 
 <p>Comparing to variant with <code>MockitoJUnitRunner</code> this one provides ability to use custom <a href="http://junit-team.github.io/junit/javadoc/4.11/org/junit/runner/Runner.html">Runner</a>, i.e. we can continue to use <a href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/test/context/junit4/SpringJUnit4ClassRunner.html">SpringJUnit4ClassRunner</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Life fee]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/14/life-fee/"/>
+    <updated>2014-03-14T23:42:10-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/14/life-fee</id>
+    <content type="html"><![CDATA[<p>Found in sources:</p>
+
+<p>``` java
+try {</p>
+
+<pre><code>// do some business logic.
+</code></pre>
+
+<p>} catch (Exception e) {</p>
+
+<pre><code>errorBean.addError("System exception. Unable to locate life fee.");
+</code></pre>
+
+<p>}
+```</p>
+
+<p>This is just awesome!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Limiting threads count for GreenRobot EventBus]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/06/limiting-threads-count-for-greenrobot-eventbus/"/>
+    <updated>2014-03-06T22:38:54-05:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/06/limiting-threads-count-for-greenrobot-eventbus</id>
+    <content type="html"><![CDATA[<p>In one of my projects I used <a href="https://github.com/greenrobot/EventBus">EventBus</a> library. The library is pretty cool and I would recommend everybody to use it.</p>
+
+<p>But I found one small issue with this library &ndash; in case you send too many events very fast (i.e. more than 1000 per second) you may face issue with application crash due to inability to create new thread.</p>
+
+<p>The problem is lying in the used <code>ExecutorService</code>:</p>
+
+<p>``` java
+package de.greenrobot.event;
+// imports
+public final class EventBus {</p>
+
+<pre><code>static ExecutorService executorService = Executors.newCachedThreadPool();
+
+// class content skipped 
+</code></pre>
+
+<p>}
+```</p>
+
+<p>As you can see, it calls <code>newCachedThreadPool</code> method to create thread pool.</p>
+
+<p>From <a href="http://developer.android.com/reference/java/util/concurrent/Executors.html#newCachedThreadPool()">javadoc</a> for this method:</p>
+
+<blockquote><p>Creates a thread pool that creates new threads as needed, but will reuse
+previously constructed threads when they are available.</p></blockquote>
+
+<p>This is where we hit the wall &ndash; if we send too many requests and each request is slow (i.e. saving into database or network request) then we will try to create too many threads and app will crash.</p>
+
+<p>Thankfully, <code>executorService</code> is <code>static</code> but not <code>final</code>. And this will allow us to solve the issue easily.</p>
+
+<p>Let&rsquo;s create our configurer class in package <code>de.greenrobot.event</code> so we will be able to access <code>executorService</code> property which is package-visible and override it with different thread pool:</p>
+
+<p>``` java EventBusExecutorServiceConfigurer
+package de.greenrobot.event;</p>
+
+<p>import java.util.concurrent.Executors;</p>
+
+<p>public class EventBusExecutorServiceConfigurer {</p>
+
+<pre><code>public void configureEventBus() {
+    ExecutorService executorServiceToUse;
+    if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.HONEYCOMB) {
+        executorServiceToUse = (ExecutorService) AsyncTask.THREAD_POOL_EXECUTOR;
+    } else {
+        executorServiceToUse = Executors.newFixedThreadPool(
+            Runtime.getRuntime().availableProcessors());
+    }
+    EventBus.executorService = executorServiceToUse;
+}
+</code></pre>
+
+<p>}</p>
+
+<p>```</p>
+
+<p>Android 3.0+ has special <a href="http://developer.android.com/reference/android/os/AsyncTask.html#THREAD_POOL_EXECUTOR">THREAD_POOL_EXECUTOR</a> which is supposed to be used by asynchronous tasks, so we use it on newer devices. On older, pre-Honeycomb devices we create our own thread pool.</p>
+
+<p>And then in Android application we configure <code>executorService</code>:</p>
+
+<p>``` java
+public class CustomApplication extends Application {</p>
+
+<pre><code>@Override
+public void onCreate() {
+    super.onCreate();
+    new EventBusExecutorServiceConfigurer().configureEventBus();
+
+    // other initialization
+}
+</code></pre>
+
+<p>}</p>
+
+<p>```</p>
 ]]></content>
   </entry>
   
@@ -331,6 +438,28 @@ if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.HONEYCOMB) {
 <li><a href="http://developer.android.com/training/custom-views/#create-view.html">Creating a View Class | Android Developers</a></li>
 </ol>
 
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Solving issue with DB2 on VMWare Fusion on MacBook Pro 2013 Late]]></title>
+    <link href="http://uthark.github.com/blog/2014/03/05/solving-issue-with-db2-on-vmware-fusion-on-macbook-pro-2013-late/"/>
+    <updated>2014-03-05T14:41:54-05:00</updated>
+    <id>http://uthark.github.com/blog/2014/03/05/solving-issue-with-db2-on-vmware-fusion-on-macbook-pro-2013-late</id>
+    <content type="html"><![CDATA[<p>Today I found issue running DB2 10.1 under VMWare Fusion 6.0.2 on my MacBook &ndash; all management services for <code>db2</code> are starting except for the db2 instance itself.</p>
+
+<p>When I tried to start DB2 using <code>db2start</code> it just crashed without any additional information.</p>
+
+<p>After some googling I found out that it is due to the fact that current version of DB2 can&rsquo;t handle more than 4 responses to CPUID query.</p>
+
+<p>The workaround is to update VMWare configuration file for the virtual machine.</p>
+
+<p><code>ini Changes to *.vmx file
+monitor_control.enable_fullcpuid = TRUE
+cpuid.4.4.eax = "0000:0000:0000:0000:0000:0000:0000:0000"
+</code></p>
+
+<p>The answer was found on <a href="https://communities.vmware.com/thread/461857">VMWare Community Forums</a></p>
 ]]></content>
   </entry>
   
