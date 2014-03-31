@@ -5,11 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Преобразуем строку в дату - Software Development and related activities</title>
+  <title>Reading List 2014-March-31 - Software Development and related activities</title>
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="Казалось бы, есть простейшая задача &ndash; преобразовать строковое представление даты в объект класса java.util.Date. Как оказалось, иногда &hellip;">
+  <meta name="description" content="General Do All People React To The Same Persuasion Strategies?
+Apps with millions of Google Play downloads covertly mine cryptocurrency
+Before the &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://uthark.github.com/blog/2012/04/20/blog-post">
+  <link rel="canonical" href="http://uthark.github.com/blog/2014/03/31/reading-list-2014-march-31">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="http://feeds.feedburner.com/atamanenko" rel="alternate" title="Software Development and related activities" type="application/atom+xml">
@@ -87,7 +89,7 @@
   
   <header>
     
-      <h1 class="entry-title">Преобразуем строку в дату</h1>
+      <h1 class="entry-title">Reading List 2014-March-31</h1>
     
     
       <p class="meta">
@@ -103,24 +105,51 @@
   
 
 
-<time datetime="2012-04-20T04:25:00-04:00" pubdate data-updated="true">Apr 20<span>th</span>, 2012</time>
+<time datetime="2014-03-31T11:53:51-04:00" pubdate data-updated="true">Mar 31<span>st</span>, 2014</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Казалось бы, есть простейшая задача &ndash; преобразовать строковое представление даты в объект класса <tt>java.util.Date</tt>.</p>
+<div class="entry-content"><h3>General</h3>
 
-<p>Как оказалось, иногда использование DateFormat не помогает. В случае, если строка &ndash; это заголовок <tt>Date</tt> из письма, то нам нужно использовать <tt><a href="http://docs.oracle.com/javaee/5/api/javax/mail/internet/MailDateFormat.html">javax.mail.internet.MailDateFormat</a></tt> для преобразования такой строки.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">String</span> <span class="n">dateStr</span> <span class="o">=</span> <span class="o">...</span>
-</span><span class='line'><span class="n">Date</span> <span class="n">parsedDate</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MailDateFormat</span><span class="o">().</span><span class="na">parse</span><span class="o">(</span><span class="n">dateStr</span><span class="o">);</span>
-</span></code></pre></td></tr></table></div></figure>
+<ol>
+<li><a href="http://j.mp/1eZ784E">Do All People React To The Same Persuasion Strategies?</a></li>
+<li><a href="http://j.mp/1jp2qSK">Apps with millions of Google Play downloads covertly mine cryptocurrency</a></li>
+<li><a href="http://j.mp/1fE6F8u">Before the Internet | XKCD</a></li>
+</ol>
 
 
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/P7sCpH">Signs you might be in survival mode</a></li>
+<li><a href="http://j.mp/1hEmlsH">Announcing Google Cloud DNS</a></li>
+<li><a href="http://j.mp/1mgh7HA">Gold Plating</a></li>
+<li><a href="http://j.mp/1hb3Uvm">How times have changed for PostgreSQL</a></li>
+</ol>
+
+
+<h4>Java</h4>
+
+<ol>
+<li><a href="http://j.mp/OZTTL5">Project Sagan: open-sourcing spring.io</a></li>
+<li><a href="http://j.mp/1mghaDq">How to run a standalone OSGi server</a></li>
+<li><a href="http://j.mp/1mlakfM">The Illuminating Javadoc of JDK 8</a></li>
+<li><a href="http://j.mp/1mlakfZ">JDK 8 Javadoc Tweaked For Methods Listings</a></li>
+<li><a href="http://j.mp/1gQIwRm">The Builder pattern and the Spring framework</a></li>
+<li><a href="http://j.mp/1hxfb9y">Java 8 Default Methods: What Can and Can Not Do?</a></li>
+<li><a href="http://j.mp/1ogbfD7">The Dark Side Of Lambda Expressions in Java 8</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/1jNeSyx">Preview of upcoming sbt 1.0 features: Read about the new plugins</a></li>
+<li><a href="http://j.mp/1dwBdgI">Will Java 8 Kill Scala?</a></li>
+</ol>
 
 </div>
 
@@ -144,12 +173,12 @@
   
 
 
-<time datetime="2012-04-20T04:25:00-04:00" pubdate data-updated="true">Apr 20<span>th</span>, 2012</time>
+<time datetime="2014-03-31T11:53:51-04:00" pubdate data-updated="true">Mar 31<span>st</span>, 2014</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/development/'>development</a>, <a class='category' href='/blog/categories/java/'>java</a>, <a class='category' href='/blog/categories/javamail/'>javamail</a>, <a class='category' href='/blog/categories/razrabotka/'>разработка</a>
+    <a class='category' href='/blog/categories/reading-list/'>reading list</a>
   
 </span>
 
@@ -158,7 +187,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://uthark.github.com/blog/2012/04/20/blog-post/" data-via="" data-counturl="http://uthark.github.com/blog/2012/04/20/blog-post/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://uthark.github.com/blog/2014/03/31/reading-list-2014-march-31/" data-via="" data-counturl="http://uthark.github.com/blog/2014/03/31/reading-list-2014-march-31/" >Tweet</a>
   
   
   <div class="g-plusone" data-size="medium"></div>
@@ -171,15 +200,62 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2012/02/22/jpa-spring-data-jpa/" title="Previous Post: Упрощаем работу с JPA при помощи Spring Data JPA">&laquo; Упрощаем работу с JPA при помощи Spring Data JPA</a>
+        <a class="basic-alignment left" href="/blog/2014/03/28/reading-list-2014-march-28/" title="Previous Post: Reading List 2014-March-28">&laquo; Reading List 2014-March-28</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2012/04/20/beanpostprocessor/" title="Next Post: Использование BeanPostProcessor на примере журналирования">Использование BeanPostProcessor на примере журналирования &raquo;</a>
       
     </p>
   </footer>
 </article>
 
+
+<section>
+    <h1>Comments</h1>
+
+    <div id="gpluscomments"
+     data-href='http://uthark.github.com/blog/2014/03/31/reading-list-2014-march-31/'
+     data-viewtype='FILTERED_POSTMOD'></div>
+<script type="text/javascript">
+    window.___gcfg = {lang: ''};
+
+    (function() {
+      function _getComputedStyle(el, cssprop){
+       if (el.currentStyle) {
+        // for IE
+        return el.currentStyle[cssprop]
+       } else if (document.defaultView && document.defaultView.getComputedStyle) {
+        // Any other normal brwoser (like Chrome, Firefox)
+        return document.defaultView.getComputedStyle(el, "")[cssprop]
+       } else {
+        // Try get inline style
+        return el.style[cssprop]
+        }
+      }
+
+
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.async = true;
+      script.onload = function() {
+        if (gapi && gapi['comments'] && gapi.comments['render']) {
+          var gPlusComments = document.getElementById('gpluscomments');
+          gapi.comments.render(
+            'gpluscomments',
+            {
+              href: gPlusComments.getAttribute('data-href'),
+              view_type: gPlusComments.getAttribute('data-viewtype'),
+              first_party_property: "BLOGGER",
+              width: parseInt(_getComputedStyle(gPlusComments, "width"), 10)
+            }
+          );
+        }
+      };
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+</section>
 
 </div>
 
