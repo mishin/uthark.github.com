@@ -9,7 +9,9 @@
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="Недавно компания Spring Source презентовала новый продукт - Spring Roo. Цель проекта - повысить продуктивность Java-разработчиков. Почитав обзоры, а &hellip;">
+  <meta name="description" content="Архитектура сгенерированного приложения
+Spring Roo активно использует аспекты. В качестве реализации аспектов была взята библиотека aspectj.
+Большая &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,6 +86,310 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/06/06/spring-roo-2/">Spring Roo (часть 2)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-06-06T11:19:00-04:00" pubdate data-updated="true">Jun 6<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<h1>Архитектура сгенерированного приложения</h1>
+Spring Roo активно использует аспекты. В качестве реализации аспектов была взята библиотека <a href="http://www.eclipse.org/aspectj/">aspectj</a>.
+Большая часть сгенерированного кода попадает в отдельные файлы-аспекты.
+Создадим простой класс:
+<pre class="brush: java">
+new persistent class jpa -name ~.domain.Action -testAutomatically
+add field string name -notNull -sizeMin 1 -sizeMax 80
+add field string description -sizeMax 1024
+</pre>
+Spring Roo создаст нам следующие файлы:
+
+<ul><li><span style="font-weight: bold;">Action.java</span>
+Класс содержит только полезную с точки зрения назначения класса информацию. По сути, то, что вводит разработчик в консоль Roo аккумулируется здесь. Весь дополнительный код разносится по другим классам.
+<pre class="brush: java">
+@Entity //1
+@RooJavaBean //2
+@RooToString //3
+@RooEntity(finders = { "findActionsByName" }) //4
+public class Action {
+
+@NotNull
+@Size(min = 1, max = 80)
+private String name;
+
+
+@Size(max = 1024)
+private String description;
+}
+</pre>
+1) Класс является JPA-сущностью.
+2) Аннотация @RooJavaBean говорит, что этот класс - обычный Java-бин.
+3) Аннотация @RooToString говорит, что у этого класса есть перегруженный метод toString().
+4) Аннотация @RooEntity говорит что класс является JPA-сущностью.
+</li><li><span style="font-weight: bold;">Action_Roo_Configurable.aj</span>
+Данный аспект говорит, что класс Action является конфигурируемым через Spring.
+<pre class="brush: java">
+privileged aspect Action_Roo_Configurable {
+declare @type: Action: @org.springframework.beans.factory.annotation.Configurable;
+}
+</pre></li><li><span style="font-weight: bold;">Action_Roo_Entity.aj</span>
+В данном классе собраны все методы DAO для работы с классом Action.
+<pre class="brush: java">
+package org.academ.uthark.research.roo.domain;
+
+privileged aspect Action_Roo_Entity {
+
+@javax.persistence.PersistenceContext
+transient javax.persistence.EntityManager Action.entityManager;
+
+@javax.persistence.Id
+@javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO)
+@javax.persistence.Column(name = "id")
+private java.lang.Long Action.id;
+
+@javax.persistence.Version
+@javax.persistence.Column(name = "version")
+private java.lang.Integer Action.version;
+
+public java.lang.Long Action.getId() {
+return this.id;
+}
+
+public void Action.setId(java.lang.Long id) {
+this.id = id;
+}
+
+public java.lang.Integer Action.getVersion() {
+return this.version;
+}
+
+public void Action.setVersion(java.lang.Integer version) {
+this.version = version;
+}
+
+@org.springframework.transaction.annotation.Transactional
+public void Action.persist() {
+if (this.entityManager == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
+this.entityManager.persist(this);
+}
+
+@org.springframework.transaction.annotation.Transactional
+public void Action.remove() {
+if (this.entityManager == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
+this.entityManager.remove(this);
+}
+
+@org.springframework.transaction.annotation.Transactional
+public void Action.flush() {
+if (this.entityManager == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
+this.entityManager.flush();
+}
+
+@org.springframework.transaction.annotation.Transactional
+public void Action.merge() {
+if (this.entityManager == null) throw new IllegalStateException("Entity manager has not been injected (is the Spring Aspects JAR configured as an AJC/AJDT aspects library?)");
+Action merged = this.entityManager.merge(this);
+this.entityManager.flush();
+this.id = merged.getId();
+}
+
+public static long Action.countActions() {
+return (Long) new Action().entityManager.createQuery("select count(o) from Action o").getSingleResult();
+}
+
+public static java.util.List<org.academ.uthark.research.roo.domain.action> Action.findAllActions() {
+return new Action().entityManager.createQuery("select o from Action o").getResultList();
+}
+
+public static org.academ.uthark.research.roo.domain.Action Action.findAction(java.lang.Long id) {
+if (id == null) throw new IllegalArgumentException("An identifier is required to retrieve an instance of Action");
+return new Action().entityManager.find(Action.class, id);
+}
+
+public static java.util.List<org.academ.uthark.research.roo.domain.action> Action.findActionEntries(int firstResult, int maxResults) {
+return new Action().entityManager.createQuery("select o from Action o").setFirstResult(firstResult).setMaxResults(maxResults).getResultList();
+}
+
+}
+</org.academ.uthark.research.roo.domain.action></org.academ.uthark.research.roo.domain.action></pre>
+Как легко видеть, этот аспект добавляет классу Action CRUD-методы, поля id и version.
+</li><li><span style="font-weight: bold;">Action_Roo_Finder.aj</span>
+Этот аспект аккумулирует все finder-методы, созданные через консоль Spring Roo.
+<pre class="brush: java">privileged aspect Action_Roo_Finder {
+
+public static javax.persistence.Query Action.findActionsByName(java.lang.String name) {
+if (name == null) throw new IllegalArgumentException("The name argument is required");
+javax.persistence.Query q = new Action().entityManager.createQuery("FROM Action AS action WHERE action.name = :name");
+q.setParameter("name", name);
+return q;
+}
+
+}
+</pre></li><li><span style="font-weight: bold;">Action_Roo_JavaBean.aj</span>
+Для уменьшения загромождения кода ненужными методами для доступа к полям Spring Roo выносит их в отдельный аспект.
+<pre class="brush: java">
+privileged aspect Action_Roo_JavaBean {
+
+public java.lang.String Action.getName() {
+return this.name;
+}
+
+public void Action.setName(java.lang.String name) {
+this.name = name;
+}
+
+public java.lang.String Action.getDescription() {
+return this.description;
+}
+
+public void Action.setDescription(java.lang.String description) {
+this.description = description;
+}
+
+}
+</pre></li><li>Action_Roo_Plural.aj
+В данном аспекте можно определить, как созданная сущность выглядит во множественном числе.
+<pre class="brush: java">
+package org.academ.uthark.research.roo.domain;
+
+privileged aspect Action_Roo_JavaBean {
+
+public java.lang.String Action.getName() {
+return this.name;
+}
+
+public void Action.setName(java.lang.String name) {
+this.name = name;
+}
+
+public java.lang.String Action.getDescription() {
+return this.description;
+}
+
+public void Action.setDescription(java.lang.String description) {
+this.description = description;
+}
+
+}
+
+</pre></li><li><span style="font-weight: bold;">Action_Roo_ToString.aj</span>
+Аспект, переопределяющий toString()
+<pre class="brush: java">
+privileged aspect Action_Roo_ToString {
+
+public java.lang.String Action.toString() {
+StringBuilder sb = new StringBuilder();
+sb.append("id: ").append(getId()).append(", ");
+sb.append("version: ").append(getVersion()).append(", ");
+sb.append("name: ").append(getName()).append(", ");
+sb.append("description: ").append(getDescription()).append(", ");
+return sb.toString();
+}
+
+}
+
+</pre></li><li><span style="font-weight: bold;">ActionEditor.java</span>
+Кроме того, при создании контроллеров для работы дополнительно создается ActionEditor
+<pre class="brush: java">
+import org.springframework.roo.addon.property.editor.RooEditor;
+
+@RooEditor(providePropertyEditorFor = Action.class)
+public class ActionEditor {
+}
+
+</pre></li><li><span style="font-weight: bold;">ActionEditor_Roo_Editor.aj</span>
+Аспект с реализацией.
+<pre class="brush: java">
+privileged aspect ActionEditor_Roo_Editor {
+
+declare parents: ActionEditor implements java.beans.PropertyEditorSupport;
+
+org.springframework.beans.SimpleTypeConverter ActionEditor.typeConverter = new org.springframework.beans.SimpleTypeConverter();
+
+public java.lang.String ActionEditor.getAsText() {
+ Object obj = getValue(); 
+ if (obj == null) { 
+     return null;     
+ } 
+ return (String) typeConverter.convertIfNecessary(((org.academ.uthark.research.roo.domain.Action) obj).getId() , String.class); 
+}
+
+public void ActionEditor.setAsText(java.lang.String text) {
+ if (text == null || "".equals(text)) { 
+     setValue(null);     
+     return;     
+ } 
+
+ java.lang.Long identifier = (java.lang.Long) typeConverter.convertIfNecessary(text, java.lang.Long.class); 
+ if (identifier == null) { 
+     setValue(null);     
+     return;     
+ } 
+
+ setValue(org.academ.uthark.research.roo.domain.Action.findAction(identifier)); 
+}
+
+}
+
+</pre></li></ul>
+
+<h3>А где же equals()/hashCode()?</h3>
+Легко заметить, что Spring Roo забыл ещё про один важный аспект - про реализацию методов equals() и hashCode(). К релизу, я думаю, эта недоработка будет исправлена.
+
+Как видно, код скрипта для генерации весьма и весьма лаконичен, а получающий java-код наглядно показывает всю многословность языка Java.
+
+<h3>Apache Maven integration</h3>
+Spring Roo при создании проекта создаёт pom.xml, хорошо знакомый всем работавшим с maven. Кроме того, консоль позволяет добавлять и удалять зависимости, не правя файл вручную.
+
+<h3>Расширения</h3>
+Spring Roo поддерживает расширения, что ещё больше даёт возможностей. На сегодняшний день написано уже как минимум одно расширение - <a href="http://jira.springframework.org/browse/ROO-41">Sitemesh Addon</a>.
+
+<h3>Критика</h3>
+В первую очередь критика относится к текущему релизу, а так как он ещё в глубокой альфе, то все может измениться к официальному релизу.
+<ol><li>Нет возможности подставлять свои JSP-шаблоны для сгенерированного CRUD</li><li>В сгенерированном коде есть ошибки, например, если заводим поле типа флоат, создаём контроллер, то при редактировании сущности возможна следующая ошибка: вводим достаточно большое число (1234567), сохраняем сущность, открываем на редактирование. В поле, хранящем флоат получаем 1.23456E7, и после этого невозможно сохранить сущность, так как получаем ошибку валидации.</li><li>Ещё одна ошибка связана с отношением один ко многим. Создаём пару сущностей с таким отношением. Запускаем, пробуем создать сущность. Roo умничает, если нет связанных сущностей в БД, то он даже не генерирует &lt;select&gt;
+</li></ol><h3>Вывод</h3>В целом, Spring Roo достойное начинание, но пользоваться им в Production можно будет ещё нескоро.</div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>ziftech</div>
+<div class='content'>
+Фреймворк интересный, буду следить за развитием, по возможности применять.<br /><br />Вам спасибо за разъяснения))</div>
+</div>
+</div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -939,52 +1245,6 @@ Amazon не предоставляет бесплатной дозы, в отл�
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/03/23/blog-post_23/">Александр Блок</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-03-23T01:14:00-04:00" pubdate data-updated="true">Mar 23<span>rd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-Ночь, улица, фонарь, аптека,
-Бессмысленный и тусклый свет.
-Живи еще хоть четверть века -
-Все будет так. Исхода нет.
-
-Умрешь - начнешь опять сначала
-И повторится все, как встарь:
-Ночь, ледяная рябь канала,
-Аптека, улица, фонарь.</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/7/">&larr; Older</a>
@@ -1000,6 +1260,10 @@ Amazon не предоставляет бесплатной дозы, в отл�
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/04/01/reading-list-2014-april-1/">Reading List 2014-April-01</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/03/31/reading-list-2014-march-31/">Reading List 2014-March-31</a>
@@ -1023,10 +1287,6 @@ Amazon не предоставляет бесплатной дозы, в отл�
     
       <li class="post">
         <a href="/blog/2014/03/26/reading-list-2014-march-26/">Reading List 2014-March-26</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/25/scala-for-the-intrigued/">Scala for the Intrigued</a>
       </li>
     
   </ul>

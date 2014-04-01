@@ -9,7 +9,7 @@
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="Очевидно, что мы не всегда можем воспользоваться автоматической генерацией кода, предоставляемой Spring Data JPA. Например, у нас слишком сложный &hellip;">
+  <meta name="description" content="Современные enterprise проекты очень часто имеют очень сложную инфраструктуру для развёртывания. Кроме того, во время разработки часто используются &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,6 +84,359 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/10/24/vagrant/">Автоматизируем работу с виртуальными машинами с помощью Vagrant</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-10-24T12:07:00-04:00" pubdate data-updated="true">Oct 24<span>th</span>, 2012</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Современные enterprise проекты очень часто имеют очень сложную инфраструктуру для развёртывания. Кроме того, во время разработки часто используются виртуальные машины. Например, может использоваться несколько виртуальных машин, на которых развёрнуты различные конфигурации софта.</p>
+
+<p><a href="http://vagrantup.com/">Vagrant</a> &ndash; это средство для управления виртуальными машинами на базе <a href="https://www.virtualbox.org/">Virtualbox</a>.</p>
+
+<h2>Возможности</h2>
+
+<ul>
+<li>Создание виртуальных машин с определённой, заранее заданной, конфигурацией.</li>
+<li>Лёгкое создание копии виртуальной машины, используя заранее подготовленный образ.</li>
+<li>Осуществление provisioning для новых виртуальных машин.</li>
+</ul>
+
+
+<h2>Работа с Vagrant</h2>
+
+<p>Для начала необходимо установить Virtualbox и Vagrant.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>    sudo aptitude install virtualbox vagrant
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>После этого нам нужен образ, из которого мы можем создавать виртуальные машины. Его можно сделать самим или взять уже готовый с сайта Vagrant. Упростим себе жизнь и скачаем образ с сайта:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>    vagrant box add lucid32 http://files.vagrantup.com/lucid32.box
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>После этого, мы можем начать пользоваться Vagrant.</p>
+
+<p>Для этого нам нужно создать папку, в которой мы будем работать, например:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>    mkdir vagrant-test
+</span><span class='line'>    <span class="nb">cd </span>vagrant-test
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>И инициализировать Vagrant:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>    vagrant init
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Результатом работы этой команды будет файлик <code>Vagrantfile</code>, который содержит конфигурацию виртуальной машины для использования.</p>
+
+<p>Пример сгенерированного файла:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># -*- mode: ruby -*-</span>
+</span><span class='line'><span class="c1"># vi: set ft=ruby :</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">Vagrant</span><span class="o">::</span><span class="no">Config</span><span class="o">.</span><span class="n">run</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+</span><span class='line'>  <span class="c1"># All Vagrant configuration is done here. The most common configuration</span>
+</span><span class='line'>  <span class="c1"># options are documented and commented below. For a complete reference,</span>
+</span><span class='line'>  <span class="c1"># please see the online documentation at vagrantup.com.</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Every Vagrant virtual environment requires a box to build off of.</span>
+</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s2">&quot;base&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># The url from where the &#39;config.vm.box&#39; box will be fetched if it</span>
+</span><span class='line'>  <span class="c1"># doesn&#39;t already exist on the user&#39;s system.</span>
+</span><span class='line'>  <span class="c1"># config.vm.box_url = &quot;http://domain.com/path/to/above.box&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Boot with a GUI so you can see the screen. (Default is headless)</span>
+</span><span class='line'>  <span class="c1"># config.vm.boot_mode = :gui</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Assign this VM to a host-only network IP, allowing you to access it</span>
+</span><span class='line'>  <span class="c1"># via the IP. Host-only networks can talk to the host machine as well as</span>
+</span><span class='line'>  <span class="c1"># any other machines on the same network, but cannot be accessed (through this</span>
+</span><span class='line'>  <span class="c1"># network interface) by any external networks.</span>
+</span><span class='line'>  <span class="c1"># config.vm.network :hostonly, &quot;192.168.33.10&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Assign this VM to a bridged network, allowing you to connect directly to a</span>
+</span><span class='line'>  <span class="c1"># network using the host&#39;s network device. This makes the VM appear as another</span>
+</span><span class='line'>  <span class="c1"># physical device on your network.</span>
+</span><span class='line'>  <span class="c1"># config.vm.network :bridged</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Forward a port from the guest to the host, which allows for outside</span>
+</span><span class='line'>  <span class="c1"># computers to access the VM, whereas host only networking does not.</span>
+</span><span class='line'>  <span class="c1"># config.vm.forward_port 80, 8080</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Share an additional folder to the guest VM. The first argument is</span>
+</span><span class='line'>  <span class="c1"># an identifier, the second is the path on the guest to mount the</span>
+</span><span class='line'>  <span class="c1"># folder, and the third is the path on the host to the actual folder.</span>
+</span><span class='line'>  <span class="c1"># config.vm.share_folder &quot;v-data&quot;, &quot;/vagrant_data&quot;, &quot;../data&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Enable provisioning with Puppet stand alone.  Puppet manifests</span>
+</span><span class='line'>  <span class="c1"># are contained in a directory path relative to this Vagrantfile.</span>
+</span><span class='line'>  <span class="c1"># You will need to create the manifests directory and a manifest in</span>
+</span><span class='line'>  <span class="c1"># the file base.pp in the manifests_path directory.</span>
+</span><span class='line'>  <span class="c1">#</span>
+</span><span class='line'>  <span class="c1"># An example Puppet manifest to provision the message of the day:</span>
+</span><span class='line'>  <span class="c1">#</span>
+</span><span class='line'>  <span class="c1"># # group { &quot;puppet&quot;:</span>
+</span><span class='line'>  <span class="c1"># #   ensure =&gt; &quot;present&quot;,</span>
+</span><span class='line'>  <span class="c1"># # }</span>
+</span><span class='line'>  <span class="c1"># #</span>
+</span><span class='line'>  <span class="c1"># # File { owner =&gt; 0, group =&gt; 0, mode =&gt; 0644 }</span>
+</span><span class='line'>  <span class="c1"># #</span>
+</span><span class='line'>  <span class="c1"># # file { &#39;/etc/motd&#39;:</span>
+</span><span class='line'>  <span class="c1"># #   content =&gt; &quot;Welcome to your Vagrant-built virtual machine!</span>
+</span><span class='line'>  <span class="c1"># #               Managed by Puppet.\n&quot;</span>
+</span><span class='line'>  <span class="c1"># # }</span>
+</span><span class='line'>  <span class="c1">#</span>
+</span><span class='line'>  <span class="c1"># config.vm.provision :puppet do |puppet|</span>
+</span><span class='line'>  <span class="c1">#   puppet.manifests_path = &quot;manifests&quot;</span>
+</span><span class='line'>  <span class="c1">#   puppet.manifest_file  = &quot;base.pp&quot;</span>
+</span><span class='line'>  <span class="c1"># end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Enable provisioning with chef solo, specifying a cookbooks path, roles</span>
+</span><span class='line'>  <span class="c1"># path, and data_bags path (all relative to this Vagrantfile), and adding</span>
+</span><span class='line'>  <span class="c1"># some recipes and/or roles.</span>
+</span><span class='line'>  <span class="c1">#</span>
+</span><span class='line'>  <span class="c1"># config.vm.provision :chef_solo do |chef|</span>
+</span><span class='line'>  <span class="c1">#   chef.cookbooks_path = &quot;../my-recipes/cookbooks&quot;</span>
+</span><span class='line'>  <span class="c1">#   chef.roles_path = &quot;../my-recipes/roles&quot;</span>
+</span><span class='line'>  <span class="c1">#   chef.data_bags_path = &quot;../my-recipes/data_bags&quot;</span>
+</span><span class='line'>  <span class="c1">#   chef.add_recipe &quot;mysql&quot;</span>
+</span><span class='line'>  <span class="c1">#   chef.add_role &quot;web&quot;</span>
+</span><span class='line'>  <span class="c1">#</span>
+</span><span class='line'>  <span class="c1">#   # You may also specify custom JSON attributes:</span>
+</span><span class='line'>  <span class="c1">#   chef.json = { :mysql_password =&gt; &quot;foo&quot; }</span>
+</span><span class='line'>  <span class="c1"># end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Enable provisioning with chef server, specifying the chef server URL,</span>
+</span><span class='line'>  <span class="c1"># and the path to the validation key (relative to this Vagrantfile).</span>
+</span><span class='line'>  <span class="c1">#</span>
+</span><span class='line'>  <span class="c1"># The Opscode Platform uses HTTPS. Substitute your organization for</span>
+</span><span class='line'>  <span class="c1"># ORGNAME in the URL and validation key.</span>
+</span><span class='line'>  <span class="c1">#</span>
+</span><span class='line'>  <span class="c1"># If you have your own Chef Server, use the appropriate URL, which may be</span>
+</span><span class='line'>  <span class="c1"># HTTP instead of HTTPS depending on your configuration. Also change the</span>
+</span><span class='line'>  <span class="c1"># validation key to validation.pem.</span>
+</span><span class='line'>  <span class="c1">#</span>
+</span><span class='line'>  <span class="c1"># config.vm.provision :chef_client do |chef|</span>
+</span><span class='line'>  <span class="c1">#   chef.chef_server_url = &quot;https://api.opscode.com/organizations/ORGNAME&quot;</span>
+</span><span class='line'>  <span class="c1">#   chef.validation_key_path = &quot;ORGNAME-validator.pem&quot;</span>
+</span><span class='line'>  <span class="c1"># end</span>
+</span><span class='line'>  <span class="c1">#</span>
+</span><span class='line'>  <span class="c1"># If you&#39;re using the Opscode platform, your validator client is</span>
+</span><span class='line'>  <span class="c1"># ORGNAME-validator, replacing ORGNAME with your organization name.</span>
+</span><span class='line'>  <span class="c1">#</span>
+</span><span class='line'>  <span class="c1"># IF you have your own Chef Server, the default validation client name is</span>
+</span><span class='line'>  <span class="c1"># chef-validator, unless you changed the configuration.</span>
+</span><span class='line'>  <span class="c1">#</span>
+</span><span class='line'>  <span class="c1">#   chef.validation_client_name = &quot;ORGNAME-validator&quot;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Подробнее о том, что этот файл может содержать можно почитать в <a href="http://vagrantup.com/v1/docs/vagrantfile.html">документации</a></p>
+
+<p>Например, можно изменить размер RAM, доступный операционной системе:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">customize</span> <span class="o">[</span><span class="s2">&quot;modifyvm&quot;</span><span class="p">,</span> <span class="ss">:id</span><span class="p">,</span> <span class="s2">&quot;--memory&quot;</span><span class="p">,</span> <span class="mi">1536</span><span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Так как очень часто мы хотим взаимодействовать с виртуальной машиной снаружи, там нам необходима возможность пробросить порты из виртуальной машины в хост-систему.</p>
+
+<p>Это достигается следующим изменением конфигурации:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="c1"># Включаем bridged network в виртуальной машине.</span>
+</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">network</span> <span class="ss">:bridged</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Пробрасываем порты &lt;порт на виртуальной машине&gt; &lt;порт на хост-системе&gt;</span>
+</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">forward_port</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">8080</span>
+</span><span class='line'>  <span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">forward_port</span> <span class="mi">443</span><span class="p">,</span> <span class="mi">8443</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Provisioning</h2>
+
+<p>Vagrant не был бы столь успешен, если бы не позволял управляеть конфигурацией создаваемой виртуальной машины.</p>
+
+<p>Vagrant поддерживает следующие приложения, управляющие конфигурацией:</p>
+
+<ul>
+<li><a href="http://wiki.opscode.com/display/chef/Home">Chef</a></li>
+<li><a href="http://puppetlabs.com/puppet/puppet-open-source/">Puppet</a></li>
+<li><a href="http://www.gnu.org/software/bash/manual/bashref.html">Shell</a></li>
+</ul>
+
+
+<p>А также позволяет использовать написать <a href="http://vagrantup.com/v1/docs/provisioners/others.html">собственное расширение</a>.</p>
+
+<h2>Управление виртуальной машиной</h2>
+
+<p>Управление виртуальной машиной осуществляется командой <code>vagrant</code> с переданным аргументом-действием. Полный список можно получить, выполнив <code>vagrant help</code>.</p>
+
+<p>Список наиболее часто используемых действий:</p>
+
+<ul>
+<li><code>up</code> &ndash; поднимает виртуальную машину. Если она не была создана, то создаёт её, используя информацию из файла <code>Vagrantfile</code>.</li>
+<li><code>halt</code> &ndash; останавливает виртуальную машину.</li>
+<li><code>provision</code> &ndash; обновляет конфигурацию софта на виртуальной машине.</li>
+<li><code>reload</code> &ndash; перезагружает виртуальную машину.</li>
+<li><code>ssh</code> &ndash; запускает SSH-соединение к машине.</li>
+</ul>
+
+
+<h2>Документация и ссылки</h2>
+
+<ul>
+<li><a href="http://vagrantup.com/">Официальный сайт</a></li>
+<li><a href="http://vagrantup.com/v1/docs/index.html">Документация</a></li>
+<li><a href="https://github.com/mitchellh/vagrant">Исходный код</a></li>
+</ul>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1464,7 +1817,7 @@ public @interface SuppressExceptions {
 <div class='comment'>
 <div class='author'>Anonymous</div>
 <div class='content'>
-Добрый день, прочитал Вашу статью &ndash; интересно! =) На данный момент пытаюсь вникнуть в АОП в БД, но не совсем понимаю как можно реализовать аспекты при работе с БД (именно с точки зрения системы &ndash; код, компиляция и пр. т.к. теоретически все прозрачно и ясно). Не подскажите &ndash; где можно найти, для наглядности, простенькую БД с реализованным аспектами и хоть какое-то пояснение по реализованному &quot;проекту&quot; &ndash; на чем писали, как внедряли аспекты и пр. Мэйл для связи &ndash; <a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x75;&#x74;&#111;&#x70;&#105;&#97;&#x32;&#48;&#48;&#x35;&#x40;&#121;&#x61;&#110;&#x64;&#101;&#120;&#46;&#114;&#x75;">&#x75;&#116;&#x6f;&#x70;&#105;&#97;&#x32;&#x30;&#x30;&#53;&#64;&#121;&#97;&#110;&#100;&#101;&#120;&#x2e;&#114;&#117;</a></div>
+Добрый день, прочитал Вашу статью &ndash; интересно! =) На данный момент пытаюсь вникнуть в АОП в БД, но не совсем понимаю как можно реализовать аспекты при работе с БД (именно с точки зрения системы &ndash; код, компиляция и пр. т.к. теоретически все прозрачно и ясно). Не подскажите &ndash; где можно найти, для наглядности, простенькую БД с реализованным аспектами и хоть какое-то пояснение по реализованному &quot;проекту&quot; &ndash; на чем писали, как внедряли аспекты и пр. Мэйл для связи &ndash; <a href="&#109;&#x61;&#x69;&#108;&#x74;&#x6f;&#58;&#x75;&#116;&#x6f;&#112;&#x69;&#97;&#x32;&#48;&#x30;&#x35;&#x40;&#121;&#97;&#110;&#100;&#x65;&#120;&#x2e;&#114;&#117;">&#117;&#116;&#111;&#112;&#105;&#x61;&#x32;&#x30;&#48;&#x35;&#x40;&#x79;&#x61;&#110;&#x64;&#101;&#120;&#x2e;&#114;&#x75;</a></div>
 </div></p>
 </div>
   
@@ -2316,98 +2669,6 @@ config.macros.faviconLink.handler = function(place, macroName,  params, wikifier
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2010/03/16/blog-post/">Борьба с убийцами производительности</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2010-03-16T11:52:00-04:00" pubdate data-updated="true">Mar 16<span>th</span>, 2010</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<p><strong>Summary</strong>: Мой опыт борьбы с &quot;убийцами производительности&quot;.</p>
-<h3>Постановка проблемы</h3>
-<p> Иногда бывает так, что хочется отвлечься от работы, от поставленной задачи на какую-нибудь фигню, лишь бы не заниматься текущей задачей. У меня это чаще всего сводилось к тому, что я начинал читать что-нибудь в сети (<a href="http://www.google.com/reader/view/" target="_blank">Google Reader</a>, <a href="http://habrahabr.ru/">Habrahabr</a>, <a href="http://www.linux.org.ru/">LOR</a>, etc). </p>
-<p>Истоки проблемы могут быть абсолютно разными, например: </p>
-<ol><li>Долгий запуск среды разработки </li>
-<li>Долгая сборка проекта</li>
-<li>Нудная задача</li>
-<li>Неинтересная задача</li>
-</ol>
-<p>Все эти причины спокойно могут приводить к потере производительности, причём неявным образом, например - &quot;А посижу пока я на хабре, пока полная сборка идёт&quot;, в итоге после 20 минут обнаруживается, что сборка закончилась уже 15 минут назад.</p>
-<p>Так как у меня тайм-киллер вполне простой - интернет, то и решение вполне простое.</p>
-<p>Вот список действий, что я сделал:</p>
-<ol><li>Удалил быстрые браузеры, теперь у меня только <a href="http://www.mozilla.com/firefox">Mozilla Firefox</a> под Linux и страшный <a href="http://www.microsoft.com/windows/ie/ie6/downloads/default.mspx">Internet Explorer 6.0 под Windows</a>.</li>
-<li>Забанил сайты которые не нужны для работы, но на которых я провожу много времени.</li>
-</ol>
-<p>Сначала я сделал радикальный бан - внёс в <tt>/etc/hosts</tt> эти сайты:</p>
-<pre class="brush: bash">
-127.0.0.1 www.linux.org.ru linux.org.ru
-127.0.0.1 www.habrahabr.ru habrahabr.ru
-127.0.0.1 www.lorquotes.ru lorquotes.ru
-</pre>
-<p> Но потом обнаружилось, что есть ещё <a href="http://www.google.com/reader/view/">Google Reader</a>, который также отнимает много времени (у меня было до 200 подписок, что давало до 300 новых статей в сутки). Проблему с <a href="http://www.google.com/reader/view/">Google Reader</a> я решал поэтапно: </p>
-<ol><li>Почистил список лент от юмора, который обновляется практически ежедневно, является пожирателем трафика и времени.</li>
-<li>После этого я почистил список лент от лент, которые достаточно интересные, но при этом без них можно спокойно обходиться (Например, <a href="http://aseigo.blogspot.com/">блог Аарона Сейго</a>, одного из главных разработчиков <a href="http://www.kde.org/">KDE</a>)</li>
-</ol>
-<p>Вышеперечисленные действия помогли мне сократить список фидов с 200 сначала до 100 с небольшим, а затем и до 65. Но я понимал, что это ещё не предел и есть к чему стремиться, поэтому решил перейти к использованию оффлайнового <a href="http://www.whatisrss.com/">RSS</a>-<a href="http://en.wikipedia.org/wiki/RSS_Reader">клиента</a>. </p>
-<p>Для этого я экспортировал <a href="http://www.opml.org/">OPML</a>-файл с подписками из <a href="http://www.google.com/reader/view/">Google Reader</a>, удалил все ленты (к сожалению, <a href="http://www.google.com/support/forum/p/reader/thread?tid=53c0b347fa8cd843&hl=en">удалить аккаунт</a> на <a href="http://www.google.com/reader/view/">Google Reader</a> невозможно, только полностью Google Account) и импортировал на <a href="http://userbase.kde.org/Akregator">Akregator</a> на домашней машинке. Это помогло мне аккумулировать все чтения ленты новостей в один временной промежуток - вечером, дома.</p>
-<p>Но, как оказалось, ещё есть к чему стремиться и гугление на просторах сети дало свои результаты: <a href="http://www.proginosko.com/leechblock.html"><strong>LeechBlock</strong></a>.</p>
-<p>LeechBlock это расширение для Mozilla Firefox, которое позволяет блокировать отдельные сайты на различные промежутки времени.</p>
-<p>Собственно, начав им пользоваться, я понял, что это именно то, что мне нужно:</p>
-<p> <a href="http://picasaweb.google.com/lh/photo/GiOXKIEw3fz0uoNMZxGTlg?authkey=Gv1sRgCOCWw8r8gI-DRQ&feat=embedwebsite"><img src="http://lh6.ggpht.com/_y8p0_dtMJ38/S56FpVJKVHI/AAAAAAAAA8Q/e6hTfBRPkRo/s800/leechblock.png" title="Leechblock Settings UI" alt="Leechblock Settings UI" /></a></p>
-<p> Возможности данного расширения следующие: </p>
-<ol><li>Блокировка сайтов различные периоды времени</li>
-<li>Блокировка сайтов по временному диапазону, в том числе по дням недели.</li>
-<li>Поддержка нескольких наборов сайтов для блокировки</li>
-<li>Возможность быстрого добавления сайта в список для блокировки </li>
-</ol>
-<p>Конечно, данное расширение не является панацеей, его нужно использовать в комплексе с другими средствами.</p></div>
-
-
-<h2>Comments</h2>
-
-
-<div class='comments'>
-<div class='comment'>
-<div class='author'>uthark</div>
-<div class='content'>
-@see to learn Это вполне решаемо с помощью этого же плагина. :)<br /><br /><br /><a href="http://picasaweb.google.com/lh/photo/SnNiIIES_ZbHcYqrzg5gPA?authkey=Gv1sRgCOCWw8r8gI-DRQ&amp;feat=embedwebsite" rel="nofollow">Скриншот с примером настройки</a><br /><br />Общий смысл:<br />1. блокируем все сайты (*)<br />2. Добавляем исключения через (+)</div>
-</div>
-<div class='comment'>
-<div class='author'>see to learn</div>
-<div class='content'>
-Мне бы такую примочку, которая показывает сайты только из белого списка.</div>
-</div>
-</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -2423,6 +2684,10 @@ config.macros.faviconLink.handler = function(place, macroName,  params, wikifier
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/04/01/reading-list-2014-april-1/">Reading List 2014-April-01</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/03/31/reading-list-2014-march-31/">Reading List 2014-March-31</a>
@@ -2446,10 +2711,6 @@ config.macros.faviconLink.handler = function(place, macroName,  params, wikifier
     
       <li class="post">
         <a href="/blog/2014/03/26/reading-list-2014-march-26/">Reading List 2014-March-26</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/25/scala-for-the-intrigued/">Scala for the Intrigued</a>
       </li>
     
   </ul>
