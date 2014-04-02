@@ -4,7 +4,7 @@
   <title><![CDATA[Category: reading list | Software Development and related activities]]></title>
   <link href="http://uthark.github.com/blog/categories/reading-list/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-01T13:56:30-04:00</updated>
+  <updated>2014-04-02T12:40:04-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,62 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-April-02]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/02/reading-list-2014-april-02/"/>
+    <updated>2014-04-02T12:37:17-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/02/reading-list-2014-april-02</id>
+    <content type="html"><![CDATA[<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1fIQUNq">IAM Best Practices</a></li>
+<li><a href="http://j.mp/PiKChe">Every Great Product Owner Needs a Great ScrumMaster</a></li>
+<li><a href="http://j.mp/1pQCTSu">Manhattan, our real-time, multi-tenant distributed database for Twitter scale</a></li>
+<li><a href="http://j.mp/1juhjTQ">The Cache and Multithreading</a></li>
+</ol>
+
+
+<h3>Android</h3>
+
+<ol>
+<li><a href="http://j.mp/1hA8JT2">Useful Tools for Android Apps Test Automation</a></li>
+<li><a href="http://j.mp/1fonTdk">Fixing The Android Camera API</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1idVzZD">Apache Tomcat 7.0.53 Released</a></li>
+<li><a href="http://j.mp/1fonYgQ">Spring Boot 1.0 GA Released</a></li>
+<li><a href="http://j.mp/1igAhL3">Java 8 Friday: Optional Will Remain an Option in Java</a></li>
+<li><a href="http://j.mp/1pQwYwJ">Eclipse Foundation Announces Java 8 Support</a></li>
+<li><a href="http://j.mp/1igA9Lm">Method 2 of N for crashing your JVM :&ndash;)</a></li>
+<li><a href="http://j.mp/1fonWWi">Abstract Class Versus Interface in the JDK 8 Era</a></li>
+<li><a href="http://j.mp/1h2Gtd0">Add Java 8 support to Eclipse Kepler</a></li>
+<li><a href="http://j.mp/1h2GsFZ">Difference between Stub and Mock object in Java Unit testing &ndash; JUnit</a></li>
+<li><a href="http://j.mp/1hYVF5Y">Introduction to Nashorn</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/1h2GAVW">IntelliJ, Scala and Gradle: Revisiting Hell</a></li>
+<li><a href="http://j.mp/1opLeBo">Spring-boot and Scala</a></li>
+</ol>
+
+
+<h3>In Russian</h3>
+
+<ol>
+<li><a href="http://j.mp/1igrjxo">Новости Большого адронного коллайдера</a></li>
+<li><a href="http://j.mp/1jWZWh9">Одиночное рождение топ-кварка позволило еще тщательнее проверить Стандартную модель</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-01]]></title>
@@ -225,74 +281,6 @@
 <li><a href="http://j.mp/1eMzL8G">Easy Dependency Injection in Play Framework with Scaldi</a></li>
 <li><a href="http://j.mp/1jCf0fK">Polymorphism, and typeclasses in Scala.</a></li>
 <li><a href="http://j.mp/Qe3wGH">A SQL query DSL for Scala by ScalikeJDBC</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-March-26]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/26/reading-list-2014-march-26/"/>
-    <updated>2014-03-26T11:21:55-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/26/reading-list-2014-march-26</id>
-    <content type="html"><![CDATA[<h3>General</h3>
-
-<ol>
-<li><a href="http://j.mp/NKHJ7B">Skitch for Android Update: New Toolbars and More | Evernote blog</a></li>
-<li><a href="http://j.mp/ORrAyb">New Pocket for Firefox: Simplified Saving, Auto-Complete Tagging, and More</a></li>
-<li><a href="http://on.recode.net/1j0rM7w">Microsoft Researcher Wins the “Nobel Prize” of Computer Science</a></li>
-</ol>
-
-
-<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/1dqLefm">The Microservice Architecture Sounds Like Service-Oriented Architecture</a></li>
-<li><a href="http://j.mp/1lkxrdf">Implementing Static Analysis isn&rsquo;t that easy</a></li>
-<li><a href="http://j.mp/1gymVgl">Google Tag Manager | Android</a></li>
-</ol>
-
-
-<h3>Cloud</h3>
-
-<ol>
-<li><a href="http://j.mp/1hphqvm">Google Announces Massive Price Drops For Its Cloud Computing Services And Storage, Introduces Sustained-Use Discounts</a></li>
-<li><a href="http://j.mp/1j8UAiA">Cassandra Hits One Million Writes Per Second on Google Compute Engine</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/1nYhf35">Oracle Announces Java 8</a></li>
-<li><a href="http://j.mp/Qe3vmd">Spring Security 3.2.3 Released</a></li>
-<li><a href="http://j.mp/1jCeJJy">Tyrus 1.5 (Pavel Bucek&rsquo;s weblog)</a></li>
-<li><a href="http://j.mp/1hnADO1">Java API for JSON Processing (JSR 353) (The Aquarium)</a></li>
-<li><a href="http://j.mp/1jIhhG4">Key Collections powered by Java 8 Lambdas</a></li>
-<li><a href="http://j.mp/1ry7LLm">Hibernate, JPA, Spring and Hsqldb</a></li>
-<li><a href="http://j.mp/1jJ9Heq">Executor, ExecutorService, ThreadPool, and Future in Java</a></li>
-<li><a href="http://j.mp/1ry7Hv3">Porting legacy Java backend to Spring Boot in one week</a></li>
-<li><a href="http://j.mp/ORrAhF">burek for breakfast &ndash; Food For Tests: JDK 7u60 Build b11 &amp; JDK 8u20 Build b05</a></li>
-</ol>
-
-
-<h3>Scala</h3>
-
-<ol>
-<li><a href="http://j.mp/NRB23x">Akka 2.3.1 Maintenance Release</a></li>
-<li><a href="http://j.mp/1pxddKB">Announcing Slick 2.0.1</a></li>
-<li><a href="http://j.mp/1jCeHBH">Kamon 0.0.14 release | Google Groups</a></li>
-<li><a href="http://j.mp/QbNjBQ">Dependency Injection in Akka with Scaldi</a></li>
-<li><a href="http://j.mp/1drgaw1">Why does IntelliJ IDEA compile Scala so slowly? &ndash; Stack Overflow</a></li>
-</ol>
-
-
-<h3>In russian</h3>
-
-<ol>
-<li><a href="http://j.mp/1jIhaKH">FAQ: Специальная теория относительности</a></li>
-<li><a href="http://j.mp/1gtFCBN">Главы | Новая нормальность</a></li>
-<li><a href="http://j.mp/1ff0do0">визуалам</a></li>
 </ol>
 
 ]]></content>

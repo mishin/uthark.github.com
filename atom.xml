@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-01T13:56:30-04:00</updated>
+  <updated>2014-04-02T12:40:04-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,62 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-April-02]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/02/reading-list-2014-april-02/"/>
+    <updated>2014-04-02T12:37:17-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/02/reading-list-2014-april-02</id>
+    <content type="html"><![CDATA[<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1fIQUNq">IAM Best Practices</a></li>
+<li><a href="http://j.mp/PiKChe">Every Great Product Owner Needs a Great ScrumMaster</a></li>
+<li><a href="http://j.mp/1pQCTSu">Manhattan, our real-time, multi-tenant distributed database for Twitter scale</a></li>
+<li><a href="http://j.mp/1juhjTQ">The Cache and Multithreading</a></li>
+</ol>
+
+
+<h3>Android</h3>
+
+<ol>
+<li><a href="http://j.mp/1hA8JT2">Useful Tools for Android Apps Test Automation</a></li>
+<li><a href="http://j.mp/1fonTdk">Fixing The Android Camera API</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1idVzZD">Apache Tomcat 7.0.53 Released</a></li>
+<li><a href="http://j.mp/1fonYgQ">Spring Boot 1.0 GA Released</a></li>
+<li><a href="http://j.mp/1igAhL3">Java 8 Friday: Optional Will Remain an Option in Java</a></li>
+<li><a href="http://j.mp/1pQwYwJ">Eclipse Foundation Announces Java 8 Support</a></li>
+<li><a href="http://j.mp/1igA9Lm">Method 2 of N for crashing your JVM :&ndash;)</a></li>
+<li><a href="http://j.mp/1fonWWi">Abstract Class Versus Interface in the JDK 8 Era</a></li>
+<li><a href="http://j.mp/1h2Gtd0">Add Java 8 support to Eclipse Kepler</a></li>
+<li><a href="http://j.mp/1h2GsFZ">Difference between Stub and Mock object in Java Unit testing &ndash; JUnit</a></li>
+<li><a href="http://j.mp/1hYVF5Y">Introduction to Nashorn</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/1h2GAVW">IntelliJ, Scala and Gradle: Revisiting Hell</a></li>
+<li><a href="http://j.mp/1opLeBo">Spring-boot and Scala</a></li>
+</ol>
+
+
+<h3>In Russian</h3>
+
+<ol>
+<li><a href="http://j.mp/1igrjxo">Новости Большого адронного коллайдера</a></li>
+<li><a href="http://j.mp/1jWZWh9">Одиночное рождение топ-кварка позволило еще тщательнее проверить Стандартную модель</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-01]]></title>
@@ -1257,131 +1313,6 @@
 <ol>
 <li><a href="http://j.mp/1eoXbNE">Upcoming webinars: Akka Persistence and Java 8</a></li>
 <li><a href="http://j.mp/1fqBmBs">Basic Category Theory Terms</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-March-11]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/11/reading-list-2014-march-11/"/>
-    <updated>2014-03-11T08:25:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/11/reading-list-2014-march-11</id>
-    <content type="html"><![CDATA[<h3>General</h3>
-
-<ol>
-<li><a href="http://j.mp/1nB9Fb7">What is the purpose of incremental reading?</a></li>
-<li><a href="http://j.mp/N1Fdte">Incremental reading</a></li>
-<li><a href="http://j.mp/1iux2o3">Cloze test</a></li>
-<li><a href="http://j.mp/1lqYbpo">The 20 rules of formulating knowledge in learning</a></li>
-<li><a href="http://j.mp/1edRyBM">Link: Bad brains: some people are physically incapable of enjoying music</a></li>
-<li><a href="http://j.mp/1elY5KS">Clue To Mysterious Lights That Appear Before Earthquakes</a></li>
-<li><a href="http://j.mp/1nF38NA">How in-app purchase is not really destroying the games industry</a></li>
-<li><a href="http://j.mp/1fRAp0o">XKCD | When You Assume</a></li>
-<li><a href="http://j.mp/1lJ8mZl">Decision making, problem solving, introducing ideas, being influencial</a></li>
-<li><a href="http://j.mp/1nxoueV">Helvetica: one font to rule them all</a></li>
-</ol>
-
-
-<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/NGsm0u">Timezone-aware contribution graphs · GitHub</a></li>
-<li><a href="http://j.mp/1cpYGzT">GitLab CI 4.3 released</a></li>
-<li><a href="http://j.mp/1nd0HE9">Microservices | Martin Fowler</a></li>
-<li><a href="http://j.mp/1elY6hQ">The day I met a customer</a></li>
-<li><a href="http://j.mp/1lPLt6z">How not to write an API</a></li>
-<li><a href="http://j.mp/MuooYs">Takipi &ndash; Server Debugging Made Easy</a></li>
-<li><a href="http://j.mp/1fnG8zP">Logging or Debugging</a></li>
-<li><a href="http://j.mp/1fnG3fq">3 Reasons to Choose Vert.x</a></li>
-<li><a href="http://j.mp/1lPLuqU">What TDD Is and Is Not</a></li>
-<li><a href="http://j.mp/1gghi4B">Climbing the ladder from EITA to EA</a></li>
-<li><a href="http://j.mp/1fRAqS6">Introduction to the MEAN Stack</a></li>
-<li><a href="http://j.mp/1ilgZc4">Propositions as Types</a></li>
-<li><a href="http://j.mp/1kb7AkJ">Signing SOAP Messages – Generation of Enveloped XML Signatures</a></li>
-<li><a href="http://j.mp/1fXJyVj">Why shouldn&rsquo;t I test private methods?</a></li>
-<li><a href="http://j.mp/1lJ8lob">Software Version Controlling Best Practices</a></li>
-<li><a href="http://j.mp/1lJ8l7M">Use KISS consciously</a></li>
-<li><a href="http://j.mp/1edRwtG">XML to Avro Conversion</a></li>
-<li><a href="http://j.mp/KO4hU7">Logging As Storytelling #2: Actions!</a></li>
-</ol>
-
-
-<h3>Cloud</h3>
-
-<ol>
-<li><a href="http://j.mp/1kbSSdn">Important AWS Account Key Change Coming on April 21, 2014</a></li>
-<li><a href="http://j.mp/1fnGh6i">Announcing the global Cloud Platform Developer Roadshow</a></li>
-<li><a href="http://j.mp/1edRrX2">Big data: when single node is better than clustered</a></li>
-<li><a href="http://j.mp/1itScCI">SAP HANA – Production Ready on AWS With up to 244 GiB of RAM</a></li>
-</ol>
-
-
-<h3>DevOps</h3>
-
-<ol>
-<li><a href="http://j.mp/1fkwCJ5">My Experiences with DevOps while Working in Bing Ads</a></li>
-<li><a href="http://j.mp/1kGzqFq">Deployment to Upgrade: Puppet OpenStack Modules Are Your Friends</a></li>
-<li><a href="http://j.mp/1g2h0dc">XebiaLabs: Why Dev Needs DevOps</a></li>
-</ol>
-
-
-<h3>Mongo</h3>
-
-<ol>
-<li><a href="http://j.mp/1fi4vfd">Saving Private Functions | MongoHQ</a></li>
-<li><a href="http://j.mp/1cCV3a2">MongoDB Driver Tips &amp; Tricks: Mongoid 3</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/OdCQo0">Final Service Release for Spring Data Release Train Babbage</a></li>
-<li><a href="http://j.mp/1lMXfyo">Apache Cassandra steaming through 2.1 Release</a></li>
-<li><a href="http://j.mp/1bB1YKv">Fixing the Java memory model</a></li>
-<li><a href="http://j.mp/1ddsKIA">Java memory model is back</a></li>
-<li><a href="http://j.mp/LhA4fH">Rule Engine &amp; Drools</a></li>
-<li><a href="http://j.mp/1lPS40L">Using Java EE&rsquo;s ManagedExecutorService to asynchronously execute transactions</a></li>
-<li><a href="http://j.mp/1m8A6Yp">AES-256 Encryption with Java and JCEKS</a></li>
-<li><a href="http://j.mp/1imu0yu">OSGi Alliance Blog</a></li>
-<li><a href="http://j.mp/1cpYEYx">Deploy to Maven Central Repository</a></li>
-<li><a href="http://j.mp/1iqy4S3">Vaadin and Spring integration through JavaConfig</a></li>
-<li><a href="http://j.mp/PlvW16">Java Q&amp;A: The ultimate superclass, Part 1</a></li>
-<li><a href="http://j.mp/1kGzkha">ObjectStreamClass: Peeking at a Java Object&rsquo;s Serialization</a></li>
-<li><a href="http://j.mp/1lRDLsG">Oracle GoldenGate: Transactional Data Capture from WebLogic Java Messaging Service</a></li>
-<li><a href="http://j.mp/1lrnQy0">PRNG optimizations (David Dice&rsquo;s Weblog)</a></li>
-<li><a href="http://j.mp/1cFvQoz">Android Bound Service: IPC with Messenger</a></li>
-<li><a href="http://j.mp/1lOpvkk">New Dev Guide Content: Liferay Faces, Mobile SDK, Portlet Prefs, and UI Examples</a></li>
-<li><a href="http://j.mp/1fnGbeP">Websockets with Spring 4</a></li>
-<li><a href="http://j.mp/1fWPgXk">Install Apache Spark and Fast Log Analytics</a></li>
-<li><a href="http://j.mp/1lJ8mIM">Good use of Closures</a></li>
-</ol>
-
-
-<h3>Scala</h3>
-
-<ol>
-<li><a href="http://j.mp/1ipMemo">A collection of ScalaTest BDD examples using FunSpec</a></li>
-<li><a href="http://j.mp/1loxUaZ">Analyzing Apache access logs with Spark and Scala</a></li>
-<li><a href="http://j.mp/NRXytI">Social login for your applications</a></li>
-<li><a href="http://j.mp/NRXHNC">Streaming with previous and next</a></li>
-</ol>
-
-
-<h3>Frontent development</h3>
-
-<ol>
-<li><a href="http://j.mp/1g8T0Zg">Angular directives for Bootstrap</a></li>
-</ol>
-
-
-<h3>In russian</h3>
-
-<ol>
-<li><a href="http://j.mp/1lJ8lVf">20% генома неандертальцев собирается из генов современных людей</a></li>
-<li><a href="http://j.mp/1oFt89m">От лифта к небоскребу: социология, архитектура и техника</a></li>
-<li><a href="http://j.mp/1i2GXyt">Граница протонной устойчивости ядер может оказаться довольно размытой</a></li>
 </ol>
 
 ]]></content>
