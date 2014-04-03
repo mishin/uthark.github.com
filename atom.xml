@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-02T12:40:04-04:00</updated>
+  <updated>2014-04-03T11:33:44-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,103 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-April-03]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/03/reading-list-2014-april-03/"/>
+    <updated>2014-04-03T11:23:19-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/03/reading-list-2014-april-03</id>
+    <content type="html"><![CDATA[<h3>General</h3>
+
+<ol>
+<li><a href="http://j.mp/1pIDupk">Introducing the Coursera App for Android</a></li>
+<li><a href="http://j.mp/P5wpno">First Asteroid-Like Object Discovered With Rings</a></li>
+<li><a href="http://j.mp/PccUtH">Why is Warren Buffett Offering a Billion Dollar Bracket?</a></li>
+<li><a href="http://j.mp/1gXHing">This video creates natural hallucinations for a&hellip;</a></li>
+</ol>
+
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1mvgXwa">Getters and setters gone wrong</a></li>
+<li><a href="http://j.mp/PjjnTQ">Don&rsquo;t &ldquo;Control&rdquo; Agile Projects</a></li>
+<li><a href="http://j.mp/1dOIbxO">Use Frequent Branches to Tell a Story and Simplify Code Reviews</a></li>
+<li><a href="http://j.mp/PccW4W">Custom Git Commands in 3 Steps</a></li>
+<li><a href="http://j.mp/1dKMlXH">Collaborating with Lists · GitHub</a></li>
+<li><a href="http://j.mp/1gXDEKd">Adding properties to domain classes on the fly using groovy propertyMissing feature</a></li>
+<li><a href="http://j.mp/1gRyJKL">How to Cache Stored Procedure Results</a></li>
+<li><a href="http://j.mp/1fE6ASc">Basic Concepts of High Availability Linux</a></li>
+<li><a href="http://j.mp/1jp2ou5">Chris&rsquo;s Wiki : blog/linux/KillAllNotRecoverable</a></li>
+<li><a href="http://j.mp/1fE6Al6">Just what we need…another package manager</a></li>
+<li><a href="http://j.mp/1jDBuRM">Good Vs Evil</a></li>
+<li><a href="http://j.mp/1fofZ01">Bringing together the best of PaaS and IaaS</a></li>
+<li><a href="http://j.mp/1hBI3kG">Fail SAFe ~ Geek Out of Water</a></li>
+<li><a href="http://j.mp/1pQxeMf">Adding properties to domain classes on the fly using groovy propertyMissing feature</a></li>
+<li><a href="http://j.mp/1pOWfJI">Continuous integration on Liferay: running your Selenium 2 tests on the Tomcat 6 bundle</a></li>
+<li><a href="http://j.mp/1dOI7hN">Transforming the Web (through transformation)</a></li>
+<li><a href="http://j.mp/1gXDK4D">db.person.find( { &ldquo;role&rdquo; : &ldquo;DBA&rdquo; } ) : Java Code Geeks</a></li>
+<li><a href="http://j.mp/1fIQRRU">MariaDB adds NoSQL features to relational database roots — Tech News and Analysis</a></li>
+<li><a href="http://j.mp/1msMPS8">Notes to students doing research about Agile</a></li>
+<li><a href="http://j.mp/1fFRCei">Automated bug finding with git bisect and mvn test</a></li>
+<li><a href="http://j.mp/1fE6GsQ">Learn To Build</a></li>
+<li><a href="http://j.mp/1fE6HwT">SSDs and MapReduce performance</a></li>
+<li><a href="http://j.mp/1fE6CcI">The Truth About MapReduce Performance on SSDs</a></li>
+<li><a href="http://j.mp/1joZuWb">Big heads &amp; Little heads</a></li>
+<li><a href="http://j.mp/1fvNldq">Are integration tests worth the hassle?</a></li>
+</ol>
+
+
+<h3>Cloud</h3>
+
+<ol>
+<li><a href="http://j.mp/1msMTkS">New Instance Types for Amazon Elastic MapReduce</a></li>
+<li><a href="http://j.mp/1k1h0CO">PaaS or IaaS? Choosing a Platform in 2014</a></li>
+<li><a href="http://j.mp/1dKMied">Updates to Google BigQuery following Cloud Platform Live</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1pMN38I">Hibernate ORM 4.3.5.Final Released</a></li>
+<li><a href="http://j.mp/1mBpGgx">Spring Shell 1.1 RC1 Released</a></li>
+<li><a href="http://j.mp/1mBpH46">Spring for Apache Hadoop 2.0 RC2 released</a></li>
+<li><a href="http://j.mp/1pMN9xd">Spring Tool Suite and Groovy/Grails Tool Suite 3.5.0 released</a></li>
+<li><a href="http://j.mp/1mvgGJL">First Milestone of Spring Data Release Train Dijkstra Available</a></li>
+<li><a href="http://j.mp/1osrvkq">JAX-RS 2.0 : Custom Content Handling</a></li>
+<li><a href="http://j.mp/1or0XjE">Java 8 Date Time API Tutorial : LocalDateTime</a></li>
+<li><a href="http://j.mp/1pMN10w">Play Framework with Java 8</a></li>
+<li><a href="http://j.mp/1iUmprH">What&rsquo;s new in Spring Integration 4.0?</a></li>
+<li><a href="http://j.mp/1rEKp6I">Spring MVC Handler Mapping Example</a></li>
+<li><a href="http://j.mp/P3SMcT">Spring MVC Test with WebDriver</a></li>
+<li><a href="http://j.mp/P5wvvm">Hacking with Raspberry Pi and Java (The Java Source)</a></li>
+<li><a href="http://j.mp/1fFRA67">Java 8&rsquo;s Functional Fomentation</a></li>
+<li><a href="http://j.mp/P5w2JB">JUnit ExpectedException rule: beyond basics</a></li>
+<li><a href="http://j.mp/1igzVnI">Spring MVC Handler Interceptors Example</a></li>
+<li><a href="http://j.mp/1pIDA0g">Hibernate ORM JIRA Policies and Clean-Up Tactics</a></li>
+<li><a href="http://j.mp/1gQIxEH">What is JDBC RowSet ?</a></li>
+<li><a href="http://j.mp/1gRyJue">When comparing Java 8 and Scala, be aware of these issues</a></li>
+<li><a href="http://j.mp/1dKMbzy">Java SE 8 Beyond Lambdas: The Big Picture</a></li>
+<li><a href="http://j.mp/1jY5aF3">Default methods an approach to extend legacy code</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/1fE6H00">Stackifier for Scala</a></li>
+<li><a href="http://j.mp/1pLc6Ji">Spring-boot and Scala</a></li>
+<li><a href="http://j.mp/1pOtIE6">Specializing for primitive types</a></li>
+<li><a href="http://j.mp/1olPth9">Type Programming: Recursive types</a></li>
+<li><a href="http://j.mp/PjjzCb">What is the Scala type-programming analogy for the <code>this</code> keyword?</a></li>
+<li><a href="http://j.mp/1iW71Lq">learning Scalaz</a></li>
+<li><a href="http://j.mp/1iW6ZTT">scala type programming resources</a></li>
+<li><a href="http://j.mp/1fIQAOC">pathikrit/dijon · GitHub</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-02]]></title>
@@ -1233,86 +1330,6 @@
 <li><a href="http://j.mp/1f5r7O8">SpringOne2GX 2013 Replay: RabbitMQ is the new King</a></li>
 <li><a href="http://j.mp/1dpvXcI">SpringOne2GX 2013 Replay: Spring Integration Internals</a></li>
 <li><a href="http://j.mp/1hGsM1J">Red Hat JBoss BPM Suite – Run the Mortgage Demo (video)</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-March-12]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/12/reading-list-2014-march-12/"/>
-    <updated>2014-03-12T10:46:27-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/12/reading-list-2014-march-12</id>
-    <content type="html"><![CDATA[<h3>General</h3>
-
-<ol>
-<li><a href="http://j.mp/1hTd5nr">Nano Workouts help you get in shape and life healthy during everyday activities.</a></li>
-<li><a href="http://j.mp/1cCV51z">How to survive a job you absolutely hate 10</a></li>
-</ol>
-
-
-<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/1keyQin">SoftwareDevelopmentAttitude</a></li>
-<li><a href="http://j.mp/N3x6fJ">Updated Amazon Appstore Badges</a></li>
-<li><a href="http://j.mp/1ftbwwJ">Software is disrupting Industries: are you Trendwatcher or Trendsetter?</a></li>
-<li><a href="http://j.mp/1fqBEZ3">Because my friend works here…</a></li>
-<li><a href="http://j.mp/1fqBm4E">Labeling Ourselves for Others</a></li>
-<li><a href="http://j.mp/1lSMcnk">Is goto Still Considered Harmful?</a></li>
-<li><a href="http://j.mp/1i46zdE">Why Puppet/Chef/Ansible aren&rsquo;t good enough (and we can do better) | Domen Kožar&rsquo;s thoughts</a></li>
-</ol>
-
-
-<h3>Agile</h3>
-
-<ol>
-<li><a href="http://j.mp/O1m7oe">Choosing a leader like an agilist</a></li>
-<li><a href="http://j.mp/1i46yXc">Don’t Estimate Software Defects</a></li>
-<li><a href="http://j.mp/1cCV4e2">It’s Far Too Easy To Measure Agile’s Value In The Wrong Way</a></li>
-</ol>
-
-
-<h3>Project management</h3>
-
-<ol>
-<li><a href="http://j.mp/1lSLRB6">The Change Management Challenge</a></li>
-<li><a href="http://j.mp/1fqadi5">Cost of Delay: Why You Should Care, Part 6</a></li>
-</ol>
-
-
-<h3>Cloud</h3>
-
-<ol>
-<li><a href="http://j.mp/1ftbDse">Common Building Blocks of Cloud APIs</a></li>
-<li><a href="http://j.mp/1eoXisy">Improvements for managing Persistent Disks</a></li>
-<li><a href="http://j.mp/1fqBpNE">Help For Moving From Physical Servers to the Cloud</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/1ftbzZE">Apache Tomcat Connectors 1.2.39 released</a></li>
-<li><a href="http://j.mp/1kg1mA2">CVE-2014-009 Fixed in Spring Security 3.2.2 and 3.1.6</a></li>
-<li><a href="http://j.mp/1kg1kIH">Spring Social 1.1.0.RC1 Released</a></li>
-<li><a href="http://j.mp/1keyKal">Configuring a Liferay cluster (and make it use unicast)</a></li>
-<li><a href="http://j.mp/1i3SKMb">Java 8 Launch (The Aquarium)</a></li>
-<li><a href="http://j.mp/1ftbGEn">Java 8 : What do developers think?</a></li>
-<li><a href="http://j.mp/1ecISLT">Flavors of Nested Classes in Java 8</a></li>
-<li><a href="http://j.mp/N4t0nu">Code benchmarking in JUnit4</a></li>
-<li><a href="http://j.mp/1eoXnfT">Online Java Compiler – What options are there</a></li>
-<li><a href="http://j.mp/OkZjj1">SpringOne2GX 2013 Replay: Thymeleaf &ndash; improving your Spring view layer with natural templates</a></li>
-<li><a href="http://j.mp/1ftbC7K">SpringOne2GX 2013 Replay: Pragmatic JavaScript</a></li>
-<li><a href="http://j.mp/1i46Ddr">Building a Social Music Service Using AWS, Scala, Akka, Play, MongoDB, and Elasticsearch</a></li>
-</ol>
-
-
-<h3>Scala</h3>
-
-<ol>
-<li><a href="http://j.mp/1eoXbNE">Upcoming webinars: Akka Persistence and Java 8</a></li>
-<li><a href="http://j.mp/1fqBmBs">Basic Category Theory Terms</a></li>
 </ol>
 
 ]]></content>
