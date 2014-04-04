@@ -4,7 +4,7 @@
   <title><![CDATA[Category: reading list | Software Development and related activities]]></title>
   <link href="http://uthark.github.com/blog/categories/reading-list/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-03T11:33:44-04:00</updated>
+  <updated>2014-04-04T12:04:35-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,45 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-April-04]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/04/reading-list-2014-april-04/"/>
+    <updated>2014-04-04T12:00:56-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/04/reading-list-2014-april-04</id>
+    <content type="html"><![CDATA[<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1h2Gxt8">How WhatsApp Grew to Nearly 500 Million Users, 11,000 cores, and 70 Million Messages a Second</a></li>
+<li><a href="http://j.mp/1fKB44T">MongoDB on Google Compute Engine – tips and benchmarks</a></li>
+<li><a href="http://j.mp/1msMIGg">Going Reactive &ndash; Asynchronous JavaScript at Netflix</a></li>
+<li><a href="http://j.mp/1h8ltSf">Greenpeace Blasts &lsquo;Dirty&rsquo; Amazon Web Services</a></li>
+<li><a href="http://j.mp/1oxzyfP">Eclipse is dead for Android development and I helped kill it — Infinum</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1mI2VYl">How to process stream and read text file in Java 8</a></li>
+<li><a href="http://j.mp/1jr94YG">Integration Testing for Spring Applications with JNDI Connection Pools</a></li>
+<li><a href="http://j.mp/1mI35Pp">Project Sagan: zero-downtime deployments</a></li>
+<li><a href="http://j.mp/PwiSW2">Java: How to Schedule a task to run in an interval</a></li>
+<li><a href="http://j.mp/1fxyTS3">Understanding the JDBC architecture.</a></li>
+<li><a href="http://j.mp/1foo5ch">Java Tip: Hibernate validation in a standalone implementation</a></li>
+</ol>
+
+
+<h3>In Russian</h3>
+
+<ol>
+<li><a href="http://j.mp/1k5VZqE">Получены первые намеки на эффект Михеева–Смирнова–Вольфенштейна при движении нейтрино сквозь Землю</a></li>
+<li><a href="http://j.mp/1owoAqU">Проект Lazybones — «Лентяй», который работает за вас</a></li>
+<li><a href="http://j.mp/1gQIA3B">Москва: город, агломерация, жители, система управления</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-03]]></title>
@@ -255,58 +294,6 @@
 <ol>
 <li><a href="http://j.mp/1jNeSyx">Preview of upcoming sbt 1.0 features: Read about the new plugins</a></li>
 <li><a href="http://j.mp/1dwBdgI">Will Java 8 Kill Scala?</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-March-28]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/28/reading-list-2014-march-28/"/>
-    <updated>2014-03-28T16:33:34-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/28/reading-list-2014-march-28</id>
-    <content type="html"><![CDATA[<h3>General</h3>
-
-<ol>
-<li><a href="http://j.mp/P67pwb">How To Reboot A Bad Day In 10 Minutes Or Less</a></li>
-</ol>
-
-
-<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/P7sypO">Taking Chrome Experiments to the TV</a></li>
-</ol>
-
-
-<h3>Cloud</h3>
-
-<ol>
-<li><a href="http://j.mp/1fqkmrq">AWS OpsWorks Now Supports Chef 11.10</a></li>
-<li><a href="http://j.mp/1fqkl6S">Amazon Linux AMI 2014.03 is Now Available</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://uthark.github.io/blog/2014/03/28/initializing-at-mocks-with-junit-at-rule/">Initializing Mockito @Mocks With JUnit @Rule</a></li>
-<li><a href="http://j.mp/1jY59B9">Apache Tomcat 8.0.5 (beta) available | Mark Thomas</a></li>
-<li><a href="http://j.mp/1fofOlj">Spring Data Redis 1.2.1 Released</a></li>
-<li><a href="http://j.mp/1dzNOQv">Spring AMQP 1.3.0 Released</a></li>
-<li><a href="http://j.mp/1hxfnWj">Spring Framework 4.0.3 released &ndash; with Java 8 support now production-ready</a></li>
-<li><a href="http://j.mp/1dwBlNm">3 ways of handling exceptions in JUnit. Which one to choose?</a></li>
-<li><a href="http://j.mp/1fqkkzC">What are Mockito Extra Interfaces?</a></li>
-<li><a href="http://j.mp/P7sG8L">Abstract Class Versus Interface in the JDK 8 Era</a></li>
-<li><a href="http://j.mp/1fofVNL">UploadPortletRequest and file size limits</a></li>
-</ol>
-
-
-<h3>Javascript</h3>
-
-<ol>
-<li><a href="http://j.mp/1dzNVLY">Expanded TypeScript Support Among JetBrains Updates</a></li>
-<li><a href="http://j.mp/P7szdz">AngularJS: A Retrospective</a></li>
 </ol>
 
 ]]></content>

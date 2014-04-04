@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-03T11:33:44-04:00</updated>
+  <updated>2014-04-04T12:04:35-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,45 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-April-04]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/04/reading-list-2014-april-04/"/>
+    <updated>2014-04-04T12:00:56-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/04/reading-list-2014-april-04</id>
+    <content type="html"><![CDATA[<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1h2Gxt8">How WhatsApp Grew to Nearly 500 Million Users, 11,000 cores, and 70 Million Messages a Second</a></li>
+<li><a href="http://j.mp/1fKB44T">MongoDB on Google Compute Engine – tips and benchmarks</a></li>
+<li><a href="http://j.mp/1msMIGg">Going Reactive &ndash; Asynchronous JavaScript at Netflix</a></li>
+<li><a href="http://j.mp/1h8ltSf">Greenpeace Blasts &lsquo;Dirty&rsquo; Amazon Web Services</a></li>
+<li><a href="http://j.mp/1oxzyfP">Eclipse is dead for Android development and I helped kill it — Infinum</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1mI2VYl">How to process stream and read text file in Java 8</a></li>
+<li><a href="http://j.mp/1jr94YG">Integration Testing for Spring Applications with JNDI Connection Pools</a></li>
+<li><a href="http://j.mp/1mI35Pp">Project Sagan: zero-downtime deployments</a></li>
+<li><a href="http://j.mp/PwiSW2">Java: How to Schedule a task to run in an interval</a></li>
+<li><a href="http://j.mp/1fxyTS3">Understanding the JDBC architecture.</a></li>
+<li><a href="http://j.mp/1foo5ch">Java Tip: Hibernate validation in a standalone implementation</a></li>
+</ol>
+
+
+<h3>In Russian</h3>
+
+<ol>
+<li><a href="http://j.mp/1k5VZqE">Получены первые намеки на эффект Михеева–Смирнова–Вольфенштейна при движении нейтрино сквозь Землю</a></li>
+<li><a href="http://j.mp/1owoAqU">Проект Lazybones — «Лентяй», который работает за вас</a></li>
+<li><a href="http://j.mp/1gQIA3B">Москва: город, агломерация, жители, система управления</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-03]]></title>
@@ -1257,79 +1296,6 @@
 <ol>
 <li><a href="http://j.mp/1e0ZPc9">Точка зрения | Русский как язык международного общения</a></li>
 <li><a href="http://j.mp/1dSZLLz">Главы | Эволюция творческого мышления</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-March-13]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/13/reading-list-2014-march-13/"/>
-    <updated>2014-03-13T10:42:46-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/13/reading-list-2014-march-13</id>
-    <content type="html"><![CDATA[<h3>General</h3>
-
-<ol>
-<li><a href="http://j.mp/1cCV51z">How to survive a job you absolutely hate 10</a></li>
-<li><a href="http://j.mp/1g9W97L">Obama Proposes the End of Pennies</a></li>
-<li><a href="http://j.mp/1cBfjbX">What if I wrote a book? | XKCD</a></li>
-</ol>
-
-
-<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/1lSMcnk">Is goto Still Considered Harmful?</a></li>
-<li><a href="http://j.mp/O1PRBm">The Configuration File – “remote” Section – Git Config</a></li>
-<li><a href="http://j.mp/1gdOa9K">The Web API Checklist — 43 Things To Think About When Designing, Testing, and Releasing your API</a></li>
-</ol>
-
-
-<h3>Agile</h3>
-
-<ol>
-<li><a href="http://j.mp/O1m7oe">Choosing a leader like an agilist</a></li>
-<li><a href="http://j.mp/1cCV4e2">It’s Far Too Easy To Measure Agile’s Value In The Wrong Way</a></li>
-<li><a href="http://j.mp/1crxcK5">Definition of Done: A Reference</a></li>
-</ol>
-
-
-<h3>Cloud</h3>
-
-<ol>
-<li><a href="http://j.mp/N9Ap52">Securing your AWS Infrastructure with IAM</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/1iAIDBP">JEP 192: String Deduplication in G1</a></li>
-<li><a href="http://j.mp/1gdOipT">JPA 2.1: Entity Graph</a></li>
-<li><a href="http://j.mp/OmHe4f">JPA 2.1 Entity Graphs (The Aquarium)</a></li>
-<li><a href="http://j.mp/1gdKeG7">Method References :: in Java 8</a></li>
-<li><a href="http://j.mp/N9AcyN">Java 8 Friday Goodies: SQL ResultSet Streams</a></li>
-<li><a href="http://j.mp/1ecISLT">Flavors of Nested Classes in Java 8</a></li>
-<li><a href="http://j.mp/1nLKYZI">Nested Interface in Java</a></li>
-<li><a href="http://j.mp/1kkzIlz">Creating a simple JAX-RS MessageBodyWriter</a></li>
-<li><a href="http://j.mp/1gdKe9d">HOW-TO: Test dependencies in a Maven project (JUnit, Mockito, Hamcrest, AssertJ)</a></li>
-</ol>
-
-
-<h3>Scala</h3>
-
-<ol>
-<li><a href="http://j.mp/1iESl6t">No Exceptions: Checked Exceptions for Scala | Landon Fuller</a></li>
-</ol>
-
-
-<h3>Video</h3>
-
-<ol>
-<li><a href="http://j.mp/1iatDGg">Webinar Replay: Spring Data Repositories &ndash; Best Practices</a></li>
-<li><a href="http://j.mp/1f5r7O8">SpringOne2GX 2013 Replay: RabbitMQ is the new King</a></li>
-<li><a href="http://j.mp/1dpvXcI">SpringOne2GX 2013 Replay: Spring Integration Internals</a></li>
-<li><a href="http://j.mp/1hGsM1J">Red Hat JBoss BPM Suite – Run the Mortgage Demo (video)</a></li>
 </ol>
 
 ]]></content>
