@@ -9,8 +9,7 @@
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="В данной заметке хочу поделиться некоторыми моментами использования GORM.
-GORM - это ORM-фреймворк, используемый в Grails. Реализован он поверх &hellip;">
+  <meta name="description" content="Периодически необходимо решать задачу создания больших ( и не очень) объёмов тестовых данных для проведения различных видов тестирования - &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -85,6 +84,177 @@ GORM - это ORM-фреймворк, используемый в Grails. Реа
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/05/21/databene-benerator/">Создание больших объёмов тестовых данных с помощью Databene Benerator</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-05-21T13:26:00-04:00" pubdate data-updated="true">May 21<span>st</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>Периодически необходимо решать задачу создания больших ( и не очень) объёмов тестовых данных для проведения различных видов тестирования - функционального, нагрузочного (тестирование стабильности и производительности). При этом часто получается так, что система на тестовых данных ведёт себя совсем иначе, чем на реальных данных. Причина кроется в том, что создать правдоподобные тестовые данные всегда достаточно сложно.</p>
+<p>Изучая данный вопрос я наткнулся на замечательный фреймворк - <a href="http://databene.org/databene-benerator">Databene Benerator</a>, основной целью создания которого как раз и является создание правдоподобных тестовых данных для проведения различных видов тестирования.</p>
+<h4>Установка</h4>
+<p>Установка фреймворка осуществляется двумя способами - как отдельное приложение и как плагин для Maven.</p>
+<h5>Установка под Maven</h5>
+<p>Для использования Databene benerator в проектах, использующих для сборки Apache Maven необходимо добавить в зависимости databene-benerator и сконфигурировать его.</p>
+<pre class="brush: xml;">
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd&quot;&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+  &lt;groupId&gt;com.myorganization&lt;/groupId&gt;
+  &lt;artifactId&gt;databene-benerator-test&lt;/artifactId&gt;
+  &lt;version&gt;1.0&lt;/version&gt;
+  &lt;packaging&gt;jar&lt;/packaging&gt;
+  &lt;name&gt;data generation project&lt;/name&gt;
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.databene&lt;/groupId&gt;
+      &lt;artifactId&gt;databene-benerator&lt;/artifactId&gt;
+      &lt;version&gt;0.5.9&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.databene&lt;/groupId&gt;
+      &lt;artifactId&gt;databene-webdecs&lt;/artifactId&gt;
+      &lt;version&gt;0.4.9&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.databene&lt;/groupId&gt;
+      &lt;artifactId&gt;databene-commons&lt;/artifactId&gt;
+      &lt;version&gt;0.4.9&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;mysql&lt;/groupId&gt;
+      &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+      &lt;version&gt;5.1.6&lt;/version&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+  &lt;build&gt;
+    &lt;resources&gt;
+      &lt;resource&gt;
+        &lt;directory&gt;src/main/resources&lt;/directory&gt;
+        &lt;filtering&gt;true&lt;/filtering&gt;
+      &lt;/resource&gt;
+    &lt;/resources&gt;
+    &lt;plugins&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+        &lt;configuration&gt;
+          &lt;encoding&gt;UTF-8&lt;/encoding&gt;
+          &lt;source&gt;1.5&lt;/source&gt;
+          &lt;target&gt;1.5&lt;/target&gt;
+        &lt;/configuration&gt;
+      &lt;/plugin&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.databene&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-benerator-plugin&lt;/artifactId&gt;
+        &lt;version&gt;0.5.9&lt;/version&gt;
+        &lt;executions&gt;
+          &lt;execution&gt;
+            &lt;phase&gt;compile&lt;/phase&gt;
+            &lt;goals&gt;
+              &lt;goal&gt;generate&lt;/goal&gt;
+            &lt;/goals&gt;
+          &lt;/execution&gt;
+        &lt;/executions&gt;
+        &lt;configuration&gt;
+          &lt;descriptor&gt;src/main/resources/benerator.ben.xml&lt;/descriptor&gt;
+          &lt;encoding&gt;UTF-8&lt;/encoding&gt;
+          &lt;validate&gt;true&lt;/validate&gt;
+          &lt;dbUrl&gt;jdbc:mysql://localhost:3306/hrtool?useUnicode=true&amp;characterEncoding=UTF-8&lt;/dbUrl&gt;
+          &lt;dbDriver&gt;com.mysql.jdbc.Driver&lt;/dbDriver&gt;
+          &lt;dbSchema&gt;database&lt;/dbSchema&gt;
+          &lt;dbUser&gt;user&lt;/dbUser&gt;
+          &lt;dbPassword&gt;password&lt;/dbPassword&gt;
+        &lt;/configuration&gt;
+        &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;log4j&lt;/groupId&gt;
+            &lt;artifactId&gt;log4j&lt;/artifactId&gt;
+            &lt;version&gt;1.2.13&lt;/version&gt;
+            &lt;scope&gt;runtime&lt;/scope&gt;
+          &lt;/dependency&gt;
+          &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;
+            &lt;artifactId&gt;poi&lt;/artifactId&gt;
+            &lt;version&gt;3.5-beta5&lt;/version&gt;
+            &lt;scope&gt;runtime&lt;/scope&gt;
+          &lt;/dependency&gt;
+        &lt;/dependencies&gt;
+      &lt;/plugin&gt;
+    &lt;/plugins&gt;
+  &lt;/build&gt;
+&lt;/project&gt;
+
+</pre>
+<p>В конфигурации необходимо указать как минимум следующие параметры:</p>
+<ol><li><span style=" font-family:'Courier New,courier';">dbUrl</span> - строка подключения к базе данных в формате JDBC</li>
+<li><span style=" font-family:'Courier New,courier';">dbDriver</span> - используемый драйвер базы данных</li>
+<li><span style=" font-family:'Courier New,courier';">dbSchema</span> - имя схемы базы данных</li>
+<li><span style=" font-family:'Courier New,courier';">dbUser</span> - имя пользователя, под которым подключаемся к базе данных</li>
+<li><span style=" font-family:'Courier New,courier';">dbPassword</span> - пароль пользователя для подключения к базе данных</li>
+</ol>
+<p>Кроме использования файла pom.xml databene поддерживает возможность указания параметров в файле benerator.properties, что может быть удобно.</p>
+<p>Databene benerator обладает следующими возможностями:</p>
+<ol><li>Решение проблемы создания данных в общем виде. На данный момент поддерживаются XML и реляционные базы данных, но не за горами поддержка веб-сервисов, SAP и любых других систем через механизм расширений.</li>
+<li>Юзабилити. Databene-benerator позволяет упростить создание тестовых данных для сложной модели прикладной области.</li>
+<li>Обработка больших объёмов данных.</li>
+<li>Высокая производительность.</li>
+<li>Поддержка доменных областей.</li>
+<li>Качество данных. Фреймворк поддерживает проверку ограничений модели прикладной области.</li>
+<li>Компонентная, легкорасширяемая архитектура.</li>
+<li>Широкие возможности изменения и настройки генерации тестовых данных</li>
+<li>Создание тестовых данных с нуля.</li>
+<li>Импорт и анонимизация реальных данных.</li>
+</ol>
+<p>В комплекте идёт толковая, но, к сожалению, неполная <a href="http://databene.org/download/databene-benerator-manual-0.6.0.pdf">документация</a> по возможностям.</p></div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>uthark</div>
+<div class='content'>
+@karri Прекрасно работает. :) Подсовываете ей Oracle JDBC Driver и всё прекрасно работает. С SQL Server тоже работает.</div>
+</div>
+<div class='comment'>
+<div class='author'>karri</div>
+<div class='content'>
+Интересно, а эта штуковина будет с Oracle работать?<br /><br />Когда мне необходимо провести нагрузочное тестирование, я обычно пишу скриптики с помощью пакетных методов в Developer, но тестовые данные конечно не блещут разнообразием, вы правы :))</div>
+</div>
+</div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1410,313 +1580,6 @@ P.P.S. У расширения появилась своя страничка в
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/11/14/delicious-bookmarks-google/">Расширение Delicious Bookmarks для Google Chrome/Chromium</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-11-14T11:34:00-05:00" pubdate data-updated="true">Nov 14<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<h1>Введение</h1><br />
-Решил научиться писать собственные расширения для <a href="http://www.google.com/chrome">Google Chrome</a>/<a href="http://www.chromium.org/">Chromium</a>.<br />
-<br />
-За идею взял официальное расширение от <a href="http://m.www.yahoo.com/">Yahoo!</a> для <a href="http://www.mozilla.com/en-US/firefox/firefox.html">Firefox</a> - <a href="https://addons.mozilla.org/en-US/firefox/addon/3615">Delicious Bookmarks</a>.<br />
-<br />
-<h1>Структура расширения</h1><br />
-Расширение - файл с расширением <tt>.crx</tt>. На самом деле это просто <tt>ZIP</tt>-архив с файлом манифеста внутри.<br />
-<br />
-<h1>Файл манифеста</h1><pre class="brush:js; highlight: [2, 3, 4, 5, 10, 16, 23]">{
-"name": "Delicious plugin", // 1
-"version": "0.2", // 2
-"background_page": "background.html", // 3
-"permissions": [ // 4
-"bookmarks",
-"tabs"
-],
-
-"browser_action": { // 5
-"name": "Save bookmark to delicious.com",
-"default_title": "Save bookmark to delicious.com",
-"default_icon": "delicious.20.gif" // optional
-},
-
-"content_scripts": [ // 6
-{
-"matches": ["http://*/*", "https://*/*"],
-"js": ["getDocumentSelection.js"]
-}
-],
-
-"options_page": "options.html" // 7
-}
-</pre><br />
-Манифест - файл в формате <a href="http://json.org/">JSON</a>.<br />
-<br />
-Манифест состоит из следующих частей:<br />
-<br />
-1. <span style="font-weight:bold;"><tt>name</tt></span> - Имя расширения<br />
-2. <span style="font-weight:bold;"><tt>version</tt></span> - Версия расширения<br />
-3. <span style="font-weight:bold;"><tt>background_page</tt></span> - основной файл с расширением. Это обычный HTML-файл с разметкой.<br />
-4. <span style="font-weight:bold;"><tt>permissions</tt></span> - разрешения для расширения. Указываем, что нам нужен доступ к вкладкам (tabs) и закладкам (bookmarks).<br />
-5. <span style="font-weight:bold;"><tt>browser_action</tt></span> - указываем, что нужно отобразить на панели инструментов браузера.<br />
-6. <span style="font-weight:bold;"><tt>content_scripts</tt></span> - Для доступа к DOM отображаемой страницы необходимы content scripts, данный блок регистрирует скрипт <tt>getDocumentSelection.js</tt> для всех <tt>http</tt> и <tt>https</tt> страниц.<br />
-7. <span style="font-weight:bold;"><tt>options_page</tt></span> - страница с настройками.<br />
-<br />
-Подробное описание файла манифеста есть <a href="http://code.google.com/chrome/extensions/manifest.html">на официальном сайте</a>. <br />
-<br />
-<h1>Описание работы расширения</h1><br />
-<br />
-Расширение работает следующим образом:<br />
-1. При клике на значок расширения вызывается обработчик <tt>addBookmark</tt><br />
-2. Обработчик открывает коммуникационный порт и отправляет сообщение скрипту содержимого.<br />
-3. Скрипт содержимого забирает выделенный текст и отправляет назад расширению выделенный текст.<br />
-4. Расширение забирает выделенный текст, определяет настройки сохранения (Private/Public) и вызывает окно сохранения <span style="font-style:italic;">Delicious</span>.<br />
-<br />
-<h1>Реализация расширения</h1><br />
-<br />
-<span style="font-weight:bold;">background.html</span>:<br />
-<pre class="brush:js; html-script: true">&lt;html&gt;
-&lt;head&gt;
-&lt;script&nbsp;type=&quot;text/javascript&quot;&gt;
-&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;saveBookmark()&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Send&nbsp;our&nbsp;password&nbsp;to&nbsp;the&nbsp;current&nbsp;tab&nbsp;when&nbsp;clicked.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chrome.tabs.getSelected(null,&nbsp;function(tab)&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;port&nbsp;=&nbsp;chrome.tabs.connect(tab.id,&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;:&nbsp;&quot;deliciousBookmark&quot;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;port.postMessage(&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;action&nbsp;:&nbsp;'getSelection'
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
-&nbsp;&nbsp;&nbsp;&nbsp;}
-
-&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;addBookmark(id,&nbsp;bookmark)&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(&quot;added&nbsp;bookmark:&nbsp;&nbsp;&quot;&nbsp;+&nbsp;bookmark);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;saveBookmark();
-&nbsp;&nbsp;&nbsp;&nbsp;}
-
-&nbsp;&nbsp;&nbsp;&nbsp;chrome.bookmarks.onCreated.addListener(addBookmark);
-&nbsp;&nbsp;&nbsp;&nbsp;console.log(&quot;Registered&nbsp;listener&quot;);
-
-&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;getShareStatus()&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;markPrivate&nbsp;=&nbsp;localStorage[&quot;markPrivate&quot;];
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;share&nbsp;=&nbsp;&quot;yes&quot;;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(markPrivate&nbsp;==&nbsp;&quot;true&quot;)&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;share&nbsp;=&nbsp;&quot;no&quot;;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;share;
-&nbsp;&nbsp;&nbsp;&nbsp;}
-
-&nbsp;&nbsp;&nbsp;&nbsp;chrome.extension.onConnect.addListener(function(port)&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.assert(port.name&nbsp;==&nbsp;&quot;deliciousBookmark&quot;);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;port.onMessage.addListener(function(msg)&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;selection&nbsp;=&nbsp;msg.selection;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chrome.tabs.getSelected(null,&nbsp;function(tab)&nbsp;{
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;encodeURIComponent(tab.url);
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!url&nbsp;||&nbsp;url&nbsp;===&nbsp;&quot;&quot;)&nbsp;{
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;title&nbsp;=&nbsp;encodeURIComponent(tab.title);
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;description&nbsp;=&nbsp;encodeURIComponent(selection);
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;share&nbsp;=&nbsp;getShareStatus();
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;f&nbsp;=&nbsp;'http://delicious.com/save?url='&nbsp;+&nbsp;url&nbsp;+&nbsp;'&amp;title='&nbsp;+&nbsp;title&nbsp;+&nbsp;'&amp;notes='&nbsp;+&nbsp;description
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;'&amp;share='&nbsp;+&nbsp;share&nbsp;+&nbsp;'&amp;v=5&amp;';
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window.open(f&nbsp;+&nbsp;'noui=1&amp;jump=doclose',&nbsp;'deliciousuiv5',
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'location=yes,links=no,scrollbars=no,toolbar=no,width=550,height=550');
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
-&nbsp;&nbsp;&nbsp;&nbsp;});
-
-&nbsp;&nbsp;&nbsp;&nbsp;chrome.browserAction.onClicked.addListener(saveBookmark);
-&lt;/script&gt;
-&lt;/head&gt;
-&lt;/html&gt;
-
-</pre><br />
-<br />
-<span style="font-weight:bold;">getDocumentSelection.js</span><br />
-<br />
-<pre class="brush:js">var port = chrome.extension.connect( {
-name : "deliciousBookmark"
-});
-
-// Also listen for new channels from the extension for when the button is
-// pressed.
-chrome.extension.onConnect.addListener(function(port) {
-console.assert(port.name == "deliciousBookmark");
-port.onMessage.addListener(function(msg) {
-if (msg.action == 'getSelection') {
-var responsePort = chrome.extension.connect( {
-name : "deliciousBookmark"
-});
-var description = document.getSelection() ? '' + document.getSelection() : '';
-responsePort.postMessage( {
-selection : description
-});
-}
-});
-});
-
-
-</pre><br />
-<br />
-<span style="font-weight:bold;">options.html</span><br />
-<br />
-<pre class="brush:js; html-script: true">&lt;html&gt;
-&lt;html&gt;
-&lt;head&gt;
-&lt;title&gt;Delicious Bookmarks Options&lt;/title&gt;
-&lt;/head&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-    // Saves options to localStorage.
-    function saveOptions() {
-        var share = document.getElementById(&quot;share&quot;);
-        localStorage[&quot;markPrivate&quot;] = share.checked;
-
-        // Update status to let user know options were saved.
-        var status = document.getElementById(&quot;status&quot;);
-        status.innerHTML = &quot;Options Saved.&quot;;
-        setTimeout(function() {
-            status.innerHTML = &quot;&quot;;
-        }, 1500);
-    }
-
-    // Restores select box state to saved value from localStorage.
-    function restoreOptions() {
-        var share = localStorage[&quot;markPrivate&quot;];
-
-        if (!share) {
-            return;
-        }
-        var shareCheckbox = document.getElementById(&quot;share&quot;);
-
-        shareCheckbox.checked = share;
-        
-    }
-&lt;/script&gt;
-
-&lt;body onload=&quot;restoreOptions()&quot;&gt;
-
-&lt;label for=&quot;share&quot;&gt;Mark as Private&lt;/label&gt;
-&lt;input type=&quot;checkbox&quot; class=&quot;checkbox&quot; name=&quot;share&quot; id=&quot;share&quot; /&gt;
-
-
-&lt;br&gt;
-&lt;button onclick=&quot;saveOptions();&quot;&gt;Save&lt;/button&gt;
-&lt;div id=&quot;status&quot;&gt;&amp;nbsp;&lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</pre><br />
-<br />
-<h1>Сборка расширения</h1><br />
-В Chromium есть возможность собрать расширение.<br />
-1. Открываем адрес <tt>chrome://extensions/</tt><br />
-2. В правом верхнем углу нажимаем Developer Mode.<br />
-3. На появившейся панели инструментов кликаем Pack Extension<br />
-4. Выбираем каталог, в котором находится расширение<br />
-5. Chromium автоматически собирает расширение в каталоге с исходниками расширения.<br />
-<br />
-<h1>Заключение</h1><br />
-Писать расширения для Google Chrome не просто, а очень просто. <br />
-<br />
-Готовое и собранное расширение можно <a href="http://bit.ly/2KYnr8">скачать здесь</a>.<br />
-<br />
-<h1>Дополнительная информация</h1><br />
-<ol><li><a href="http://code.google.com/chrome/extensions/devguide.html">Google Chrome Extensions Developer&#8217;s Guide</a></li>
-<li><a href="http://code.google.com/chrome/extensions/manifest.html">Manifest file description</a></li>
-<li><a href="http://code.google.com/chrome/extensions/api_index.html">Chrome Extensions API</a></li>
-<li><a href="http://code.google.com/chrome/extensions/packaging.html">Extension Packaging</a></li>
-</ol><br />
-<br />
-В следующей заметке опишу работу messaging для коммуникации расширения со скриптами содержимого.</div>
-
-
-<h2>Comments</h2>
-
-
-<div class='comments'>
-<div class='comment'>
-<div class='author'>Juev</div>
-<div class='content'>
-Очень много расширений уже реализуют добавление закладок в социальные закладки, но пока не встретил ни одного, которое реализует синхронизацию локальных закладок с сервером&#8230; Как это делает например расширение делисиоус для огнелиса. Если сумеете реализовать, цены расширению не будет!</div>
-</div>
-<div class='comment'>
-<div class='author'>uthark</div>
-<div class='content'>
-@karri<br />Подпишитесь :). Правда, пишу я нерегулярно.</div>
-</div>
-<div class='comment'>
-<div class='author'>karri</div>
-<div class='content'>
-А у вас тут интересно, хоть я и неважный ITтишник =) Пожалуй, подпишусь на вас! =)</div>
-</div>
-<div class='comment'>
-<div class='author'>uthark</div>
-<div class='content'>
-@karri Надеюсь, больше вам этого не придётся делать и расширение сослужит для вас хорошую службу. В следующей версии расширения будет возможность получить быстрый доступ к своему аккаунту на delicious, а также возможность быстрого доступа к закладкам с определённой меткой. Для чего это может быть полезно - читайте  <a href="http://atamanenko.blogspot.com/2009/04/blog-post.html" rel="nofollow">этот</a> и <a href="http://atamanenko.blogspot.com/2009/04/2.html" rel="nofollow">этот</a> посты.</div>
-</div>
-<div class='comment'>
-<div class='author'>karri</div>
-<div class='content'>
-Спасибо! =) Все-таки вчера не дождалась ответа и руками подабовляла в delicious на delicious.com =)</div>
-</div>
-<div class='comment'>
-<div class='author'>uthark</div>
-<div class='content'>
-Достаточно обновить страницу, которую вы хотите сохранить.<br /><br />Кроме того, нужна версия браузера выше 4.0.227.0</div>
-</div>
-<div class='comment'>
-<div class='author'>karri</div>
-<div class='content'>
-А браузер нужно перезапускать? Сорри за такой глупый вопрос, у меня тут дилема: куча нужных вкладок открыто, а Chrome, как FF не спрашивает сохранить ли их при закрытии :( По крайней мере что-то не нашла такой галочки :( Сижу думаю, что делать, delicious не вызывается и закрывать не хоцца &#8230;</div>
-</div>
-<div class='comment'>
-<div class='author'>uthark</div>
-<div class='content'>
-@Denis <br />На здоровье. О найденных ошибках и своих предложениях можешь сообщать в комментариях к этому посту.</div>
-</div>
-<div class='comment'>
-<div class='author'>Denis</div>
-<div class='content'>
-Спасибо. Статья очень понравилась а расширением уже пользуюсь ;)</div>
-</div>
-</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/6/">&larr; Older</a>
@@ -1732,6 +1595,10 @@ selection : description
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/04/07/reading-list-2014-april-07/">Reading List 2014-April-07</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/04/04/reading-list-2014-april-04/">Reading List 2014-April-04</a>
@@ -1755,10 +1622,6 @@ selection : description
     
       <li class="post">
         <a href="/blog/2014/03/28/reading-list-2014-march-28/">Reading List 2014-March-28</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/03/28/initializing-at-mocks-with-junit-at-rule/">Initializing Mockito @Mocks With JUnit @Rule</a>
       </li>
     
   </ul>

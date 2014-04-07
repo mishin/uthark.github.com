@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-04T12:04:35-04:00</updated>
+  <updated>2014-04-07T11:01:23-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,77 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-April-07]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/07/reading-list-2014-april-07/"/>
+    <updated>2014-04-07T10:56:03-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/07/reading-list-2014-april-07</id>
+    <content type="html"><![CDATA[<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1gDcBnj">Why Hire Older Engineers</a></li>
+<li><a href="http://j.mp/1q1HjWX">Am I really a developer or just a good googler?</a></li>
+<li><a href="http://j.mp/1mQut0h">Facebook open sources code for managing A/B tests — Tech News and Analysis</a></li>
+<li><a href="http://j.mp/1oyReHY">AngularJS Tip &ndash; Avoid Multiple Variables in ng-src</a></li>
+<li><a href="http://j.mp/1hoSKTp">Introducing Pyston: an upcoming, JIT-based Python implementation</a></li>
+<li><a href="http://j.mp/1fHeopL">The Power of HTML</a></li>
+<li><a href="http://j.mp/1hcgGyV">Microsoft TypeScript 1.0 Arrives</a></li>
+<li><a href="http://j.mp/1hIPVRD">BlueGreenDeployment</a></li>
+<li><a href="http://j.mp/PpknFx">Five Funny Moments in Developer History</a></li>
+<li><a href="http://j.mp/PpjFbh">Domain-Driven Design Revisited</a></li>
+<li><a href="http://j.mp/1rD86fF">Application Security – Can you Rely on the Honeymoon Effect?</a></li>
+<li><a href="http://j.mp/1gDcCHM">Differences in Map/Reduce between RavenDB &amp; MongoDB</a></li>
+<li><a href="http://j.mp/1hdFCWZ">Microsoft Announces Windows Phone 8.1 With New Action Center, Cortana, Start Screen Improvements</a></li>
+<li><a href="http://j.mp/1jmWwAU">Consume Webservice in Android using intentService</a></li>
+<li><a href="http://j.mp/1q1HaCL">Btrees Are the New Black</a></li>
+<li><a href="http://j.mp/1hdFwPa">Why Ruby Class Methods Resist Refactoring</a></li>
+<li><a href="http://j.mp/1oyRjLN">Subtly Bad Things Linux May Be Doing To PostgreSQL</a></li>
+</ol>
+
+
+<h3>Agile</h3>
+
+<ol>
+<li><a href="http://j.mp/1hoSFz0">Lean is Clean without the C for Complexity</a></li>
+<li><a href="http://j.mp/1hl2Me2">Conquering job hell and multiple app branches using Jenkins &amp; Mercurial</a></li>
+</ol>
+
+
+<h3>Cloud</h3>
+
+<ol>
+<li><a href="http://j.mp/1q2ev2d">The platform-as-a-service winner is &hellip; Puppet?</a></li>
+<li><a href="http://j.mp/1ltqW5i">Integration platform as a service, the cloud, and… baby unicorns</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/PxbaLu">Common Misconceptions About Java</a></li>
+<li><a href="http://j.mp/P67nEC">javac&rsquo;s -Xprint Option</a></li>
+<li><a href="http://j.mp/1gFHhnV">javac&rsquo;s -Xlint Options</a></li>
+<li><a href="http://j.mp/1jbhjYd">Java 8 default methods: what can and can not do?</a></li>
+<li><a href="http://j.mp/1jbhgLX">Hack Computer Boards with Java! (The Java Source)</a></li>
+<li><a href="http://j.mp/Pz5Kja">Why I Like The Verbosity of Java</a></li>
+<li><a href="http://j.mp/1k8yX2p">How not to use Java 8 default methods</a></li>
+<li><a href="http://j.mp/1k8yZHw">Java 8 Adoption Poll Results</a></li>
+<li><a href="http://j.mp/1iSpUih">10 Example of Lambda Expressions and Streams in Java 8</a></li>
+<li><a href="http://j.mp/1jbhnHj">In Relation To&hellip; Third milestone on the path for Hibernate Search 5</a></li>
+<li><a href="http://j.mp/P3SL8L">Using AmazonS3EncryptionClient to Send Secure Data Between Two Parties</a></li>
+<li><a href="http://j.mp/1mQxUl5">Dealing with org.hibernate.LazyInitializationException: could not initialize proxy &ndash; no Session in Hibernate Java</a></li>
+</ol>
+
+
+<h3>In Russian</h3>
+
+<ol>
+<li><a href="http://j.mp/1jY5bc0">FAQ: Святилища Кавказа</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-04]]></title>
@@ -1239,65 +1310,6 @@
 
 
 <p>This is just awesome!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-March-14]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/14/reading-list-2014-march-14/"/>
-    <updated>2014-03-14T14:56:55-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/14/reading-list-2014-march-14</id>
-    <content type="html"><![CDATA[<h3>General</h3>
-
-<ol>
-<li><a href="http://j.mp/1go7JRd">How much are you worth to your employer?</a></li>
-<li><a href="http://j.mp/1iJybbo">Denial of Service Attacks · GitHub</a></li>
-<li><a href="http://j.mp/1eFiNnW">Cheap Words</a></li>
-</ol>
-
-
-<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/1fC1Ik3">Atom, Hackable Text Editor By GitHub</a></li>
-<li><a href="http://j.mp/1knErCX">Brendan Eich: Web development is tough, developers are tougher</a></li>
-<li><a href="http://j.mp/1knEhvi">Your quick guide to better JavaScript testing</a></li>
-<li><a href="http://j.mp/NRX8ng">Mediator Parallel Routing Rules</a></li>
-</ol>
-
-
-<h3>NoSQL</h3>
-
-<ol>
-<li><a href="http://j.mp/1iJYtuc">Processing 2 Billion Documents A Day And 30TB A Month With MongoDB | The MongoDB Blog</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/1go7SnD">First service release for Spring Data release train Codd released</a></li>
-<li><a href="http://j.mp/1ewzO4H">Spring Data Couchbase 1.0 GA Released</a></li>
-<li><a href="http://j.mp/1go7RjO">ClassNotFoundException: is it slowing down your JVM?</a></li>
-<li><a href="http://j.mp/1nZLDqz">Parameterized JUnit tests</a></li>
-<li><a href="http://j.mp/N7djMj">Real-World Rule Engines</a></li>
-</ol>
-
-
-<h3>Scala</h3>
-
-<ol>
-<li><a href="http://j.mp/1go7R3k">ReactiveMongo, Play &amp; AngularJS</a></li>
-</ol>
-
-
-<h3>In Russian</h3>
-
-<ol>
-<li><a href="http://j.mp/1e0ZPc9">Точка зрения | Русский как язык международного общения</a></li>
-<li><a href="http://j.mp/1dSZLLz">Главы | Эволюция творческого мышления</a></li>
-</ol>
-
 ]]></content>
   </entry>
   
