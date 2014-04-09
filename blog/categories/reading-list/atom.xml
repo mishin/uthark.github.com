@@ -4,7 +4,7 @@
   <title><![CDATA[Category: reading list | Software Development and related activities]]></title>
   <link href="http://uthark.github.com/blog/categories/reading-list/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-08T14:34:13-04:00</updated>
+  <updated>2014-04-09T14:50:22-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,66 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-April-09]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/09/reading-list-2014-april-09/"/>
+    <updated>2014-04-09T14:46:14-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/09/reading-list-2014-april-09</id>
+    <content type="html"><![CDATA[<h3>Security</h3>
+
+<ol>
+<li><a href="http://j.mp/1qlvDhQ">Security Release of omnibus-gitlab due to CVE-2014-0160 (&lsquo;Heartbleed&rsquo;)</a></li>
+<li><a href="http://j.mp/1kqykl0">Heartbleed Security Bug: Update for Puppet Users</a></li>
+<li><a href="http://j.mp/1hcRjMD">Dealing with OpenSSL bug CVE-2014-0160 (Heartbleed)</a></li>
+<li><a href="http://j.mp/1jp2rpQ">Secure DevOps &ndash; Seems Simple</a></li>
+</ol>
+
+
+<h3>Announcements</h3>
+
+<ol>
+<li><a href="http://j.mp/1egm3gp">Hibernate ORM 4.2.12.Final Released</a></li>
+<li><a href="http://j.mp/1kL1F5m">Akka 2.3.2 Released!</a></li>
+<li><a href="http://j.mp/1irAqKf">New book: EJB 3 in Action, Second Edition</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/1hZxice">Scala Style Guide — Scala Style Guide v1.3.1 documentation</a></li>
+</ol>
+
+
+<h3>General</h3>
+
+<ol>
+<li><a href="http://j.mp/1kpo0cQ">DynDNS: Why We Decided To Stop Offering Free Accounts</a></li>
+<li><a href="http://j.mp/Q2rQux">Yahoo breaks every mailing list in the world including the IETF&rsquo;s</a></li>
+<li><a href="http://j.mp/1k1Fnhe">The Prototype of Future Knowledge Workers</a></li>
+</ol>
+
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1ipkE2K">Software Estimation: How Misperceptions Mean We Almost Always Get It Wrong</a></li>
+<li><a href="http://j.mp/1iqVbXN">Performance Tuning On Android — The Venmo Blog</a></li>
+<li><a href="http://j.mp/1jS3FKr">Spring Test Context Caching + AspectJ @Transactional + Ehcache pain</a></li>
+<li><a href="http://j.mp/1lArqqi">Liferay: Searching entities through custom attribute value.</a></li>
+<li><a href="http://j.mp/Q2rPqo">Services, Microservices, Nanoservices&hellip; oh my!</a></li>
+</ol>
+
+
+<h3>In russian</h3>
+
+<ol>
+<li><a href="http://j.mp/1ipkHeU">Главы | Отходы</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-08]]></title>
@@ -277,62 +337,6 @@
 <li><a href="http://j.mp/1iW71Lq">learning Scalaz</a></li>
 <li><a href="http://j.mp/1iW6ZTT">scala type programming resources</a></li>
 <li><a href="http://j.mp/1fIQAOC">pathikrit/dijon · GitHub</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-April-02]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/02/reading-list-2014-april-02/"/>
-    <updated>2014-04-02T12:37:17-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/02/reading-list-2014-april-02</id>
-    <content type="html"><![CDATA[<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/1fIQUNq">IAM Best Practices</a></li>
-<li><a href="http://j.mp/PiKChe">Every Great Product Owner Needs a Great ScrumMaster</a></li>
-<li><a href="http://j.mp/1pQCTSu">Manhattan, our real-time, multi-tenant distributed database for Twitter scale</a></li>
-<li><a href="http://j.mp/1juhjTQ">The Cache and Multithreading</a></li>
-</ol>
-
-
-<h3>Android</h3>
-
-<ol>
-<li><a href="http://j.mp/1hA8JT2">Useful Tools for Android Apps Test Automation</a></li>
-<li><a href="http://j.mp/1fonTdk">Fixing The Android Camera API</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/1idVzZD">Apache Tomcat 7.0.53 Released</a></li>
-<li><a href="http://j.mp/1fonYgQ">Spring Boot 1.0 GA Released</a></li>
-<li><a href="http://j.mp/1igAhL3">Java 8 Friday: Optional Will Remain an Option in Java</a></li>
-<li><a href="http://j.mp/1pQwYwJ">Eclipse Foundation Announces Java 8 Support</a></li>
-<li><a href="http://j.mp/1igA9Lm">Method 2 of N for crashing your JVM :&ndash;)</a></li>
-<li><a href="http://j.mp/1fonWWi">Abstract Class Versus Interface in the JDK 8 Era</a></li>
-<li><a href="http://j.mp/1h2Gtd0">Add Java 8 support to Eclipse Kepler</a></li>
-<li><a href="http://j.mp/1h2GsFZ">Difference between Stub and Mock object in Java Unit testing &ndash; JUnit</a></li>
-<li><a href="http://j.mp/1hYVF5Y">Introduction to Nashorn</a></li>
-</ol>
-
-
-<h3>Scala</h3>
-
-<ol>
-<li><a href="http://j.mp/1h2GAVW">IntelliJ, Scala and Gradle: Revisiting Hell</a></li>
-<li><a href="http://j.mp/1opLeBo">Spring-boot and Scala</a></li>
-</ol>
-
-
-<h3>In Russian</h3>
-
-<ol>
-<li><a href="http://j.mp/1igrjxo">Новости Большого адронного коллайдера</a></li>
-<li><a href="http://j.mp/1jWZWh9">Одиночное рождение топ-кварка позволило еще тщательнее проверить Стандартную модель</a></li>
 </ol>
 
 ]]></content>
