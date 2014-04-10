@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-09T14:50:22-04:00</updated>
+  <updated>2014-04-10T15:40:11-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,60 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-April-10]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/10/reading-list-2014-april-10/"/>
+    <updated>2014-04-10T15:35:04-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/10/reading-list-2014-april-10</id>
+    <content type="html"><![CDATA[<h3>General</h3>
+
+<ol>
+<li><a href="http://j.mp/1nxoxqZ">The Job After Steve Jobs: Tim Cook and Apple</a></li>
+<li><a href="http://j.mp/1i2wSlk">In depth: Descriptive Search in Evernote</a></li>
+<li><a href="http://j.mp/NAtmTD">A Powerful New Way to Edit DNA</a></li>
+<li><a href="http://j.mp/1eu5GHu">XKCD What if? | Faucet Power</a></li>
+<li><a href="http://j.mp/1n8RXeu">Expanding Google’s security services for Android</a></li>
+</ol>
+
+
+<h3>Cloud</h3>
+
+<ol>
+<li><a href="http://j.mp/1k1FnO9">The New Cost Explorer for AWS</a></li>
+</ol>
+
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1eu5LLm">Dart improves async and server-side performance</a></li>
+<li><a href="http://j.mp/1eu5JD9">Don’t Estimate Spikes</a></li>
+<li><a href="http://j.mp/1eu5LuM">Heartbleed</a></li>
+<li><a href="http://j.mp/1sGD07F">What To Return: IEnumerable or IList?</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1kqyhWn">For Each loop Puzzle in Java</a></li>
+<li><a href="http://j.mp/1k8vb6u">Constructor/Method Parameters Metadata Available Via Reflection in JDK 8</a></li>
+<li><a href="http://j.mp/1k8vazs">How much faster is Java 8?</a></li>
+<li><a href="http://j.mp/1sGCQNr">New Parallelism APIs in Java 8: Behind The Glitz and Glamour</a></li>
+<li><a href="http://j.mp/1sGCCWL">Why There’s Interface Pollution in Java 8</a></li>
+<li><a href="http://j.mp/1sGD5It">Dubious Aspects of Features of JDK 8</a></li>
+</ol>
+
+
+<h3>In Russian</h3>
+
+<ol>
+<li><a href="http://j.mp/NeKgGP">LHCb изучает эффекты адронной дифракции</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-09]]></title>
@@ -1258,62 +1312,6 @@
 <ol>
 <li><a href="http://j.mp/1g74YFk">Загадка топ-антитоп асимметрии на Тэватроне, похоже, исчезла</a></li>
 <li><a href="http://j.mp/1lW7twp">Американец, осмелившийся обосновать действия Путина</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-March-18]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/18/reading-list-2014-march-18/"/>
-    <updated>2014-03-18T13:59:16-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/18/reading-list-2014-march-18</id>
-    <content type="html"><![CDATA[<h3>Software Development</h3>
-
-<ol>
-<li><a href="http://j.mp/1ma825T">The Help Vampire: A Spotter’s Guide</a></li>
-<li><a href="http://j.mp/OqTcdm">Go for Java Programmers: Introduction</a></li>
-<li><a href="http://j.mp/1hube6A">rm is dangerous</a></li>
-<li><a href="http://j.mp/1hubeUk">What&rsquo;s the opposite of duplication?</a></li>
-<li><a href="http://j.mp/1ny3Uyh">What do developers spend all that time on?</a></li>
-<li><a href="http://j.mp/NlYIgc">Myths about /dev/urandom</a></li>
-<li><a href="http://j.mp/1cOPLbi">How to Make Python Faster Without Trying That Much</a></li>
-<li><a href="http://j.mp/1hnxO0W">Mighty Spring — Adventures in Dogfooding : Engineers as Recruiters</a></li>
-<li><a href="http://j.mp/1nAHrAG">Choosing a Templating Language in Clojure</a></li>
-<li><a href="http://j.mp/OqTfWx">XKCD | Manuals</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/1kYM3P5">Spring Test MVC HtmlUnit 1.0.0.M1 Released</a></li>
-<li><a href="http://j.mp/1iq1Y6p">The Java HotSpot Performance Engine: Method Inlining Example</a></li>
-<li><a href="http://j.mp/1gtYQ4g">Integration testing with Maven and Docker</a></li>
-<li><a href="http://j.mp/1cOPOnm">A quick introduction to Apache Mesos</a></li>
-</ol>
-
-
-<h3>Scala</h3>
-
-<ol>
-<li><a href="http://j.mp/1iwl4rA">The Ultimate Guide to Getting Started with the Play Framework</a></li>
-</ol>
-
-
-<h3>Android</h3>
-
-<ol>
-<li><a href="http://j.mp/1hubd2L">Google Play services 4.3</a></li>
-</ol>
-
-
-<h3>In Russian</h3>
-
-<ol>
-<li><a href="http://j.mp/1nAHxbz">Сейсмометрия установила новые ограничения на интенсивность гравитационно-волнового шума вселенной</a></li>
-<li><a href="http://j.mp/NqDHRE">FAQ: Региональное неравенство</a></li>
-<li><a href="http://j.mp/1nAHv3j">Разнообразие тропических насекомых поддерживается благодаря узкой специализации паразитов</a></li>
 </ol>
 
 ]]></content>
