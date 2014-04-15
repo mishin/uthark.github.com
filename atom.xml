@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-14T13:52:36-04:00</updated>
+  <updated>2014-04-15T13:09:23-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,56 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-April-15]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/15/reading-list-2014-april-15/"/>
+    <updated>2014-04-15T13:06:12-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/15/reading-list-2014-april-15</id>
+    <content type="html"><![CDATA[<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1qAB7Hs">Building Carousel, Part I: How we made our networked mobile app feel fast and local</a></li>
+<li><a href="http://j.mp/1qABqCj">Write line notes from your phone · GitHub</a></li>
+<li><a href="http://j.mp/1iNTKmv">Scaling the Facebook data warehouse to 300 PB</a></li>
+<li><a href="http://j.mp/1hEKq7Z">Why did we lose the XP Practices?</a></li>
+<li><a href="http://j.mp/1gB46HZ">EC2 Update &ndash; Previous Generation Instances | Amazon Web Services Blog</a></li>
+<li><a href="http://j.mp/1kWSDXn">Working with Google Analytics API v4 for Android</a></li>
+<li><a href="http://j.mp/1eKix8C">The Grails Depedency Injection Inheritance Pitfall</a></li>
+</ol>
+
+
+<h3>DevOps</h3>
+
+<ol>
+<li><a href="http://j.mp/1hEKqox">Adaptive IT — Why Vagrant is the Best DevOps Tool Ever</a></li>
+<li><a href="http://j.mp/1kTX59p">Using Chef to Automate Google Compute Engine</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1t5emxB">10 JDK 7 Features to Revisit, Before You Welcome Java 8</a></li>
+<li><a href="http://j.mp/1hEKGUC">5 Features In Java 8 That WILL Change How You Code</a></li>
+<li><a href="http://j.mp/1kSdk6X">Cache Abstraction: JCache (JSR-107) Annotations Support</a></li>
+<li><a href="http://j.mp/1kYl4jm">Oracle Nashorn: A Next-Generation JavaScript Engine for the JVM</a></li>
+<li><a href="http://j.mp/1hEKNzr">Use Nashorn and WebJars to execute Javascript server-side</a></li>
+<li><a href="http://j.mp/1eB3jsa">What’s New in Java 8: Lambdas</a></li>
+<li><a href="http://j.mp/1hEKOTO">JEP 180: Handle Frequent HashMap Collisions with Balanced Trees</a></li>
+<li><a href="http://j.mp/1p51GY4">JEP 155: Concurrency updates (jsr166e)</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/1gxBaAM">The other 99% — Monadic</a></li>
+<li><a href="http://j.mp/1iPxZCP">Reflections on Akka</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-14]]></title>
@@ -1207,47 +1257,6 @@
 <li><a href="http://j.mp/1jvNP68">OS X perf tools, slide from &hellip;</a></li>
 <li><a href="http://j.mp/1ggzqgp">Let&rsquo;s Talk Tech : The Accidental Standard</a></li>
 <li><a href="http://j.mp/1oBgeea">Classloading in Liferay</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-March-21]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/21/reading-list-2014-march-21/"/>
-    <updated>2014-03-21T13:53:47-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/21/reading-list-2014-march-21</id>
-    <content type="html"><![CDATA[<p>Hi. Take a look at today&rsquo;s articles on mutation testing.</p>
-
-<h3>General</h3>
-
-<ol>
-<li><a href="http://j.mp/NyfWqN">Google? Evil? You have no idea</a></li>
-</ol>
-
-
-<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/1fYqzii">Mutation Testing With PIT: A Step Beyond Normal Code Coverage</a></li>
-<li><a href="http://j.mp/1hKGZIZ">Mutation Testing</a></li>
-<li><a href="http://j.mp/Po8WyA">Concurrency torture: testing your code within the Java Memory Model</a></li>
-<li><a href="http://j.mp/1oBgha0">Recent activity for authentication credentials · GitHub</a></li>
-<li><a href="http://j.mp/1lR7QWf">Rich Object Models and Angular.js: Getter Methods</a></li>
-<li><a href="http://j.mp/1gcNeIN">Mule Unit Tests with Inbound Message Properties in Session or Invocation Scope</a></li>
-<li><a href="http://j.mp/1gcNcRb">Feature-based development</a></li>
-<li><a href="http://j.mp/OGafrI">Object-oriented design principles and the 5 ways of creating SOLID applications</a></li>
-<li><a href="http://j.mp/1hKWxMS">Android Wear Prototype: Quick Sharing to Pocket</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/1nZLCmu">3 Reasons to choose Vert.x</a></li>
-<li><a href="http://j.mp/1fMb600">Java 8 in Enterprise Projects</a></li>
-<li><a href="http://j.mp/1fMb7AV">Reality check: Java 8 finally catches a multicore break</a></li>
-<li><a href="http://j.mp/1j9QeI3">Spring Security – Behind the scenes</a></li>
 </ol>
 
 ]]></content>
