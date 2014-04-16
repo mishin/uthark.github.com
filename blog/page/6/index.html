@@ -9,7 +9,7 @@
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="Итак, расширение для работы с Delicious доступно на сайте расширений Google Chrome. Посмотреть и установить Новые версии расширения буду закачить на &hellip;">
+  <meta name="description" content="Summary: В данной заметке описана настройка autofs для доступа к сетевым ресурсам, доступным по NFS. Последние несколько лет (с тех пор, как &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -84,6 +84,72 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/12/14/autofs-nfs/">Настройка Autofs для монтирования NFS-ресурсов</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-12-14T12:14:00-05:00" pubdate data-updated="true">Dec 14<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+Summary: В данной заметке описана настройка autofs для доступа к сетевым ресурсам, доступным по NFS.<br />
+<br />
+Последние несколько лет (с тех пор, как количество компьютеров дома стало больше одного) возникла проблема беспрепятственного доступа к данным, хранящимся на одном компьютере с другого.<br />
+<br />
+Было найдено самое простое решение - <a href="http://en.wikipedia.org/wiki/Network_File_System_(protocol)">NFS</a>.<br />
+<br />
+Как выяснилось позже это было не самое удачное решение - ноутбук не всегда находился дома, а, значит, домашние сетевые ресурсы не всегда доступны. Соответственно, при загрузке операционной системы происходили задержки из-за поиска компьютера с сетевыми ресурсами. Не очень удобно, но жить можно.<br />
+<br />
+Решил окончательно разобраться с этим и начал искать решение. Оно оказалось на поверхности и затронуло только клиента ресурсов, то есть ноутбук. Решение называется <tt><a href="http://www.autofs.org/">autofs</a></tt>.<br />
+<br />
+1. Устанавливаем <tt>autofs</tt>.<br />
+<pre class="brush: bash">sudo aptitude install autofs5 nfs-common
+</pre><br />
+2. Производим настройку.<br />
+Редактируем файл <tt>/etc/auto.master</tt>. Расскомментируем строку, содержащую строки <tt>/net -hosts</tt>:<br />
+<pre class="brush: bash">/net -hosts
++auto.master
+</pre><br />
+3. В файл <tt><a href="http://en.wikipedia.org/wiki/Hosts_file">/etc/hosts</a></tt> можно внести адреса серверов с NFS-ресурсами (для того, чтобы избежать <a href="http://en.wikipedia.org/wiki/Domain_Name_System">DNS</a>-запросов). В моём случае:<br />
+<pre class="brush: plain">192.168.18.1 server
+</pre><br />
+4. Перезапускаем сервис <tt>autofs</tt><br />
+<pre class="brush: plain">sudo service autofs restart
+</pre><br />
+5. Теперь открываем в файловом браузер адрес <tt>/net/server</tt> и видим его сетевые ресурсы, доступные для данного клиента.<br />
+<br />
+<div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/_y8p0_dtMJ38/SyZxDikTDxI/AAAAAAAAAvk/LTr3KsGATGk/s1600-h/Screenshot-media+-+administrilo+de+dosieroj.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/_y8p0_dtMJ38/SyZxDikTDxI/AAAAAAAAAvk/LTr3KsGATGk/s320/Screenshot-media+-+administrilo+de+dosieroj.png" /></a><br />
+</div><br />
+6. Пользуемся.</div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1640,48 +1706,6 @@ package com.x.y.z;
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/05/30/protected/">Использование модификатора Protected на полях в базовом классе</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-05-30T12:45:00-04:00" pubdate data-updated="true">May 30<span>th</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-Недавно задали мне вопрос - что я думаю об использовании модификатора protected для членов базового класса? Под этим вопросом кроются более серьёзные вещи.
-
-Например, любой член класса, имеющий модификатор protected, расширяет интерфейс базового класса для подклассов - подклассы имеют доступ ко всем protected и public методам этого поля. Иногда это сделано специально, например, для того, чтобы подклассы могли иметь доступ к какой-либо функциональности. Однако, если подкласс будет использовать protected поля неправильно (например, он может установить его в null, нарушив, таким образом, поведение базового класса), то это не принесёт пользы.
-
-Поразмыслив над вопросом я пришел к следующему, достаточно логичному и широкоизвестному выводу - необходимо давать наиболее закрытый доступ, какой можно. То есть, если можно объявить член класса как private, то необходимо сделать его private. Если в подклассах необходим доступ к члену класса, то необходимо проанализировать, какие методы нужны в подклассах и открыть только их через делегирование. Если набор методов заранее неизвестен, то можно сделать protected getter для поля.</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/7/">&larr; Older</a>
@@ -1697,6 +1721,10 @@ package com.x.y.z;
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/04/16/using-unitils-reflectionassert/">Using Unitils ReflectionAssert</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/04/15/using-assertj/">Using AssertJ</a>
@@ -1720,10 +1748,6 @@ package com.x.y.z;
     
       <li class="post">
         <a href="/blog/2014/04/09/reading-list-2014-april-09/">Reading List 2014-April-09</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/08/reading-list-2014-april-08/">Reading List 2014-April-08</a>
       </li>
     
   </ul>

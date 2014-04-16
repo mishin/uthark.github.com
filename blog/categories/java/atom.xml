@@ -4,7 +4,7 @@
   <title><![CDATA[Category: java | Software Development and related activities]]></title>
   <link href="http://uthark.github.com/blog/categories/java/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-16T00:01:18-04:00</updated>
+  <updated>2014-04-16T00:35:09-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,91 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Using Unitils ReflectionAssert]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/16/using-unitils-reflectionassert/"/>
+    <updated>2014-04-16T00:10:10-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/16/using-unitils-reflectionassert</id>
+    <content type="html"><![CDATA[<p>Often it is needed to compare two different instances of the class inside test. I.e. we save object into database, then fetch it back from db and we want to be sure if nothing was lost during saving/reading.</p>
+
+<p>In order to make such assertions more easier and maintainable one can use great Unitils library which has useful class <a href="http://www.unitils.org/tutorial-reflectionassert.html">ReflectionAssert</a></p>
+
+<p>First, update parent&rsquo;s <code>pom.xml</code>:
+``` xml pom.xml changes in parent module
+<properties></p>
+
+<pre><code>&lt;unitils.version&gt;3.4&lt;/unitils.version&gt;
+</code></pre>
+
+<p></properties>
+<dependency></p>
+
+<pre><code>&lt;groupId&gt;org.unitils&lt;/groupId&gt;
+&lt;artifactId&gt;unitils-core&lt;/artifactId&gt;
+&lt;version&gt;${unitils.version}&lt;/version&gt;
+&lt;scope&gt;test&lt;/scope&gt;
+</code></pre>
+
+<p></dependency>
+```</p>
+
+<p>Then, add dependency to the child module: <br/>
+``` xml pom.xml changes in child module
+<dependency></p>
+
+<pre><code>&lt;groupId&gt;org.unitils&lt;/groupId&gt;
+&lt;artifactId&gt;unitils-core&lt;/artifactId&gt;
+</code></pre>
+
+<p></dependency>
+```</p>
+
+<p>Usage is very simple:
+Add static import to the class.
+<code>
+import static org.unitils.reflectionassert.ReflectionAssert.assertReflectionEquals;
+</code></p>
+
+<p>and use it instead of regular JUnit assert:</p>
+
+<p>``` java</p>
+
+<pre><code>assertReflectionEquals(expected, actual);
+</code></pre>
+
+<p>```</p>
+
+<p>It is possible to pass reflection comparator modes as optional parameters to the above method.</p>
+
+<p>Be ware that this method is not very useful if you want to compare objects which has floating point or double parameters &ndash; ReflectionAssert compares <code>double</code> and <code>float</code> values using <code>==</code>, so it is not very useful. It is not possible to pass epsilon for comparison.</p>
+
+<p>``` java excerpt from org.unitils.reflectionassert.comparator.impl.LenientNumberComparator#compare
+// &hellip;
+Double leftDouble = getDoubleValue(left);
+Double rightDouble = getDoubleValue(right);
+if (!leftDouble.equals(rightDouble)) {</p>
+
+<pre><code>return new Difference(differenceMessage, left, right);
+</code></pre>
+
+<p>}
+// &hellip;
+```</p>
+
+<p>If you need to compare double values in JUnit assertions then it is better to use <a href="https://code.google.com/p/hamcrest/">hamcrest library</a>:</p>
+
+<p>``` java
+import static org.hamcrest.number.IsCloseTo.closeTo;
+import static org.junit.Assert.assertThat;</p>
+
+<p>// in @Test method:
+assertThat(actual.getFederalIncomeTax(), closeTo(expected.getFederalIncomeTax(), EPSILON))
+```</p>
+
+<p>Happy hacking!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Using AssertJ]]></title>
@@ -568,110 +653,6 @@ public RestrictingMongoTemplate mongoTemplate() throws UnknownHostException {
 </span></code></pre></td></tr></table></div></figure></notextile></div></p>
 
 <p>Вот и всё.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Использование BeanPostProcessor на примере журналирования]]></title>
-    <link href="http://uthark.github.com/blog/2012/04/20/beanpostprocessor/"/>
-    <updated>2012-04-20T04:51:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2012/04/20/beanpostprocessor</id>
-    <content type="html"><![CDATA[<div class='post'>
-Сегодня я хочу рассказать, как можно сделать инициализацию логгера в классе с использованием аннотаций и <a href="http://static.springsource.org/spring/docs/current/javadoc-api/org/springframework/beans/factory/config/BeanPostProcessor.html">BeanPostProcessor</a>
-
-Очень часто мы инициализируем логгер следующим образом:
-<pre class="brush:java">
-public class MyClass {
-    private static final Logger LOG = LoggerFactory.getLogger(MyClass.class);
-}
-</pre>
-
-Я покажу, как сделать, чтобы можно было писать вот так: 
-<pre class="brush:java">
-    @Log
-    private Logger LOG;
-</pre>
-
-Первым делом нам нужно объявить аннотацию:
-
-<pre class="brush:java">
-@Retention(RUNTIME)
-@Target(FIELD)
-@Documented
-public @interface Log {
-    String category() default "";
-}
-</pre>
-
-А вторым делом, написать собственный <tt>BeanPostProcessor</tt>, который бы устанавливал нам логгер:
-
-<pre class="brush:java">
-import org.apache.commons.lang.StringUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.config.BeanPostProcessor;
-import org.springframework.stereotype.Component;
-import org.springframework.util.ReflectionUtils;
-
-@Component
-public class LoggerPostProcessor implements BeanPostProcessor {
-    @Override
-    public Object postProcessAfterInitialization(Object bean, String beanName) {
-        return bean;
-    }
-
-    @Override
-    public Object postProcessBeforeInitialization(final Object bean, final String beanName) {
-        ReflectionUtils.doWithFields(bean.getClass(), new FieldProcessor(bean, beanName), new LoggerFieldFilter());
-        return bean;
-    }
-
-    private static class FieldProcessor implements ReflectionUtils.FieldCallback {
-        private final Object bean;
-        private final String beanName;
-
-        private FieldProcessor(Object bean, String beanName) {
-            this.bean = bean;
-            this.beanName = beanName;
-        }
-
-        @Override
-        public void doWith(Field field) throws IllegalAccessException {
-            Log loggerAnnot = field.getAnnotation(Log.class);
-
-            // Sanity check if annotation is on the field with correct type.
-            if (field.getType().equals(org.slf4j.Logger.class)) {
-                // As user can override logger category - check if it was done.
-                String loggerCategory = loggerAnnot.category();
-                if (StringUtils.isBlank(loggerCategory)) {
-                    // use default category instead.
-                    loggerCategory = bean.getClass().getName();
-                }
-                Logger logger = LoggerFactory.getLogger(loggerCategory);
-                ReflectionUtils.makeAccessible(field);
-                field.set(bean, logger);
-            } else {
-                throw new IllegalArgumentException(
-                    "Unable to set logger on field '" + field.getName() + "' in bean '" + beanName +
-                        "': field should have class " + Logger.class.getName());
-            }
-        }
-    }
-
-    private static class LoggerFieldFilter implements ReflectionUtils.FieldFilter {
-        @Override
-        public boolean matches(Field field) {
-            Log logger = field.getAnnotation(Log.class);
-            return null != logger;
-        }
-    }
-}
-</pre>
-
-Если вы используете не <a href="http://www.slf4j.org/">sfl4j</a>, а, например, <a href="http://logging.apache.org/log4j/1.2/">log4j</a>, или <a href="http://commons.apache.org/logging/">commons-logging</a>, то нужно немного поправить код внутри метода <tt>doWith</tt>
-
-Попутно, данный код показывает пример использования класса <a href="http://static.springsource.org/spring/docs/current/javadoc-api/org/springframework/util/ReflectionUtils.html">org.springframework.util.ReflectionUtils</a>.</div>
-
 ]]></content>
   </entry>
   

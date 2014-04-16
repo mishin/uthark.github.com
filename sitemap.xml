@@ -456,7 +456,11 @@
     </url>
     <url>
         <loc>http://uthark.github.com/blog/2014/04/15/using-assertj/</loc>
-        <lastmod>2014-04-16T00:00:18-04:00</lastmod>
+        <lastmod>2014-04-16T00:10:33-04:00</lastmod>
+    </url>
+    <url>
+        <loc>http://uthark.github.com/blog/2014/04/16/using-unitils-reflectionassert/</loc>
+        <lastmod>2014-04-16T00:34:02-04:00</lastmod>
     </url>
     <url>
         <loc>http://uthark.github.com/about/</loc>
@@ -464,11 +468,11 @@
     </url>
     <url>
         <loc>http://uthark.github.com/blog/archives/</loc>
-        <lastmod>2014-04-16T00:00:18-04:00</lastmod>
+        <lastmod>2014-04-16T00:34:02-04:00</lastmod>
     </url>
     <url>
         <loc>http://uthark.github.com/</loc>
-        <lastmod>2014-04-16T00:00:18-04:00</lastmod>
+        <lastmod>2014-04-16T00:34:02-04:00</lastmod>
     </url>
     <url>
         <loc>http://uthark.github.com/robots.txt</loc>

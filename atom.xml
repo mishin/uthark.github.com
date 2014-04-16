@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-16T00:01:18-04:00</updated>
+  <updated>2014-04-16T00:35:09-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,106 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Using Unitils ReflectionAssert]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/16/using-unitils-reflectionassert/"/>
+    <updated>2014-04-16T00:10:10-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/16/using-unitils-reflectionassert</id>
+    <content type="html"><![CDATA[<p>Often it is needed to compare two different instances of the class inside test. I.e. we save object into database, then fetch it back from db and we want to be sure if nothing was lost during saving/reading.</p>
+
+<p>In order to make such assertions more easier and maintainable one can use great Unitils library which has useful class <a href="http://www.unitils.org/tutorial-reflectionassert.html">ReflectionAssert</a></p>
+
+<p>First, update parent&rsquo;s <code>pom.xml</code>:</p>
+
+<figure class='code'><figcaption><span>pom.xml changes in parent module</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;properties&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;unitils.version&gt;</span>3.4<span class="nt">&lt;/unitils.version&gt;</span>
+</span><span class='line'><span class="nt">&lt;/properties&gt;</span>
+</span><span class='line'><span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;groupId&gt;</span>org.unitils<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;artifactId&gt;</span>unitils-core<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;version&gt;</span>${unitils.version}<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+</span><span class='line'><span class="nt">&lt;/dependency&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then, add dependency to the child module:</p>
+
+<figure class='code'><figcaption><span>pom.xml changes in child module</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;groupId&gt;</span>org.unitils<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;artifactId&gt;</span>unitils-core<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'><span class="nt">&lt;/dependency&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Usage is very simple:
+Add static import to the class.</p>
+
+<figure class='code'><figcaption><span>pom.xml changes in child module</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'>import static org.unitils.reflectionassert.ReflectionAssert.assertReflectionEquals;
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>and use it instead of regular JUnit assert:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">assertReflectionEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">actual</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It is possible to pass reflection comparator modes as optional parameters to the above method.</p>
+
+<p>Be ware that this method is not very useful if you want to compare objects which has floating point or double parameters &ndash; ReflectionAssert compares <code>double</code> and <code>float</code> values using <code>==</code>, so it is not very useful. It is not possible to pass epsilon for comparison.</p>
+
+<figure class='code'><figcaption><span>excerpt from org.unitils.reflectionassert.comparator.impl.LenientNumberComparator#compare</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="c1">// ...</span>
+</span><span class='line'><span class="n">Double</span> <span class="n">leftDouble</span> <span class="o">=</span> <span class="n">getDoubleValue</span><span class="o">(</span><span class="n">left</span><span class="o">);</span>
+</span><span class='line'><span class="n">Double</span> <span class="n">rightDouble</span> <span class="o">=</span> <span class="n">getDoubleValue</span><span class="o">(</span><span class="n">right</span><span class="o">);</span>
+</span><span class='line'><span class="k">if</span> <span class="o">(!</span><span class="n">leftDouble</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="n">rightDouble</span><span class="o">))</span> <span class="o">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="k">new</span> <span class="nf">Difference</span><span class="o">(</span><span class="n">differenceMessage</span><span class="o">,</span> <span class="n">left</span><span class="o">,</span> <span class="n">right</span><span class="o">);</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'><span class="c1">// ...</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you need to compare double values in JUnit assertions then it is better to use <a href="https://code.google.com/p/hamcrest/">hamcrest library</a>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">hamcrest</span><span class="o">.</span><span class="na">number</span><span class="o">.</span><span class="na">IsCloseTo</span><span class="o">.</span><span class="na">closeTo</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">static</span> <span class="n">org</span><span class="o">.</span><span class="na">junit</span><span class="o">.</span><span class="na">Assert</span><span class="o">.</span><span class="na">assertThat</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// in @Test method:</span>
+</span><span class='line'><span class="n">assertThat</span><span class="o">(</span><span class="n">actual</span><span class="o">.</span><span class="na">getFederalIncomeTax</span><span class="o">(),</span> <span class="n">closeTo</span><span class="o">(</span><span class="n">expected</span><span class="o">.</span><span class="na">getFederalIncomeTax</span><span class="o">(),</span> <span class="n">EPSILON</span><span class="o">))</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Happy hacking!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Using AssertJ]]></title>
@@ -1316,60 +1416,6 @@ The integration of assertj into Maven project is very easy:</p>
 <li><a href="http://pragprog.com/magazines/2012-06/scala-for-the-intrigued">Using Traits</a></li>
 <li><a href="http://pragprog.com/magazines/2012-07/scala-for-the-intrigued">Chaining Traits</a></li>
 <li><a href="http://pragprog.com/magazines/2012-08/scala-for-the-intrigued">Concurrency in Scala</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-March-25]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/25/reading-list-2014-march-25/"/>
-    <updated>2014-03-25T11:31:11-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/25/reading-list-2014-march-25</id>
-    <content type="html"><![CDATA[<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/1jw9cnU">BLAKE2: “Harder, Better, Faster, Stronger” Than MD5 | Least Authority</a></li>
-<li><a href="http://j.mp/1diFHrk">WebP improves while rolling out across Google</a></li>
-<li><a href="http://j.mp/ORBVd9">Automated Testing with Docker</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/1jmDcai">Solr 4.7 – Efficient Deep Paging</a></li>
-<li><a href="http://j.mp/1glMd0f">Tyrus 1.5 released! Just in time for Java 8 (The Aquarium)</a></li>
-<li><a href="http://j.mp/1glM8cW">Liferay 6.2 CE GA2 Now Available</a></li>
-<li><a href="http://j.mp/1jw9oDy">Top 5 Reasons to Choose ScalaTest Over JUnit</a></li>
-<li><a href="http://j.mp/1diG8BV">What I miss in Java 8 lambda functions</a></li>
-</ol>
-
-
-<h3>Android</h3>
-
-<ol>
-<li><a href="http://j.mp/1fbKkPe">Report : What content makes up an Android Game?</a></li>
-<li><a href="http://j.mp/1fbKjec">PNG Bloat in Android Games</a></li>
-<li><a href="http://j.mp/1fbKoOQ">How to move from PNG to GPU Textures on Android (and keep your sanity)</a></li>
-<li><a href="http://j.mp/1iuvhUD">Cast Icon Update | Leon Nicholls</a></li>
-</ol>
-
-
-<h3>Scala</h3>
-
-<ol>
-<li><a href="http://j.mp/1hisTgs">Scala 2.10.4 is now available!</a></li>
-<li><a href="http://j.mp/1gxL46B">SBuild 0.7.3</a></li>
-<li><a href="http://j.mp/1glMa4y">Scala and Play Plugins Update in IntelliJ IDEA 13.1</a></li>
-</ol>
-
-
-<h3>In Russian</h3>
-
-<ol>
-<li><a href="http://j.mp/1jw0S7N">Андрей Зубов: Это уже было</a></li>
-<li><a href="http://j.mp/1fefSE6">FAQ: Кварки</a></li>
 </ol>
 
 ]]></content>

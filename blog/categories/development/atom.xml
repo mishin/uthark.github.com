@@ -4,7 +4,7 @@
   <title><![CDATA[Category: development | Software Development and related activities]]></title>
   <link href="http://uthark.github.com/blog/categories/development/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-16T00:01:18-04:00</updated>
+  <updated>2014-04-16T00:35:09-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,91 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Using Unitils ReflectionAssert]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/16/using-unitils-reflectionassert/"/>
+    <updated>2014-04-16T00:10:10-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/16/using-unitils-reflectionassert</id>
+    <content type="html"><![CDATA[<p>Often it is needed to compare two different instances of the class inside test. I.e. we save object into database, then fetch it back from db and we want to be sure if nothing was lost during saving/reading.</p>
+
+<p>In order to make such assertions more easier and maintainable one can use great Unitils library which has useful class <a href="http://www.unitils.org/tutorial-reflectionassert.html">ReflectionAssert</a></p>
+
+<p>First, update parent&rsquo;s <code>pom.xml</code>:
+``` xml pom.xml changes in parent module
+<properties></p>
+
+<pre><code>&lt;unitils.version&gt;3.4&lt;/unitils.version&gt;
+</code></pre>
+
+<p></properties>
+<dependency></p>
+
+<pre><code>&lt;groupId&gt;org.unitils&lt;/groupId&gt;
+&lt;artifactId&gt;unitils-core&lt;/artifactId&gt;
+&lt;version&gt;${unitils.version}&lt;/version&gt;
+&lt;scope&gt;test&lt;/scope&gt;
+</code></pre>
+
+<p></dependency>
+```</p>
+
+<p>Then, add dependency to the child module: <br/>
+``` xml pom.xml changes in child module
+<dependency></p>
+
+<pre><code>&lt;groupId&gt;org.unitils&lt;/groupId&gt;
+&lt;artifactId&gt;unitils-core&lt;/artifactId&gt;
+</code></pre>
+
+<p></dependency>
+```</p>
+
+<p>Usage is very simple:
+Add static import to the class.
+<code>
+import static org.unitils.reflectionassert.ReflectionAssert.assertReflectionEquals;
+</code></p>
+
+<p>and use it instead of regular JUnit assert:</p>
+
+<p>``` java</p>
+
+<pre><code>assertReflectionEquals(expected, actual);
+</code></pre>
+
+<p>```</p>
+
+<p>It is possible to pass reflection comparator modes as optional parameters to the above method.</p>
+
+<p>Be ware that this method is not very useful if you want to compare objects which has floating point or double parameters &ndash; ReflectionAssert compares <code>double</code> and <code>float</code> values using <code>==</code>, so it is not very useful. It is not possible to pass epsilon for comparison.</p>
+
+<p>``` java excerpt from org.unitils.reflectionassert.comparator.impl.LenientNumberComparator#compare
+// &hellip;
+Double leftDouble = getDoubleValue(left);
+Double rightDouble = getDoubleValue(right);
+if (!leftDouble.equals(rightDouble)) {</p>
+
+<pre><code>return new Difference(differenceMessage, left, right);
+</code></pre>
+
+<p>}
+// &hellip;
+```</p>
+
+<p>If you need to compare double values in JUnit assertions then it is better to use <a href="https://code.google.com/p/hamcrest/">hamcrest library</a>:</p>
+
+<p>``` java
+import static org.hamcrest.number.IsCloseTo.closeTo;
+import static org.junit.Assert.assertThat;</p>
+
+<p>// in @Test method:
+assertThat(actual.getFederalIncomeTax(), closeTo(expected.getFederalIncomeTax(), EPSILON))
+```</p>
+
+<p>Happy hacking!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Using AssertJ]]></title>
@@ -390,175 +475,6 @@ public void onCreate() {
 <p>}</p>
 
 <p>```</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Using custom font in Android TextView]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/06/customizing-font-in-android-textview/"/>
-    <updated>2014-03-06T19:13:17-05:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/06/customizing-font-in-android-textview</id>
-    <content type="html"><![CDATA[<p>Today I want to share with you custom <a href="http://developer.android.com/reference/android/widget/TextView.html">TextView</a> which allows to set font to be used in xml layout.</p>
-
-<p>First, we need to declare our custom styleable</p>
-
-<p>``` xml attrs.xml
-&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;utf-8&rdquo;?>
-<resources></p>
-
-<pre><code>&lt;declare-styleable name="TypefaceTextView"&gt;
-    &lt;attr name="typeface" format="string"/&gt;
-&lt;/declare-styleable&gt;
-</code></pre>
-
-<p></resources></p>
-
-<p>```</p>
-
-<p>Then we need to create subclass of <code>TextView</code> which will use custom attribute.</p>
-
-<p>``` java TypefaceTextView
-public class TypefaceTextView extends TextView {</p>
-
-<pre><code>public TypefaceTextView(Context context) {
-    this(context, null);
-}
-
-public TypefaceTextView(Context context, AttributeSet attrs) {
-    this(context, attrs, 0);
-}
-
-public TypefaceTextView(Context context, AttributeSet attrs, int defStyle) {
-    super(context, attrs, defStyle);
-
-    TypedArray ta = context.getTheme().obtainStyledAttributes(attrs, R.styleable.TypefaceTextView, 0, 0);
-    try {
-        String font = ta.getString(R.styleable.TypefaceTextView_typeface);
-        if (null == font) {
-            font = context.getString(R.string.default_font_name);
-        }
-        Typeface typeface = TypefaceCache.getTypeface(context, font);
-        if (null != typeface) {
-            setTypeface(typeface);
-        }
-
-    } finally {
-        ta.recycle();
-    }
-}
-</code></pre>
-
-<p>}
-```</p>
-
-<p>Also, above class allows to use default custom font, all is needed is to define its name in <code>strings.xml</code></p>
-
-<p>```
-&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;utf-8&rdquo;?>
-<resources></p>
-
-<pre><code>&lt;string name="default_font_name" translatable="false"&gt;custom.ttf&lt;/string&gt;
-</code></pre>
-
-<p></resources>
-```</p>
-
-<p>Due to the <a href="https://code.google.com/p/android/issues/detail?id=9904">bug in Android</a> we have to cache all created typefaces in cache:</p>
-
-<p>``` java TypefaceCache
-public class TypefaceCache {</p>
-
-<pre><code>private static final Map&lt;String, Typeface&gt; CACHE = new HashMap&lt;String, Typeface&gt;();
-
-public static Typeface getTypeface(Context context, String font) {
-    if (null == font) {
-        return null;
-    }
-    Typeface typeface = CACHE.get(font);
-    if (null == typeface) {
-
-        typeface = Typeface.createFromAsset(context.getAssets(), font);
-        CACHE.put(font, typeface);
-    }
-    return typeface;
-}
-</code></pre>
-
-<p>}</p>
-
-<p>```</p>
-
-<p>Basically, that&rsquo;s it. In order to use it is required to put TTF font in the <code>assets</code> folder and reference the font:</p>
-
-<p>``` xml Example usage.
-&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;utf-8&rdquo;?>
-&lt;com.example.android.widget.TypefaceTextView</p>
-
-<pre><code>xmlns:a="http://schemas.android.com/apk/res/android"
-xmlns:custom="http://schemas.android.com/apk/res-auto"
-a:layout_width="match_parent"
-custom:typeface="custom-font.ttf"/&gt;
-</code></pre>
-
-<p>```</p>
-
-<p>And the last use case it to set custom font for the actionbar title. In this case we can implement custom <a href="http://developer.android.com/reference/android/text/style/CharacterStyle.html"><code>android.text.style.CharacterStyle</code></a></p>
-
-<p>``` java TypefaceSpan
-public class TypefaceSpan extends MetricAffectingSpan {</p>
-
-<pre><code>private Typeface mTypeface;
-
-/**
- * Load the {@link Typeface} and apply to a {@link Spannable}.
- */
-public TypefaceSpan(Context context, String typefaceName) {
-    mTypeface = TypefaceCache.getTypeface(context, typefaceName);
-}
-
-@Override
-public void updateMeasureState(TextPaint p) {
-    p.setTypeface(mTypeface);
-
-    // Note: This flag is required for proper typeface rendering
-    p.setFlags(p.getFlags() | Paint.SUBPIXEL_TEXT_FLAG);
-}
-
-@Override
-public void updateDrawState(TextPaint tp) {
-    tp.setTypeface(mTypeface);
-
-    // Note: This flag is required for proper typeface rendering
-    tp.setFlags(tp.getFlags() | Paint.SUBPIXEL_TEXT_FLAG);
-}
-</code></pre>
-
-<p>}
-```</p>
-
-<p>Then we can set actionbar title using the following code:</p>
-
-<p>``` java
-public static void setActionBarTitle(Activity context, CharSequence title) {</p>
-
-<pre><code>SpannableString s = new SpannableString(title);
-s.setSpan(new TypefaceSpan(context, context.getString(R.string.default_font_name)), 0, s.length(),
-    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.HONEYCOMB) {
-    context.getActionBar().setTitle(s);
-}
-</code></pre>
-
-<p>}
-```</p>
-
-<h3>Additional information</h3>
-
-<ol>
-<li><a href="http://developer.android.com/training/custom-views/#create-view.html">Creating a View Class | Android Developers</a></li>
-</ol>
-
 ]]></content>
   </entry>
   
