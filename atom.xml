@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-16T00:35:09-04:00</updated>
+  <updated>2014-04-16T14:08:13-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,71 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-April-16]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/16/reading-list-2014-april-16/"/>
+    <updated>2014-04-16T13:56:20-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/16/reading-list-2014-april-16</id>
+    <content type="html"><![CDATA[<h3>Announcements</h3>
+
+<ol>
+<li><a href="http://j.mp/1iXyE5g">Apache Hadoop 2.4.0</a></li>
+<li><a href="http://j.mp/1kWSvqS">Apache Tomcat Native 1.1.30 released | Mladen Turk</a></li>
+<li><a href="http://j.mp/1kWSjI9">Apache Tomcat Connectors 1.2.40 released | Mladen Turk</a></li>
+<li><a href="http://j.mp/1j0Cbyu">Second Service Release For Spring Data Release Train Codd Released</a></li>
+<li><a href="http://j.mp/1gCPwQj">Announcing the Release of Google App Engine 1.9.3</a></li>
+<li><a href="http://j.mp/1gXMHFj">Google Cloud Platform expands to Asia Pacific</a></li>
+<li><a href="http://j.mp/1j0BRzF">Announcing Google BigQuery and Datastore Connectors for Hadoop</a></li>
+<li><a href="http://j.mp/1in80F4">Spring Integration 4.0 Release Candidate Available</a></li>
+<li><a href="http://j.mp/1kWSFOS">Final Draft of OSGi Core Release 6 available for download</a></li>
+</ol>
+
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1j0C3z1">The Four Parts of a Minimal Viable Product</a></li>
+<li><a href="http://j.mp/1eIomZM">Better code through code reviews</a></li>
+<li><a href="http://j.mp/1ipA9LA">Social Processes and Heartbleed, Part 1</a></li>
+<li><a href="http://j.mp/1kTX5WL">Angular and Durandal Converge</a></li>
+<li><a href="http://j.mp/1iWPvnx">What Heartbleed Tells Us About the Need for IT Automation</a></li>
+<li><a href="http://j.mp/1iTJQQl">No More Passwords for Apps using Login with Amazon on Kindle Fire</a></li>
+<li><a href="http://j.mp/1eIooAR">Innodb redo log archiving</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1eN4LC5">10 Books Every Java Developer Should Read</a></li>
+<li><a href="http://j.mp/1ipAb68">New BigInteger Methods in Java 8</a></li>
+<li><a href="http://j.mp/1kWSzH4">Java 8 Friday: No More Need for ORMs</a></li>
+<li><a href="http://j.mp/1hEKJQj">Everything about Java 8</a></li>
+<li><a href="http://j.mp/1j0C8CR">Maven and Java multi-version modules</a></li>
+<li><a href="http://j.mp/1hEKMvd">JDK 8 Security Enhancements</a></li>
+<li><a href="http://j.mp/1iNU7NP">Java 8 Nashorn Tutorial</a></li>
+<li><a href="http://j.mp/1inCkiJ">10 Books Every Java Developer Should Read</a></li>
+<li><a href="http://j.mp/1iVQlRl">Using jOOQ with Spring: CRUD</a></li>
+<li><a href="http://j.mp/1iVQioK">trackr: An AngularJS app with a Java 8 backend – Part I</a></li>
+<li><a href="http://j.mp/1iVQggr">Spring expression language (spel) and Spring boot in action</a></li>
+<li><a href="http://j.mp/1iZawxX">TimeUnit Enum in Java</a></li>
+<li><a href="http://j.mp/1eIomsX">We hate/love lambda</a></li>
+<li><a href="http://j.mp/1iVQe8i">Inject any custom class or service into web content templates | Liferay blogs</a></li>
+<li><a href="http://j.mp/1kVZT5v">Covariant Blabbering : Damn smart idea (2) : DynamicVariable</a></li>
+</ol>
+
+
+<h3>In Russian</h3>
+
+<ol>
+<li><a href="http://j.mp/1ik6DqE">Эксперимент LHCb окончательно доказал реальность экзотического мезона Z(4430)</a></li>
+<li><a href="http://j.mp/1eIopF3">FAQ: Биоархеология и трепанация</a></li>
+<li><a href="http://j.mp/1j0Cc5s">Как открыли новую экзотическую частицу?</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Using Unitils ReflectionAssert]]></title>
@@ -1391,31 +1456,6 @@ The integration of assertj into Maven project is very easy:</p>
 <li><a href="http://j.mp/1jIhaKH">FAQ: Специальная теория относительности</a></li>
 <li><a href="http://j.mp/1gtFCBN">Главы | Новая нормальность</a></li>
 <li><a href="http://j.mp/1ff0do0">визуалам</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Scala for the Intrigued]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/25/scala-for-the-intrigued/"/>
-    <updated>2014-03-25T16:09:42-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/25/scala-for-the-intrigued</id>
-    <content type="html"><![CDATA[<p>This is a very nice series of posts about Scala by <a href="http://blog.agiledeveloper.com/">Venkat Subramaniam</a></p>
-
-<ol>
-<li><a href="http://pragprog.com/magazines/2011-09/scala-for-the-intrigued">The Elegance of Scala</a></li>
-<li><a href="http://pragprog.com/magazines/2011-10/scala-for-the-intrigued">Sensible Typing and Optional Items</a></li>
-<li><a href="http://pragprog.com/magazines/2011-11/scala-for-the-intrigued">Cute Classes and Pure OO</a></li>
-<li><a href="http://pragprog.com/magazines/2011-12/scala-for-the-intrigued">Functional Style of Programming</a></li>
-<li><a href="http://pragprog.com/magazines/2012-01/scala-for-the-intrigued">Working with Collections</a></li>
-<li><a href="http://pragprog.com/magazines/2012-02/scala-for-the-intrigued">Creating Higher Order Functions</a></li>
-<li><a href="http://pragprog.com/magazines/2012-03/scala-for-the-intrigued">Pattern Matching</a></li>
-<li><a href="http://pragprog.com/magazines/2012-04/scala-for-the-intrigued">XML as First Class Citizen</a></li>
-<li><a href="http://pragprog.com/magazines/2012-05/scala-for-the-intrigued">Recursions and Tail Call Optimization</a></li>
-<li><a href="http://pragprog.com/magazines/2012-06/scala-for-the-intrigued">Using Traits</a></li>
-<li><a href="http://pragprog.com/magazines/2012-07/scala-for-the-intrigued">Chaining Traits</a></li>
-<li><a href="http://pragprog.com/magazines/2012-08/scala-for-the-intrigued">Concurrency in Scala</a></li>
 </ol>
 
 ]]></content>
