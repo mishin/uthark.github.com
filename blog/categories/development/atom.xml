@@ -4,7 +4,7 @@
   <title><![CDATA[Category: development | Software Development and related activities]]></title>
   <link href="http://uthark.github.com/blog/categories/development/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-15T13:09:23-04:00</updated>
+  <updated>2014-04-16T00:01:18-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,127 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Using AssertJ]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/15/using-assertj/"/>
+    <updated>2014-04-15T23:37:49-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/15/using-assertj</id>
+    <content type="html"><![CDATA[<p><a href="https://github.com/joel-costigliola/assertj-core">AssertJ</a> is a library which provides fluent strongly-typed assertions to use in unit tests.</p>
+
+<p>Example of assertions written with <code>AssertJ</code>:</p>
+
+<p>``` java
+import io.github.uthark.blog.assertj.Assertions.assertThat;</p>
+
+<p>// &hellip; within @Test
+User result = userDao.findByLogin(&ldquo;username&rdquo;);
+assertThat(result).</p>
+
+<pre><code>isNotNull().
+isActive().
+hasLogin("username");
+</code></pre>
+
+<p>```</p>
+
+<p>As you can see assertions look much more readable.
+The integration of assertj into Maven project is very easy:</p>
+
+<ol>
+<li>Update pom.xml in parent module</li>
+</ol>
+
+
+<p>``` xml pom.xml changes in parent module.
+<properties></p>
+
+<pre><code>&lt;assertj-core.version&gt;1.6.0&lt;/assertj-core.version&gt;
+&lt;assertj-assertions-generator-maven-plugin.version&gt;1.2.0&lt;/assertj-assertions-generator-maven-plugin.version&gt;
+</code></pre>
+
+<p></properties></p>
+
+<p><dependencyManagement></p>
+
+<pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;org.assertj&lt;/groupId&gt;
+    &lt;artifactId&gt;assertj-core&lt;/artifactId&gt;
+    &lt;version&gt;${assertj-core.version}&lt;/version&gt;
+    &lt;scope&gt;test&lt;/scope&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p></dependencyManagement></p>
+
+<p><pluginManagement></p>
+
+<pre><code>&lt;plugin&gt;
+    &lt;groupId&gt;org.assertj&lt;/groupId&gt;
+    &lt;artifactId&gt;assertj-assertions-generator-maven-plugin&lt;/artifactId&gt;
+    &lt;version&gt;${assertj-assertions-generator-maven-plugin.version}&lt;/version&gt;
+    &lt;executions&gt;
+        &lt;execution&gt;
+            &lt;id&gt;generate-assertions&lt;/id&gt;
+            &lt;phase&gt;generate-test-sources&lt;/phase&gt;
+            &lt;goals&gt;
+                &lt;goal&gt;generate-assertions&lt;/goal&gt;
+            &lt;/goals&gt;
+        &lt;/execution&gt;
+    &lt;/executions&gt;
+&lt;/plugin&gt;
+</code></pre>
+
+<p></pluginManagement>
+```</p>
+
+<ol>
+<li><p>Update pom.xml in child module
+``` xml Changes in child module.
+<dependencies>
+ <dependency>
+     <groupId>org.assertj</groupId>
+     <artifactId>assertj-core</artifactId>
+ </dependency>
+</dependencies>
+<build>
+ <plugins>
+     <plugin>
+         <groupId>org.assertj</groupId>
+         <artifactId>assertj-assertions-generator-maven-plugin</artifactId>
+         <configuration>
+             <!-- you can define collection packages: -->
+             <packages>
+                 <param>io.github.uthark.blog.assertj</param>
+             </packages></p>
+
+<pre><code>         &lt;!-- Or specify classes one by one. --&gt;
+         &lt;classes&gt;
+             &lt;param&gt;io.github.uthark.blog.assertj.User&lt;/param&gt;
+         &lt;/classes&gt;
+     &lt;/configuration&gt;
+ &lt;/plugin&gt;
+</code></pre>
+
+<p> </plugins>
+</build>
+```</p></li>
+</ol>
+
+
+<p>After this changes it is possible to generate assertions for the classes you want test:</p>
+
+<p><code>sh
+mvn assertj:generate-assertions
+</code></p>
+
+<p>By default assertj will generate assertion classes in <code>target/generated-test-sources/assertj-assertions/</code>, it is possible to override this behaviour by passing configuration element <code>targetDir</code> to plugin.</p>
+
+<p>Additonal documentation for Maven plugin can be <a href="http://joel-costigliola.github.io/assertj/assertj-assertions-generator-maven-plugin.html">found here</a></p>
+
+<p>Happy hacking!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Initializing Mockito @Mocks with JUnit @Rule]]></title>
@@ -438,28 +559,6 @@ if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.HONEYCOMB) {
 <li><a href="http://developer.android.com/training/custom-views/#create-view.html">Creating a View Class | Android Developers</a></li>
 </ol>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Solving issue with DB2 on VMWare Fusion on MacBook Pro 2013 Late]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/05/solving-issue-with-db2-on-vmware-fusion-on-macbook-pro-2013-late/"/>
-    <updated>2014-03-05T14:41:54-05:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/05/solving-issue-with-db2-on-vmware-fusion-on-macbook-pro-2013-late</id>
-    <content type="html"><![CDATA[<p>Today I found issue running DB2 10.1 under VMWare Fusion 6.0.2 on my MacBook &ndash; all management services for <code>db2</code> are starting except for the db2 instance itself.</p>
-
-<p>When I tried to start DB2 using <code>db2start</code> it just crashed without any additional information.</p>
-
-<p>After some googling I found out that it is due to the fact that current version of DB2 can&rsquo;t handle more than 4 responses to CPUID query.</p>
-
-<p>The workaround is to update VMWare configuration file for the virtual machine.</p>
-
-<p><code>ini Changes to *.vmx file
-monitor_control.enable_fullcpuid = TRUE
-cpuid.4.4.eax = "0000:0000:0000:0000:0000:0000:0000:0000"
-</code></p>
-
-<p>The answer was found on <a href="https://communities.vmware.com/thread/461857">VMWare Community Forums</a></p>
 ]]></content>
   </entry>
   

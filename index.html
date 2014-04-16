@@ -9,8 +9,13 @@
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="Software development Building Carousel, Part I: How we made our networked mobile app feel fast and local
-Write line notes from your phone · GitHub &hellip;">
+  <meta name="description" content="AssertJ is a library which provides fluent strongly-typed assertions to use in unit tests. Example of assertions written with AssertJ: 1
+2
+3
+4
+5
+6
+7 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -85,6 +90,207 @@ Write line notes from your phone · GitHub &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/04/15/using-assertj/">Using AssertJ</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-15T23:37:49-04:00" pubdate data-updated="true">Apr 15<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><a href="https://github.com/joel-costigliola/assertj-core">AssertJ</a> is a library which provides fluent strongly-typed assertions to use in unit tests.</p>
+
+<p>Example of assertions written with <code>AssertJ</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">import</span> <span class="nn">io.github.uthark.blog.assertj.Assertions.assertThat</span><span class="o">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// ... within @Test</span>
+</span><span class='line'><span class="n">User</span> <span class="n">result</span> <span class="o">=</span> <span class="n">userDao</span><span class="o">.</span><span class="na">findByLogin</span><span class="o">(</span><span class="s">&quot;username&quot;</span><span class="o">);</span>
+</span><span class='line'><span class="n">assertThat</span><span class="o">(</span><span class="n">result</span><span class="o">).</span>
+</span><span class='line'>    <span class="n">isNotNull</span><span class="o">().</span>
+</span><span class='line'>    <span class="n">isActive</span><span class="o">().</span>
+</span><span class='line'>    <span class="n">hasLogin</span><span class="o">(</span><span class="s">&quot;username&quot;</span><span class="o">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>As you can see assertions look much more readable.
+The integration of assertj into Maven project is very easy:</p>
+
+<ol>
+<li>Update pom.xml in parent module</li>
+</ol>
+
+
+<figure class='code'><figcaption><span>pom.xml changes in parent module.</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;properties&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;assertj-core.version&gt;</span>1.6.0<span class="nt">&lt;/assertj-core.version&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;assertj-assertions-generator-maven-plugin.version&gt;</span>1.2.0<span class="nt">&lt;/assertj-assertions-generator-maven-plugin.version&gt;</span>
+</span><span class='line'><span class="nt">&lt;/properties&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;dependencyManagement&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;groupId&gt;</span>org.assertj<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;artifactId&gt;</span>assertj-core<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;version&gt;</span>${assertj-core.version}<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/dependency&gt;</span>
+</span><span class='line'><span class="nt">&lt;/dependencyManagement&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;pluginManagement&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;plugin&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;groupId&gt;</span>org.assertj<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;artifactId&gt;</span>assertj-assertions-generator-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;version&gt;</span>${assertj-assertions-generator-maven-plugin.version}<span class="nt">&lt;/version&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;executions&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;execution&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;id&gt;</span>generate-assertions<span class="nt">&lt;/id&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;phase&gt;</span>generate-test-sources<span class="nt">&lt;/phase&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;goals&gt;</span>
+</span><span class='line'>                    <span class="nt">&lt;goal&gt;</span>generate-assertions<span class="nt">&lt;/goal&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;/goals&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;/execution&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;/executions&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/plugin&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;/pluginManagement&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ol>
+<li>Update pom.xml in child module</li>
+</ol>
+
+
+<figure class='code'><figcaption><span>Changes in child module.</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;dependencies&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;dependency&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;groupId&gt;</span>org.assertj<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;artifactId&gt;</span>assertj-core<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/dependency&gt;</span>
+</span><span class='line'><span class="nt">&lt;/dependencies&gt;</span>
+</span><span class='line'><span class="nt">&lt;build&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;plugins&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;plugin&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;groupId&gt;</span>org.assertj<span class="nt">&lt;/groupId&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;artifactId&gt;</span>assertj-assertions-generator-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;configuration&gt;</span>
+</span><span class='line'>                <span class="c">&lt;!-- you can define collection packages: --&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;packages&gt;</span>
+</span><span class='line'>                    <span class="nt">&lt;param&gt;</span>io.github.uthark.blog.assertj<span class="nt">&lt;/param&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;/packages&gt;</span>
+</span><span class='line'>
+</span><span class='line'>                <span class="c">&lt;!-- Or specify classes one by one. --&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;classes&gt;</span>
+</span><span class='line'>                    <span class="nt">&lt;param&gt;</span>io.github.uthark.blog.assertj.User<span class="nt">&lt;/param&gt;</span>
+</span><span class='line'>                <span class="nt">&lt;/classes&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;/configuration&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;/plugin&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/plugins&gt;</span>
+</span><span class='line'><span class="nt">&lt;/build&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>After this changes it is possible to generate assertions for the classes you want test:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>mvn assertj:generate-assertions
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>By default assertj will generate assertion classes in <code>target/generated-test-sources/assertj-assertions/</code>, it is possible to override this behaviour by passing configuration element <code>targetDir</code> to plugin.</p>
+
+<p>Additonal documentation for Maven plugin can be <a href="http://joel-costigliola.github.io/assertj/assertj-assertions-generator-maven-plugin.html">found here</a></p>
+
+<p>Happy hacking!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1425,42 +1631,6 @@ Write line notes from your phone · GitHub &hellip;">
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/03/28/atom-dot-io-invites/">Atom.io Invites</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-28T09:53:03-04:00" pubdate data-updated="true">Mar 28<span>th</span>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>If anyone needs invites to <a href="http://atom.io">atom.io</a>, text editor from github &ndash; ask me in comments. I do have 3 invites to share.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1474,6 +1644,10 @@ Write line notes from your phone · GitHub &hellip;">
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/04/15/using-assertj/">Using AssertJ</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/04/15/reading-list-2014-april-15/">Reading List 2014-April-15</a>
@@ -1497,10 +1671,6 @@ Write line notes from your phone · GitHub &hellip;">
     
       <li class="post">
         <a href="/blog/2014/04/08/reading-list-2014-april-08/">Reading List 2014-April-08</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/07/reading-list-2014-april-07/">Reading List 2014-April-07</a>
       </li>
     
   </ul>
