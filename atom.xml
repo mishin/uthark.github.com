@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-16T14:08:13-04:00</updated>
+  <updated>2014-04-17T14:43:31-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,57 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-April-17]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/17/reading-list-2014-april-17/"/>
+    <updated>2014-04-17T14:36:39-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/17/reading-list-2014-april-17</id>
+    <content type="html"><![CDATA[<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1j6gher">Seven Databases in Seven Days – Riak</a></li>
+<li><a href="http://j.mp/1iVLmBy">Design, Develop, and Distribute at I/O 2014 | Google Developers Blog</a></li>
+<li><a href="http://j.mp/1r0Dq4R">Coloring Different Data Sources in IntelliJ IDEA</a></li>
+<li><a href="http://j.mp/1r0DqlB">Todon&rsquo;t</a></li>
+<li><a href="http://j.mp/1gXMXE8">How to Level Up</a></li>
+</ol>
+
+
+<h3>Video</h3>
+
+<ol>
+<li><a href="http://j.mp/1eDKyUw">Fireside Chat: Android Design</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1hEKAwc">List of all JEPs for JDK8</a></li>
+<li><a href="http://j.mp/1hVh4fD">JEP 174: Nashorn JavaScript Engine</a></li>
+<li><a href="http://j.mp/1iVLocr">Asynchronous CDI Events? (The Aquarium)</a></li>
+<li><a href="http://j.mp/1j3cVJb">Conway’s Game of Life and the Flyweight Pattern</a></li>
+<li><a href="http://j.mp/1eBg8CA">We’re Hacking JDBC, so You Don’t Have To</a></li>
+<li><a href="http://j.mp/1eD10oa">The Real Cost of Logging</a></li>
+<li><a href="http://j.mp/1j6gqi2">JSON Schema (The Aquarium)</a></li>
+<li><a href="http://j.mp/1p8970y">Spring MVC Test with Geb</a></li>
+<li><a href="http://j.mp/1hJS5B1">Some new Guava classes targeted for release 10 | Google Groups</a></li>
+</ol>
+
+
+<h4>Some background discussions on Java 8 Lambda, Optional and default methods in interfaces</h4>
+
+<ol>
+<li><a href="http://j.mp/1hJS67W">Optional require(s) NonNull</a></li>
+<li><a href="http://j.mp/1hVgZc5">When lambdas become objects</a></li>
+<li><a href="http://j.mp/1hJRTS9">Allow default methods to override Object&rsquo;s methods</a></li>
+<li><a href="http://j.mp/1hJRY8t">Checked exceptions within Block<T></a></li>
+<li><a href="http://j.mp/1hJRYFI">Allow lambdas to implement abstract classes</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-16]]></title>
@@ -1388,74 +1439,6 @@ The integration of assertj into Maven project is very easy:</p>
 <li><a href="http://j.mp/1eMzL8G">Easy Dependency Injection in Play Framework with Scaldi</a></li>
 <li><a href="http://j.mp/1jCf0fK">Polymorphism, and typeclasses in Scala.</a></li>
 <li><a href="http://j.mp/Qe3wGH">A SQL query DSL for Scala by ScalikeJDBC</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-March-26]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/26/reading-list-2014-march-26/"/>
-    <updated>2014-03-26T11:21:55-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/26/reading-list-2014-march-26</id>
-    <content type="html"><![CDATA[<h3>General</h3>
-
-<ol>
-<li><a href="http://j.mp/NKHJ7B">Skitch for Android Update: New Toolbars and More | Evernote blog</a></li>
-<li><a href="http://j.mp/ORrAyb">New Pocket for Firefox: Simplified Saving, Auto-Complete Tagging, and More</a></li>
-<li><a href="http://on.recode.net/1j0rM7w">Microsoft Researcher Wins the “Nobel Prize” of Computer Science</a></li>
-</ol>
-
-
-<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/1dqLefm">The Microservice Architecture Sounds Like Service-Oriented Architecture</a></li>
-<li><a href="http://j.mp/1lkxrdf">Implementing Static Analysis isn&rsquo;t that easy</a></li>
-<li><a href="http://j.mp/1gymVgl">Google Tag Manager | Android</a></li>
-</ol>
-
-
-<h3>Cloud</h3>
-
-<ol>
-<li><a href="http://j.mp/1hphqvm">Google Announces Massive Price Drops For Its Cloud Computing Services And Storage, Introduces Sustained-Use Discounts</a></li>
-<li><a href="http://j.mp/1j8UAiA">Cassandra Hits One Million Writes Per Second on Google Compute Engine</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/1nYhf35">Oracle Announces Java 8</a></li>
-<li><a href="http://j.mp/Qe3vmd">Spring Security 3.2.3 Released</a></li>
-<li><a href="http://j.mp/1jCeJJy">Tyrus 1.5 (Pavel Bucek&rsquo;s weblog)</a></li>
-<li><a href="http://j.mp/1hnADO1">Java API for JSON Processing (JSR 353) (The Aquarium)</a></li>
-<li><a href="http://j.mp/1jIhhG4">Key Collections powered by Java 8 Lambdas</a></li>
-<li><a href="http://j.mp/1ry7LLm">Hibernate, JPA, Spring and Hsqldb</a></li>
-<li><a href="http://j.mp/1jJ9Heq">Executor, ExecutorService, ThreadPool, and Future in Java</a></li>
-<li><a href="http://j.mp/1ry7Hv3">Porting legacy Java backend to Spring Boot in one week</a></li>
-<li><a href="http://j.mp/ORrAhF">burek for breakfast &ndash; Food For Tests: JDK 7u60 Build b11 &amp; JDK 8u20 Build b05</a></li>
-</ol>
-
-
-<h3>Scala</h3>
-
-<ol>
-<li><a href="http://j.mp/NRB23x">Akka 2.3.1 Maintenance Release</a></li>
-<li><a href="http://j.mp/1pxddKB">Announcing Slick 2.0.1</a></li>
-<li><a href="http://j.mp/1jCeHBH">Kamon 0.0.14 release | Google Groups</a></li>
-<li><a href="http://j.mp/QbNjBQ">Dependency Injection in Akka with Scaldi</a></li>
-<li><a href="http://j.mp/1drgaw1">Why does IntelliJ IDEA compile Scala so slowly? &ndash; Stack Overflow</a></li>
-</ol>
-
-
-<h3>In russian</h3>
-
-<ol>
-<li><a href="http://j.mp/1jIhaKH">FAQ: Специальная теория относительности</a></li>
-<li><a href="http://j.mp/1gtFCBN">Главы | Новая нормальность</a></li>
-<li><a href="http://j.mp/1ff0do0">визуалам</a></li>
 </ol>
 
 ]]></content>
