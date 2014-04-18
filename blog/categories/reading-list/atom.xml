@@ -4,7 +4,7 @@
   <title><![CDATA[Category: reading list | Software Development and related activities]]></title>
   <link href="http://uthark.github.com/blog/categories/reading-list/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-17T14:43:31-04:00</updated>
+  <updated>2014-04-18T12:50:30-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,87 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-April-18]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/18/reading-list-2014-april-18/"/>
+    <updated>2014-04-18T12:35:34-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/18/reading-list-2014-april-18</id>
+    <content type="html"><![CDATA[<p>Death of Gabriel Garcia Marquez is definitely the worst yesterday&rsquo;s news.
+Read more: <a href="http://j.mp/1hRvbIN">Gabriel Garcia Marquez dies at 87</a></p>
+
+<h3>Announcements</h3>
+
+<ol>
+<li><a href="http://j.mp/1gPWaD2">CDI 1.2 Released (The Aquarium)</a></li>
+<li><a href="http://j.mp/QtkAbt">CDI 1.2 is released | Contexts and Dependency Injection</a></li>
+<li><a href="http://j.mp/1l9C8ra">AlloyUI 2.5.0 Released</a></li>
+<li><a href="http://j.mp/1qTV2kJ">AngularDart 0.10.0 (ostemad-teleportation) : breaking changes and versioning</a></li>
+<li><a href="http://j.mp/1r0Dsd7">Spring XD 1.0.0.M6 Released</a></li>
+<li><a href="http://j.mp/1md5KTY">Spring Security OAuth 2.0.0.RC1 Available</a></li>
+<li><a href="http://j.mp/1hYH8H0">The New Linode Cloud: SSDs, Double RAM &amp; much more | Linode Blog</a></li>
+</ol>
+
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1l8Ed6v">The Heartbleed Aftermath: all CloudFlare certificates revoked and reissued</a></li>
+<li><a href="http://j.mp/1pfh9Vz">Starbucks Does Not Use Two-Phase Commit</a></li>
+<li><a href="http://j.mp/1iNTJPq">When two-factor authentication is not enough</a></li>
+<li><a href="http://j.mp/1peUPLK">Big Data Quality: Certify or Govern?</a></li>
+<li><a href="http://j.mp/1hPLyWg">Things You Should Never Do, Part I</a></li>
+<li><a href="http://j.mp/1peURDh">Tips for Getting Your Android Apps Looking Good on Amazon Fire TV</a></li>
+<li><a href="http://j.mp/1isSszK">Developers' Guide to Static Code Analysis</a></li>
+<li><a href="http://j.mp/1l3mq0J">Code School and the Google Maps SDK for iOS</a></li>
+<li><a href="http://j.mp/1iv4Nn2">Git and project dependencies</a></li>
+<li><a href="http://j.mp/1jaxSR8">A Simple Explanation for git rebase</a></li>
+<li><a href="http://j.mp/1hTnMJf">5 ways to improve battery life in your app</a></li>
+<li><a href="http://j.mp/1jaxMsO">The Magic of Modularity</a></li>
+</ol>
+
+
+<h3>Agile</h3>
+
+<ol>
+<li><a href="http://j.mp/1h8Aeid">Testability and Cost of Change</a></li>
+<li><a href="http://j.mp/1eFMQmn">Continuous Delivery: The price of admission..</a></li>
+<li><a href="http://j.mp/1iv4LeN">The advantage of Scrum in evaluating &ldquo;new stuff&rdquo;</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1eYDLjc">Using jOOQ with Spring: CRUD</a></li>
+<li><a href="http://j.mp/1j6gbDC">Webinar Replay: Building &lsquo;Bootiful&rsquo; Applications with Spring Boot</a></li>
+<li><a href="http://j.mp/1l9C1M5">New BigInteger methods in Java 8</a></li>
+<li><a href="http://j.mp/RsXfaY">Using Selenium with JMeter&rsquo;s WebDriver Sampler</a></li>
+<li><a href="http://j.mp/1j6g6jk">How to do Continuous Integration with Java 8, NetBeans Platform 8, Jenkins, Jacoco and Sonar</a></li>
+<li><a href="http://j.mp/1l8tWaq">Inject any custom service into Liferay WCM templates</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/1qQOtiY">Changes in Scala 2.11</a></li>
+<li><a href="http://j.mp/1l9Vj47">Welcome to Scala 2.11</a></li>
+<li><a href="http://j.mp/1j9lWPM">Webinar: Welcome to Scala 2.11</a></li>
+<li><a href="http://j.mp/1j6goqe">Typesafe announces Akka Streams, a part of the Reactive Streams Initiative</a></li>
+<li><a href="http://j.mp/1l8tVn0">Primitive recursion with fix and Mu</a></li>
+</ol>
+
+
+<h3>In Russian</h3>
+
+<ol>
+<li><a href="http://j.mp/1qTr28J">Разномыслие, как ни странно, началось при Сталине… | ПостНаука</a></li>
+<li><a href="http://j.mp/1j9LU6R">Новый метод позволил наложить рекордное ограничение на время жизни хиггсовского бозона</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-17]]></title>
@@ -223,63 +304,6 @@
 <li><a href="http://j.mp/1qHbzqs">Non-blocking I/Os in Servlet 3.1 (The Aquarium)</a></li>
 <li><a href="http://j.mp/1sLizq2">Liferay CometD Ajax Push / Liferay Reverse Ajax</a></li>
 <li><a href="http://j.mp/1iLiNGK">Java Q&amp;A: The ultimate superclass, Part 2</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-April-11]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/11/reading-list-2014-april-11/"/>
-    <updated>2014-04-11T12:57:41-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/11/reading-list-2014-april-11</id>
-    <content type="html"><![CDATA[<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/1i2wSSe">Dart improves async and server-side performance</a></li>
-<li><a href="http://j.mp/1i2wR0I">Federal Government Releases Health Care Provider Reference Architecture</a></li>
-<li><a href="http://j.mp/1iwTJ6h">The Cost of Context Switching</a></li>
-<li><a href="http://j.mp/1kBKyr4">How Overloading Interacts With C Compatibility</a></li>
-<li><a href="http://j.mp/1hEr1xW">Write Code Every Day</a></li>
-<li><a href="http://j.mp/Q2rMuT">Consumer Release Testing</a></li>
-<li><a href="http://j.mp/1kpnWtE">Google Finds: Centralized Control, Distributed Data Architectures Work Better than Fully Decentralized Architectures</a></li>
-<li><a href="http://j.mp/1qmvqwS">Do Developers Love To Build On MongoDB?</a></li>
-<li><a href="http://j.mp/1qHaEpP">10 Reasons Not To Use Infinite Scroll On Your Website</a></li>
-<li><a href="http://j.mp/1kx20N9">First look: MongoDB 2.6, the all-grown-up version</a></li>
-</ol>
-
-
-<h3>Cloud</h3>
-
-<ol>
-<li><a href="http://j.mp/1sGCExE">Now Available &ndash; New Memory-Optimized EC2 Instances (R3)</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/OL5aOm">JEP 169: Value Objects</a></li>
-<li><a href="http://j.mp/1k8v6zV">A Docker Maven Plugin for Integration Testing</a></li>
-<li><a href="http://j.mp/1i2wRxH">Reactive Programming Patterns in Akka using Java 8</a></li>
-<li><a href="http://j.mp/1euB6xF">Executing Diagnostic Commands Using Attach</a></li>
-<li><a href="http://j.mp/1kyytmv">Final Results from our Java EE 8 Community Survey (Linda DeMichiel&rsquo;s Blog)</a></li>
-<li><a href="http://j.mp/1qHbuD0">CSRF protection in Spring MVC, Thymeleaf, Spring Security application</a></li>
-</ol>
-
-
-<h3>Android</h3>
-
-<ol>
-<li><a href="http://j.mp/1kx227V">Anti-Malware Monitoring for Android Apps</a></li>
-<li><a href="http://j.mp/1hEr1Op">Expanding Google’s security services for Android</a></li>
-</ol>
-
-
-<h3>Scala</h3>
-
-<ol>
-<li><a href="http://j.mp/1qmvtsp">Memoization of Scala Streams</a></li>
 </ol>
 
 ]]></content>
