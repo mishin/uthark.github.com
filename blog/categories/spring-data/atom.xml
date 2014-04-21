@@ -4,7 +4,7 @@
   <title><![CDATA[Category: spring data | Software Development and related activities]]></title>
   <link href="http://uthark.github.com/blog/categories/spring-data/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-18T12:50:30-04:00</updated>
+  <updated>2014-04-21T10:21:55-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -307,7 +307,7 @@ public RestrictingMongoTemplate mongoTemplate() throws UnknownHostException {
 
 <p>Spring Data JPA умеет автоматически генерировать запросы используя для подсказки название метода.</p>
 
-<p>Например, метод User.findByLoginAndPassword сгенерирует примерно следующий код:</p>
+<p>Например, метод <code>User.findByLoginAndPassword</code> сгенерирует примерно следующий код:</p>
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='sql'><span class='line'><span class="k">FROM</span> <span class="k">User</span> <span class="n">u</span> <span class="k">where</span> <span class="n">u</span><span class="p">.</span><span class="n">login</span> <span class="o">=</span> <span class="p">:</span><span class="n">login</span> <span class="k">and</span> <span class="n">password</span> <span class="o">=</span> <span class="p">:</span><span class="n">password</span>
