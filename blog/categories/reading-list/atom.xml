@@ -4,7 +4,7 @@
   <title><![CDATA[Category: reading list | Software Development and related activities]]></title>
   <link href="http://uthark.github.com/blog/categories/reading-list/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-21T10:21:55-04:00</updated>
+  <updated>2014-04-22T13:52:18-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,126 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-April-22]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/22/reading-list-2014-april-22/"/>
+    <updated>2014-04-22T13:41:36-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/22/reading-list-2014-april-22</id>
+    <content type="html"><![CDATA[<h3>Announcements</h3>
+
+<ol>
+<li><a href="http://j.mp/1hhT8TW">Scala 2.11.0 is now available!</a></li>
+<li><a href="http://j.mp/1eWbpve">Scala 2.11 Has Arrived!</a></li>
+<li><a href="http://j.mp/1k3OEVk">sqltyped 0.4.0</a></li>
+<li><a href="http://j.mp/1mA3OFc">Release version 1.0.8 · skinny-framework/skinny-framework · GitHub</a></li>
+<li><a href="http://j.mp/1k3OBc9">Finatra 1.5.3 Released</a></li>
+</ol>
+
+
+<h3>Cloud</h3>
+
+<ol>
+<li><a href="http://j.mp/1jv2JcJ">Using Puppet to Automate Google Compute Engine</a></li>
+<li><a href="http://j.mp/1mA3XbV">No IaaS? No Problem.</a></li>
+<li><a href="http://j.mp/1oQt5rm">PeopleFun chooses Google App Engine to offload infrastructure tasks and build games people love to play</a></li>
+</ol>
+
+
+<h3>Android</h3>
+
+<ol>
+<li><a href="http://j.mp/1i8izxe">Butter Knife</a></li>
+<li><a href="http://j.mp/1rfOXxn">Android Interface Definition Language (AIDL)</a></li>
+<li><a href="http://j.mp/1lAam3k">Security Tips | Android Developers</a></li>
+<li><a href="http://j.mp/PqsYYb">Scheduling Repeated Tasks in Android</a></li>
+</ol>
+
+
+<h3>Security</h3>
+
+<ol>
+<li><a href="http://j.mp/1i74wrF">Heartbleed disclosure timeline: who knew what and when</a></li>
+<li><a href="http://j.mp/1jwvYvK">Please Put OpenSSL Out of Its Misery</a></li>
+<li><a href="http://j.mp/KLyIcT">Detecting and Fixing XSS using OWASP tools</a></li>
+</ol>
+
+
+<h3>General</h3>
+
+<ol>
+<li><a href="http://j.mp/1fidlci">Results of the GitHub Investigation · GitHub</a></li>
+<li><a href="http://j.mp/1k3OIo7">This is why Microsoft won. And why they lost.</a></li>
+<li><a href="http://j.mp/1mA3XIQ">Predicting happiness from demographics and poll answers</a></li>
+<li><a href="http://j.mp/1lpjJlO">The Truth About Google X: An Exclusive Look Behind The Secretive Lab&rsquo;s Closed Doors</a></li>
+</ol>
+
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1k3OHjU">Code as if everyone is the thief.</a></li>
+<li><a href="http://j.mp/1juw6Mh">huginn/README.md at master · cantino/huginn · GitHub</a></li>
+<li><a href="http://j.mp/1j9lXTB">Thoughts on The Reactive Manifesto</a></li>
+<li><a href="http://j.mp/1ju9QSw">Productive Developers are Smart and Lazy</a></li>
+<li><a href="http://j.mp/1rfP2Bb">Don&rsquo;t Learn to Code, Learn to Program &ndash; But Come Back in 10 Years</a></li>
+<li><a href="http://j.mp/1h4qj1p">How can I do This? With SQL of Course!</a></li>
+<li><a href="http://j.mp/MMcCrL">I don&rsquo;t know.</a></li>
+<li><a href="http://j.mp/NAsZZw">A concrete approach to learning how to program</a></li>
+<li><a href="http://j.mp/1i74z6M">Kernel 101 - Let's write a Kernel &ndash; Arjun Sreedharan</a></li>
+<li><a href="http://j.mp/1h4q7PQ">How rows_sent can be more than rows_examined?</a></li>
+<li><a href="http://j.mp/1oVc535">Please, Run That Calculation in Your RDBMS</a></li>
+<li><a href="http://j.mp/1gj9ue7">All you are is attitude</a></li>
+<li><a href="http://j.mp/1gfH74t">Node.js beyond the basics</a></li>
+<li><a href="http://j.mp/1dPdIOf">angular/angular-seed · GitHub</a></li>
+<li><a href="http://j.mp/1jm5dey">ng-boilerplate</a></li>
+</ol>
+
+
+<h3>Agile</h3>
+
+<ol>
+<li><a href="http://j.mp/1k3OMUR">Definition of done</a></li>
+<li><a href="http://j.mp/1jv2COh">Having an exploratory meeting? Ask how will the feature be tested</a></li>
+<li><a href="http://j.mp/1txMiDi">Personal WIP limit directly impacts Cycle Time</a></li>
+<li><a href="http://j.mp/1ju9WtB">On concurrency and Idempotence: TDD just as production code should be thread safe</a></li>
+<li><a href="http://j.mp/1nXXN36">Hudson/Jenkins Git build all branches</a></li>
+<li><a href="http://j.mp/1mwLj4H">Test sizes | Google Testing Blog</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1icJlOY">Is Java 8 the fastest JVM ever? Performance benchmarking of Fork-Join</a></li>
+<li><a href="http://j.mp/1gj9vi7">Sonatype questions Maven scores in follow-up to Java Build Tools report</a></li>
+<li><a href="http://j.mp/1f0PmDP">Java 7 vs. Java 8: Performance Benchmarking of Fork/Join</a></li>
+<li><a href="http://j.mp/1f0Pqn0">Spring test with thymeleaf for views</a></li>
+<li><a href="http://j.mp/PqsZvh">Validating JAX-RS resource data with Bean Validation in Java EE 7 and WildFly</a></li>
+<li><a href="http://j.mp/ORrvdT">Lambda Expressions in Java 8</a></li>
+<li><a href="http://j.mp/1fYqyLh">Getting Mutants to test your Tests</a></li>
+<li><a href="http://j.mp/RFxmok">HOW-TO: Spring Boot and Thymeleaf with Maven</a></li>
+<li><a href="http://j.mp/1oiarLx">Using the JVM Performance Counters</a></li>
+<li><a href="http://j.mp/1ju9zyX">How to manage Git Submodules with JGit</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/1mwbAQD">Sprinter</a></li>
+</ol>
+
+
+<h3>Politics</h3>
+
+<ol>
+<li><a href="http://j.mp/1cEqQ4R">Putin&rsquo;s Improv Act</a></li>
+<li><a href="http://j.mp/1bfS6vB">Snow Blind</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-21]]></title>
@@ -296,56 +416,6 @@ Read more: <a href="http://j.mp/1hRvbIN">Gabriel Garcia Marquez dies at 87</a></
 <li><a href="http://j.mp/1ik6DqE">Эксперимент LHCb окончательно доказал реальность экзотического мезона Z(4430)</a></li>
 <li><a href="http://j.mp/1eIopF3">FAQ: Биоархеология и трепанация</a></li>
 <li><a href="http://j.mp/1j0Cc5s">Как открыли новую экзотическую частицу?</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-April-15]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/15/reading-list-2014-april-15/"/>
-    <updated>2014-04-15T13:06:12-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/15/reading-list-2014-april-15</id>
-    <content type="html"><![CDATA[<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/1qAB7Hs">Building Carousel, Part I: How we made our networked mobile app feel fast and local</a></li>
-<li><a href="http://j.mp/1qABqCj">Write line notes from your phone · GitHub</a></li>
-<li><a href="http://j.mp/1iNTKmv">Scaling the Facebook data warehouse to 300 PB</a></li>
-<li><a href="http://j.mp/1hEKq7Z">Why did we lose the XP Practices?</a></li>
-<li><a href="http://j.mp/1gB46HZ">EC2 Update &ndash; Previous Generation Instances | Amazon Web Services Blog</a></li>
-<li><a href="http://j.mp/1kWSDXn">Working with Google Analytics API v4 for Android</a></li>
-<li><a href="http://j.mp/1eKix8C">The Grails Depedency Injection Inheritance Pitfall</a></li>
-</ol>
-
-
-<h3>DevOps</h3>
-
-<ol>
-<li><a href="http://j.mp/1hEKqox">Adaptive IT — Why Vagrant is the Best DevOps Tool Ever</a></li>
-<li><a href="http://j.mp/1kTX59p">Using Chef to Automate Google Compute Engine</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/1t5emxB">10 JDK 7 Features to Revisit, Before You Welcome Java 8</a></li>
-<li><a href="http://j.mp/1hEKGUC">5 Features In Java 8 That WILL Change How You Code</a></li>
-<li><a href="http://j.mp/1kSdk6X">Cache Abstraction: JCache (JSR-107) Annotations Support</a></li>
-<li><a href="http://j.mp/1kYl4jm">Oracle Nashorn: A Next-Generation JavaScript Engine for the JVM</a></li>
-<li><a href="http://j.mp/1hEKNzr">Use Nashorn and WebJars to execute Javascript server-side</a></li>
-<li><a href="http://j.mp/1eB3jsa">What’s New in Java 8: Lambdas</a></li>
-<li><a href="http://j.mp/1hEKOTO">JEP 180: Handle Frequent HashMap Collisions with Balanced Trees</a></li>
-<li><a href="http://j.mp/1p51GY4">JEP 155: Concurrency updates (jsr166e)</a></li>
-</ol>
-
-
-<h3>Scala</h3>
-
-<ol>
-<li><a href="http://j.mp/1gxBaAM">The other 99% — Monadic</a></li>
-<li><a href="http://j.mp/1iPxZCP">Reflections on Akka</a></li>
 </ol>
 
 ]]></content>

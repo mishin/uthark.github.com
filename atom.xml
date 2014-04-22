@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-21T10:21:55-04:00</updated>
+  <updated>2014-04-22T13:52:18-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,126 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-April-22]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/22/reading-list-2014-april-22/"/>
+    <updated>2014-04-22T13:41:36-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/22/reading-list-2014-april-22</id>
+    <content type="html"><![CDATA[<h3>Announcements</h3>
+
+<ol>
+<li><a href="http://j.mp/1hhT8TW">Scala 2.11.0 is now available!</a></li>
+<li><a href="http://j.mp/1eWbpve">Scala 2.11 Has Arrived!</a></li>
+<li><a href="http://j.mp/1k3OEVk">sqltyped 0.4.0</a></li>
+<li><a href="http://j.mp/1mA3OFc">Release version 1.0.8 · skinny-framework/skinny-framework · GitHub</a></li>
+<li><a href="http://j.mp/1k3OBc9">Finatra 1.5.3 Released</a></li>
+</ol>
+
+
+<h3>Cloud</h3>
+
+<ol>
+<li><a href="http://j.mp/1jv2JcJ">Using Puppet to Automate Google Compute Engine</a></li>
+<li><a href="http://j.mp/1mA3XbV">No IaaS? No Problem.</a></li>
+<li><a href="http://j.mp/1oQt5rm">PeopleFun chooses Google App Engine to offload infrastructure tasks and build games people love to play</a></li>
+</ol>
+
+
+<h3>Android</h3>
+
+<ol>
+<li><a href="http://j.mp/1i8izxe">Butter Knife</a></li>
+<li><a href="http://j.mp/1rfOXxn">Android Interface Definition Language (AIDL)</a></li>
+<li><a href="http://j.mp/1lAam3k">Security Tips | Android Developers</a></li>
+<li><a href="http://j.mp/PqsYYb">Scheduling Repeated Tasks in Android</a></li>
+</ol>
+
+
+<h3>Security</h3>
+
+<ol>
+<li><a href="http://j.mp/1i74wrF">Heartbleed disclosure timeline: who knew what and when</a></li>
+<li><a href="http://j.mp/1jwvYvK">Please Put OpenSSL Out of Its Misery</a></li>
+<li><a href="http://j.mp/KLyIcT">Detecting and Fixing XSS using OWASP tools</a></li>
+</ol>
+
+
+<h3>General</h3>
+
+<ol>
+<li><a href="http://j.mp/1fidlci">Results of the GitHub Investigation · GitHub</a></li>
+<li><a href="http://j.mp/1k3OIo7">This is why Microsoft won. And why they lost.</a></li>
+<li><a href="http://j.mp/1mA3XIQ">Predicting happiness from demographics and poll answers</a></li>
+<li><a href="http://j.mp/1lpjJlO">The Truth About Google X: An Exclusive Look Behind The Secretive Lab&rsquo;s Closed Doors</a></li>
+</ol>
+
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1k3OHjU">Code as if everyone is the thief.</a></li>
+<li><a href="http://j.mp/1juw6Mh">huginn/README.md at master · cantino/huginn · GitHub</a></li>
+<li><a href="http://j.mp/1j9lXTB">Thoughts on The Reactive Manifesto</a></li>
+<li><a href="http://j.mp/1ju9QSw">Productive Developers are Smart and Lazy</a></li>
+<li><a href="http://j.mp/1rfP2Bb">Don&rsquo;t Learn to Code, Learn to Program &ndash; But Come Back in 10 Years</a></li>
+<li><a href="http://j.mp/1h4qj1p">How can I do This? With SQL of Course!</a></li>
+<li><a href="http://j.mp/MMcCrL">I don&rsquo;t know.</a></li>
+<li><a href="http://j.mp/NAsZZw">A concrete approach to learning how to program</a></li>
+<li><a href="http://j.mp/1i74z6M">Kernel 101 - Let&#8217;s write a Kernel &ndash; Arjun Sreedharan</a></li>
+<li><a href="http://j.mp/1h4q7PQ">How rows_sent can be more than rows_examined?</a></li>
+<li><a href="http://j.mp/1oVc535">Please, Run That Calculation in Your RDBMS</a></li>
+<li><a href="http://j.mp/1gj9ue7">All you are is attitude</a></li>
+<li><a href="http://j.mp/1gfH74t">Node.js beyond the basics</a></li>
+<li><a href="http://j.mp/1dPdIOf">angular/angular-seed · GitHub</a></li>
+<li><a href="http://j.mp/1jm5dey">ng-boilerplate</a></li>
+</ol>
+
+
+<h3>Agile</h3>
+
+<ol>
+<li><a href="http://j.mp/1k3OMUR">Definition of done</a></li>
+<li><a href="http://j.mp/1jv2COh">Having an exploratory meeting? Ask how will the feature be tested</a></li>
+<li><a href="http://j.mp/1txMiDi">Personal WIP limit directly impacts Cycle Time</a></li>
+<li><a href="http://j.mp/1ju9WtB">On concurrency and Idempotence: TDD just as production code should be thread safe</a></li>
+<li><a href="http://j.mp/1nXXN36">Hudson/Jenkins Git build all branches</a></li>
+<li><a href="http://j.mp/1mwLj4H">Test sizes | Google Testing Blog</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1icJlOY">Is Java 8 the fastest JVM ever? Performance benchmarking of Fork-Join</a></li>
+<li><a href="http://j.mp/1gj9vi7">Sonatype questions Maven scores in follow-up to Java Build Tools report</a></li>
+<li><a href="http://j.mp/1f0PmDP">Java 7 vs. Java 8: Performance Benchmarking of Fork/Join</a></li>
+<li><a href="http://j.mp/1f0Pqn0">Spring test with thymeleaf for views</a></li>
+<li><a href="http://j.mp/PqsZvh">Validating JAX-RS resource data with Bean Validation in Java EE 7 and WildFly</a></li>
+<li><a href="http://j.mp/ORrvdT">Lambda Expressions in Java 8</a></li>
+<li><a href="http://j.mp/1fYqyLh">Getting Mutants to test your Tests</a></li>
+<li><a href="http://j.mp/RFxmok">HOW-TO: Spring Boot and Thymeleaf with Maven</a></li>
+<li><a href="http://j.mp/1oiarLx">Using the JVM Performance Counters</a></li>
+<li><a href="http://j.mp/1ju9zyX">How to manage Git Submodules with JGit</a></li>
+</ol>
+
+
+<h3>Scala</h3>
+
+<ol>
+<li><a href="http://j.mp/1mwbAQD">Sprinter</a></li>
+</ol>
+
+
+<h3>Politics</h3>
+
+<ol>
+<li><a href="http://j.mp/1cEqQ4R">Putin&rsquo;s Improv Act</a></li>
+<li><a href="http://j.mp/1bfS6vB">Snow Blind</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-21]]></title>
@@ -1313,226 +1433,6 @@ The integration of assertj into Maven project is very easy:</p>
 <li><a href="http://j.mp/P7szdz">AngularJS: A Retrospective</a></li>
 </ol>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Initializing Mockito @Mocks With JUnit @Rule]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/28/initializing-at-mocks-with-junit-at-rule/"/>
-    <updated>2014-03-28T13:24:45-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/28/initializing-at-mocks-with-junit-at-rule</id>
-    <content type="html"><![CDATA[<p>In this post I will show how one can implement custom JUnit <a href="http://junit-team.github.io/junit/javadoc/4.11/org/junit/Rule.html">@Rule</a>.</p>
-
-<p>As an example let&rsquo;s take <a href="https://code.google.com/p/mockito/">Mockito</a> and implement custom rule which will initialize Mocks in  test class.</p>
-
-<p>By default, Mockito provides the following methods of mock initialization:</p>
-
-<ol>
-<li>Using <a href="http://docs.mockito.googlecode.com/hg/org/mockito/Mockito.html#mock(java.lang.Class)">Mockito.mock</a></li>
-</ol>
-
-
-<figure class='code'><figcaption><span>Initialize mocks with Mockito.mock</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="n">FooTest</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">Foo</span> <span class="n">foo</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Before</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUp</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">FooDependency</span> <span class="n">dep</span> <span class="o">=</span> <span class="n">Mockito</span><span class="o">.</span><span class="na">mock</span><span class="o">(</span><span class="n">FooDependency</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-</span><span class='line'>        <span class="n">foo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Foo</span><span class="o">(</span><span class="n">dep</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This is the simplest case.</p>
-
-<ol>
-<li>Using <a href="http://docs.mockito.googlecode.com/hg/org/mockito/MockitoAnnotations.html#initMocks(java.lang.Object)">MockitoAnnotations</a>.</li>
-</ol>
-
-
-<figure class='code'><figcaption><span>Initialize mocks with MockitoAnnotations</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="n">FooTest</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">Foo</span> <span class="n">foo</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Mock</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">FooDependency</span> <span class="n">dep</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Before</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUp</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">MockitoAnnotations</span><span class="o">.</span><span class="na">initMocks</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
-</span><span class='line'>        <span class="n">foo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Foo</span><span class="o">(</span><span class="n">dep</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This method is useful when you have a lot of mocks to inject.</p>
-
-<ol>
-<li>Using <a href="http://docs.mockito.googlecode.com/hg/org/mockito/runners/MockitoJUnitRunner.html">MockitoJUnitRunner</a></li>
-</ol>
-
-
-<figure class='code'><figcaption><span>Initialize mocks with MockitoJUnitRunner</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="nd">@RunWith</span><span class="o">(</span><span class="n">MockitoJUnitRunner</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
-</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="n">FooTest</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">Foo</span> <span class="n">foo</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Mock</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">FooDependency</span> <span class="n">dep</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Before</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUp</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">foo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Foo</span><span class="o">(</span><span class="n">dep</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>I want to show you another method, by using custom JUnit <code>@Rule</code>.</p>
-
-<p>First, we need to implement <a href="http://junit-team.github.io/junit/javadoc/4.11/org/junit/rules/TestRule.html">TestRule</a> interface which allows to implement custom behaviour during test execution:</p>
-
-<figure class='code'><figcaption><span>MockitoInitializerRule</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MockitoInitializerRule</span> <span class="kd">implements</span> <span class="n">TestRule</span> <span class="o">{</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">Object</span> <span class="n">test</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="nf">MockitoInitializerRule</span><span class="o">(</span><span class="n">Object</span> <span class="n">test</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="o">.</span><span class="na">test</span> <span class="o">=</span> <span class="n">test</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Override</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">Statement</span> <span class="nf">apply</span><span class="o">(</span><span class="n">Statement</span> <span class="n">base</span><span class="o">,</span> <span class="n">Description</span> <span class="n">description</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="k">new</span> <span class="nf">MockitInitilizationStatement</span><span class="o">(</span><span class="n">base</span><span class="o">,</span> <span class="n">test</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We need to pass current test class instance to the rule, so it will be possible inject mocks into class instance. Actual implementation of our rule will go to new class &ndash; subclass of <a href="http://junit-team.github.io/junit/javadoc/4.11/org/junit/runners/model/Statement.html">Statement</a>:</p>
-
-<figure class='code'><figcaption><span>MockitInitilizationStatement</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">class</span> <span class="nc">MockitInitilizationStatement</span> <span class="kd">extends</span> <span class="n">Statement</span> <span class="o">{</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="kd">final</span> <span class="n">Statement</span> <span class="n">base</span><span class="o">;</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">Object</span> <span class="n">test</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">MockitInitilizationStatement</span><span class="o">(</span><span class="n">Statement</span> <span class="n">base</span><span class="o">,</span> <span class="n">Object</span> <span class="n">test</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="o">.</span><span class="na">base</span> <span class="o">=</span> <span class="n">base</span><span class="o">;</span>
-</span><span class='line'>        <span class="k">this</span><span class="o">.</span><span class="na">test</span> <span class="o">=</span> <span class="n">test</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Override</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">evaluate</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Throwable</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">MockitoAnnotations</span><span class="o">.</span><span class="na">initMocks</span><span class="o">(</span><span class="n">test</span><span class="o">);</span>
-</span><span class='line'>        <span class="n">base</span><span class="o">.</span><span class="na">evaluate</span><span class="o">();</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>What we do is basically initialize mocks in the test class and then proceed with the test method execution.</p>
-
-<p>Now, let&rsquo;s take a look at the usage of newly created Rule:</p>
-
-<figure class='code'><figcaption><span>Example usage of MockitoInitializerRule</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="n">FooTest</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">Foo</span> <span class="n">foo</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Mock</span>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">FooDependency</span> <span class="n">dep</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Rule</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">TestRule</span> <span class="n">mockitoInitializerRule</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MockitoInitializerRule</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Before</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setUp</span><span class="o">()</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">foo</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Foo</span><span class="o">(</span><span class="n">dep</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Comparing to variant with <code>MockitoJUnitRunner</code> this one provides ability to use custom <a href="http://junit-team.github.io/junit/javadoc/4.11/org/junit/runner/Runner.html">Runner</a>, i.e. we can continue to use <a href="http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/test/context/junit4/SpringJUnit4ClassRunner.html">SpringJUnit4ClassRunner</a></p>
 ]]></content>
   </entry>
   
