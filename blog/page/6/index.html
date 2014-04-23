@@ -9,8 +9,8 @@
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="Summary: в данной заметке описывается работа с программой Skype через D-Bus на Python. Введение
-Захотелось мне странного - когда я ухожу домой, мне &hellip;">
+  <meta name="description" content="В данной заметке хочу поделиться некоторыми моментами использования GORM.
+GORM - это ORM-фреймворк, используемый в Grails. Реализован он поверх &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -85,6 +85,98 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2010/04/11/gorm/">Несколько слов о GORM</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2010-04-11T00:45:00-04:00" pubdate data-updated="true">Apr 11<span>th</span>, 2010</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<p>В данной заметке хочу поделиться некоторыми моментами использования GORM.</p>
+<p><a href="http://grails.org/doc/latest/guide/5.%20Object%20Relational%20Mapping%20%28GORM%29.html">GORM</a> - это <a href="http://en.wikipedia.org/wiki/Object-relational_mapping">ORM</a>-фреймворк, используемый в <a href="http://grails.org/">Grails</a>. Реализован он поверх <a href="http://hibernate.org/">Hibernate</a>, но, при этом, с некоторыми отличными умолчаниями.</p>
+<p>Для разработчиков, знающих <tt>Hibernate</tt>, рекомендую тщательно изучить <tt>GORM</tt>, так как его поведение в некоторых случаях отлично от <tt>Hibernate</tt>, что может приводить к различным сюрпризам.</p>
+<h4></h4>
+<h4>Маппинг один-ко-многим</h4>
+<p>По умолчанию <tt>GORM</tt> для связей <em>один ко многим</em> (one-to-many) <a href="http://www.grails.org/doc/latest/guide/5.%20Object%20Relational%20Mapping%20%28GORM%29.html#5.2.1.2%20One-to-many" title="Grails will, by default, map this kind of relationship with a join table.">создаёт таблицу-связку</a>, которая обычно нужна только при связях между сущностями вида <em>многие ко многим</em>. Чтобы исправить это поведение необходимо указать <tt>GORM</tt>, чтобы он не создавал таблицу связку.</p>
+<pre class="brush: java; highlight: [7]">
+class Person implements Serializable {
+  static hasMany = [
+    scores: ScoreSheet
+  ]
+  
+  static mapping = {
+    scores joinTable: false
+  };
+}
+</pre>
+<h4>Использование однонаправленных связей</h4>
+<p>Если в приложении используются двунаправленные связи и вероятность изменения сущности одновременно несколькими пользователями высокая, то лучше использовать однонаправленные связи для сущностей. Кроме того, лучше проектировать доменные классы таким образом, чтобы связь была не один-ко-многим, а многие к одному.</p>
+<pre class="brush: java">
+class Note implements Serializable {
+  static belongsTo = [
+    person: Person
+  ]
+}
+
+class Person implements Serializable {
+  // person fields.
+}
+</pre>
+<p>Для работы с <tt>Notes</tt> необходимо использовать такие запросы: </p>
+<pre class="brush: java">
+  Note.findByPerson(person).each { -&gt; };
+</pre>
+<p> вместо </p>
+<pre class="brush: java">
+  person.notes.each { -&gt; }
+</pre>
+<h4>Маппинг иерархии классов доменных сущностей</h4>
+<p>GORM поддерживает только <a href="http://www.grails.org/doc/latest/guide/5.%20Object%20Relational%20Mapping%20%28GORM%29.html#5.2.3%20Inheritance%20in%20GORM">два варианта </a>маппинга иерархии классов, в отличии от <a href="http://docs.jboss.org/hibernate/stable/core/reference/en/html/inheritance.html">Hibernate</a>: Таблица на всю иерархию (<tt>table-per-hierarchy</tt>), или таблица на каждый подкласс (<tt>table-per-subclass</tt>). У маппинга <tt>table-per-hierarchy</tt> есть серьёзный недостаток - подклассы не могут иметь ненулевые поля. Поэтому, если этот недостаток критичен, то необходимо использовать маппинг <tt>table-per-subclass</tt>.</p>
+<pre class="brush: java; highlight: [7]">
+class Payment {
+  Long id
+  Long version
+  Integer amount
+
+  static mapping = {
+    tablePerHierarchy false
+  }
+}
+
+class CreditCardPayment extends Payment {
+  String cardNumber
+}
+ </pre></div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1625,113 +1717,6 @@ selection : description
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/11/02/google-wave/">Инвайты на Google Wave</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-11-02T12:26:00-05:00" pubdate data-updated="true">Nov 2<span>nd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-Кому нужны инвайты на Google Wave, отписываемся в комментариях - поделюсь.
-
-<span style="font-weight:bold;">UPD</span>. Инвайты закончились, всем спасибо.</div>
-
-
-<h2>Comments</h2>
-
-
-<div class='comments'>
-<div class='comment'>
-<div class='author'>uthark</div>
-<div class='content'>
-@interceptor said&#8230;<br />@bodhiphone<br /><br />К сожалению, инвайты закончились.</div>
-</div>
-<div class='comment'>
-<div class='author'>bodhiphone</div>
-<div class='content'>
-bodhiphone at gmail com</div>
-</div>
-<div class='comment'>
-<div class='author'>Interceptor</div>
-<div class='content'>
-freeline66@gmail.com<br />Если есть, буду рад !!!</div>
-</div>
-<div class='comment'>
-<div class='author'>uthark</div>
-<div class='content'>
-@avv<br />@ziftech<br />@Роман<br />@samozvanka<br />@aleks<br /><br />Отправил инвайты.</div>
-</div>
-<div class='comment'>
-<div class='author'>aleks</div>
-<div class='content'>
-Очень надеюсь что инвайты еще есть&#8230; заранее спасибо.<br />aleksandr.komp@gmail.com</div>
-</div>
-<div class='comment'>
-<div class='author'>samozvanka</div>
-<div class='content'>
-o.samozvanka@gmail.com<br />и мне, плиз, если остались</div>
-</div>
-<div class='comment'>
-<div class='author'>Роман</div>
-<div class='content'>
-Можно мне? razh@rambler.ru</div>
-</div>
-<div class='comment'>
-<div class='author'>ziftech</div>
-<div class='content'>
-yakov.keranchuk@gmail.com</div>
-</div>
-<div class='comment'>
-<div class='author'>avv</div>
-<div class='content'>
-volkov.525@gmail.com<br /><br />Спасибо заранее!</div>
-</div>
-<div class='comment'>
-<div class='author'>uthark</div>
-<div class='content'>
-@vmorarian @Ivan<br /><br />Отправил.</div>
-</div>
-<div class='comment'>
-<div class='author'>Ivan</div>
-<div class='content'>
-я! мне! :)</div>
-</div>
-<div class='comment'>
-<div class='author'>vmorarian</div>
-<div class='content'>
-vmorarian@gmail.com</div>
-</div>
-</div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/7/">&larr; Older</a>
@@ -1747,6 +1732,10 @@ vmorarian@gmail.com</div>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/04/23/pocket-is-down/">Pocket Is Down</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/04/22/reading-list-2014-april-22/">Reading List 2014-April-22</a>
@@ -1770,10 +1759,6 @@ vmorarian@gmail.com</div>
     
       <li class="post">
         <a href="/blog/2014/04/16/using-unitils-reflectionassert/">Using Unitils ReflectionAssert</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/15/using-assertj/">Using AssertJ</a>
       </li>
     
   </ul>
