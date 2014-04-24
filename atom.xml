@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-23T12:11:30-04:00</updated>
+  <updated>2014-04-24T13:26:39-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,81 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-April-24]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/24/reading-list-2014-april-24/"/>
+    <updated>2014-04-24T13:21:05-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/24/reading-list-2014-april-24</id>
+    <content type="html"><![CDATA[<h3>Announcements</h3>
+
+<ol>
+<li><a href="http://j.mp/1iir9Ua">Spring Boot 1.0.2.RELEASE Available Now</a></li>
+<li><a href="http://j.mp/1jGPDt0">Groovy 2.3 introduces traits</a></li>
+<li><a href="http://j.mp/1f0P8g2">GitLab CE 6.8 released</a></li>
+</ol>
+
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1mzY3Fh">No, don&rsquo;t enable revocation checking</a></li>
+<li><a href="http://j.mp/1mA3SVC">Productive Developers are Smart and Lazy</a></li>
+<li><a href="http://j.mp/1hhUUZm">Managers and Individual Contributors in Code</a></li>
+<li><a href="http://j.mp/1id93sH">Blogging and Sharing &ndash; Diversifying</a></li>
+<li><a href="http://j.mp/1mzY9wn">New Security Measures Will Affect Older (non-OAuth 2.0) Applications</a></li>
+<li><a href="http://j.mp/1iireaD">trigger vs triggerHandler in jQuery</a></li>
+<li><a href="http://j.mp/1mEMZsJ">Bad Password Policies</a></li>
+<li><a href="http://j.mp/1mzY0cr">Why Dart Comes with a Virtual Machine</a></li>
+<li><a href="http://j.mp/1hhUTot">Introduction to Backbone.js</a></li>
+<li><a href="http://j.mp/1kMgZmz">What to Think About During Exercise</a></li>
+<li><a href="http://j.mp/1iv4PeF">Confessions of a Full Stack DevOp</a></li>
+<li><a href="http://j.mp/1pfh8Ro">Consumer-Driven Contracts: A Service Evolution Pattern</a></li>
+<li><a href="http://j.mp/1h8Ae1u">IronWASP &ndash; Iron Web application Advanced Security testing Platform</a></li>
+<li><a href="http://j.mp/1ptxLJm">How &lsquo;DevOps&rsquo; is Killing the Developer</a></li>
+<li><a href="http://j.mp/1faCvPr">You Don&rsquo;t Read Code, You Explore It</a></li>
+<li><a href="http://j.mp/1icSpse">10 Ways to Do What You Don&rsquo;t Want to Do</a></li>
+</ol>
+
+
+<h3>MongoDB</h3>
+
+<ol>
+<li><a href="http://j.mp/1mEMVt1">Why the clock is ticking for MongoDB</a></li>
+<li><a href="http://j.mp/1iQPqFt">MongoDB is growing up</a></li>
+<li><a href="http://j.mp/1mENeUI">maxTimeMS() and Query Optimizer Introspection in MongoDB 2.6 | MongoDB Blog</a></li>
+</ol>
+
+
+<h3>Agile</h3>
+
+<ol>
+<li><a href="http://j.mp/1jSbhMk">Agile What&#8217;s a Manager to Do?</a></li>
+<li><a href="http://j.mp/1f0sYVE">Continuous Integration</a></li>
+<li><a href="http://j.mp/1f0t0gv">ContinuousDelivery</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1j6g8HY">Tuning Garbage Collection: It Does Not Have To Be That Hard</a></li>
+<li><a href="http://j.mp/1gUmPew">Manning Publications: First class functions in Java 8</a></li>
+<li><a href="http://j.mp/OYNY8B">Using websockets in Java using Spring 4</a></li>
+<li><a href="http://j.mp/1jLgdAZ">HashMap Performance Improvements in Java 8</a></li>
+<li><a href="http://j.mp/1mzY5Nn">Comparision of different concurrency models: Actors, CSP, Disruptor and Threads</a></li>
+</ol>
+
+
+<h3>Webinars</h3>
+
+<ol>
+<li><a href="http://j.mp/1jGPyFw">Webinar: Spring Integration 4.0 &ndash; The New Frontier</a></li>
+<li><a href="http://j.mp/1id9144">Webinar: Data-Driven Applications with Spring and Neo4j</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Pocket Is Down]]></title>
@@ -1341,53 +1416,6 @@ The integration of assertj into Maven project is very easy:</p>
 <li><a href="http://j.mp/1fIQGFY">Running an Akka Cluster with Docker Containers</a></li>
 <li><a href="http://j.mp/1gWqddq">Type programming: Shifting from values to types</a></li>
 <li><a href="http://j.mp/1gWqcWP">The learning curve of Scala</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-March-31]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/31/reading-list-2014-march-31/"/>
-    <updated>2014-03-31T11:53:51-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/31/reading-list-2014-march-31</id>
-    <content type="html"><![CDATA[<h3>General</h3>
-
-<ol>
-<li><a href="http://j.mp/1eZ784E">Do All People React To The Same Persuasion Strategies?</a></li>
-<li><a href="http://j.mp/1jp2qSK">Apps with millions of Google Play downloads covertly mine cryptocurrency</a></li>
-<li><a href="http://j.mp/1fE6F8u">Before the Internet | XKCD</a></li>
-</ol>
-
-
-<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/P7sCpH">Signs you might be in survival mode</a></li>
-<li><a href="http://j.mp/1hEmlsH">Announcing Google Cloud DNS</a></li>
-<li><a href="http://j.mp/1mgh7HA">Gold Plating</a></li>
-<li><a href="http://j.mp/1hb3Uvm">How times have changed for PostgreSQL</a></li>
-</ol>
-
-
-<h4>Java</h4>
-
-<ol>
-<li><a href="http://j.mp/OZTTL5">Project Sagan: open-sourcing spring.io</a></li>
-<li><a href="http://j.mp/1mghaDq">How to run a standalone OSGi server</a></li>
-<li><a href="http://j.mp/1mlakfM">The Illuminating Javadoc of JDK 8</a></li>
-<li><a href="http://j.mp/1mlakfZ">JDK 8 Javadoc Tweaked For Methods Listings</a></li>
-<li><a href="http://j.mp/1gQIwRm">The Builder pattern and the Spring framework</a></li>
-<li><a href="http://j.mp/1hxfb9y">Java 8 Default Methods: What Can and Can Not Do?</a></li>
-<li><a href="http://j.mp/1ogbfD7">The Dark Side Of Lambda Expressions in Java 8</a></li>
-</ol>
-
-
-<h3>Scala</h3>
-
-<ol>
-<li><a href="http://j.mp/1jNeSyx">Preview of upcoming sbt 1.0 features: Read about the new plugins</a></li>
-<li><a href="http://j.mp/1dwBdgI">Will Java 8 Kill Scala?</a></li>
 </ol>
 
 ]]></content>

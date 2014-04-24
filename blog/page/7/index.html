@@ -9,7 +9,8 @@
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="Кому нужны инвайты на Google Wave, отписываемся в комментариях - поделюсь. UPD. Инвайты закончились, всем спасибо. Comments uthark @interceptor said &hellip;">
+  <meta name="description" content="Введение
+Решил научиться писать собственные расширения для Google Chrome/Chromium. За идею взял официальное расширение от Yahoo! для Firefox - &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -27,8 +28,8 @@
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
   <script src="/javascripts/octopress.js" type="text/javascript"></script>
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=Roboto+Slab:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href='http://fonts.googleapis.com/css?family=Roboto:300,700,900&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+<link href="//fonts.googleapis.com/css?family=Roboto+Slab:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href='//fonts.googleapis.com/css?family=Roboto:300,700,900&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 
 <link rel="author" href="https://plus.google.com/112372998073079463630/?rel=author" />
 
@@ -84,6 +85,313 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2009/11/14/delicious-bookmarks-google/">Расширение Delicious Bookmarks для Google Chrome/Chromium</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2009-11-14T11:34:00-05:00" pubdate data-updated="true">Nov 14<span>th</span>, 2009</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div class='post'>
+<h1>Введение</h1><br />
+Решил научиться писать собственные расширения для <a href="http://www.google.com/chrome">Google Chrome</a>/<a href="http://www.chromium.org/">Chromium</a>.<br />
+<br />
+За идею взял официальное расширение от <a href="http://m.www.yahoo.com/">Yahoo!</a> для <a href="http://www.mozilla.com/en-US/firefox/firefox.html">Firefox</a> - <a href="https://addons.mozilla.org/en-US/firefox/addon/3615">Delicious Bookmarks</a>.<br />
+<br />
+<h1>Структура расширения</h1><br />
+Расширение - файл с расширением <tt>.crx</tt>. На самом деле это просто <tt>ZIP</tt>-архив с файлом манифеста внутри.<br />
+<br />
+<h1>Файл манифеста</h1><pre class="brush:js; highlight: [2, 3, 4, 5, 10, 16, 23]">{
+"name": "Delicious plugin", // 1
+"version": "0.2", // 2
+"background_page": "background.html", // 3
+"permissions": [ // 4
+"bookmarks",
+"tabs"
+],
+
+"browser_action": { // 5
+"name": "Save bookmark to delicious.com",
+"default_title": "Save bookmark to delicious.com",
+"default_icon": "delicious.20.gif" // optional
+},
+
+"content_scripts": [ // 6
+{
+"matches": ["http://*/*", "https://*/*"],
+"js": ["getDocumentSelection.js"]
+}
+],
+
+"options_page": "options.html" // 7
+}
+</pre><br />
+Манифест - файл в формате <a href="http://json.org/">JSON</a>.<br />
+<br />
+Манифест состоит из следующих частей:<br />
+<br />
+1. <span style="font-weight:bold;"><tt>name</tt></span> - Имя расширения<br />
+2. <span style="font-weight:bold;"><tt>version</tt></span> - Версия расширения<br />
+3. <span style="font-weight:bold;"><tt>background_page</tt></span> - основной файл с расширением. Это обычный HTML-файл с разметкой.<br />
+4. <span style="font-weight:bold;"><tt>permissions</tt></span> - разрешения для расширения. Указываем, что нам нужен доступ к вкладкам (tabs) и закладкам (bookmarks).<br />
+5. <span style="font-weight:bold;"><tt>browser_action</tt></span> - указываем, что нужно отобразить на панели инструментов браузера.<br />
+6. <span style="font-weight:bold;"><tt>content_scripts</tt></span> - Для доступа к DOM отображаемой страницы необходимы content scripts, данный блок регистрирует скрипт <tt>getDocumentSelection.js</tt> для всех <tt>http</tt> и <tt>https</tt> страниц.<br />
+7. <span style="font-weight:bold;"><tt>options_page</tt></span> - страница с настройками.<br />
+<br />
+Подробное описание файла манифеста есть <a href="http://code.google.com/chrome/extensions/manifest.html">на официальном сайте</a>. <br />
+<br />
+<h1>Описание работы расширения</h1><br />
+<br />
+Расширение работает следующим образом:<br />
+1. При клике на значок расширения вызывается обработчик <tt>addBookmark</tt><br />
+2. Обработчик открывает коммуникационный порт и отправляет сообщение скрипту содержимого.<br />
+3. Скрипт содержимого забирает выделенный текст и отправляет назад расширению выделенный текст.<br />
+4. Расширение забирает выделенный текст, определяет настройки сохранения (Private/Public) и вызывает окно сохранения <span style="font-style:italic;">Delicious</span>.<br />
+<br />
+<h1>Реализация расширения</h1><br />
+<br />
+<span style="font-weight:bold;">background.html</span>:<br />
+<pre class="brush:js; html-script: true">&lt;html&gt;
+&lt;head&gt;
+&lt;script&nbsp;type=&quot;text/javascript&quot;&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;saveBookmark()&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;Send&nbsp;our&nbsp;password&nbsp;to&nbsp;the&nbsp;current&nbsp;tab&nbsp;when&nbsp;clicked.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chrome.tabs.getSelected(null,&nbsp;function(tab)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;port&nbsp;=&nbsp;chrome.tabs.connect(tab.id,&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;:&nbsp;&quot;deliciousBookmark&quot;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;port.postMessage(&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;action&nbsp;:&nbsp;'getSelection'
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;addBookmark(id,&nbsp;bookmark)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(&quot;added&nbsp;bookmark:&nbsp;&nbsp;&quot;&nbsp;+&nbsp;bookmark);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;saveBookmark();
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;chrome.bookmarks.onCreated.addListener(addBookmark);
+&nbsp;&nbsp;&nbsp;&nbsp;console.log(&quot;Registered&nbsp;listener&quot;);
+
+&nbsp;&nbsp;&nbsp;&nbsp;function&nbsp;getShareStatus()&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;markPrivate&nbsp;=&nbsp;localStorage[&quot;markPrivate&quot;];
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;share&nbsp;=&nbsp;&quot;yes&quot;;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(markPrivate&nbsp;==&nbsp;&quot;true&quot;)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;share&nbsp;=&nbsp;&quot;no&quot;;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;share;
+&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;chrome.extension.onConnect.addListener(function(port)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.assert(port.name&nbsp;==&nbsp;&quot;deliciousBookmark&quot;);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;port.onMessage.addListener(function(msg)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;selection&nbsp;=&nbsp;msg.selection;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;chrome.tabs.getSelected(null,&nbsp;function(tab)&nbsp;{
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;url&nbsp;=&nbsp;encodeURIComponent(tab.url);
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!url&nbsp;||&nbsp;url&nbsp;===&nbsp;&quot;&quot;)&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;title&nbsp;=&nbsp;encodeURIComponent(tab.title);
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;description&nbsp;=&nbsp;encodeURIComponent(selection);
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;share&nbsp;=&nbsp;getShareStatus();
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;f&nbsp;=&nbsp;'http://delicious.com/save?url='&nbsp;+&nbsp;url&nbsp;+&nbsp;'&amp;title='&nbsp;+&nbsp;title&nbsp;+&nbsp;'&amp;notes='&nbsp;+&nbsp;description
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;'&amp;share='&nbsp;+&nbsp;share&nbsp;+&nbsp;'&amp;v=5&amp;';
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;window.open(f&nbsp;+&nbsp;'noui=1&amp;jump=doclose',&nbsp;'deliciousuiv5',
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'location=yes,links=no,scrollbars=no,toolbar=no,width=550,height=550');
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});
+&nbsp;&nbsp;&nbsp;&nbsp;});
+
+&nbsp;&nbsp;&nbsp;&nbsp;chrome.browserAction.onClicked.addListener(saveBookmark);
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;/html&gt;
+
+</pre><br />
+<br />
+<span style="font-weight:bold;">getDocumentSelection.js</span><br />
+<br />
+<pre class="brush:js">var port = chrome.extension.connect( {
+name : "deliciousBookmark"
+});
+
+// Also listen for new channels from the extension for when the button is
+// pressed.
+chrome.extension.onConnect.addListener(function(port) {
+console.assert(port.name == "deliciousBookmark");
+port.onMessage.addListener(function(msg) {
+if (msg.action == 'getSelection') {
+var responsePort = chrome.extension.connect( {
+name : "deliciousBookmark"
+});
+var description = document.getSelection() ? '' + document.getSelection() : '';
+responsePort.postMessage( {
+selection : description
+});
+}
+});
+});
+
+
+</pre><br />
+<br />
+<span style="font-weight:bold;">options.html</span><br />
+<br />
+<pre class="brush:js; html-script: true">&lt;html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Delicious Bookmarks Options&lt;/title&gt;
+&lt;/head&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    // Saves options to localStorage.
+    function saveOptions() {
+        var share = document.getElementById(&quot;share&quot;);
+        localStorage[&quot;markPrivate&quot;] = share.checked;
+
+        // Update status to let user know options were saved.
+        var status = document.getElementById(&quot;status&quot;);
+        status.innerHTML = &quot;Options Saved.&quot;;
+        setTimeout(function() {
+            status.innerHTML = &quot;&quot;;
+        }, 1500);
+    }
+
+    // Restores select box state to saved value from localStorage.
+    function restoreOptions() {
+        var share = localStorage[&quot;markPrivate&quot;];
+
+        if (!share) {
+            return;
+        }
+        var shareCheckbox = document.getElementById(&quot;share&quot;);
+
+        shareCheckbox.checked = share;
+        
+    }
+&lt;/script&gt;
+
+&lt;body onload=&quot;restoreOptions()&quot;&gt;
+
+&lt;label for=&quot;share&quot;&gt;Mark as Private&lt;/label&gt;
+&lt;input type=&quot;checkbox&quot; class=&quot;checkbox&quot; name=&quot;share&quot; id=&quot;share&quot; /&gt;
+
+
+&lt;br&gt;
+&lt;button onclick=&quot;saveOptions();&quot;&gt;Save&lt;/button&gt;
+&lt;div id=&quot;status&quot;&gt;&amp;nbsp;&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre><br />
+<br />
+<h1>Сборка расширения</h1><br />
+В Chromium есть возможность собрать расширение.<br />
+1. Открываем адрес <tt>chrome://extensions/</tt><br />
+2. В правом верхнем углу нажимаем Developer Mode.<br />
+3. На появившейся панели инструментов кликаем Pack Extension<br />
+4. Выбираем каталог, в котором находится расширение<br />
+5. Chromium автоматически собирает расширение в каталоге с исходниками расширения.<br />
+<br />
+<h1>Заключение</h1><br />
+Писать расширения для Google Chrome не просто, а очень просто. <br />
+<br />
+Готовое и собранное расширение можно <a href="http://bit.ly/2KYnr8">скачать здесь</a>.<br />
+<br />
+<h1>Дополнительная информация</h1><br />
+<ol><li><a href="http://code.google.com/chrome/extensions/devguide.html">Google Chrome Extensions Developer&#8217;s Guide</a></li>
+<li><a href="http://code.google.com/chrome/extensions/manifest.html">Manifest file description</a></li>
+<li><a href="http://code.google.com/chrome/extensions/api_index.html">Chrome Extensions API</a></li>
+<li><a href="http://code.google.com/chrome/extensions/packaging.html">Extension Packaging</a></li>
+</ol><br />
+<br />
+В следующей заметке опишу работу messaging для коммуникации расширения со скриптами содержимого.</div>
+
+
+<h2>Comments</h2>
+
+
+<div class='comments'>
+<div class='comment'>
+<div class='author'>Juev</div>
+<div class='content'>
+Очень много расширений уже реализуют добавление закладок в социальные закладки, но пока не встретил ни одного, которое реализует синхронизацию локальных закладок с сервером&#8230; Как это делает например расширение делисиоус для огнелиса. Если сумеете реализовать, цены расширению не будет!</div>
+</div>
+<div class='comment'>
+<div class='author'>uthark</div>
+<div class='content'>
+@karri<br />Подпишитесь :). Правда, пишу я нерегулярно.</div>
+</div>
+<div class='comment'>
+<div class='author'>karri</div>
+<div class='content'>
+А у вас тут интересно, хоть я и неважный ITтишник =) Пожалуй, подпишусь на вас! =)</div>
+</div>
+<div class='comment'>
+<div class='author'>uthark</div>
+<div class='content'>
+@karri Надеюсь, больше вам этого не придётся делать и расширение сослужит для вас хорошую службу. В следующей версии расширения будет возможность получить быстрый доступ к своему аккаунту на delicious, а также возможность быстрого доступа к закладкам с определённой меткой. Для чего это может быть полезно - читайте  <a href="http://atamanenko.blogspot.com/2009/04/blog-post.html" rel="nofollow">этот</a> и <a href="http://atamanenko.blogspot.com/2009/04/2.html" rel="nofollow">этот</a> посты.</div>
+</div>
+<div class='comment'>
+<div class='author'>karri</div>
+<div class='content'>
+Спасибо! =) Все-таки вчера не дождалась ответа и руками подабовляла в delicious на delicious.com =)</div>
+</div>
+<div class='comment'>
+<div class='author'>uthark</div>
+<div class='content'>
+Достаточно обновить страницу, которую вы хотите сохранить.<br /><br />Кроме того, нужна версия браузера выше 4.0.227.0</div>
+</div>
+<div class='comment'>
+<div class='author'>karri</div>
+<div class='content'>
+А браузер нужно перезапускать? Сорри за такой глупый вопрос, у меня тут дилема: куча нужных вкладок открыто, а Chrome, как FF не спрашивает сохранить ли их при закрытии :( По крайней мере что-то не нашла такой галочки :( Сижу думаю, что делать, delicious не вызывается и закрывать не хоцца &#8230;</div>
+</div>
+<div class='comment'>
+<div class='author'>uthark</div>
+<div class='content'>
+@Denis <br />На здоровье. О найденных ошибках и своих предложениях можешь сообщать в комментариях к этому посту.</div>
+</div>
+<div class='comment'>
+<div class='author'>Denis</div>
+<div class='content'>
+Спасибо. Статья очень понравилась а расширением уже пользуюсь ;)</div>
+</div>
+</div>
+
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1359,63 +1667,6 @@ Amazon не предоставляет бесплатной дозы, в отл�
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2009/04/22/blog-post_22/">Кратко о блокировках</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2009-04-22T12:58:00-04:00" pubdate data-updated="true">Apr 22<span>nd</span>, 2009</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><div class='post'>
-<span style="font-weight: bold;">Блокировка</span> - в реляционных базах данных это установка метки на запись, что запись заблокирована для изменений.
-
-Существует два вида блокировок - оптимистичная и пессимистичная.
-
-<h3>Оптимистичная блокировка</h3>
-При оптимистичной блокировке на базе данных реальной блокировки не происходит.
-Вместо этого используется следующий подход - если во время выполнения транзакции она изменяет данные, которые были изменены после её начала, то транзакция прерывается с исключением. Использование оптимистичных блокировок позволяет избежать взаимных блокировок (dead-lock). Для реализации оптимистичной блокировки часто используется версионирование данных - в таблицу добавляется колонка, которая хранит текущую версию. При выполнении <tt>update</tt> в запросе в секции <tt>where</tt> передается версия данных, которая была забрана на изменение. Если <tt>update</tt> вернул 0 изменённых строк, значит данные были уже изменены и транзакцию необходимо запускать заново. Вместо версии можно хранить время последнего изменения данных.
-
-<h3>Пессимистичная блокировка</h3>
-При пессимистичной блокировке для записи ставится эксклюзивная блокировка на уровне базы данных, запрещая таким образом доступ к данным из других транзакций. Существует несколько видов пессимистичных блокировок:
-<ol><li>блокировка при чтении</li><li>блокировка при записи</li></ol>При <span style="font-weight: bold;">блокировке при чтении</span> запись блокируется когда она запрашивается из базы данных. Недостаток метода в том, что таким образом можно заблокировать даже те данные, которые не изменяются в рамках текущей транзакции.
-
-При <span style="font-weight: bold;">блокировке при записи</span> блокировка даных происходит при их обновлении в базе данных до конца текущей транзакции.
-
-Блокировка с данных снимается либо при коммите, либо при откате транзакции.
-<h3>
-Сравнение оптимистичных и пессимистичных блокировок</h3>
-При разработке программного обеспечения необходимо выбирать стратегию блокировок данных. При этом следует учитывать следующее:
-<ol><li>Если ситуация обновления одних и тех же данных в один момент времени относительно редка, то выгоднее использовать оптимистичную блокировку. В этом случае не будут происходить дорогая операция блокировки ресурсов.</li><li>Если же возможность возникновения ситуации обновления одних и тех же данных достаточно высока, то лучше использовать пессимистичную блокировку, это снизит количество прерванных транзакций.</li><li>Также следует учитывать, что при оптимистичной блокировке в случае прерывания транзакции её нужно запускать заново.
-</li></ol></div>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/8/">&larr; Older</a>
@@ -1431,6 +1682,10 @@ Amazon не предоставляет бесплатной дозы, в отл�
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/04/24/reading-list-2014-april-24/">Reading List 2014-April-24</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/04/23/pocket-is-down/">Pocket Is Down</a>
@@ -1454,10 +1709,6 @@ Amazon не предоставляет бесплатной дозы, в отл�
     
       <li class="post">
         <a href="/blog/2014/04/16/reading-list-2014-april-16/">Reading List 2014-April-16</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/16/using-unitils-reflectionassert/">Using Unitils ReflectionAssert</a>
       </li>
     
   </ul>

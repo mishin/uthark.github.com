@@ -4,7 +4,7 @@
   <title><![CDATA[Category: reading list | Software Development and related activities]]></title>
   <link href="http://uthark.github.com/blog/categories/reading-list/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-23T12:11:30-04:00</updated>
+  <updated>2014-04-24T13:26:39-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,81 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-April-24]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/24/reading-list-2014-april-24/"/>
+    <updated>2014-04-24T13:21:05-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/24/reading-list-2014-april-24</id>
+    <content type="html"><![CDATA[<h3>Announcements</h3>
+
+<ol>
+<li><a href="http://j.mp/1iir9Ua">Spring Boot 1.0.2.RELEASE Available Now</a></li>
+<li><a href="http://j.mp/1jGPDt0">Groovy 2.3 introduces traits</a></li>
+<li><a href="http://j.mp/1f0P8g2">GitLab CE 6.8 released</a></li>
+</ol>
+
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1mzY3Fh">No, don&rsquo;t enable revocation checking</a></li>
+<li><a href="http://j.mp/1mA3SVC">Productive Developers are Smart and Lazy</a></li>
+<li><a href="http://j.mp/1hhUUZm">Managers and Individual Contributors in Code</a></li>
+<li><a href="http://j.mp/1id93sH">Blogging and Sharing &ndash; Diversifying</a></li>
+<li><a href="http://j.mp/1mzY9wn">New Security Measures Will Affect Older (non-OAuth 2.0) Applications</a></li>
+<li><a href="http://j.mp/1iireaD">trigger vs triggerHandler in jQuery</a></li>
+<li><a href="http://j.mp/1mEMZsJ">Bad Password Policies</a></li>
+<li><a href="http://j.mp/1mzY0cr">Why Dart Comes with a Virtual Machine</a></li>
+<li><a href="http://j.mp/1hhUTot">Introduction to Backbone.js</a></li>
+<li><a href="http://j.mp/1kMgZmz">What to Think About During Exercise</a></li>
+<li><a href="http://j.mp/1iv4PeF">Confessions of a Full Stack DevOp</a></li>
+<li><a href="http://j.mp/1pfh8Ro">Consumer-Driven Contracts: A Service Evolution Pattern</a></li>
+<li><a href="http://j.mp/1h8Ae1u">IronWASP &ndash; Iron Web application Advanced Security testing Platform</a></li>
+<li><a href="http://j.mp/1ptxLJm">How &lsquo;DevOps&rsquo; is Killing the Developer</a></li>
+<li><a href="http://j.mp/1faCvPr">You Don&rsquo;t Read Code, You Explore It</a></li>
+<li><a href="http://j.mp/1icSpse">10 Ways to Do What You Don&rsquo;t Want to Do</a></li>
+</ol>
+
+
+<h3>MongoDB</h3>
+
+<ol>
+<li><a href="http://j.mp/1mEMVt1">Why the clock is ticking for MongoDB</a></li>
+<li><a href="http://j.mp/1iQPqFt">MongoDB is growing up</a></li>
+<li><a href="http://j.mp/1mENeUI">maxTimeMS() and Query Optimizer Introspection in MongoDB 2.6 | MongoDB Blog</a></li>
+</ol>
+
+
+<h3>Agile</h3>
+
+<ol>
+<li><a href="http://j.mp/1jSbhMk">Agile What's a Manager to Do?</a></li>
+<li><a href="http://j.mp/1f0sYVE">Continuous Integration</a></li>
+<li><a href="http://j.mp/1f0t0gv">ContinuousDelivery</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1j6g8HY">Tuning Garbage Collection: It Does Not Have To Be That Hard</a></li>
+<li><a href="http://j.mp/1gUmPew">Manning Publications: First class functions in Java 8</a></li>
+<li><a href="http://j.mp/OYNY8B">Using websockets in Java using Spring 4</a></li>
+<li><a href="http://j.mp/1jLgdAZ">HashMap Performance Improvements in Java 8</a></li>
+<li><a href="http://j.mp/1mzY5Nn">Comparision of different concurrency models: Actors, CSP, Disruptor and Threads</a></li>
+</ol>
+
+
+<h3>Webinars</h3>
+
+<ol>
+<li><a href="http://j.mp/1jGPyFw">Webinar: Spring Integration 4.0 &ndash; The New Frontier</a></li>
+<li><a href="http://j.mp/1id9144">Webinar: Data-Driven Applications with Spring and Neo4j</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-22]]></title>
@@ -351,71 +426,6 @@ Read more: <a href="http://j.mp/1hRvbIN">Gabriel Garcia Marquez dies at 87</a></
 <li><a href="http://j.mp/1hJRTS9">Allow default methods to override Object&rsquo;s methods</a></li>
 <li><a href="http://j.mp/1hJRY8t">Checked exceptions within Block<T></a></li>
 <li><a href="http://j.mp/1hJRYFI">Allow lambdas to implement abstract classes</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-April-16]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/16/reading-list-2014-april-16/"/>
-    <updated>2014-04-16T13:56:20-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/16/reading-list-2014-april-16</id>
-    <content type="html"><![CDATA[<h3>Announcements</h3>
-
-<ol>
-<li><a href="http://j.mp/1iXyE5g">Apache Hadoop 2.4.0</a></li>
-<li><a href="http://j.mp/1kWSvqS">Apache Tomcat Native 1.1.30 released | Mladen Turk</a></li>
-<li><a href="http://j.mp/1kWSjI9">Apache Tomcat Connectors 1.2.40 released | Mladen Turk</a></li>
-<li><a href="http://j.mp/1j0Cbyu">Second Service Release For Spring Data Release Train Codd Released</a></li>
-<li><a href="http://j.mp/1gCPwQj">Announcing the Release of Google App Engine 1.9.3</a></li>
-<li><a href="http://j.mp/1gXMHFj">Google Cloud Platform expands to Asia Pacific</a></li>
-<li><a href="http://j.mp/1j0BRzF">Announcing Google BigQuery and Datastore Connectors for Hadoop</a></li>
-<li><a href="http://j.mp/1in80F4">Spring Integration 4.0 Release Candidate Available</a></li>
-<li><a href="http://j.mp/1kWSFOS">Final Draft of OSGi Core Release 6 available for download</a></li>
-</ol>
-
-
-<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/1j0C3z1">The Four Parts of a Minimal Viable Product</a></li>
-<li><a href="http://j.mp/1eIomZM">Better code through code reviews</a></li>
-<li><a href="http://j.mp/1ipA9LA">Social Processes and Heartbleed, Part 1</a></li>
-<li><a href="http://j.mp/1kTX5WL">Angular and Durandal Converge</a></li>
-<li><a href="http://j.mp/1iWPvnx">What Heartbleed Tells Us About the Need for IT Automation</a></li>
-<li><a href="http://j.mp/1iTJQQl">No More Passwords for Apps using Login with Amazon on Kindle Fire</a></li>
-<li><a href="http://j.mp/1eIooAR">Innodb redo log archiving</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/1eN4LC5">10 Books Every Java Developer Should Read</a></li>
-<li><a href="http://j.mp/1ipAb68">New BigInteger Methods in Java 8</a></li>
-<li><a href="http://j.mp/1kWSzH4">Java 8 Friday: No More Need for ORMs</a></li>
-<li><a href="http://j.mp/1hEKJQj">Everything about Java 8</a></li>
-<li><a href="http://j.mp/1j0C8CR">Maven and Java multi-version modules</a></li>
-<li><a href="http://j.mp/1hEKMvd">JDK 8 Security Enhancements</a></li>
-<li><a href="http://j.mp/1iNU7NP">Java 8 Nashorn Tutorial</a></li>
-<li><a href="http://j.mp/1inCkiJ">10 Books Every Java Developer Should Read</a></li>
-<li><a href="http://j.mp/1iVQlRl">Using jOOQ with Spring: CRUD</a></li>
-<li><a href="http://j.mp/1iVQioK">trackr: An AngularJS app with a Java 8 backend – Part I</a></li>
-<li><a href="http://j.mp/1iVQggr">Spring expression language (spel) and Spring boot in action</a></li>
-<li><a href="http://j.mp/1iZawxX">TimeUnit Enum in Java</a></li>
-<li><a href="http://j.mp/1eIomsX">We hate/love lambda</a></li>
-<li><a href="http://j.mp/1iVQe8i">Inject any custom class or service into web content templates | Liferay blogs</a></li>
-<li><a href="http://j.mp/1kVZT5v">Covariant Blabbering : Damn smart idea (2) : DynamicVariable</a></li>
-</ol>
-
-
-<h3>In Russian</h3>
-
-<ol>
-<li><a href="http://j.mp/1ik6DqE">Эксперимент LHCb окончательно доказал реальность экзотического мезона Z(4430)</a></li>
-<li><a href="http://j.mp/1eIopF3">FAQ: Биоархеология и трепанация</a></li>
-<li><a href="http://j.mp/1j0Cc5s">Как открыли новую экзотическую частицу?</a></li>
 </ol>
 
 ]]></content>
