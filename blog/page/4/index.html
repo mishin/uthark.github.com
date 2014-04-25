@@ -9,9 +9,7 @@
   <meta name="author" content="Oleg Atamanenko">
 
   
-  <meta name="description" content="Reading list for today: General Cheap Words
-5-Year-Olds Can Learn Calculus
-At the RSA Security Conference, Things Get Testy and Then They Get Awkward &hellip;">
+  <meta name="description" content="Today I found issue running DB2 10.1 under VMWare Fusion 6.0.2 on my MacBook &ndash; all management services for db2 are starting except for the db2 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -86,6 +84,57 @@ At the RSA Security Conference, Things Get Testy and Then They Get Awkward &hell
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2014/03/05/solving-issue-with-db2-on-vmware-fusion-on-macbook-pro-2013-late/">Solving Issue With DB2 on VMWare Fusion on MacBook Pro 2013 Late</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-05T14:41:54-05:00" pubdate data-updated="true">Mar 5<span>th</span>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Today I found issue running DB2 10.1 under VMWare Fusion 6.0.2 on my MacBook &ndash; all management services for <code>db2</code> are starting except for the db2 instance itself.</p>
+
+<p>When I tried to start DB2 using <code>db2start</code> it just crashed without any additional information.</p>
+
+<p>After some googling I found out that it is due to the fact that current version of DB2 can&rsquo;t handle more than 4 responses to CPUID query.</p>
+
+<p>The workaround is to update VMWare configuration file for the virtual machine.</p>
+
+<figure class='code'><figcaption><span>Changes to *.vmx file</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ini'><span class='line'><span class="na">monitor_control.enable_fullcpuid</span> <span class="o">=</span> <span class="s">TRUE</span>
+</span><span class='line'><span class="na">cpuid.4.4.eax</span> <span class="o">=</span> <span class="s">&quot;0000:0000:0000:0000:0000:0000:0000:0000&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The answer was found on <a href="https://communities.vmware.com/thread/461857">VMWare Community Forums</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1508,214 +1557,6 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/06/28/jaxrs/">JAX-RS Client API</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-28T19:00:00-04:00" pubdate data-updated="true">Jun 28<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><a href="http://jcp.org/en/jsr/detail?id=339">JAX-RS</a> &ndash; набор Java API для работы с REST сервисами. Существует несколько реализаций, <a href="/blog/2012/02/08/java-rest/">о которых я уже писал раньше</a>.</p>
-
-<p>Предположим, что проект А выставляет наружу REST API, который мы хотим использовать в проекте Б. Очевидно, что сразу возникает вопрос &ndash; можно ли переиспользовать классы модели и интерфейс в другом проекте. Ответ &ndash; да, можно. Client API, появившийся в JAX RS 2.0, упрощает реализацию клиента, но это всё равно не самый оптимальный вариант.</p>
-
-<p>Есть более интересный способ &ndash; в замечательной библиотеке <a href="http://cxf.apache.org/">Apache CXF</a> есть класс <a href="http://cxf.apache.org/javadoc/latest/org/apache/cxf/jaxrs/client/JAXRSClientFactory.html"><code>org.apache.cxf.jaxrs.client.JAXRSClientFactory</code></a>, который позволяет автоматически получать прокси-клиент для работы с сервером.</p>
-
-<p>К сожалению, у меня не получилось завести его с JSON без JAXB &ndash; Проблема с Generic Collections &ndash; <a href="http://cxf.apache.org/javadoc/latest/org/apache/cxf/jaxrs/provider/json/JSONProvider.html"><code>org.apache.cxf.jaxrs.provider.json.JSONProvider</code></a> подразумевает, что в проекте используется JAXB, с помощью которого у нас проаннотирована модель. Поэтому пришлось написать собственную реализацию <a href="http://docs.oracle.com/javaee/6/api/javax/ws/rs/ext/MessageBodyReader.html"><code>javax.ws.rs.ext.MessageBodyReader&lt;T&gt;</code></a> и <a href="http://docs.oracle.com/javaee/6/api/javax/ws/rs/ext/MessageBodyWriter.html">javax.ws.rs.ext.MessageBodyWriter<T></a>.</p>
-
-<p>Основная проблема при работе с JSON &ndash; это то, что, в общем случае, у нас нет информации об используемых типах данных, а вкупе с тем, что в  Java Generics реализованы с <a href="http://docs.oracle.com/javase/tutorial/java/generics/erasure.html">Type Erasure</a> &ndash; ситуация усугубляется, если не предпринять каких-то действий.</p>
-
-<p>Для реализации чтения будем использовать <a href="http://jackson.codehaus.org/Home">Jackson Java JSON-processor</a> и его возможности <a href="http://fasterxml.github.io/jackson-databind/javadoc/2.2.0/com/fasterxml/jackson/databind/type/TypeFactory.html"><code>com.fasterxml.jackson.databind.type.TypeFactory</code></a></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kd">public</span> <span class="kd">class</span> <span class="nc">JsonMessageHandler</span> <span class="kd">implements</span> <span class="n">MessageBodyReader</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;,</span> <span class="n">MessageBodyWriter</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="o">{</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">protected</span> <span class="kd">final</span> <span class="n">ObjectMapper</span> <span class="n">mapper</span><span class="o">;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">public</span> <span class="nf">JsonMessageHandler</span><span class="o">(</span><span class="n">ObjectMapper</span> <span class="n">mapper</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">this</span><span class="o">.</span><span class="na">mapper</span> <span class="o">=</span> <span class="n">mapper</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Override</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isReadable</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="o">,</span> <span class="n">Type</span> <span class="n">genericType</span><span class="o">,</span> <span class="n">Annotation</span><span class="o">[]</span> <span class="n">annotations</span><span class="o">,</span> <span class="n">MediaType</span> <span class="n">mediaType</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Override</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">readFrom</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">type</span><span class="o">,</span> <span class="n">Type</span> <span class="n">genericType</span><span class="o">,</span> <span class="n">Annotation</span><span class="o">[]</span> <span class="n">annotations</span><span class="o">,</span> <span class="n">MediaType</span> <span class="n">mediaType</span><span class="o">,</span> <span class="n">MultivaluedMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">String</span><span class="o">&gt;</span> <span class="n">httpHeaders</span><span class="o">,</span> <span class="n">InputStream</span> <span class="n">entityStream</span><span class="o">)</span>
-</span><span class='line'>            <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">WebApplicationException</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">if</span> <span class="o">(</span><span class="n">genericType</span> <span class="k">instanceof</span> <span class="n">ParameterizedType</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>            <span class="k">if</span> <span class="o">(</span><span class="n">Collection</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">isAssignableFrom</span><span class="o">(</span><span class="n">type</span><span class="o">))</span> <span class="o">{</span>
-</span><span class='line'>                <span class="n">CollectionType</span> <span class="n">collectionType</span> <span class="o">=</span> <span class="n">resolveCollectionType</span><span class="o">(</span><span class="n">type</span><span class="o">,</span> <span class="o">(</span><span class="n">ParameterizedType</span><span class="o">)</span> <span class="n">genericType</span><span class="o">);</span>
-</span><span class='line'>                <span class="k">return</span> <span class="n">mapper</span><span class="o">.</span><span class="na">readValue</span><span class="o">(</span><span class="n">entityStream</span><span class="o">,</span> <span class="n">collectionType</span><span class="o">);</span>
-</span><span class='line'>            <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">Map</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">isAssignableFrom</span><span class="o">(</span><span class="n">type</span><span class="o">))</span> <span class="o">{</span>
-</span><span class='line'>                <span class="n">MapType</span> <span class="n">mapType</span> <span class="o">=</span> <span class="n">resolveMapType</span><span class="o">(</span><span class="n">type</span><span class="o">,</span> <span class="o">(</span><span class="n">ParameterizedType</span><span class="o">)</span> <span class="n">genericType</span><span class="o">);</span>
-</span><span class='line'>                <span class="k">return</span> <span class="n">mapper</span><span class="o">.</span><span class="na">readValue</span><span class="o">(</span><span class="n">entityStream</span><span class="o">,</span> <span class="n">mapType</span><span class="o">);</span>
-</span><span class='line'>            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
-</span><span class='line'>                <span class="n">Type</span><span class="o">[]</span> <span class="n">actualTypeArguments</span> <span class="o">=</span> <span class="o">((</span><span class="n">ParameterizedType</span><span class="o">)</span> <span class="n">genericType</span><span class="o">).</span><span class="na">getActualTypeArguments</span><span class="o">();</span>
-</span><span class='line'>                <span class="n">Class</span><span class="o">[]</span> <span class="n">typeArgs</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Class</span><span class="o">[</span><span class="n">actualTypeArguments</span><span class="o">.</span><span class="na">length</span><span class="o">];</span>
-</span><span class='line'>                <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">actualTypeArguments</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
-</span><span class='line'>                    <span class="n">Type</span> <span class="n">actualTypeArgument</span> <span class="o">=</span> <span class="n">actualTypeArguments</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
-</span><span class='line'>                    <span class="n">typeArgs</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="o">(</span><span class="n">Class</span><span class="o">)</span> <span class="n">actualTypeArgument</span><span class="o">;</span>
-</span><span class='line'>                <span class="o">}</span>
-</span><span class='line'>                <span class="n">JavaType</span> <span class="n">javaType</span> <span class="o">=</span>
-</span><span class='line'>                        <span class="n">TypeFactory</span><span class="o">.</span><span class="na">defaultInstance</span><span class="o">().</span><span class="na">constructParametricType</span><span class="o">(</span><span class="n">type</span><span class="o">,</span> <span class="n">typeArgs</span><span class="o">);</span>
-</span><span class='line'>                <span class="k">return</span> <span class="n">mapper</span><span class="o">.</span><span class="na">readValue</span><span class="o">(</span><span class="n">entityStream</span><span class="o">,</span> <span class="n">javaType</span><span class="o">);</span>
-</span><span class='line'>            <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="k">return</span> <span class="n">mapper</span><span class="o">.</span><span class="na">readValue</span><span class="o">(</span><span class="n">entityStream</span><span class="o">,</span> <span class="n">type</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">MapType</span> <span class="nf">resolveMapType</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">type</span><span class="o">,</span> <span class="n">ParameterizedType</span> <span class="n">genericType</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">Type</span><span class="o">[]</span> <span class="n">args</span> <span class="o">=</span> <span class="n">genericType</span><span class="o">.</span><span class="na">getActualTypeArguments</span><span class="o">();</span>
-</span><span class='line'>        <span class="n">Class</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">Map</span><span class="o">&gt;</span> <span class="n">mapClass</span> <span class="o">=</span> <span class="n">type</span><span class="o">.</span><span class="na">asSubclass</span><span class="o">(</span><span class="n">Map</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">TypeFactory</span><span class="o">.</span><span class="na">defaultInstance</span><span class="o">().</span><span class="na">constructMapType</span><span class="o">(</span><span class="n">mapClass</span><span class="o">,</span> <span class="o">(</span><span class="n">Class</span><span class="o">)</span> <span class="n">args</span><span class="o">[</span><span class="mi">0</span><span class="o">],</span> <span class="o">(</span><span class="n">Class</span><span class="o">)</span> <span class="n">args</span><span class="o">[</span><span class="mi">1</span><span class="o">]);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="kd">private</span> <span class="n">CollectionType</span> <span class="nf">resolveCollectionType</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">type</span><span class="o">,</span> <span class="n">ParameterizedType</span> <span class="n">genericType</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">Type</span> <span class="n">type1</span> <span class="o">=</span> <span class="n">genericType</span><span class="o">.</span><span class="na">getActualTypeArguments</span><span class="o">()[</span><span class="mi">0</span><span class="o">];</span>
-</span><span class='line'>        <span class="n">Class</span><span class="o">&lt;?</span> <span class="kd">extends</span> <span class="n">Collection</span><span class="o">&gt;</span> <span class="n">collectionClass</span> <span class="o">=</span> <span class="n">type</span><span class="o">.</span><span class="na">asSubclass</span><span class="o">(</span><span class="n">Collection</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
-</span><span class='line'>        <span class="k">return</span> <span class="n">TypeFactory</span><span class="o">.</span><span class="na">defaultInstance</span><span class="o">().</span><span class="na">constructCollectionType</span><span class="o">(</span><span class="n">collectionClass</span><span class="o">,</span> <span class="o">(</span><span class="n">Class</span><span class="o">)</span> <span class="n">type1</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Override</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isWriteable</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="o">,</span> <span class="n">Type</span> <span class="n">genericType</span><span class="o">,</span> <span class="n">Annotation</span><span class="o">[]</span> <span class="n">annotations</span><span class="o">,</span> <span class="n">MediaType</span> <span class="n">mediaType</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Override</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">long</span> <span class="nf">getSize</span><span class="o">(</span><span class="n">Object</span> <span class="n">o</span><span class="o">,</span> <span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="o">,</span> <span class="n">Type</span> <span class="n">genericType</span><span class="o">,</span> <span class="n">Annotation</span><span class="o">[]</span> <span class="n">annotations</span><span class="o">,</span> <span class="n">MediaType</span> <span class="n">mediaType</span><span class="o">)</span> <span class="o">{</span>
-</span><span class='line'>        <span class="k">return</span> <span class="o">-</span><span class="mi">1L</span><span class="o">;</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nd">@Override</span>
-</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">writeTo</span><span class="o">(</span><span class="n">Object</span> <span class="n">o</span><span class="o">,</span> <span class="n">Class</span><span class="o">&lt;?&gt;</span> <span class="n">type</span><span class="o">,</span> <span class="n">Type</span> <span class="n">genericType</span><span class="o">,</span> <span class="n">Annotation</span><span class="o">[]</span> <span class="n">annotations</span><span class="o">,</span> <span class="n">MediaType</span> <span class="n">mediaType</span><span class="o">,</span> <span class="n">MultivaluedMap</span><span class="o">&lt;</span><span class="n">String</span><span class="o">,</span> <span class="n">Object</span><span class="o">&gt;</span> <span class="n">httpHeaders</span><span class="o">,</span> <span class="n">OutputStream</span> <span class="n">entityStream</span><span class="o">)</span>
-</span><span class='line'>            <span class="kd">throws</span> <span class="n">IOException</span><span class="o">,</span> <span class="n">WebApplicationException</span> <span class="o">{</span>
-</span><span class='line'>        <span class="n">mapper</span><span class="o">.</span><span class="na">writeValue</span><span class="o">(</span><span class="n">entityStream</span><span class="o">,</span> <span class="n">o</span><span class="o">);</span>
-</span><span class='line'>    <span class="o">}</span>
-</span><span class='line'><span class="o">}</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Основной код класса сосредоточен в методе <code>readFrom</code>, который определяет типизацию класса и создаёт необходимый подкласс <code>com.fasterxml.jackson.databind.JavaType</code>, который будет использован во время десериализации.</p>
-
-<p>Теперь мы можем создать клиента следующим образом:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'>        <span class="n">List</span><span class="o">&lt;?&gt;</span> <span class="n">providers</span> <span class="o">=</span> <span class="n">Arrays</span><span class="o">.</span><span class="na">asList</span><span class="o">(</span><span class="k">new</span> <span class="n">JsonMessageHandler</span><span class="o">(</span><span class="n">objectMapper</span><span class="o">));</span>
-</span><span class='line'>        <span class="n">UserRest</span> <span class="n">userRest</span> <span class="o">=</span> <span class="n">JAXRSClientFactory</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">&quot;http://localhost:8080&quot;</span><span class="o">,</span> <span class="n">UserRest</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">providers</span><span class="o">);</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="c1">// usage:</span>
-</span><span class='line'>        <span class="n">User</span> <span class="n">user</span> <span class="o">=</span> <span class="n">userRest</span><span class="o">.</span><span class="na">findByLogin</span><span class="o">(</span><span class="s">&quot;uthark&quot;</span><span class="o">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Когда вызывается метод <code>findByLogin</code> под капотом создаётся HTTP Request, дёргается сервер и полученный ответ десериализуется. От конечного пользотеля детали реализации API скрыты.</p>
-
-<p>В <a href="/blog/2013/06/28/jaxrs-spring-autowiring/">следующем посте</a> описано, как автоматически добавить полученные прокси в фабрику бинов Spring для дальнейшего использования.</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/5/">&larr; Older</a>
@@ -1731,6 +1572,10 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/04/25/reading-list-2014-april-25/">Reading List 2014-April-25</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/04/24/reading-list-2014-april-24/">Reading List 2014-April-24</a>
@@ -1754,10 +1599,6 @@ Click on <code>Edit</code> button in <code>Triggers</code> section.</p>
     
       <li class="post">
         <a href="/blog/2014/04/17/reading-list-2014-april-17/">Reading List 2014-April-17</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/04/16/reading-list-2014-april-16/">Reading List 2014-April-16</a>
       </li>
     
   </ul>

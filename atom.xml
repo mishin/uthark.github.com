@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-24T13:26:39-04:00</updated>
+  <updated>2014-04-25T15:25:49-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,78 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-April-25]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/25/reading-list-2014-april-25/"/>
+    <updated>2014-04-25T15:17:11-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/25/reading-list-2014-april-25</id>
+    <content type="html"><![CDATA[<h3>Announcements</h3>
+
+<ol>
+<li><a href="http://j.mp/1htxX1e">Spring Social 1.1.0 Released</a></li>
+</ol>
+
+
+<h3>Cloud</h3>
+
+<ol>
+<li><a href="http://j.mp/1iiriam">MySQL 5.5 to MySQL 5.6 Upgrade Support for Amazon RDS</a></li>
+</ol>
+
+
+<h3>General</h3>
+
+<ol>
+<li><a href="http://j.mp/1htxVq0">A Note On This Week&rsquo;s Server Maintenance | Pocket Blog</a></li>
+<li><a href="http://j.mp/1pqKZRG">Apple Designer Jonathan Ive on What&rsquo;s Next</a></li>
+<li><a href="http://j.mp/1iirlTk">AT&amp;T creates $500M joint venture for a Netflix-style TV service â Tech News and Analysis</a></li>
+<li><a href="http://j.mp/1iQPnK0">The Change My Son Brought, Seen Through Personal Data</a></li>
+</ol>
+
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1fbYpls">Ameba Teams and Amoeba Management</a></li>
+<li><a href="http://j.mp/1k9PS1j">Automate with Grunt</a></li>
+<li><a href="http://j.mp/1l8XLFk">Beyond the Product Demo: Choosing the Right Validation Technique in Scrum</a></li>
+<li><a href="http://j.mp/1l8XMJo">Code Like a Fighter Pilot, Design Like an Engineer and Measure What?</a></li>
+<li><a href="http://j.mp/1pvzwWc">Git Branch Clean-up Adventures</a></li>
+<li><a href="http://j.mp/1iQPpRY">Google is testing a feature that lets Chrome users save, share and organize their favorite Web content</a></li>
+<li><a href="http://j.mp/1jWZESJ">Hard Books Are Overrated</a></li>
+<li><a href="http://j.mp/1iQPoO4">How Docker Helped Us Achieve the (Near) Impossible</a></li>
+<li><a href="http://j.mp/1nMvnc4">Improved Query Filtering and Conditional Updates for DynamoDB</a></li>
+<li><a href="http://j.mp/1rq0xpL">Minimal Viable Team to create a Minimally Viable Product</a></li>
+<li><a href="http://j.mp/1ieSCLE">Move over, Old Man Ruby &mdash; your Java moment has arrived</a></li>
+<li><a href="http://j.mp/1iQPuVX">On Agile: Minimum Marketable Feature (MMF) is key for the team survival</a></li>
+<li><a href="http://j.mp/1jWZFGu">RESTify your SQL Data</a></li>
+<li><a href="http://j.mp/1htxXyk">Save more now with Calendar API! | Google Developers Blog</a></li>
+<li><a href="http://j.mp/1ijQXiW">TDD is dead. Long live testing.</a></li>
+<li><a href="http://j.mp/1kaqlVY">Test your app with Capybara</a></li>
+<li><a href="http://j.mp/1ier3lB">Testing for Developers: why you should be doing Unit, Integration and QA Testing</a></li>
+<li><a href="http://j.mp/1jWZhYA">The disease that afflicts us</a></li>
+<li><a href="http://j.mp/1l8Y17s">The justice in coders</a></li>
+<li><a href="http://j.mp/1nspAec">The Top 10 Productivity Booster Techs for Programmers</a></li>
+<li><a href="http://j.mp/1l8Y0As">We need better mobile multitasking</a></li>
+<li><a href="http://j.mp/1nspAuR">What Is A Unit Test?</a></li>
+<li><a href="http://j.mp/1jWZj2D">you have ruined javascript</a></li>
+<li><a href="http://j.mp/1gU1gKV">Zen To Done (ZTD): The Ultimate Simple Productivity System</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1gVDaQ3">Do more with less: Lambda expressions in Java 8</a></li>
+<li><a href="http://j.mp/1nspzqA">HashMap performance improvements in Java 8</a></li>
+<li><a href="http://j.mp/1lOfqAJ">New feature for Liferay 7: Sharing Content between Sites</a></li>
+<li><a href="http://j.mp/1nMvjZF">Java EE CDI Qualifiers: Quick Peek</a></li>
+<li><a href="http://j.mp/1rmNaGP">Spring MVC Exception Handling Example</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-24]]></title>
@@ -1369,53 +1441,6 @@ The integration of assertj into Maven project is very easy:</p>
 <ol>
 <li><a href="http://j.mp/1igrjxo">Новости Большого адронного коллайдера</a></li>
 <li><a href="http://j.mp/1jWZWh9">Одиночное рождение топ-кварка позволило еще тщательнее проверить Стандартную модель</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-April-01]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/01/reading-list-2014-april-1/"/>
-    <updated>2014-04-01T13:41:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/01/reading-list-2014-april-1</id>
-    <content type="html"><![CDATA[<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/1fE6FVX">We lost a customer. This is how we found out…</a></li>
-<li><a href="http://j.mp/1jp2qCc">New Linux version will reduce suspend and resume times</a></li>
-<li><a href="http://j.mp/1d3ybR0">The Stress Of Being A Computer Programmer Is Literally Driving Many Of Them Crazy</a></li>
-<li><a href="http://j.mp/1hduWBP">Amazing approximation to e</a></li>
-<li><a href="http://j.mp/1hduYtn">raj bala — Amazon Is Downloading Apps From Google Play and Inspecting Them</a></li>
-<li><a href="http://j.mp/1dMrQd4">coreos/etcd · GitHub</a></li>
-<li><a href="http://j.mp/1dMrQtr">The Python Paradox</a></li>
-<li><a href="http://j.mp/1fIQTZY">The Lucene disk format</a></li>
-<li><a href="http://j.mp/1jSImeh">Git smart! 20 essential tips for Git and GitHub users</a></li>
-<li><a href="http://j.mp/1ffdgG0">Six Degrees of Kevin Bacon in six languages</a></li>
-<li><a href="http://j.mp/1juhnmH">Why I Don’t Inherit from Collection Types</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/PccWSm">Spring Integration 3.0.2 and 4.0 Milestone 4 Released</a></li>
-<li><a href="http://j.mp/1msN13X">Careful With Native SQL in Hibernate</a></li>
-<li><a href="http://j.mp/PccPWV">Java EE 8 Survey Final Results (The Aquarium)</a></li>
-<li><a href="http://j.mp/1hphkUz">Java 8 Will Revolutionize Database Access</a></li>
-<li><a href="http://j.mp/1dg6jax">Introduction to Java multitenancy</a></li>
-<li><a href="http://j.mp/1dMtQC1">Java vs. Go: The case for cloud-specific languages</a></li>
-</ol>
-
-
-<h3>Scala</h3>
-
-<ol>
-<li><a href="http://j.mp/1juhcrk">Playframework, how to protect against Mass Assignment</a></li>
-<li><a href="http://j.mp/1fIQCWS">Scala may not be right for you if…</a></li>
-<li><a href="http://j.mp/1fIQGFY">Running an Akka Cluster with Docker Containers</a></li>
-<li><a href="http://j.mp/1gWqddq">Type programming: Shifting from values to types</a></li>
-<li><a href="http://j.mp/1gWqcWP">The learning curve of Scala</a></li>
 </ol>
 
 ]]></content>
