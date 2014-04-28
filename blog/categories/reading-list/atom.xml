@@ -4,7 +4,7 @@
   <title><![CDATA[Category: reading list | Software Development and related activities]]></title>
   <link href="http://uthark.github.com/blog/categories/reading-list/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:55:36-04:00</updated>
+  <updated>2014-04-28T16:56:52-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -36,7 +36,7 @@
 
 <ol>
 <li><a href="http://j.mp/1rEUCPA">JAX-RS 2.0: Custom Content Handling</a></li>
-<li>[Difference between Connected vs Disconnected RowSet in Java JDBC | 1. <a href="http://j.mp/1lMQNc4">The 7 Log Management Tools Java Developers Should Know</a></li>
+<li><a href="http://j.mp/1lMQNc4">The 7 Log Management Tools Java Developers Should Know</a></li>
 <li><a href="http://j.mp/RZTs59">Jibx Jersey2 Integration</a>
 RowSetProvider, RowSetFactory Example](<a href="http://j.mp/1rEUxeX">http://j.mp/1rEUxeX</a>)</li>
 <li><a href="http://j.mp/1kdIwbF">Using Http Session with Spring based web applications</a></li>
