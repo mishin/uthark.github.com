@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: spring | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/spring/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/spring/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Automatic query modification with Spring Data Mongo]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/01/restricting-mongo-template/"/>
+    <link href="http://uthark.github.io/blog/2014/03/01/restricting-mongo-template/"/>
     <updated>2014-03-01T00:19:00-05:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/01/restricting-mongo-template</id>
+    <id>http://uthark.github.io/blog/2014/03/01/restricting-mongo-template</id>
     <content type="html"><![CDATA[<h3>Introduction</h3>
 
 <p>Today I want to show how one can automatically apply additional restrictions on <a href="http://www.mongodb.org/">MongoDB</a> Queries with <a href="http://docs.spring.io/spring-data/mongodb/docs/current/api/org/springframework/data/mongodb/core/MongoTemplate.html">MongoTemplate</a> or <a href="http://docs.spring.io/spring-data/mongodb/docs/current/reference/htmlsingle/">Spring Data Mongo</a>.</p>
@@ -161,9 +161,9 @@ public RestrictingMongoTemplate mongoTemplate() throws UnknownHostException {
   
   <entry>
     <title type="html"><![CDATA[Пишем @Enable*-аннотацию для Spring]]></title>
-    <link href="http://uthark.github.com/blog/2013/06/29/spring-enable-annotation/"/>
+    <link href="http://uthark.github.io/blog/2013/06/29/spring-enable-annotation/"/>
     <updated>2013-06-29T23:15:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2013/06/29/spring-enable-annotation</id>
+    <id>http://uthark.github.io/blog/2013/06/29/spring-enable-annotation</id>
     <content type="html"><![CDATA[<p>Начиная с версии 3.1 Spring поддерживает декларативное включение необходимой функциональности через, так называемые, <code>@Enable*</code> аннотации. Пример таких аннотаций:
 <a href="http://static.springsource.org/spring/docs/3.2.x/javadoc-api/org/springframework/web/servlet/config/annotation/EnableWebMvc.html"><code>org.springframework.web.servlet.config.annotation.EnableWebMvc</code></a>, <a href="http://static.springsource.org/spring/docs/3.2.x/javadoc-api/org/springframework/cache/annotation/EnableCaching.html"><code>org.springframework.cache.annotation.EnableCaching</code></a>, <a href="http://static.springsource.org/spring/docs/3.2.x/javadoc-api/org/springframework/scheduling/annotation/EnableAsync.html"><code>org.springframework.scheduling.annotation.EnableAsync</code></a> и другие.</p>
 
@@ -315,9 +315,9 @@ public RestrictingMongoTemplate mongoTemplate() throws UnknownHostException {
   
   <entry>
     <title type="html"><![CDATA[@Autowired JAX-RS Client API]]></title>
-    <link href="http://uthark.github.com/blog/2013/06/28/jaxrs-spring-autowiring/"/>
+    <link href="http://uthark.github.io/blog/2013/06/28/jaxrs-spring-autowiring/"/>
     <updated>2013-06-28T19:05:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2013/06/28/jaxrs-spring-autowiring</id>
+    <id>http://uthark.github.io/blog/2013/06/28/jaxrs-spring-autowiring</id>
     <content type="html"><![CDATA[<p>Продолжая разговор о <a href="http://www.jcp.org/en/jsr/detail?id=339">JAX RS</a> <a href="https://jax-rs-spec.java.net/nonav/2.0/apidocs/javax/ws/rs/client/package-summary.html">Client API</a> &ndash; предположим, что мы уже <a href="/blog/2013/06/28/jaxrs/">используем JAX-RS клиент</a></p>
 
 <p>У нас есть класс, который умеет создавать прокси для любого REST-интерфейса в проекте. Теперь мы хотим сделать так, чтобы эти интерфейсы можно было автоматически создавать в контексте Spring и связывать с другими бинами.</p>
@@ -546,9 +546,9 @@ public RestrictingMongoTemplate mongoTemplate() throws UnknownHostException {
   
   <entry>
     <title type="html"><![CDATA[Использование BeanPostProcessor на примере журналирования]]></title>
-    <link href="http://uthark.github.com/blog/2012/04/20/beanpostprocessor/"/>
+    <link href="http://uthark.github.io/blog/2012/04/20/beanpostprocessor/"/>
     <updated>2012-04-20T04:51:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2012/04/20/beanpostprocessor</id>
+    <id>http://uthark.github.io/blog/2012/04/20/beanpostprocessor</id>
     <content type="html"><![CDATA[<div class='post'>
 Сегодня я хочу рассказать, как можно сделать инициализацию логгера в классе с использованием аннотаций и <a href="http://static.springsource.org/spring/docs/current/javadoc-api/org/springframework/beans/factory/config/BeanPostProcessor.html">BeanPostProcessor</a>
 
@@ -650,9 +650,9 @@ public class LoggerPostProcessor implements BeanPostProcessor {
   
   <entry>
     <title type="html"><![CDATA[Упрощаем работу с JPA при помощи Spring Data JPA]]></title>
-    <link href="http://uthark.github.com/blog/2012/02/22/jpa-spring-data-jpa/"/>
+    <link href="http://uthark.github.io/blog/2012/02/22/jpa-spring-data-jpa/"/>
     <updated>2012-02-22T14:17:00-05:00</updated>
-    <id>http://uthark.github.com/blog/2012/02/22/jpa-spring-data-jpa</id>
+    <id>http://uthark.github.io/blog/2012/02/22/jpa-spring-data-jpa</id>
     <content type="html"><![CDATA[<div class='post'>
 <h3>Введение</h3>
 <p>Уже прошло несколько лет с тех пор, как появился JPA. Работа с <a href="http://docs.oracle.com/javaee/5/api/javax/persistence/EntityManager.html">EntityManager</a> увлекательна, но разработчики пишут красивый API, а подробности работы с базой данных скрывают. При этом частая проблема - дублирование имплементации, когда из одного DAO в другой у нас плавно перекочёвывает один и тот же код, в лучшем случае этот код переносится в абстрактный базовый DAO. <a href="http://www.springsource.org/spring-data/jpa">Spring Data</a>  коренным образом решает проблему - при  его использовании остаётся только API на уровне интерфейсов, вся имплементация создаётся автоматически с использованием <a href="http://en.wikipedia.org/wiki/Aspect-oriented_programming">AOP</a>.</p>

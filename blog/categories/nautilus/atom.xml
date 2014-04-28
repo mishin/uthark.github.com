@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: nautilus | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/nautilus/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/nautilus/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[RabbitVCS - расширение для Nautilus для работы с Subversion]]></title>
-    <link href="http://uthark.github.com/blog/2009/12/05/nautilus-subversion/"/>
+    <link href="http://uthark.github.io/blog/2009/12/05/nautilus-subversion/"/>
     <updated>2009-12-05T14:03:00-05:00</updated>
-    <id>http://uthark.github.com/blog/2009/12/05/nautilus-subversion</id>
+    <id>http://uthark.github.io/blog/2009/12/05/nautilus-subversion</id>
     <content type="html"><![CDATA[<div class='post'>
 Раньше я использовал коллекцию скриптов <tt>nautilussvn</tt>, весьма неудобную в использовании.<br />
 <br />

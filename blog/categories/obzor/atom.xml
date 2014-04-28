@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: обзор | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/obzor/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/obzor/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Google Application Engine]]></title>
-    <link href="http://uthark.github.com/blog/2009/05/23/google-application-engine/"/>
+    <link href="http://uthark.github.io/blog/2009/05/23/google-application-engine/"/>
     <updated>2009-05-23T12:00:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2009/05/23/google-application-engine</id>
+    <id>http://uthark.github.io/blog/2009/05/23/google-application-engine</id>
     <content type="html"><![CDATA[<div class='post'>
 Посмотрел на <a href="http://code.google.com/appengine/">Google App Engine </a>(GAE).
 

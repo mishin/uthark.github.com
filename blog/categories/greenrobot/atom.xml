@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: greenrobot | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/greenrobot/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/greenrobot/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Limiting threads count for GreenRobot EventBus]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/06/limiting-threads-count-for-greenrobot-eventbus/"/>
+    <link href="http://uthark.github.io/blog/2014/03/06/limiting-threads-count-for-greenrobot-eventbus/"/>
     <updated>2014-03-06T22:38:54-05:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/06/limiting-threads-count-for-greenrobot-eventbus</id>
+    <id>http://uthark.github.io/blog/2014/03/06/limiting-threads-count-for-greenrobot-eventbus</id>
     <content type="html"><![CDATA[<p>In one of my projects I used <a href="https://github.com/greenrobot/EventBus">EventBus</a> library. The library is pretty cool and I would recommend everybody to use it.</p>
 
 <p>But I found one small issue with this library &ndash; in case you send too many events very fast (i.e. more than 1000 per second) you may face issue with application crash due to inability to create new thread.</p>

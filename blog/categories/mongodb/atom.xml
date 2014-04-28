@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: mongodb | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/mongodb/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/mongodb/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Automatic query modification with Spring Data Mongo]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/01/restricting-mongo-template/"/>
+    <link href="http://uthark.github.io/blog/2014/03/01/restricting-mongo-template/"/>
     <updated>2014-03-01T00:19:00-05:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/01/restricting-mongo-template</id>
+    <id>http://uthark.github.io/blog/2014/03/01/restricting-mongo-template</id>
     <content type="html"><![CDATA[<h3>Introduction</h3>
 
 <p>Today I want to show how one can automatically apply additional restrictions on <a href="http://www.mongodb.org/">MongoDB</a> Queries with <a href="http://docs.spring.io/spring-data/mongodb/docs/current/api/org/springframework/data/mongodb/core/MongoTemplate.html">MongoTemplate</a> or <a href="http://docs.spring.io/spring-data/mongodb/docs/current/reference/htmlsingle/">Spring Data Mongo</a>.</p>

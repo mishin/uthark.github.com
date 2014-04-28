@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: unit testing | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/unit-testing/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/unit-testing/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Using Unitils ReflectionAssert]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/16/using-unitils-reflectionassert/"/>
+    <link href="http://uthark.github.io/blog/2014/04/16/using-unitils-reflectionassert/"/>
     <updated>2014-04-16T00:10:10-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/16/using-unitils-reflectionassert</id>
+    <id>http://uthark.github.io/blog/2014/04/16/using-unitils-reflectionassert</id>
     <content type="html"><![CDATA[<p>Often it is needed to compare two different instances of the class inside test. I.e. we save object into database, then fetch it back from db and we want to be sure if nothing was lost during saving/reading.</p>
 
 <p>In order to make such assertions more easier and maintainable one can use great Unitils library which has useful class <a href="http://www.unitils.org/tutorial-reflectionassert.html">ReflectionAssert</a></p>
@@ -100,9 +100,9 @@ assertThat(actual.getFederalIncomeTax(), closeTo(expected.getFederalIncomeTax(),
   
   <entry>
     <title type="html"><![CDATA[Using AssertJ]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/15/using-assertj/"/>
+    <link href="http://uthark.github.io/blog/2014/04/15/using-assertj/"/>
     <updated>2014-04-15T23:37:49-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/15/using-assertj</id>
+    <id>http://uthark.github.io/blog/2014/04/15/using-assertj</id>
     <content type="html"><![CDATA[<p><a href="https://github.com/joel-costigliola/assertj-core">AssertJ</a> is a library which provides fluent strongly-typed assertions to use in unit tests.</p>
 
 <p>Example of assertions written with <code>AssertJ</code>:</p>

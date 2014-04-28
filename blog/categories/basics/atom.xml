@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: basics | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/basics/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/basics/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Немного о виртуальных методах в Java]]></title>
-    <link href="http://uthark.github.com/blog/2011/07/21/java/"/>
+    <link href="http://uthark.github.io/blog/2011/07/21/java/"/>
     <updated>2011-07-21T01:06:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2011/07/21/java</id>
+    <id>http://uthark.github.io/blog/2011/07/21/java</id>
     <content type="html"><![CDATA[<div class='post'>
 Сегодня я хочу рассмотреть некоторые особенности переопределения методов в Java.  В java нельзя переопределить:   <br />
 <ul><li>поля класса</li>

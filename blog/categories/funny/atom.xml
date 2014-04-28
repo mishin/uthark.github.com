@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: funny | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/funny/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/funny/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Life fee]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/14/life-fee/"/>
+    <link href="http://uthark.github.io/blog/2014/03/14/life-fee/"/>
     <updated>2014-03-14T23:42:10-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/14/life-fee</id>
+    <id>http://uthark.github.io/blog/2014/03/14/life-fee</id>
     <content type="html"><![CDATA[<p>Found in sources:</p>
 
 <p>``` java

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: scala | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/scala/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/scala/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Scala for the Intrigued]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/25/scala-for-the-intrigued/"/>
+    <link href="http://uthark.github.io/blog/2014/03/25/scala-for-the-intrigued/"/>
     <updated>2014-03-25T16:09:42-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/25/scala-for-the-intrigued</id>
+    <id>http://uthark.github.io/blog/2014/03/25/scala-for-the-intrigued</id>
     <content type="html"><![CDATA[<p>This is a very nice series of posts about Scala by <a href="http://blog.agiledeveloper.com/">Venkat Subramaniam</a></p>
 
 <ol>

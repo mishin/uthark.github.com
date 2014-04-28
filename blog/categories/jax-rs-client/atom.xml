@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: jax-rs client | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/jax-rs-client/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/jax-rs-client/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[@Autowired JAX-RS Client API]]></title>
-    <link href="http://uthark.github.com/blog/2013/06/28/jaxrs-spring-autowiring/"/>
+    <link href="http://uthark.github.io/blog/2013/06/28/jaxrs-spring-autowiring/"/>
     <updated>2013-06-28T19:05:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2013/06/28/jaxrs-spring-autowiring</id>
+    <id>http://uthark.github.io/blog/2013/06/28/jaxrs-spring-autowiring</id>
     <content type="html"><![CDATA[<p>Продолжая разговор о <a href="http://www.jcp.org/en/jsr/detail?id=339">JAX RS</a> <a href="https://jax-rs-spec.java.net/nonav/2.0/apidocs/javax/ws/rs/client/package-summary.html">Client API</a> &ndash; предположим, что мы уже <a href="/blog/2013/06/28/jaxrs/">используем JAX-RS клиент</a></p>
 
 <p>У нас есть класс, который умеет создавать прокси для любого REST-интерфейса в проекте. Теперь мы хотим сделать так, чтобы эти интерфейсы можно было автоматически создавать в контексте Spring и связывать с другими бинами.</p>
@@ -246,9 +246,9 @@
   
   <entry>
     <title type="html"><![CDATA[JAX-RS Client API]]></title>
-    <link href="http://uthark.github.com/blog/2013/06/28/jaxrs/"/>
+    <link href="http://uthark.github.io/blog/2013/06/28/jaxrs/"/>
     <updated>2013-06-28T19:00:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2013/06/28/jaxrs</id>
+    <id>http://uthark.github.io/blog/2013/06/28/jaxrs</id>
     <content type="html"><![CDATA[<p><a href="http://jcp.org/en/jsr/detail?id=339">JAX-RS</a> &ndash; набор Java API для работы с REST сервисами. Существует несколько реализаций, <a href="/blog/2012/02/08/java-rest/">о которых я уже писал раньше</a>.</p>
 
 <p>Предположим, что проект А выставляет наружу REST API, который мы хотим использовать в проекте Б. Очевидно, что сразу возникает вопрос &ndash; можно ли переиспользовать классы модели и интерфейс в другом проекте. Ответ &ndash; да, можно. Client API, появившийся в JAX RS 2.0, упрощает реализацию клиента, но это всё равно не самый оптимальный вариант.</p>

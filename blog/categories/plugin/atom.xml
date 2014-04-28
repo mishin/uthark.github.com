@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: plugin | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/plugin/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/plugin/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Eclipse и его расширения]]></title>
-    <link href="http://uthark.github.com/blog/2009/05/02/eclipse/"/>
+    <link href="http://uthark.github.io/blog/2009/05/02/eclipse/"/>
     <updated>2009-05-02T13:18:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2009/05/02/eclipse</id>
+    <id>http://uthark.github.io/blog/2009/05/02/eclipse</id>
     <content type="html"><![CDATA[<div class='post'>
 Многие ругают <a href="http://www.eclipse.org/">Eclipse</a> за то, что там нет многого из того, что есть в коробке у <a href="http://www.jetbrains.com/idea/">Jetbrains Intellij IDEA</a>. Мне всегда казалось это не очень корректным, так как Eclipse в первую очередь платформа, а уже потом - среда для Java разработки.<br />
 Решил собрать воедино весь список используемых мною расширений для Eclipse.<br />

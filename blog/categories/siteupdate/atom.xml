@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: siteupdate | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/siteupdate/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/siteupdate/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Fixed Google+ comments on the site]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/01/google-plus-comments-fixed/"/>
+    <link href="http://uthark.github.io/blog/2014/03/01/google-plus-comments-fixed/"/>
     <updated>2014-03-01T01:07:00-05:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/01/google-plus-comments-fixed</id>
+    <id>http://uthark.github.io/blog/2014/03/01/google-plus-comments-fixed</id>
     <content type="html"><![CDATA[<p>Fixed google+ comments disappearing on the site.</p>
 
 <p>Thanks to <a href="http://blog.code-infection.com/2013/04/google-comments-on-your-none-blogger.html">this blog post</a></p>

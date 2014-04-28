@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: textview | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/textview/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/textview/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Using custom font in Android TextView]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/06/customizing-font-in-android-textview/"/>
+    <link href="http://uthark.github.io/blog/2014/03/06/customizing-font-in-android-textview/"/>
     <updated>2014-03-06T19:13:17-05:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/06/customizing-font-in-android-textview</id>
+    <id>http://uthark.github.io/blog/2014/03/06/customizing-font-in-android-textview</id>
     <content type="html"><![CDATA[<p>Today I want to share with you custom <a href="http://developer.android.com/reference/android/widget/TextView.html">TextView</a> which allows to set font to be used in xml layout.</p>
 
 <p>First, we need to declare our custom styleable</p>

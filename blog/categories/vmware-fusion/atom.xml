@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: vmware fusion | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/vmware-fusion/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/vmware-fusion/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Solving issue with DB2 on VMWare Fusion on MacBook Pro 2013 Late]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/05/solving-issue-with-db2-on-vmware-fusion-on-macbook-pro-2013-late/"/>
+    <link href="http://uthark.github.io/blog/2014/03/05/solving-issue-with-db2-on-vmware-fusion-on-macbook-pro-2013-late/"/>
     <updated>2014-03-05T14:41:54-05:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/05/solving-issue-with-db2-on-vmware-fusion-on-macbook-pro-2013-late</id>
+    <id>http://uthark.github.io/blog/2014/03/05/solving-issue-with-db2-on-vmware-fusion-on-macbook-pro-2013-late</id>
     <content type="html"><![CDATA[<p>Today I found issue running DB2 10.1 under VMWare Fusion 6.0.2 on my MacBook &ndash; all management services for <code>db2</code> are starting except for the db2 instance itself.</p>
 
 <p>When I tried to start DB2 using <code>db2start</code> it just crashed without any additional information.</p>

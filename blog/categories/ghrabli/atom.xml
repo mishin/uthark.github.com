@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: грабли | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/ghrabli/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/ghrabli/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Apache Ant и Metro]]></title>
-    <link href="http://uthark.github.com/blog/2009/06/02/apache-ant-metro/"/>
+    <link href="http://uthark.github.io/blog/2009/06/02/apache-ant-metro/"/>
     <updated>2009-06-02T12:31:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2009/06/02/apache-ant-metro</id>
+    <id>http://uthark.github.io/blog/2009/06/02/apache-ant-metro</id>
     <content type="html"><![CDATA[<div class='post'>
 Столкнулся с такой проблемой - в некоторых случаях приложение, собранное антом не работает. Конкретно - не работает десереализация запросов на веб-сервис. Получаемый запрос содержит <tt>null</tt> в значениях полей.
 

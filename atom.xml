@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-28]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/28/reading-list-2014-april-28/"/>
+    <link href="http://uthark.github.io/blog/2014/04/28/reading-list-2014-april-28/"/>
     <updated>2014-04-28T16:37:56-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/28/reading-list-2014-april-28</id>
+    <id>http://uthark.github.io/blog/2014/04/28/reading-list-2014-april-28</id>
     <content type="html"><![CDATA[<h3>Software development</h3>
 
 <ol>
@@ -47,9 +47,9 @@
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-25]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/25/reading-list-2014-april-25/"/>
+    <link href="http://uthark.github.io/blog/2014/04/25/reading-list-2014-april-25/"/>
     <updated>2014-04-25T15:17:11-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/25/reading-list-2014-april-25</id>
+    <id>http://uthark.github.io/blog/2014/04/25/reading-list-2014-april-25</id>
     <content type="html"><![CDATA[<h3>Announcements</h3>
 
 <ol>
@@ -119,9 +119,9 @@
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-24]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/24/reading-list-2014-april-24/"/>
+    <link href="http://uthark.github.io/blog/2014/04/24/reading-list-2014-april-24/"/>
     <updated>2014-04-24T13:21:05-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/24/reading-list-2014-april-24</id>
+    <id>http://uthark.github.io/blog/2014/04/24/reading-list-2014-april-24</id>
     <content type="html"><![CDATA[<h3>Announcements</h3>
 
 <ol>
@@ -194,18 +194,18 @@
   
   <entry>
     <title type="html"><![CDATA[Pocket Is Down]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/23/pocket-is-down/"/>
+    <link href="http://uthark.github.io/blog/2014/04/23/pocket-is-down/"/>
     <updated>2014-04-23T12:09:10-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/23/pocket-is-down</id>
+    <id>http://uthark.github.io/blog/2014/04/23/pocket-is-down</id>
     <content type="html"><![CDATA[<p>Hi. <a href="https://twitter.com/Pocket/status/458989752432091136">Pocket is down</a> so it means there is no reading list for today. Everyone have a nice day.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-22]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/22/reading-list-2014-april-22/"/>
+    <link href="http://uthark.github.io/blog/2014/04/22/reading-list-2014-april-22/"/>
     <updated>2014-04-22T13:41:36-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/22/reading-list-2014-april-22</id>
+    <id>http://uthark.github.io/blog/2014/04/22/reading-list-2014-april-22</id>
     <content type="html"><![CDATA[<h3>Announcements</h3>
 
 <ol>
@@ -323,9 +323,9 @@
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-21]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/21/reading-list-2014-april-21/"/>
+    <link href="http://uthark.github.io/blog/2014/04/21/reading-list-2014-april-21/"/>
     <updated>2014-04-21T10:12:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/21/reading-list-2014-april-21</id>
+    <id>http://uthark.github.io/blog/2014/04/21/reading-list-2014-april-21</id>
     <content type="html"><![CDATA[<h3>General</h3>
 
 <ol>
@@ -414,9 +414,9 @@ Building Large-Scale Distributed Systems</a></li>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-18]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/18/reading-list-2014-april-18/"/>
+    <link href="http://uthark.github.io/blog/2014/04/18/reading-list-2014-april-18/"/>
     <updated>2014-04-18T12:35:34-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/18/reading-list-2014-april-18</id>
+    <id>http://uthark.github.io/blog/2014/04/18/reading-list-2014-april-18</id>
     <content type="html"><![CDATA[<p>Death of Gabriel Garcia Marquez is definitely the worst yesterday&rsquo;s news.
 Read more: <a href="http://j.mp/1hRvbIN">Gabriel Garcia Marquez dies at 87</a></p>
 
@@ -495,9 +495,9 @@ Read more: <a href="http://j.mp/1hRvbIN">Gabriel Garcia Marquez dies at 87</a></
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-17]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/17/reading-list-2014-april-17/"/>
+    <link href="http://uthark.github.io/blog/2014/04/17/reading-list-2014-april-17/"/>
     <updated>2014-04-17T14:36:39-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/17/reading-list-2014-april-17</id>
+    <id>http://uthark.github.io/blog/2014/04/17/reading-list-2014-april-17</id>
     <content type="html"><![CDATA[<h3>Software development</h3>
 
 <ol>
@@ -546,9 +546,9 @@ Read more: <a href="http://j.mp/1hRvbIN">Gabriel Garcia Marquez dies at 87</a></
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-16]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/16/reading-list-2014-april-16/"/>
+    <link href="http://uthark.github.io/blog/2014/04/16/reading-list-2014-april-16/"/>
     <updated>2014-04-16T13:56:20-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/16/reading-list-2014-april-16</id>
+    <id>http://uthark.github.io/blog/2014/04/16/reading-list-2014-april-16</id>
     <content type="html"><![CDATA[<h3>Announcements</h3>
 
 <ol>
@@ -611,9 +611,9 @@ Read more: <a href="http://j.mp/1hRvbIN">Gabriel Garcia Marquez dies at 87</a></
   
   <entry>
     <title type="html"><![CDATA[Using Unitils ReflectionAssert]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/16/using-unitils-reflectionassert/"/>
+    <link href="http://uthark.github.io/blog/2014/04/16/using-unitils-reflectionassert/"/>
     <updated>2014-04-16T00:10:10-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/16/using-unitils-reflectionassert</id>
+    <id>http://uthark.github.io/blog/2014/04/16/using-unitils-reflectionassert</id>
     <content type="html"><![CDATA[<p>Often it is needed to compare two different instances of the class inside test. I.e. we save object into database, then fetch it back from db and we want to be sure if nothing was lost during saving/reading.</p>
 
 <p>In order to make such assertions more easier and maintainable one can use great Unitils library which has useful class <a href="http://www.unitils.org/tutorial-reflectionassert.html">ReflectionAssert</a></p>
@@ -711,9 +711,9 @@ Add static import to the class.</p>
   
   <entry>
     <title type="html"><![CDATA[Using AssertJ]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/15/using-assertj/"/>
+    <link href="http://uthark.github.io/blog/2014/04/15/using-assertj/"/>
     <updated>2014-04-15T23:37:49-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/15/using-assertj</id>
+    <id>http://uthark.github.io/blog/2014/04/15/using-assertj</id>
     <content type="html"><![CDATA[<p><a href="https://github.com/joel-costigliola/assertj-core">AssertJ</a> is a library which provides fluent strongly-typed assertions to use in unit tests.</p>
 
 <p>Example of assertions written with <code>AssertJ</code>:</p>
@@ -885,9 +885,9 @@ The integration of assertj into Maven project is very easy:</p>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-15]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/15/reading-list-2014-april-15/"/>
+    <link href="http://uthark.github.io/blog/2014/04/15/reading-list-2014-april-15/"/>
     <updated>2014-04-15T13:06:12-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/15/reading-list-2014-april-15</id>
+    <id>http://uthark.github.io/blog/2014/04/15/reading-list-2014-april-15</id>
     <content type="html"><![CDATA[<h3>Software development</h3>
 
 <ol>
@@ -935,9 +935,9 @@ The integration of assertj into Maven project is very easy:</p>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-14]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/14/reading-list-2014-april-14/"/>
+    <link href="http://uthark.github.io/blog/2014/04/14/reading-list-2014-april-14/"/>
     <updated>2014-04-14T13:48:11-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/14/reading-list-2014-april-14</id>
+    <id>http://uthark.github.io/blog/2014/04/14/reading-list-2014-april-14</id>
     <content type="html"><![CDATA[<h3>Releases</h3>
 
 <ol>
@@ -984,9 +984,9 @@ The integration of assertj into Maven project is very easy:</p>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-11]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/11/reading-list-2014-april-11/"/>
+    <link href="http://uthark.github.io/blog/2014/04/11/reading-list-2014-april-11/"/>
     <updated>2014-04-11T12:57:41-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/11/reading-list-2014-april-11</id>
+    <id>http://uthark.github.io/blog/2014/04/11/reading-list-2014-april-11</id>
     <content type="html"><![CDATA[<h3>Software development</h3>
 
 <ol>
@@ -1041,9 +1041,9 @@ The integration of assertj into Maven project is very easy:</p>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-10]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/10/reading-list-2014-april-10/"/>
+    <link href="http://uthark.github.io/blog/2014/04/10/reading-list-2014-april-10/"/>
     <updated>2014-04-10T15:35:04-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/10/reading-list-2014-april-10</id>
+    <id>http://uthark.github.io/blog/2014/04/10/reading-list-2014-april-10</id>
     <content type="html"><![CDATA[<h3>General</h3>
 
 <ol>
@@ -1095,9 +1095,9 @@ The integration of assertj into Maven project is very easy:</p>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-09]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/09/reading-list-2014-april-09/"/>
+    <link href="http://uthark.github.io/blog/2014/04/09/reading-list-2014-april-09/"/>
     <updated>2014-04-09T14:46:14-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/09/reading-list-2014-april-09</id>
+    <id>http://uthark.github.io/blog/2014/04/09/reading-list-2014-april-09</id>
     <content type="html"><![CDATA[<h3>Security</h3>
 
 <ol>
@@ -1155,9 +1155,9 @@ The integration of assertj into Maven project is very easy:</p>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-08]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/08/reading-list-2014-april-08/"/>
+    <link href="http://uthark.github.io/blog/2014/04/08/reading-list-2014-april-08/"/>
     <updated>2014-04-08T14:25:34-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/08/reading-list-2014-april-08</id>
+    <id>http://uthark.github.io/blog/2014/04/08/reading-list-2014-april-08</id>
     <content type="html"><![CDATA[<h3>Announces</h3>
 
 <ol>
@@ -1217,9 +1217,9 @@ The integration of assertj into Maven project is very easy:</p>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-07]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/07/reading-list-2014-april-07/"/>
+    <link href="http://uthark.github.io/blog/2014/04/07/reading-list-2014-april-07/"/>
     <updated>2014-04-07T10:56:03-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/07/reading-list-2014-april-07</id>
+    <id>http://uthark.github.io/blog/2014/04/07/reading-list-2014-april-07</id>
     <content type="html"><![CDATA[<h3>Software development</h3>
 
 <ol>
@@ -1288,9 +1288,9 @@ The integration of assertj into Maven project is very easy:</p>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-04]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/04/reading-list-2014-april-04/"/>
+    <link href="http://uthark.github.io/blog/2014/04/04/reading-list-2014-april-04/"/>
     <updated>2014-04-04T12:00:56-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/04/reading-list-2014-april-04</id>
+    <id>http://uthark.github.io/blog/2014/04/04/reading-list-2014-april-04</id>
     <content type="html"><![CDATA[<h3>Software development</h3>
 
 <ol>
@@ -1327,9 +1327,9 @@ The integration of assertj into Maven project is very easy:</p>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-03]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/03/reading-list-2014-april-03/"/>
+    <link href="http://uthark.github.io/blog/2014/04/03/reading-list-2014-april-03/"/>
     <updated>2014-04-03T11:23:19-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/03/reading-list-2014-april-03</id>
+    <id>http://uthark.github.io/blog/2014/04/03/reading-list-2014-april-03</id>
     <content type="html"><![CDATA[<h3>General</h3>
 
 <ol>

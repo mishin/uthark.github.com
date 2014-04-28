@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: diary | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/diary/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/diary/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Snowboarding]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/04/snowboarding/"/>
+    <link href="http://uthark.github.io/blog/2014/03/04/snowboarding/"/>
     <updated>2014-03-04T01:04:55-05:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/04/snowboarding</id>
+    <id>http://uthark.github.io/blog/2014/03/04/snowboarding</id>
     <content type="html"><![CDATA[<p>Today in the evening I got to <a href="http://www.skiwhitetail.com/winter">Whitetail Ski Resort</a>.</p>
 
 <iframe style="overflow: scroll; width: 100%; height: 600px" src="http://www.endomondo.com/embed/workouts?w=tmMEXnSDfDg&width=950&height=600" frameborder="0" scrolling="yes" ></iframe>
@@ -29,9 +29,9 @@
   
   <entry>
     <title type="html"><![CDATA[Сплин - Резонанс, часть 1.]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/02/splean-resonance/"/>
+    <link href="http://uthark.github.io/blog/2014/03/02/splean-resonance/"/>
     <updated>2014-03-02T23:29:00-05:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/02/splean-resonance</id>
+    <id>http://uthark.github.io/blog/2014/03/02/splean-resonance</id>
     <content type="html"><![CDATA[<p>Splean <a href="http://www.navigatorrecords.ru/showalbum.php?code=206">released new album</a> &ndash; Resonance, part 1.</p>
 
 <p>Good album, good texts.</p>

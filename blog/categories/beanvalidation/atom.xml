@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: beanvalidation | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/beanvalidation/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/beanvalidation/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Пишем валидатор для Bean Validation API]]></title>
-    <link href="http://uthark.github.com/blog/2013/06/19/custom-bean-validator/"/>
+    <link href="http://uthark.github.io/blog/2013/06/19/custom-bean-validator/"/>
     <updated>2013-06-19T08:00:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2013/06/19/custom-bean-validator</id>
+    <id>http://uthark.github.io/blog/2013/06/19/custom-bean-validator</id>
     <content type="html"><![CDATA[<p><a href="http://jcp.org/en/jsr/detail?id=303">JSR-303</a> предоставляет удобный API для проверки валидности объектов, а также входных параметров. Очевидно, что <a href="http://docs.oracle.com/javaee/6/tutorial/doc/gircz.html">стандартных валидаторов</a> в какой-то момент может быть недостаточно, поэтому необходимо писать собственный.</p>
 
 <p>Хочу показать на примере валидации запроса к <a href="http://www.mongodb.org/">MongoDB</a>, как легко это делается.</p>
@@ -152,9 +152,9 @@
   
   <entry>
     <title type="html"><![CDATA[Валидация входных параметров с использованием Spring]]></title>
-    <link href="http://uthark.github.com/blog/2013/06/19/validation/"/>
+    <link href="http://uthark.github.io/blog/2013/06/19/validation/"/>
     <updated>2013-06-19T07:00:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2013/06/19/validation</id>
+    <id>http://uthark.github.io/blog/2013/06/19/validation</id>
     <content type="html"><![CDATA[<p>Очень часто возникает задача проверки входных параметров в сервис на корректность с точки зрения бизнес логики.</p>
 
 <p>Эту задачу можно решить в лоб, написав вручную код валидации в каждом из методов сервиса, например, вот так:</p>

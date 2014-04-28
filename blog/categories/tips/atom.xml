@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: tips | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/tips/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/tips/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Using iTerm triggers]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/02/iterm-triggers/"/>
+    <link href="http://uthark.github.io/blog/2014/03/02/iterm-triggers/"/>
     <updated>2014-03-02T23:51:00-05:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/02/iterm-triggers</id>
+    <id>http://uthark.github.io/blog/2014/03/02/iterm-triggers</id>
     <content type="html"><![CDATA[<p>I want to share one of the cool features which <a href="http://www.iterm2.com/">iTerm.app</a> has &ndash; triggers.
 The idea behind triggers is simple &ndash; it allows to perform arbitrary action based on the output in console window. For example, it can colorize specified content (based on <a href="http://en.wikipedia.org/wiki/Regular_expression">regular expressions</a>).</p>
 

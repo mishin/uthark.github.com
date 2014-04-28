@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: jpa | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/jpa/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/jpa/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Собственная реализация методов в Spring Data JPA]]></title>
-    <link href="http://uthark.github.com/blog/2012/04/28/spring-data-jpa_28/"/>
+    <link href="http://uthark.github.io/blog/2012/04/28/spring-data-jpa_28/"/>
     <updated>2012-04-28T04:03:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2012/04/28/spring-data-jpa_28</id>
+    <id>http://uthark.github.io/blog/2012/04/28/spring-data-jpa_28</id>
     <content type="html"><![CDATA[<p>Очевидно, что мы не всегда можем воспользоваться автоматической генерацией кода, предоставляемой <a href="http://www.springsource.org/spring-data/jpa">Spring Data JPA</a>. Например, у нас слишком сложный запрос, или нам необходимо вызвать процедуру в базе данных, либо у нас сложная бизнес-логика.</p>
 
 <p>Рассмотрим следующий пример &ndash; например, нам нужна функциональность уникального счётчика, который мы решили реализовать с помощью последовательности (sequence).</p>
@@ -154,9 +154,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ищем с помощью Spring Data JPA]]></title>
-    <link href="http://uthark.github.com/blog/2012/04/24/spring-data-jpa/"/>
+    <link href="http://uthark.github.io/blog/2012/04/24/spring-data-jpa/"/>
     <updated>2012-04-24T03:04:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2012/04/24/spring-data-jpa</id>
+    <id>http://uthark.github.io/blog/2012/04/24/spring-data-jpa</id>
     <content type="html"><![CDATA[<p>Рассмотрим подробнее одну из наиболее полезных вещей в Spring Data JPA &ndash; генерация JPQL-запросов на основе имени метода.</p>
 
 <p>Spring Data JPA умеет автоматически генерировать запросы используя для подсказки название метода.</p>

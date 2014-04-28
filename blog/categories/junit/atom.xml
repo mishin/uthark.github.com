@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: junit | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/junit/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/junit/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Initializing Mockito @Mocks with JUnit @Rule]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/28/initializing-at-mocks-with-junit-at-rule/"/>
+    <link href="http://uthark.github.io/blog/2014/03/28/initializing-at-mocks-with-junit-at-rule/"/>
     <updated>2014-03-28T13:24:45-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/28/initializing-at-mocks-with-junit-at-rule</id>
+    <id>http://uthark.github.io/blog/2014/03/28/initializing-at-mocks-with-junit-at-rule</id>
     <content type="html"><![CDATA[<p>In this post I will show how one can implement custom JUnit <a href="http://junit-team.github.io/junit/javadoc/4.11/org/junit/Rule.html">@Rule</a>.</p>
 
 <p>As an example let&rsquo;s take <a href="https://code.google.com/p/mockito/">Mockito</a> and implement custom rule which will initialize Mocks in  test class.</p>

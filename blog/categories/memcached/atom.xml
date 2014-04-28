@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: memcached | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/memcached/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/memcached/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Использование memcached в качестве backend для Spring Caching Abstraction]]></title>
-    <link href="http://uthark.github.com/blog/2013/06/19/spring-caching/"/>
+    <link href="http://uthark.github.io/blog/2013/06/19/spring-caching/"/>
     <updated>2013-06-19T19:00:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2013/06/19/spring-caching</id>
+    <id>http://uthark.github.io/blog/2013/06/19/spring-caching</id>
     <content type="html"><![CDATA[<p>В <a href="http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/html/new-in-3.1.html">Spring 3.1</a> появился замечательный модуль &ndash; <a href="http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/html/cache.html">Spring Cache</a>, который является абстракцией над кэшированием, что позволяет декларативно реализовывать кэширование в приложении.</p>
 
 <p>Я не буду вдаваться в подробности работы, их можно прочитать в документации, но опишу, каким образом можно настроить <a href="http://memcached.org/">memcached</a> в качестве бэкэнда для работы.</p>

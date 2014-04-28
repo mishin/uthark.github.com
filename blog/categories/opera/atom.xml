@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: opera | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/opera/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/opera/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Opera и del.icio.us]]></title>
-    <link href="http://uthark.github.com/blog/2009/07/03/opera-delicious/"/>
+    <link href="http://uthark.github.io/blog/2009/07/03/opera-delicious/"/>
     <updated>2009-07-03T14:13:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2009/07/03/opera-delicious</id>
+    <id>http://uthark.github.io/blog/2009/07/03/opera-delicious</id>
     <content type="html"><![CDATA[<div class='post'>
 Так получилось, что в последнее время я стал пользоваться небезызвестной <a href="http://www.opera.com">оперой</a>.
 

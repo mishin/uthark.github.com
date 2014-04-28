@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: article | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/article/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/article/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Using Unitils ReflectionAssert]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/16/using-unitils-reflectionassert/"/>
+    <link href="http://uthark.github.io/blog/2014/04/16/using-unitils-reflectionassert/"/>
     <updated>2014-04-16T00:10:10-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/16/using-unitils-reflectionassert</id>
+    <id>http://uthark.github.io/blog/2014/04/16/using-unitils-reflectionassert</id>
     <content type="html"><![CDATA[<p>Often it is needed to compare two different instances of the class inside test. I.e. we save object into database, then fetch it back from db and we want to be sure if nothing was lost during saving/reading.</p>
 
 <p>In order to make such assertions more easier and maintainable one can use great Unitils library which has useful class <a href="http://www.unitils.org/tutorial-reflectionassert.html">ReflectionAssert</a></p>
@@ -100,9 +100,9 @@ assertThat(actual.getFederalIncomeTax(), closeTo(expected.getFederalIncomeTax(),
   
   <entry>
     <title type="html"><![CDATA[Using AssertJ]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/15/using-assertj/"/>
+    <link href="http://uthark.github.io/blog/2014/04/15/using-assertj/"/>
     <updated>2014-04-15T23:37:49-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/15/using-assertj</id>
+    <id>http://uthark.github.io/blog/2014/04/15/using-assertj</id>
     <content type="html"><![CDATA[<p><a href="https://github.com/joel-costigliola/assertj-core">AssertJ</a> is a library which provides fluent strongly-typed assertions to use in unit tests.</p>
 
 <p>Example of assertions written with <code>AssertJ</code>:</p>
@@ -221,9 +221,9 @@ mvn assertj:generate-assertions
   
   <entry>
     <title type="html"><![CDATA[Initializing Mockito @Mocks with JUnit @Rule]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/28/initializing-at-mocks-with-junit-at-rule/"/>
+    <link href="http://uthark.github.io/blog/2014/03/28/initializing-at-mocks-with-junit-at-rule/"/>
     <updated>2014-03-28T13:24:45-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/28/initializing-at-mocks-with-junit-at-rule</id>
+    <id>http://uthark.github.io/blog/2014/03/28/initializing-at-mocks-with-junit-at-rule</id>
     <content type="html"><![CDATA[<p>In this post I will show how one can implement custom JUnit <a href="http://junit-team.github.io/junit/javadoc/4.11/org/junit/Rule.html">@Rule</a>.</p>
 
 <p>As an example let&rsquo;s take <a href="https://code.google.com/p/mockito/">Mockito</a> and implement custom rule which will initialize Mocks in  test class.</p>
@@ -373,18 +373,18 @@ public void setUp() {
   
   <entry>
     <title type="html"><![CDATA[Atom.io invites]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/28/atom-dot-io-invites/"/>
+    <link href="http://uthark.github.io/blog/2014/03/28/atom-dot-io-invites/"/>
     <updated>2014-03-28T09:53:03-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/28/atom-dot-io-invites</id>
+    <id>http://uthark.github.io/blog/2014/03/28/atom-dot-io-invites</id>
     <content type="html"><![CDATA[<p>If anyone needs invites to <a href="http://atom.io">atom.io</a>, text editor from github &ndash; ask me in comments. I do have 3 invites to share.</p>
 ]]></content>
   </entry>
   
   <entry>
     <title type="html"><![CDATA[Scala for the Intrigued]]></title>
-    <link href="http://uthark.github.com/blog/2014/03/25/scala-for-the-intrigued/"/>
+    <link href="http://uthark.github.io/blog/2014/03/25/scala-for-the-intrigued/"/>
     <updated>2014-03-25T16:09:42-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/03/25/scala-for-the-intrigued</id>
+    <id>http://uthark.github.io/blog/2014/03/25/scala-for-the-intrigued</id>
     <content type="html"><![CDATA[<p>This is a very nice series of posts about Scala by <a href="http://blog.agiledeveloper.com/">Venkat Subramaniam</a></p>
 
 <ol>

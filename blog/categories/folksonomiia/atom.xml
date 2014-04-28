@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: фолксономия | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/folksonomiia/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/folksonomiia/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Практический опыт использования фолксономии в условиях неограниченной свободы расстановки меток  (часть 2)]]></title>
-    <link href="http://uthark.github.com/blog/2009/04/21/2/"/>
+    <link href="http://uthark.github.io/blog/2009/04/21/2/"/>
     <updated>2009-04-21T13:14:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2009/04/21/2</id>
+    <id>http://uthark.github.io/blog/2009/04/21/2</id>
     <content type="html"><![CDATA[<div class='post'>
 В продолжение <a href="http://atamanenko.blogspot.com/2009/04/blog-post.html">предыдущей заметки </a>.
 
@@ -42,9 +42,9 @@
   
   <entry>
     <title type="html"><![CDATA[Практический опыт использования фолксономии в условиях неограниченной свободы расстановки меток]]></title>
-    <link href="http://uthark.github.com/blog/2009/04/19/blog-post/"/>
+    <link href="http://uthark.github.io/blog/2009/04/19/blog-post/"/>
     <updated>2009-04-19T01:48:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2009/04/19/blog-post</id>
+    <id>http://uthark.github.io/blog/2009/04/19/blog-post</id>
     <content type="html"><![CDATA[<div class='post'>
 Уже более двух лет я использую <a href="http://delicious.com/">del.icio.us</a>.
 

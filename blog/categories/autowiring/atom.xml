@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: autowiring | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/autowiring/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/autowiring/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Пишем @Enable*-аннотацию для Spring]]></title>
-    <link href="http://uthark.github.com/blog/2013/06/29/spring-enable-annotation/"/>
+    <link href="http://uthark.github.io/blog/2013/06/29/spring-enable-annotation/"/>
     <updated>2013-06-29T23:15:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2013/06/29/spring-enable-annotation</id>
+    <id>http://uthark.github.io/blog/2013/06/29/spring-enable-annotation</id>
     <content type="html"><![CDATA[<p>Начиная с версии 3.1 Spring поддерживает декларативное включение необходимой функциональности через, так называемые, <code>@Enable*</code> аннотации. Пример таких аннотаций:
 <a href="http://static.springsource.org/spring/docs/3.2.x/javadoc-api/org/springframework/web/servlet/config/annotation/EnableWebMvc.html"><code>org.springframework.web.servlet.config.annotation.EnableWebMvc</code></a>, <a href="http://static.springsource.org/spring/docs/3.2.x/javadoc-api/org/springframework/cache/annotation/EnableCaching.html"><code>org.springframework.cache.annotation.EnableCaching</code></a>, <a href="http://static.springsource.org/spring/docs/3.2.x/javadoc-api/org/springframework/scheduling/annotation/EnableAsync.html"><code>org.springframework.scheduling.annotation.EnableAsync</code></a> и другие.</p>
 
@@ -169,9 +169,9 @@
   
   <entry>
     <title type="html"><![CDATA[@Autowired JAX-RS Client API]]></title>
-    <link href="http://uthark.github.com/blog/2013/06/28/jaxrs-spring-autowiring/"/>
+    <link href="http://uthark.github.io/blog/2013/06/28/jaxrs-spring-autowiring/"/>
     <updated>2013-06-28T19:05:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2013/06/28/jaxrs-spring-autowiring</id>
+    <id>http://uthark.github.io/blog/2013/06/28/jaxrs-spring-autowiring</id>
     <content type="html"><![CDATA[<p>Продолжая разговор о <a href="http://www.jcp.org/en/jsr/detail?id=339">JAX RS</a> <a href="https://jax-rs-spec.java.net/nonav/2.0/apidocs/javax/ws/rs/client/package-summary.html">Client API</a> &ndash; предположим, что мы уже <a href="/blog/2013/06/28/jaxrs/">используем JAX-RS клиент</a></p>
 
 <p>У нас есть класс, который умеет создавать прокси для любого REST-интерфейса в проекте. Теперь мы хотим сделать так, чтобы эти интерфейсы можно было автоматически создавать в контексте Spring и связывать с другими бинами.</p>
@@ -400,9 +400,9 @@
   
   <entry>
     <title type="html"><![CDATA[@Autowiring EJBs with Spring]]></title>
-    <link href="http://uthark.github.com/blog/2013/06/19/autowiring-factorybean/"/>
+    <link href="http://uthark.github.io/blog/2013/06/19/autowiring-factorybean/"/>
     <updated>2013-06-19T20:00:00-04:00</updated>
-    <id>http://uthark.github.com/blog/2013/06/19/autowiring-factorybean</id>
+    <id>http://uthark.github.io/blog/2013/06/19/autowiring-factorybean</id>
     <content type="html"><![CDATA[<p>Предположим, что у нас есть проект на Spring, в котором необходимо использовать внешние EJB. Для получения бинов необходимо создавать <a href="http://docs.oracle.com/javase/6/docs/api/javax/naming/InitialContext.html">InitialContext</a> и делать <code>lookup()</code> нужных ejb. Но эту задачу можно автоматизировать и пользоваться <a href="http://static.springsource.org/spring/docs/3.2.x/javadoc-api/org/springframework/beans/factory/annotation/Autowired.html">@Autowired</a>, то есть код будет выглядеть вот так:</p>
 
 <p><div class='bogus-wrapper'><notextile><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>

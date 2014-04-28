@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: rss | Software Development and related activities]]></title>
-  <link href="http://uthark.github.com/blog/categories/rss/atom.xml" rel="self"/>
-  <link href="http://uthark.github.com/"/>
-  <updated>2014-04-28T16:57:27-04:00</updated>
-  <id>http://uthark.github.com/</id>
+  <link href="http://uthark.github.io/blog/categories/rss/atom.xml" rel="self"/>
+  <link href="http://uthark.github.io/"/>
+  <updated>2014-04-28T18:37:17-04:00</updated>
+  <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Дайджест ссылок в RSS-ленте]]></title>
-    <link href="http://uthark.github.com/blog/2009/12/07/rss_07/"/>
+    <link href="http://uthark.github.io/blog/2009/12/07/rss_07/"/>
     <updated>2009-12-07T08:25:00-05:00</updated>
-    <id>http://uthark.github.com/blog/2009/12/07/rss_07</id>
+    <id>http://uthark.github.io/blog/2009/12/07/rss_07</id>
     <content type="html"><![CDATA[<div class='post'>
 Решил убрать дайджест ссылок из RSS-ленты.<br />
 <br />
