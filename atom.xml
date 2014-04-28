@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.com/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-25T15:25:49-04:00</updated>
+  <updated>2014-04-28T16:39:29-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,38 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-April-28]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/28/reading-list-2014-april-28/"/>
+    <updated>2014-04-28T16:37:56-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/28/reading-list-2014-april-28</id>
+    <content type="html"><![CDATA[<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1fcEUtp">Telerik Open Sources Kendo UI</a></li>
+<li><a href="http://j.mp/1nNt1JT">Richardson Maturity Model</a></li>
+<li><a href="http://j.mp/1iir96I">Network performance at AWS, Google, Rackspace and Softlayer</a></li>
+<li><a href="http://j.mp/1h6DwDA">Development &ldquo;Methodologies&rdquo;</a></li>
+<li><a href="http://j.mp/QUQYUl">An Introduction to the Web Notifications API</a></li>
+<li><a href="http://j.mp/QUR0f1">Mithril</a></li>
+<li><a href="http://j.mp/QUQY74">Is this what it&rsquo;s supposed to feel like? One Year Later.</a></li>
+<li><a href="http://j.mp/1rEUEHp">This hilarious graph of Netflix speeds shows the importance of net neutrality</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1rEUCPA">JAX-RS 2.0: Custom Content Handling</a></li>
+<li>[Difference between Connected vs Disconnected RowSet in Java JDBC | 1. <a href="http://j.mp/1lMQNc4">The 7 Log Management Tools Java Developers Should Know</a></li>
+<li><a href="http://j.mp/RZTs59">Jibx Jersey2 Integration</a>
+RowSetProvider, RowSetFactory Example](<a href="http://j.mp/1rEUxeX">http://j.mp/1rEUxeX</a>)</li>
+<li><a href="http://j.mp/1kdIwbF">Using Http Session with Spring based web applications</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-25]]></title>
@@ -1385,62 +1417,6 @@ The integration of assertj into Maven project is very easy:</p>
 <li><a href="http://j.mp/1iW71Lq">learning Scalaz</a></li>
 <li><a href="http://j.mp/1iW6ZTT">scala type programming resources</a></li>
 <li><a href="http://j.mp/1fIQAOC">pathikrit/dijon · GitHub</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-April-02]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/02/reading-list-2014-april-02/"/>
-    <updated>2014-04-02T12:37:17-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/02/reading-list-2014-april-02</id>
-    <content type="html"><![CDATA[<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/1fIQUNq">IAM Best Practices</a></li>
-<li><a href="http://j.mp/PiKChe">Every Great Product Owner Needs a Great ScrumMaster</a></li>
-<li><a href="http://j.mp/1pQCTSu">Manhattan, our real-time, multi-tenant distributed database for Twitter scale</a></li>
-<li><a href="http://j.mp/1juhjTQ">The Cache and Multithreading</a></li>
-</ol>
-
-
-<h3>Android</h3>
-
-<ol>
-<li><a href="http://j.mp/1hA8JT2">Useful Tools for Android Apps Test Automation</a></li>
-<li><a href="http://j.mp/1fonTdk">Fixing The Android Camera API</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/1idVzZD">Apache Tomcat 7.0.53 Released</a></li>
-<li><a href="http://j.mp/1fonYgQ">Spring Boot 1.0 GA Released</a></li>
-<li><a href="http://j.mp/1igAhL3">Java 8 Friday: Optional Will Remain an Option in Java</a></li>
-<li><a href="http://j.mp/1pQwYwJ">Eclipse Foundation Announces Java 8 Support</a></li>
-<li><a href="http://j.mp/1igA9Lm">Method 2 of N for crashing your JVM :&ndash;)</a></li>
-<li><a href="http://j.mp/1fonWWi">Abstract Class Versus Interface in the JDK 8 Era</a></li>
-<li><a href="http://j.mp/1h2Gtd0">Add Java 8 support to Eclipse Kepler</a></li>
-<li><a href="http://j.mp/1h2GsFZ">Difference between Stub and Mock object in Java Unit testing &ndash; JUnit</a></li>
-<li><a href="http://j.mp/1hYVF5Y">Introduction to Nashorn</a></li>
-</ol>
-
-
-<h3>Scala</h3>
-
-<ol>
-<li><a href="http://j.mp/1h2GAVW">IntelliJ, Scala and Gradle: Revisiting Hell</a></li>
-<li><a href="http://j.mp/1opLeBo">Spring-boot and Scala</a></li>
-</ol>
-
-
-<h3>In Russian</h3>
-
-<ol>
-<li><a href="http://j.mp/1igrjxo">Новости Большого адронного коллайдера</a></li>
-<li><a href="http://j.mp/1jWZWh9">Одиночное рождение топ-кварка позволило еще тщательнее проверить Стандартную модель</a></li>
 </ol>
 
 ]]></content>

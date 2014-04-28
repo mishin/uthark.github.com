@@ -4,7 +4,7 @@
   <title><![CDATA[Category: reading list | Software Development and related activities]]></title>
   <link href="http://uthark.github.com/blog/categories/reading-list/atom.xml" rel="self"/>
   <link href="http://uthark.github.com/"/>
-  <updated>2014-04-25T15:25:49-04:00</updated>
+  <updated>2014-04-28T16:39:29-04:00</updated>
   <id>http://uthark.github.com/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,38 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-April-28]]></title>
+    <link href="http://uthark.github.com/blog/2014/04/28/reading-list-2014-april-28/"/>
+    <updated>2014-04-28T16:37:56-04:00</updated>
+    <id>http://uthark.github.com/blog/2014/04/28/reading-list-2014-april-28</id>
+    <content type="html"><![CDATA[<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1fcEUtp">Telerik Open Sources Kendo UI</a></li>
+<li><a href="http://j.mp/1nNt1JT">Richardson Maturity Model</a></li>
+<li><a href="http://j.mp/1iir96I">Network performance at AWS, Google, Rackspace and Softlayer</a></li>
+<li><a href="http://j.mp/1h6DwDA">Development &ldquo;Methodologies&rdquo;</a></li>
+<li><a href="http://j.mp/QUQYUl">An Introduction to the Web Notifications API</a></li>
+<li><a href="http://j.mp/QUR0f1">Mithril</a></li>
+<li><a href="http://j.mp/QUQY74">Is this what it&rsquo;s supposed to feel like? One Year Later.</a></li>
+<li><a href="http://j.mp/1rEUEHp">This hilarious graph of Netflix speeds shows the importance of net neutrality</a></li>
+</ol>
+
+
+<h3>Java</h3>
+
+<ol>
+<li><a href="http://j.mp/1rEUCPA">JAX-RS 2.0: Custom Content Handling</a></li>
+<li>[Difference between Connected vs Disconnected RowSet in Java JDBC | 1. <a href="http://j.mp/1lMQNc4">The 7 Log Management Tools Java Developers Should Know</a></li>
+<li><a href="http://j.mp/RZTs59">Jibx Jersey2 Integration</a>
+RowSetProvider, RowSetFactory Example](<a href="http://j.mp/1rEUxeX">http://j.mp/1rEUxeX</a>)</li>
+<li><a href="http://j.mp/1kdIwbF">Using Http Session with Spring based web applications</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-25]]></title>
@@ -366,87 +398,6 @@ Building Large-Scale Distributed Systems</a></li>
 <li><a href="http://j.mp/1igrjxo">Новости Большого адронного коллайдера</a></li>
 <li><a href="http://j.mp/1reUVi3">Как открыли экзопланету Kepler-186f?</a></li>
 <li><a href="http://j.mp/1fyj2Ss">Иван Васильевич и его профессия</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-April-18]]></title>
-    <link href="http://uthark.github.com/blog/2014/04/18/reading-list-2014-april-18/"/>
-    <updated>2014-04-18T12:35:34-04:00</updated>
-    <id>http://uthark.github.com/blog/2014/04/18/reading-list-2014-april-18</id>
-    <content type="html"><![CDATA[<p>Death of Gabriel Garcia Marquez is definitely the worst yesterday&rsquo;s news.
-Read more: <a href="http://j.mp/1hRvbIN">Gabriel Garcia Marquez dies at 87</a></p>
-
-<h3>Announcements</h3>
-
-<ol>
-<li><a href="http://j.mp/1gPWaD2">CDI 1.2 Released (The Aquarium)</a></li>
-<li><a href="http://j.mp/QtkAbt">CDI 1.2 is released | Contexts and Dependency Injection</a></li>
-<li><a href="http://j.mp/1l9C8ra">AlloyUI 2.5.0 Released</a></li>
-<li><a href="http://j.mp/1qTV2kJ">AngularDart 0.10.0 (ostemad-teleportation) : breaking changes and versioning</a></li>
-<li><a href="http://j.mp/1r0Dsd7">Spring XD 1.0.0.M6 Released</a></li>
-<li><a href="http://j.mp/1md5KTY">Spring Security OAuth 2.0.0.RC1 Available</a></li>
-<li><a href="http://j.mp/1hYH8H0">The New Linode Cloud: SSDs, Double RAM &amp; much more | Linode Blog</a></li>
-</ol>
-
-
-<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/1l8Ed6v">The Heartbleed Aftermath: all CloudFlare certificates revoked and reissued</a></li>
-<li><a href="http://j.mp/1pfh9Vz">Starbucks Does Not Use Two-Phase Commit</a></li>
-<li><a href="http://j.mp/1iNTJPq">When two-factor authentication is not enough</a></li>
-<li><a href="http://j.mp/1peUPLK">Big Data Quality: Certify or Govern?</a></li>
-<li><a href="http://j.mp/1hPLyWg">Things You Should Never Do, Part I</a></li>
-<li><a href="http://j.mp/1peURDh">Tips for Getting Your Android Apps Looking Good on Amazon Fire TV</a></li>
-<li><a href="http://j.mp/1isSszK">Developers' Guide to Static Code Analysis</a></li>
-<li><a href="http://j.mp/1l3mq0J">Code School and the Google Maps SDK for iOS</a></li>
-<li><a href="http://j.mp/1iv4Nn2">Git and project dependencies</a></li>
-<li><a href="http://j.mp/1jaxSR8">A Simple Explanation for git rebase</a></li>
-<li><a href="http://j.mp/1hTnMJf">5 ways to improve battery life in your app</a></li>
-<li><a href="http://j.mp/1jaxMsO">The Magic of Modularity</a></li>
-</ol>
-
-
-<h3>Agile</h3>
-
-<ol>
-<li><a href="http://j.mp/1h8Aeid">Testability and Cost of Change</a></li>
-<li><a href="http://j.mp/1eFMQmn">Continuous Delivery: The price of admission..</a></li>
-<li><a href="http://j.mp/1iv4LeN">The advantage of Scrum in evaluating &ldquo;new stuff&rdquo;</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/1eYDLjc">Using jOOQ with Spring: CRUD</a></li>
-<li><a href="http://j.mp/1j6gbDC">Webinar Replay: Building &lsquo;Bootiful&rsquo; Applications with Spring Boot</a></li>
-<li><a href="http://j.mp/1l9C1M5">New BigInteger methods in Java 8</a></li>
-<li><a href="http://j.mp/RsXfaY">Using Selenium with JMeter&rsquo;s WebDriver Sampler</a></li>
-<li><a href="http://j.mp/1j6g6jk">How to do Continuous Integration with Java 8, NetBeans Platform 8, Jenkins, Jacoco and Sonar</a></li>
-<li><a href="http://j.mp/1l8tWaq">Inject any custom service into Liferay WCM templates</a></li>
-</ol>
-
-
-<h3>Scala</h3>
-
-<ol>
-<li><a href="http://j.mp/1qQOtiY">Changes in Scala 2.11</a></li>
-<li><a href="http://j.mp/1l9Vj47">Welcome to Scala 2.11</a></li>
-<li><a href="http://j.mp/1j9lWPM">Webinar: Welcome to Scala 2.11</a></li>
-<li><a href="http://j.mp/1j6goqe">Typesafe announces Akka Streams, a part of the Reactive Streams Initiative</a></li>
-<li><a href="http://j.mp/1l8tVn0">Primitive recursion with fix and Mu</a></li>
-</ol>
-
-
-<h3>In Russian</h3>
-
-<ol>
-<li><a href="http://j.mp/1qTr28J">Разномыслие, как ни странно, началось при Сталине… | ПостНаука</a></li>
-<li><a href="http://j.mp/1j9LU6R">Новый метод позволил наложить рекордное ограничение на время жизни хиггсовского бозона</a></li>
 </ol>
 
 ]]></content>
