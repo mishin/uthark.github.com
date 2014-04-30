@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.io/atom.xml" rel="self"/>
   <link href="http://uthark.github.io/"/>
-  <updated>2014-04-29T11:39:27-04:00</updated>
+  <updated>2014-04-30T13:41:25-04:00</updated>
   <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-April-30]]></title>
+    <link href="http://uthark.github.io/blog/2014/04/30/reading-list-2014-april-30/"/>
+    <updated>2014-04-30T13:32:16-04:00</updated>
+    <id>http://uthark.github.io/blog/2014/04/30/reading-list-2014-april-30</id>
+    <content type="html"><![CDATA[<h3>Announcements</h3>
+
+<ol>
+<li><a href="http://j.mp/1u2oyYb">Gradle 1.12 released</a></li>
+<li><a href="http://j.mp/1rMGrrK">Gradle 1.12 Release Notes</a></li>
+</ol>
+
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1lRiUlT">Accelerate development of complex applications and Android mobile clients with Ravello on Google Compute Engine</a></li>
+<li><a href="http://j.mp/1mVzQcz">Android tricks</a></li>
+<li><a href="http://j.mp/1iIqu2X">Design Your Agile Project, Part 4</a></li>
+<li><a href="http://j.mp/1ifyau0">Fe[26]</a></li>
+<li><a href="http://j.mp/1nMv2pD">Groovy Goodness: Customize ToString Creation</a></li>
+<li><a href="http://j.mp/1nMv1SI">Groovy Goodness: Define Compilation Customizers With Builder Syntax</a></li>
+<li><a href="http://j.mp/1iirsOP">Here&rsquo;s a 1300 Year Old Solution to Resilience &ndash; Rebuild, Rebuild, Rebuild</a></li>
+<li><a href="http://j.mp/1iirh66">Higher Availability, Increased Scale and Enhanced Security on Apache HBase</a></li>
+<li><a href="http://j.mp/1fcEUJO">How I Tackle a Big Writing Project</a></li>
+<li><a href="http://j.mp/1mENa7y">Make magic with Ruby DSLs</a></li>
+<li><a href="http://j.mp/1mzY77Z">New Physical Phenomenon on Nanowires Seen for the First Time</a></li>
+<li><a href="http://j.mp/1lTbBdx">Non Functional Requirements should be sticky: Usability, Performance and Capacity</a></li>
+<li><a href="http://j.mp/1jGPsOb">Reporting Metrics to Apache Kafka and Monitoring with Consumers</a></li>
+<li><a href="http://j.mp/1mzY3oH">Should you be working at a startup?</a></li>
+<li><a href="http://j.mp/1fcETWg">Social Processes And Heartbleed, Part 2</a></li>
+<li><a href="http://j.mp/1jGPohp">The anatomy of Connection Pooling</a></li>
+<li><a href="http://j.mp/1lMQXQF">What Can Men Do?</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-29]]></title>
@@ -1323,45 +1361,6 @@ The integration of assertj into Maven project is very easy:</p>
 
 <ol>
 <li><a href="http://j.mp/1jY5bc0">FAQ: Святилища Кавказа</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-April-04]]></title>
-    <link href="http://uthark.github.io/blog/2014/04/04/reading-list-2014-april-04/"/>
-    <updated>2014-04-04T12:00:56-04:00</updated>
-    <id>http://uthark.github.io/blog/2014/04/04/reading-list-2014-april-04</id>
-    <content type="html"><![CDATA[<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/1h2Gxt8">How WhatsApp Grew to Nearly 500 Million Users, 11,000 cores, and 70 Million Messages a Second</a></li>
-<li><a href="http://j.mp/1fKB44T">MongoDB on Google Compute Engine – tips and benchmarks</a></li>
-<li><a href="http://j.mp/1msMIGg">Going Reactive &ndash; Asynchronous JavaScript at Netflix</a></li>
-<li><a href="http://j.mp/1h8ltSf">Greenpeace Blasts &lsquo;Dirty&rsquo; Amazon Web Services</a></li>
-<li><a href="http://j.mp/1oxzyfP">Eclipse is dead for Android development and I helped kill it — Infinum</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/1mI2VYl">How to process stream and read text file in Java 8</a></li>
-<li><a href="http://j.mp/1jr94YG">Integration Testing for Spring Applications with JNDI Connection Pools</a></li>
-<li><a href="http://j.mp/1mI35Pp">Project Sagan: zero-downtime deployments</a></li>
-<li><a href="http://j.mp/PwiSW2">Java: How to Schedule a task to run in an interval</a></li>
-<li><a href="http://j.mp/1fxyTS3">Understanding the JDBC architecture.</a></li>
-<li><a href="http://j.mp/1foo5ch">Java Tip: Hibernate validation in a standalone implementation</a></li>
-</ol>
-
-
-<h3>In Russian</h3>
-
-<ol>
-<li><a href="http://j.mp/1k5VZqE">Получены первые намеки на эффект Михеева–Смирнова–Вольфенштейна при движении нейтрино сквозь Землю</a></li>
-<li><a href="http://j.mp/1owoAqU">Проект Lazybones — «Лентяй», который работает за вас</a></li>
-<li><a href="http://j.mp/1gQIA3B">Москва: город, агломерация, жители, система управления</a></li>
 </ol>
 
 ]]></content>

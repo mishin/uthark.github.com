@@ -4,7 +4,7 @@
   <title><![CDATA[Category: reading list | Software Development and related activities]]></title>
   <link href="http://uthark.github.io/blog/categories/reading-list/atom.xml" rel="self"/>
   <link href="http://uthark.github.io/"/>
-  <updated>2014-04-29T11:39:27-04:00</updated>
+  <updated>2014-04-30T13:41:25-04:00</updated>
   <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,44 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-April-30]]></title>
+    <link href="http://uthark.github.io/blog/2014/04/30/reading-list-2014-april-30/"/>
+    <updated>2014-04-30T13:32:16-04:00</updated>
+    <id>http://uthark.github.io/blog/2014/04/30/reading-list-2014-april-30</id>
+    <content type="html"><![CDATA[<h3>Announcements</h3>
+
+<ol>
+<li><a href="http://j.mp/1u2oyYb">Gradle 1.12 released</a></li>
+<li><a href="http://j.mp/1rMGrrK">Gradle 1.12 Release Notes</a></li>
+</ol>
+
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1lRiUlT">Accelerate development of complex applications and Android mobile clients with Ravello on Google Compute Engine</a></li>
+<li><a href="http://j.mp/1mVzQcz">Android tricks</a></li>
+<li><a href="http://j.mp/1iIqu2X">Design Your Agile Project, Part 4</a></li>
+<li><a href="http://j.mp/1ifyau0">Fe[26]</a></li>
+<li><a href="http://j.mp/1nMv2pD">Groovy Goodness: Customize ToString Creation</a></li>
+<li><a href="http://j.mp/1nMv1SI">Groovy Goodness: Define Compilation Customizers With Builder Syntax</a></li>
+<li><a href="http://j.mp/1iirsOP">Here&rsquo;s a 1300 Year Old Solution to Resilience &ndash; Rebuild, Rebuild, Rebuild</a></li>
+<li><a href="http://j.mp/1iirh66">Higher Availability, Increased Scale and Enhanced Security on Apache HBase</a></li>
+<li><a href="http://j.mp/1fcEUJO">How I Tackle a Big Writing Project</a></li>
+<li><a href="http://j.mp/1mENa7y">Make magic with Ruby DSLs</a></li>
+<li><a href="http://j.mp/1mzY77Z">New Physical Phenomenon on Nanowires Seen for the First Time</a></li>
+<li><a href="http://j.mp/1lTbBdx">Non Functional Requirements should be sticky: Usability, Performance and Capacity</a></li>
+<li><a href="http://j.mp/1jGPsOb">Reporting Metrics to Apache Kafka and Monitoring with Consumers</a></li>
+<li><a href="http://j.mp/1mzY3oH">Should you be working at a startup?</a></li>
+<li><a href="http://j.mp/1fcETWg">Social Processes And Heartbleed, Part 2</a></li>
+<li><a href="http://j.mp/1jGPohp">The anatomy of Connection Pooling</a></li>
+<li><a href="http://j.mp/1lMQXQF">What Can Men Do?</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-29]]></title>
@@ -229,126 +267,6 @@
 <ol>
 <li><a href="http://j.mp/1jGPyFw">Webinar: Spring Integration 4.0 &ndash; The New Frontier</a></li>
 <li><a href="http://j.mp/1id9144">Webinar: Data-Driven Applications with Spring and Neo4j</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-April-22]]></title>
-    <link href="http://uthark.github.io/blog/2014/04/22/reading-list-2014-april-22/"/>
-    <updated>2014-04-22T13:41:36-04:00</updated>
-    <id>http://uthark.github.io/blog/2014/04/22/reading-list-2014-april-22</id>
-    <content type="html"><![CDATA[<h3>Announcements</h3>
-
-<ol>
-<li><a href="http://j.mp/1hhT8TW">Scala 2.11.0 is now available!</a></li>
-<li><a href="http://j.mp/1eWbpve">Scala 2.11 Has Arrived!</a></li>
-<li><a href="http://j.mp/1k3OEVk">sqltyped 0.4.0</a></li>
-<li><a href="http://j.mp/1mA3OFc">Release version 1.0.8 · skinny-framework/skinny-framework · GitHub</a></li>
-<li><a href="http://j.mp/1k3OBc9">Finatra 1.5.3 Released</a></li>
-</ol>
-
-
-<h3>Cloud</h3>
-
-<ol>
-<li><a href="http://j.mp/1jv2JcJ">Using Puppet to Automate Google Compute Engine</a></li>
-<li><a href="http://j.mp/1mA3XbV">No IaaS? No Problem.</a></li>
-<li><a href="http://j.mp/1oQt5rm">PeopleFun chooses Google App Engine to offload infrastructure tasks and build games people love to play</a></li>
-</ol>
-
-
-<h3>Android</h3>
-
-<ol>
-<li><a href="http://j.mp/1i8izxe">Butter Knife</a></li>
-<li><a href="http://j.mp/1rfOXxn">Android Interface Definition Language (AIDL)</a></li>
-<li><a href="http://j.mp/1lAam3k">Security Tips | Android Developers</a></li>
-<li><a href="http://j.mp/PqsYYb">Scheduling Repeated Tasks in Android</a></li>
-</ol>
-
-
-<h3>Security</h3>
-
-<ol>
-<li><a href="http://j.mp/1i74wrF">Heartbleed disclosure timeline: who knew what and when</a></li>
-<li><a href="http://j.mp/1jwvYvK">Please Put OpenSSL Out of Its Misery</a></li>
-<li><a href="http://j.mp/KLyIcT">Detecting and Fixing XSS using OWASP tools</a></li>
-</ol>
-
-
-<h3>General</h3>
-
-<ol>
-<li><a href="http://j.mp/1fidlci">Results of the GitHub Investigation · GitHub</a></li>
-<li><a href="http://j.mp/1k3OIo7">This is why Microsoft won. And why they lost.</a></li>
-<li><a href="http://j.mp/1mA3XIQ">Predicting happiness from demographics and poll answers</a></li>
-<li><a href="http://j.mp/1lpjJlO">The Truth About Google X: An Exclusive Look Behind The Secretive Lab&rsquo;s Closed Doors</a></li>
-</ol>
-
-
-<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/1k3OHjU">Code as if everyone is the thief.</a></li>
-<li><a href="http://j.mp/1juw6Mh">huginn/README.md at master · cantino/huginn · GitHub</a></li>
-<li><a href="http://j.mp/1j9lXTB">Thoughts on The Reactive Manifesto</a></li>
-<li><a href="http://j.mp/1ju9QSw">Productive Developers are Smart and Lazy</a></li>
-<li><a href="http://j.mp/1rfP2Bb">Don&rsquo;t Learn to Code, Learn to Program &ndash; But Come Back in 10 Years</a></li>
-<li><a href="http://j.mp/1h4qj1p">How can I do This? With SQL of Course!</a></li>
-<li><a href="http://j.mp/MMcCrL">I don&rsquo;t know.</a></li>
-<li><a href="http://j.mp/NAsZZw">A concrete approach to learning how to program</a></li>
-<li><a href="http://j.mp/1i74z6M">Kernel 101 - Let's write a Kernel &ndash; Arjun Sreedharan</a></li>
-<li><a href="http://j.mp/1h4q7PQ">How rows_sent can be more than rows_examined?</a></li>
-<li><a href="http://j.mp/1oVc535">Please, Run That Calculation in Your RDBMS</a></li>
-<li><a href="http://j.mp/1gj9ue7">All you are is attitude</a></li>
-<li><a href="http://j.mp/1gfH74t">Node.js beyond the basics</a></li>
-<li><a href="http://j.mp/1dPdIOf">angular/angular-seed · GitHub</a></li>
-<li><a href="http://j.mp/1jm5dey">ng-boilerplate</a></li>
-</ol>
-
-
-<h3>Agile</h3>
-
-<ol>
-<li><a href="http://j.mp/1k3OMUR">Definition of done</a></li>
-<li><a href="http://j.mp/1jv2COh">Having an exploratory meeting? Ask how will the feature be tested</a></li>
-<li><a href="http://j.mp/1txMiDi">Personal WIP limit directly impacts Cycle Time</a></li>
-<li><a href="http://j.mp/1ju9WtB">On concurrency and Idempotence: TDD just as production code should be thread safe</a></li>
-<li><a href="http://j.mp/1nXXN36">Hudson/Jenkins Git build all branches</a></li>
-<li><a href="http://j.mp/1mwLj4H">Test sizes | Google Testing Blog</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/1icJlOY">Is Java 8 the fastest JVM ever? Performance benchmarking of Fork-Join</a></li>
-<li><a href="http://j.mp/1gj9vi7">Sonatype questions Maven scores in follow-up to Java Build Tools report</a></li>
-<li><a href="http://j.mp/1f0PmDP">Java 7 vs. Java 8: Performance Benchmarking of Fork/Join</a></li>
-<li><a href="http://j.mp/1f0Pqn0">Spring test with thymeleaf for views</a></li>
-<li><a href="http://j.mp/PqsZvh">Validating JAX-RS resource data with Bean Validation in Java EE 7 and WildFly</a></li>
-<li><a href="http://j.mp/ORrvdT">Lambda Expressions in Java 8</a></li>
-<li><a href="http://j.mp/1fYqyLh">Getting Mutants to test your Tests</a></li>
-<li><a href="http://j.mp/RFxmok">HOW-TO: Spring Boot and Thymeleaf with Maven</a></li>
-<li><a href="http://j.mp/1oiarLx">Using the JVM Performance Counters</a></li>
-<li><a href="http://j.mp/1ju9zyX">How to manage Git Submodules with JGit</a></li>
-</ol>
-
-
-<h3>Scala</h3>
-
-<ol>
-<li><a href="http://j.mp/1mwbAQD">Sprinter</a></li>
-</ol>
-
-
-<h3>Politics</h3>
-
-<ol>
-<li><a href="http://j.mp/1cEqQ4R">Putin&rsquo;s Improv Act</a></li>
-<li><a href="http://j.mp/1bfS6vB">Snow Blind</a></li>
 </ol>
 
 ]]></content>
