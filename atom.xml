@@ -4,7 +4,7 @@
   <title><![CDATA[Software Development and related activities]]></title>
   <link href="http://uthark.github.io/atom.xml" rel="self"/>
   <link href="http://uthark.github.io/"/>
-  <updated>2014-04-30T13:41:25-04:00</updated>
+  <updated>2014-05-01T16:23:45-04:00</updated>
   <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,37 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-May-01]]></title>
+    <link href="http://uthark.github.io/blog/2014/05/01/reading-list-2014-may-01/"/>
+    <updated>2014-05-01T16:20:16-04:00</updated>
+    <id>http://uthark.github.io/blog/2014/05/01/reading-list-2014-may-01</id>
+    <content type="html"><![CDATA[<h3>Announcements</h3>
+
+<ol>
+<li><a href="http://j.mp/1nKjAOg">New Release: Java Micro Edition (ME) 8</a></li>
+<li><a href="http://j.mp/1jkSFFn">Spring Framework 4.0.4 released</a></li>
+<li><a href="http://j.mp/1nMxsaI">Spring Integration 4.0 Released</a></li>
+<li><a href="http://j.mp/SaRzCK">New mobile apps for Docs, Sheets and Slides &ndash; work offline and on the go</a></li>
+</ol>
+
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/R7oKpK">Java Me Embedded Documentation</a></li>
+<li><a href="http://j.mp/1u5sPtV">Manifest Merger</a></li>
+<li><a href="http://j.mp/R49GcO">Recent File List | JavaSpecialists.eu</a></li>
+<li><a href="http://j.mp/1nMCWCl">Small and Medium tests should never fail in Continuous Integration ( CI )</a></li>
+<li><a href="http://j.mp/1iHAo0s">Spring 4.1&rsquo;s Upcoming JMS Improvements</a></li>
+<li><a href="http://j.mp/1iDIzL8">Spring Boot and Scala with sbt as the build tool</a></li>
+<li><a href="http://j.mp/1jkSHNM">Spring Integration &ndash; Configure web service client timeout</a></li>
+<li><a href="http://j.mp/Sb04h1">Subscribe to Web Content folders and types (structures)</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-April-30]]></title>
@@ -1290,77 +1321,6 @@ The integration of assertj into Maven project is very easy:</p>
 
 <ol>
 <li><a href="http://j.mp/1ipkLLw">Коллаборация CMS продолжает уточнять массу топ-кварка</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-April-07]]></title>
-    <link href="http://uthark.github.io/blog/2014/04/07/reading-list-2014-april-07/"/>
-    <updated>2014-04-07T10:56:03-04:00</updated>
-    <id>http://uthark.github.io/blog/2014/04/07/reading-list-2014-april-07</id>
-    <content type="html"><![CDATA[<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/1gDcBnj">Why Hire Older Engineers</a></li>
-<li><a href="http://j.mp/1q1HjWX">Am I really a developer or just a good googler?</a></li>
-<li><a href="http://j.mp/1mQut0h">Facebook open sources code for managing A/B tests — Tech News and Analysis</a></li>
-<li><a href="http://j.mp/1oyReHY">AngularJS Tip &ndash; Avoid Multiple Variables in ng-src</a></li>
-<li><a href="http://j.mp/1hoSKTp">Introducing Pyston: an upcoming, JIT-based Python implementation</a></li>
-<li><a href="http://j.mp/1fHeopL">The Power of HTML</a></li>
-<li><a href="http://j.mp/1hcgGyV">Microsoft TypeScript 1.0 Arrives</a></li>
-<li><a href="http://j.mp/1hIPVRD">BlueGreenDeployment</a></li>
-<li><a href="http://j.mp/PpknFx">Five Funny Moments in Developer History</a></li>
-<li><a href="http://j.mp/PpjFbh">Domain-Driven Design Revisited</a></li>
-<li><a href="http://j.mp/1rD86fF">Application Security – Can you Rely on the Honeymoon Effect?</a></li>
-<li><a href="http://j.mp/1gDcCHM">Differences in Map/Reduce between RavenDB &amp; MongoDB</a></li>
-<li><a href="http://j.mp/1hdFCWZ">Microsoft Announces Windows Phone 8.1 With New Action Center, Cortana, Start Screen Improvements</a></li>
-<li><a href="http://j.mp/1jmWwAU">Consume Webservice in Android using intentService</a></li>
-<li><a href="http://j.mp/1q1HaCL">Btrees Are the New Black</a></li>
-<li><a href="http://j.mp/1hdFwPa">Why Ruby Class Methods Resist Refactoring</a></li>
-<li><a href="http://j.mp/1oyRjLN">Subtly Bad Things Linux May Be Doing To PostgreSQL</a></li>
-</ol>
-
-
-<h3>Agile</h3>
-
-<ol>
-<li><a href="http://j.mp/1hoSFz0">Lean is Clean without the C for Complexity</a></li>
-<li><a href="http://j.mp/1hl2Me2">Conquering job hell and multiple app branches using Jenkins &amp; Mercurial</a></li>
-</ol>
-
-
-<h3>Cloud</h3>
-
-<ol>
-<li><a href="http://j.mp/1q2ev2d">The platform-as-a-service winner is &hellip; Puppet?</a></li>
-<li><a href="http://j.mp/1ltqW5i">Integration platform as a service, the cloud, and… baby unicorns</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/PxbaLu">Common Misconceptions About Java</a></li>
-<li><a href="http://j.mp/P67nEC">javac&rsquo;s -Xprint Option</a></li>
-<li><a href="http://j.mp/1gFHhnV">javac&rsquo;s -Xlint Options</a></li>
-<li><a href="http://j.mp/1jbhjYd">Java 8 default methods: what can and can not do?</a></li>
-<li><a href="http://j.mp/1jbhgLX">Hack Computer Boards with Java! (The Java Source)</a></li>
-<li><a href="http://j.mp/Pz5Kja">Why I Like The Verbosity of Java</a></li>
-<li><a href="http://j.mp/1k8yX2p">How not to use Java 8 default methods</a></li>
-<li><a href="http://j.mp/1k8yZHw">Java 8 Adoption Poll Results</a></li>
-<li><a href="http://j.mp/1iSpUih">10 Example of Lambda Expressions and Streams in Java 8</a></li>
-<li><a href="http://j.mp/1jbhnHj">In Relation To&hellip; Third milestone on the path for Hibernate Search 5</a></li>
-<li><a href="http://j.mp/P3SL8L">Using AmazonS3EncryptionClient to Send Secure Data Between Two Parties</a></li>
-<li><a href="http://j.mp/1mQxUl5">Dealing with org.hibernate.LazyInitializationException: could not initialize proxy &ndash; no Session in Hibernate Java</a></li>
-</ol>
-
-
-<h3>In Russian</h3>
-
-<ol>
-<li><a href="http://j.mp/1jY5bc0">FAQ: Святилища Кавказа</a></li>
 </ol>
 
 ]]></content>
