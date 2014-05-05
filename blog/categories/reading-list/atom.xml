@@ -4,7 +4,7 @@
   <title><![CDATA[Category: reading list | Software Development and related activities]]></title>
   <link href="http://uthark.github.io/blog/categories/reading-list/atom.xml" rel="self"/>
   <link href="http://uthark.github.io/"/>
-  <updated>2014-05-02T15:06:11-04:00</updated>
+  <updated>2014-05-05T16:04:52-04:00</updated>
   <id>http://uthark.github.io/</id>
   <author>
     <name><![CDATA[Oleg Atamanenko]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Reading List 2014-May-05]]></title>
+    <link href="http://uthark.github.io/blog/2014/05/05/reading-list-2014-may-05/"/>
+    <updated>2014-05-05T16:03:09-04:00</updated>
+    <id>http://uthark.github.io/blog/2014/05/05/reading-list-2014-may-05</id>
+    <content type="html"><![CDATA[<h3>Announcements</h3>
+
+<ol>
+<li><a href="http://j.mp/1uqGOL8">Groovy 2.3.0 is out!</a></li>
+</ol>
+
+
+<h3>General</h3>
+
+<ol>
+<li><a href="http://j.mp/1fIpDQR">A Eulogy for Twitter | Adrienne LaFrance and Robinson Meyer</a></li>
+<li><a href="http://j.mp/1ohnyLu">How a hoax turned into the biggest Dutch crowdfunding success in history</a></li>
+</ol>
+
+
+<h3>Software development</h3>
+
+<ol>
+<li><a href="http://j.mp/1nYC0ec">Analyzing a large JSON in memory</a></li>
+<li><a href="http://parquet.io/">Columnar Storage for Hadoop</a></li>
+<li><a href="http://j.mp/1lPzwMZ">How could Scala do a merge sort?</a></li>
+<li><a href="http://j.mp/1uq3fQq">Load inheritance tree into List by Spring</a></li>
+<li><a href="http://j.mp/1q73SyF">xkcd Phone | xkcd</a></li>
+</ol>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Reading List 2014-May-02]]></title>
@@ -139,38 +172,6 @@
 <li><a href="http://j.mp/1flKslf">New feature for Liferay 7: Localize Email Notifications</a></li>
 <li><a href="http://j.mp/S3gSGW">Tired of Null Pointer Exceptions? Consider Using Java SE 8&rsquo;s Optional!</a></li>
 <li><a href="http://j.mp/1fgg8bE">You Cannot Predict the Way You Die</a></li>
-</ol>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Reading List 2014-April-28]]></title>
-    <link href="http://uthark.github.io/blog/2014/04/28/reading-list-2014-april-28/"/>
-    <updated>2014-04-28T16:37:56-04:00</updated>
-    <id>http://uthark.github.io/blog/2014/04/28/reading-list-2014-april-28</id>
-    <content type="html"><![CDATA[<h3>Software development</h3>
-
-<ol>
-<li><a href="http://j.mp/1fcEUtp">Telerik Open Sources Kendo UI</a></li>
-<li><a href="http://j.mp/1nNt1JT">Richardson Maturity Model</a></li>
-<li><a href="http://j.mp/1iir96I">Network performance at AWS, Google, Rackspace and Softlayer</a></li>
-<li><a href="http://j.mp/1h6DwDA">Development &ldquo;Methodologies&rdquo;</a></li>
-<li><a href="http://j.mp/QUQYUl">An Introduction to the Web Notifications API</a></li>
-<li><a href="http://j.mp/QUR0f1">Mithril</a></li>
-<li><a href="http://j.mp/QUQY74">Is this what it&rsquo;s supposed to feel like? One Year Later.</a></li>
-<li><a href="http://j.mp/1rEUEHp">This hilarious graph of Netflix speeds shows the importance of net neutrality</a></li>
-</ol>
-
-
-<h3>Java</h3>
-
-<ol>
-<li><a href="http://j.mp/1rEUCPA">JAX-RS 2.0: Custom Content Handling</a></li>
-<li><a href="http://j.mp/1rEUxeX">Difference between Connected vs Disconnected RowSet in Java JDBC RowSetProvider, RowSetFactory Example</a></li>
-<li><a href="http://j.mp/1lMQNc4">The 7 Log Management Tools Java Developers Should Know</a></li>
-<li><a href="http://j.mp/RZTs59">Jibx Jersey2 Integration</a></li>
-<li><a href="http://j.mp/1kdIwbF">Using Http Session with Spring based web applications</a></li>
 </ol>
 
 ]]></content>
